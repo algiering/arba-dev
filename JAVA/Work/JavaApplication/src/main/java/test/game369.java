@@ -7,10 +7,11 @@ public class game369 {
 
         for (int i = 1; i < 1000; i = i + 1) {
             
-                        
-         if ((0==((i % 10) % 3))&&((0!=i%10)&&(0!=i/3))) {
+            String x = String.valueOf(i);
+            
+            if(x.charAt(3)||x.charAt(6)||x.charAt(9)){
                 
-             System.out.println(i);
+            
                 
             }
         }
