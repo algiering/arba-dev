@@ -10,11 +10,25 @@ public class DaoAuth implements IAuth {
 
     private Connection conn = null;
 
-    public DaoAuth(Connection conn) {
-        super();
-        this.conn = conn;
-    }
+    public DaoAuth(Connection conn) { this.conn = DBconnect.makeConnection(); }
 
+    @Override
+    public ResultSet selectAuthid(ModelAuth auth) throws SQLException {
+        ResultSet rs = null;
+
+        try {
+            String query = "select authid, name from auth where authid = ?";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setInt(1, auth.getAuthid());
+            
+            rs = stmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
     @Override
     public ResultSet selectAll() throws SQLException {
         ResultSet rs = null;
@@ -86,7 +100,7 @@ public class DaoAuth implements IAuth {
 
     @Override
     public int insertAuth(ModelAuth auth) throws SQLException {
-        int rs = 0;
+        int rs = -1;
 
         try {
             String query = "insert into \n";
@@ -108,14 +122,46 @@ public class DaoAuth implements IAuth {
 
     @Override
     public int updateAuth(ModelAuth auth, ModelAuth whereauth) throws SQLException {
-        // TODO Auto-generated method stub
-        return 0;
+        int rs = -1;
+        
+        try {
+            String query = " update auth "
+                    + " set authid = ?, name = ?, rrn = ?, pnum = ?, mail = ? "
+                    + " where authid = ? and name = ? ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setInt(1, auth.getAuthid());
+            stmt.setString(2, auth.getName());
+            stmt.setString(3, auth.getRrn());
+            stmt.setString(4, auth.getPnum());
+            stmt.setString(5, auth.getMail());
+            stmt.setInt(6, whereauth.getAuthid());
+            stmt.setString(7, whereauth.getName());
+            
+            rs = stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
     }
 
     @Override
     public int deleteAuth(ModelAuth auth) throws SQLException {
-        // TODO Auto-generated method stub
-        return 0;
+        int rs = -1;
+        
+        try {
+            String query = " delete from auth "
+                    + "where authid = ? and name = ? ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setInt(1, auth.getAuthid());
+            stmt.setString(2, auth.getName().toString());
+            
+            rs = stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
     }
 
 }

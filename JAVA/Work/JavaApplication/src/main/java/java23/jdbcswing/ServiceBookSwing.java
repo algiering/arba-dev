@@ -35,9 +35,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.tree.DefaultTreeModel;
 
+import java23.jdbc.BookBorrow;
 import java23.jdbc.BookRegist;
+import java23.jdbc.MemberRegist;
 import java23.jdbc.ModelAuth;
 import java23.jdbc.ModelBook;
+import java23.jdbc.ServiceAuth;
 import java23.jdbc.ServiceBook;
 
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -121,6 +124,7 @@ public class ServiceBookSwing extends JFrame {
     private JTextField bBrwTxt;
     private JLabel label_14;
     private JTextField bBstTxt;
+    private static JTree bTree;
 
     /**
      * Launch the application.
@@ -165,6 +169,9 @@ public class ServiceBookSwing extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowOpened(WindowEvent e) {
+                bBorrowButton.setEnabled(false);
+                bUpdateButton.setEnabled(false);
+                bDeleteButton.setEnabled(false);
                 ResultSet rs;
                 try {
                     rs = new ServiceBook().selectAll();
@@ -178,6 +185,8 @@ public class ServiceBookSwing extends JFrame {
 
                     rs = new ServiceBook().selectAllView();
                     refresh(rs, saInfoTable);
+                    
+                    refreshBTree();
                 } catch (SQLException e1) {
                     e1.printStackTrace();
                 }
@@ -241,12 +250,24 @@ public class ServiceBookSwing extends JFrame {
     private JTable getSInfoTable() {
         if (sInfoTable == null) {
             sInfoTable = new JTable();
-            sInfoTable.setModel(new DefaultTableModel(new Object[][] {},
-                    new String[] { "\uC774\uB984", "\uCC45 \uC81C\uBAA9", "\uB300\uC5EC\uB0A0\uC9DC" }) {
-                Class[] columnTypes = new Class[] { String.class, String.class, String.class };
-
+            sInfoTable.setModel(new DefaultTableModel(
+                new Object[][] {
+                },
+                new String[] {
+                    "\uC774\uB984", "\uCC45 \uC81C\uBAA9", "\uB300\uC5EC\uB0A0\uC9DC"
+                }
+            ) {
+                Class[] columnTypes = new Class[] {
+                    String.class, String.class, String.class
+                };
                 public Class getColumnClass(int columnIndex) {
                     return columnTypes[columnIndex];
+                }
+                boolean[] columnEditables = new boolean[] {
+                    false, false, false
+                };
+                public boolean isCellEditable(int row, int column) {
+                    return columnEditables[column];
                 }
             });
         }
@@ -300,6 +321,8 @@ public class ServiceBookSwing extends JFrame {
             btnNewButton = new JButton("회원 등록");
             btnNewButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    MemberRegist mr = new MemberRegist();
+                    mr.setVisible(true);
                 }
             });
             btnNewButton.setBounds(12, 10, 135, 57);
@@ -340,6 +363,8 @@ public class ServiceBookSwing extends JFrame {
 
                         rs = new ServiceBook().selectAllView();
                         refresh(rs, saInfoTable);
+                        
+                        refreshBTree();
                     } catch (SQLException e1) {
                         e1.printStackTrace();
                     }
@@ -411,12 +436,26 @@ public class ServiceBookSwing extends JFrame {
                     authidTxt.setText(authid);
                     bBrwTxt.setText(bBrw);
                     bBstTxt.setText(bBst);
+                    
+                    bBorrowButton.setEnabled(true);
+                    bUpdateButton.setEnabled(true);
+                    bDeleteButton.setEnabled(true);
                 }
             });
-            bInfoTable.setModel(new DefaultTableModel(new Object[][] {},
-                    new String[] { "No.", "\uC81C\uBAA9", "\uCD9C\uD310\uC0AC", "\uC7A5\uB974", "\uC800\uC790",
-                            "\uAC00\uACA9", "\uB300\uC5EC\uC0C1\uD0DC", "\uB300\uC5EC\uC790 ID",
-                            "\uB300\uC5EC\uC77C" }));
+            bInfoTable.setModel(new DefaultTableModel(
+                new Object[][] {
+                },
+                new String[] {
+                    "No.", "\uC81C\uBAA9", "\uCD9C\uD310\uC0AC", "\uC7A5\uB974", "\uC800\uC790", "\uAC00\uACA9", "\uB300\uC5EC\uC0C1\uD0DC", "\uB300\uC5EC\uC790 ID", "\uB300\uC5EC\uC77C"
+                }
+            ) {
+                boolean[] columnEditables = new boolean[] {
+                    false, false, false, false, false, false, false, false, false
+                };
+                public boolean isCellEditable(int row, int column) {
+                    return columnEditables[column];
+                }
+            });
         }
         return bInfoTable;
     }
@@ -425,25 +464,9 @@ public class ServiceBookSwing extends JFrame {
         if (scrollPane_2 == null) {
             scrollPane_2 = new JScrollPane();
             scrollPane_2.setBounds(0, 0, 260, 230);
-            scrollPane_2.setViewportView(getTree());
+            scrollPane_2.setViewportView(getBTree());
         }
         return scrollPane_2;
-    }
-
-    private JTree getTree() {
-        if (tree == null) {
-            tree = new JTree();
-            tree.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                }
-            });
-            tree.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("장르") {
-                {
-                }
-            }));
-        }
-        return tree;
     }
 
     private JPanel getPanel_3() {
@@ -549,6 +572,13 @@ public class ServiceBookSwing extends JFrame {
             bBorrowButton = new JButton("대여하기");
             bBorrowButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    ModelBook book = new ModelBook();
+                    book.setBookname(bTitleTxt.getText());
+                    book.setPublisher(bPubTxt.getText());
+                    book.setWriter(bWriTxt.getText());
+                    
+                    BookBorrow br = new BookBorrow(frame, book);
+                    br.setVisible(true);
                 }
             });
             bBorrowButton.setBounds(12, 172, 111, 48);
@@ -603,10 +633,16 @@ public class ServiceBookSwing extends JFrame {
 
                         rs = new ServiceBook().selectAllView();
                         refresh(rs, saInfoTable);
+                        
+                        refreshBTree();
 
                     } catch (SQLException e1) {
                         e1.printStackTrace();
                     }
+                    
+                    bBorrowButton.setEnabled(false);
+                    bUpdateButton.setEnabled(false);
+                    bDeleteButton.setEnabled(false);
                 }
             });
             bUpdateButton.setBounds(135, 172, 111, 48);
@@ -637,10 +673,14 @@ public class ServiceBookSwing extends JFrame {
                         refresh(rs, cInfoTable);
 
                         rs = new ServiceBook().selectAllView();
+                        
+                        refreshBTree();
 
                     } catch (SQLException e1) {
                         e1.printStackTrace();
                     }
+                    
+                    bDeleteButton.setEnabled(false);
                 }
             });
             bDeleteButton.setBounds(258, 172, 111, 48);
@@ -662,6 +702,10 @@ public class ServiceBookSwing extends JFrame {
                     authidTxt.setText("");
                     bBrwTxt.setText("");
                     bBstTxt.setText("");
+                    
+                    bBorrowButton.setEnabled(false);
+                    bUpdateButton.setEnabled(false);
+                    bDeleteButton.setEnabled(false);
                 }
             });
             bCancelButton.setBounds(381, 172, 111, 48);
@@ -761,12 +805,20 @@ public class ServiceBookSwing extends JFrame {
     private JTable getSaInfoTable() {
         if (saInfoTable == null) {
             saInfoTable = new JTable();
-            saInfoTable.setModel(new DefaultTableModel(new Object[][] {},
-                    new String[] { "\uD68C\uC6D0\uBC88\uD638", "\uC774\uB984", "\uC8FC\uBBFC\uBC88\uD638",
-                            "\uC804\uD654\uBC88\uD638", "\uC774\uBA54\uC77C", "\uCC45\uBC88\uD638",
-                            "\uCC45\uC81C\uBAA9", "\uC81C\uC791\uC790", "\uC7A5\uB974", "\uC800\uC790", "\uAC00\uACA9",
-                            "\uB300\uC5EC\uC0C1\uD0DC", "\uB300\uC5EC\uD68C\uC6D0\uBC88\uD638",
-                            "\uB300\uC5EC\uC77C" }));
+            saInfoTable.setModel(new DefaultTableModel(
+                new Object[][] {
+                },
+                new String[] {
+                    "\uD68C\uC6D0\uBC88\uD638", "\uC774\uB984", "\uC8FC\uBBFC\uBC88\uD638", "\uC804\uD654\uBC88\uD638", "\uC774\uBA54\uC77C", "\uCC45\uBC88\uD638", "\uCC45\uC81C\uBAA9", "\uC81C\uC791\uC790", "\uC7A5\uB974", "\uC800\uC790", "\uAC00\uACA9", "\uB300\uC5EC\uC0C1\uD0DC", "\uB300\uC5EC\uD68C\uC6D0\uBC88\uD638", "\uB300\uC5EC\uC77C"
+                }
+            ) {
+                boolean[] columnEditables = new boolean[] {
+                    false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                };
+                public boolean isCellEditable(int row, int column) {
+                    return columnEditables[column];
+                }
+            });
         }
         return saInfoTable;
     }
@@ -787,10 +839,19 @@ public class ServiceBookSwing extends JFrame {
             btnNewButton_3.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     int row = saInfoTable.getSelectedRow();
+                    ModelBook wherebook = new ModelBook();
+                    wherebook.setBookname(saInfoTable.getValueAt(row, 6).toString());
                     ModelBook book = new ModelBook();
+                    book.setUse_yn(false);
+                    book.setAuthid(0);
+                    book.setDtm(null);
                     book.setBookname(saInfoTable.getValueAt(row, 6).toString());
+                    book.setPublisher(saInfoTable.getValueAt(row, 7).toString());
+                    book.setGenre(saInfoTable.getValueAt(row, 8).toString());
+                    book.setWriter(saInfoTable.getValueAt(row, 9).toString());
+                    book.setPrice(Integer.valueOf(saInfoTable.getValueAt(row, 10).toString()));
                     try {
-                        Integer rt = new ServiceBook().rtBook(book);
+                        Integer rt = new ServiceBook().updateBook(book, wherebook);
 
                         ResultSet rs = new ServiceBook().selectAll();
                         refresh(rs, bInfoTable);
@@ -850,8 +911,20 @@ public class ServiceBookSwing extends JFrame {
                 }
             });
             cInfoTable.setModel(
-                    new DefaultTableModel(new Object[][] {}, new String[] { "\uD68C\uC6D0\uBC88\uD638", "\uC774\uB984",
-                            "\uC8FC\uBBFC\uBC88\uD638", "\uC804\uD654\uBC88\uD638", "\uBA54\uC77C\uC8FC\uC18C" }));
+                    new DefaultTableModel(
+                new Object[][] {
+                },
+                new String[] {
+                    "\uD68C\uC6D0\uBC88\uD638", "\uC774\uB984", "\uC8FC\uBBFC\uBC88\uD638", "\uC804\uD654\uBC88\uD638", "\uBA54\uC77C\uC8FC\uC18C"
+                }
+            ) {
+                boolean[] columnEditables = new boolean[] {
+                    false, false, false, false, false
+                };
+                public boolean isCellEditable(int row, int column) {
+                    return columnEditables[column];
+                }
+            });
         }
         return cInfoTable;
     }
@@ -1072,6 +1145,20 @@ public class ServiceBookSwing extends JFrame {
             cDeleteButton = new JButton("회원삭제");
             cDeleteButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    int result = -1;
+                    ModelAuth auth = new ModelAuth();
+                    int row = cInfoTable.getSelectedRow();
+
+                    auth.setAuthid(Integer.valueOf(cInfoTable.getValueAt(row, 0).toString()));
+                    auth.setName(cInfoTable.getValueAt(row, 1).toString());
+
+                    try {
+                        result = new ServiceAuth().deleteAuth(auth);
+                        ResultSet rs = new ServiceAuth().selectAll();
+                        refresh(rs, cInfoTable);
+                    } catch (SQLException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             });
             cDeleteButton.setBounds(12, 150, 120, 51);
@@ -1084,6 +1171,29 @@ public class ServiceBookSwing extends JFrame {
             cUpdateButton = new JButton("회원수정");
             cUpdateButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    int result = -1;
+                    int row = cInfoTable.getSelectedRow();
+
+                    ModelAuth auth = new ModelAuth();
+                    ModelAuth whereauth = new ModelAuth();
+
+                    whereauth.setAuthid(Integer.valueOf(cInfoTable.getValueAt(row, 0).toString()));
+                    whereauth.setName(cInfoTable.getValueAt(row, 1).toString());
+
+                    auth.setAuthid(Integer.valueOf(cNumTxt.getText()));
+                    auth.setName(cNameTxt.getText());
+                    auth.setRrn(cRrn1.getText() + "-" + cRrn2.getText());
+                    auth.setPnum(cPnum1.getText() + "-" + cPnum2.getText() + "-" + cPnum3.getText());
+                    auth.setMail(cMail1.getText() + "@" + cMail2.getText());
+
+                    try {
+                        result = new ServiceAuth().updateAuth(auth, whereauth);
+
+                        ResultSet rs = new ServiceAuth().selectAll();
+                        refresh(rs, cInfoTable);
+                    } catch (SQLException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             });
             cUpdateButton.setBounds(144, 150, 120, 51);
@@ -1094,6 +1204,19 @@ public class ServiceBookSwing extends JFrame {
     private JButton getCCancelButton() {
         if (cCancelButton == null) {
             cCancelButton = new JButton("취소");
+            cCancelButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    cNumTxt.setText("");
+                    cNameTxt.setText("");
+                    cRrn1.setText("");
+                    cRrn2.setText("");
+                    cPnum1.setText("");
+                    cPnum2.setText("");
+                    cPnum3.setText("");
+                    cMail1.setText("");
+                    cMail2.setText("");
+                }
+            });
             cCancelButton.setBounds(276, 150, 120, 51);
         }
         return cCancelButton;
@@ -1194,6 +1317,8 @@ public class ServiceBookSwing extends JFrame {
 
             rs = new ServiceBook().selectAllView();
             refresh(rs, saInfoTable);
+            
+            refreshBTree();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -1201,6 +1326,234 @@ public class ServiceBookSwing extends JFrame {
     }
 
     public static void AuthReg(String cname, String crrn, String cpn, String cmail) {
-        
+        int rt = -1;
+
+        ModelAuth auth = new ModelAuth();
+
+        auth.setName(cname);
+        auth.setRrn(crrn);
+        auth.setPnum(cpn);
+        auth.setMail(cmail);
+
+        try {
+            rt = new ServiceAuth().insertAuth(auth);
+
+            ResultSet rs = new ServiceBook().selectAuth();
+            refresh(rs, cInfoTable);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void BorrowBook(int authid, String bookname, String publisher) {
+        int rt = -1;
+
+        ModelBook book = new ModelBook();
+
+        book.setAuthid(authid);
+        book.setBookname(bookname);
+        book.setPublisher(publisher);
+
+        try {
+            rt = new ServiceBook().updateBorrow(book);
+
+            ResultSet rs = new ServiceBook().selectAll();
+            refresh(rs, bInfoTable);
+
+            rs = new ServiceBook().selectView();
+            refresh(rs, sInfoTable);
+
+            rs = new ServiceBook().selectAuth();
+            refresh(rs, cInfoTable);
+
+            rs = new ServiceBook().selectAllView();
+            refresh(rs, saInfoTable);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private JTree getBTree() {
+        if (bTree == null) {
+            bTree = new JTree();
+            bTree.setModel(new DefaultTreeModel(
+                new DefaultMutableTreeNode("JTree") {
+                    {
+                    }
+                }
+            ));
+            bTree.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    bBorrowButton.setEnabled(false);
+                    bUpdateButton.setEnabled(false);
+                    bDeleteButton.setEnabled(false);
+                    
+                    int row = bInfoTable.getRowCount();
+                    for (int i = 0; i < row; i++) {
+                        if (bTree.getLastSelectedPathComponent()==null) {
+                            
+                        }
+                        else if (bTree.getLastSelectedPathComponent().toString()
+                                .equals(bInfoTable.getValueAt(i, 1).toString())) {
+
+                            String bNum = bInfoTable.getValueAt(i, 0).toString();
+                            String bTitle = bInfoTable.getValueAt(i, 1).toString();
+                            String bPublisher = bInfoTable.getValueAt(i, 2).toString();
+                            String bGenre = bInfoTable.getValueAt(i, 3).toString();
+                            String bWriter = bInfoTable.getValueAt(i, 4).toString();
+                            String bPrice = bInfoTable.getValueAt(i, 5).toString();
+                            String bBst = bInfoTable.getValueAt(i, 6).toString();
+                            String authid = "";
+                            if (null != bInfoTable.getValueAt(i, 7)) {
+                                authid = bInfoTable.getValueAt(i, 7).toString();
+                            } else {
+                                authid = "";
+                            }
+
+                            String bBrw = "";
+
+                            if (null != bInfoTable.getValueAt(i, 8)) {
+                                bBrw = bInfoTable.getValueAt(i, 8).toString();
+                            } else {
+                                bBrw = "";
+                            }
+
+                            bNumTxt.setText(bNum);
+                            bTitleTxt.setText(bTitle);
+                            bPubTxt.setText(bPublisher);
+                            bGenreTxt.setText(bGenre);
+                            bWriTxt.setText(bWriter);
+                            bPriceTxt.setText(bPrice);
+                            authidTxt.setText(authid);
+                            bBrwTxt.setText(bBrw);
+                            bBstTxt.setText(bBst);
+                        }
+                    }
+                }
+            });
+        }
+        return bTree;
+    }
+
+    public static void refreshBTree() {
+        try {
+            bTree.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("목록") {
+                {
+                    ResultSet rs = new ServiceBook().genreTree();
+                    ResultSet rsph = new ServiceBook().publisherTree();
+                    ResultSet rswr = new ServiceBook().writerTree();
+                    rs.last();
+                    rsph.last();
+                    rswr.last();
+                    int r = rs.getRow();
+                    int rph = rsph.getRow();
+                    int rwr = rswr.getRow();
+                    rs.beforeFirst();
+                    rsph.beforeFirst();
+                    rswr.beforeFirst();
+                    String str[] = new String[r];
+                    String strph[] = new String[rph];
+                    String strwr[] = new String[rwr];
+                    
+                    for (int i = 0; i < r; i++) {
+                        rs.next();
+                        str[i] = rs.getString(1);
+                    }
+                    for (int i = 0; i < rph; i++) {
+                        rsph.next();
+                        strph[i] = rsph.getString(1);
+                    }
+                    for (int i = 0; i < rwr; i++) {
+                        rswr.next();
+                        strwr[i] = rswr.getString(1);
+                    }
+
+                    ModelBook[] book = new ModelBook[r];
+                    for (int i = 0; i < r; i++) {
+                        book[i] = new ModelBook();
+                        book[i].setGenre(str[i]);
+                    }
+                    ModelBook[] bookph = new ModelBook[rph];
+                    for (int i = 0; i < rph; i++) {
+                        bookph[i] = new ModelBook();
+                        bookph[i].setPublisher(strph[i]);
+                    }
+                    ModelBook[] bookwr = new ModelBook[rwr];
+                    for (int i = 0; i < rwr; i++) {
+                        bookwr[i] = new ModelBook();
+                        bookwr[i].setWriter(strwr[i]);
+                    }
+
+                    ResultSet[] rsnd = new ResultSet[r];
+                    for (int i = 0; i < r; i++) {
+                        rsnd[i] = new ServiceBook().genreTreeNode(book[i]);
+                    }
+                    ResultSet[] rsphr = new ResultSet[rph];
+                    for (int i = 0; i < rph; i++) {
+                        rsphr[i] = new ServiceBook().publisherTreeNode(bookph[i]);
+                    }
+                    ResultSet[] rswrr = new ResultSet[rwr];
+                    for (int i = 0; i < rwr; i++) {
+                        rswrr[i] = new ServiceBook().writerTreeNode(bookwr[i]);
+                    }
+
+                    DefaultMutableTreeNode node_1;
+                    DefaultMutableTreeNode node_2;
+
+                    node_1 = new DefaultMutableTreeNode("장르");
+                    for (int i = 0; i < r; i++) {
+
+                        node_2 = new DefaultMutableTreeNode(str[i]);
+                        rsnd[i].last();
+                        int rn = rsnd[i].getRow();
+                        rsnd[i].beforeFirst();
+
+                        for (int j = 0; j < rn; j++) {
+                            rsnd[i].next();
+                            node_2.add(new DefaultMutableTreeNode(rsnd[i].getString(1)));
+                        }
+                        node_1.add(node_2);
+                        add(node_1);
+                    }
+                    
+                    node_1 = new DefaultMutableTreeNode("출판사");
+                    for (int i = 0; i < rph; i++) {
+
+                        node_2 = new DefaultMutableTreeNode(strph[i]);
+                        rsphr[i].last();
+                        int rn = rsphr[i].getRow();
+                        rsphr[i].beforeFirst();
+
+                        for (int j = 0; j < rn; j++) {
+                            rsphr[i].next();
+                            node_2.add(new DefaultMutableTreeNode(rsphr[i].getString(1)));
+                        }
+                        node_1.add(node_2);
+                        add(node_1);
+                    }
+                    
+                    node_1 = new DefaultMutableTreeNode("저자");
+                    for (int i = 0; i < rwr; i++) {
+
+                        node_2 = new DefaultMutableTreeNode(strwr[i]);
+                        rswrr[i].last();
+                        int rn = rswrr[i].getRow();
+                        rswrr[i].beforeFirst();
+
+                        for (int j = 0; j < rn; j++) {
+                            rswrr[i].next();
+                            node_2.add(new DefaultMutableTreeNode(rswrr[i].getString(1)));
+                        }
+                        node_1.add(node_2);
+                        add(node_1);
+                    }
+                }
+            }));
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
     }
 }

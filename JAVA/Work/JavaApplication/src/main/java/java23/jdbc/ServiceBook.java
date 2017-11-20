@@ -18,7 +18,7 @@ public class ServiceBook implements IServiceBook {
             conn.commit();
         } catch (Exception e) {
             e.printStackTrace();
-            conn.commit();
+            conn.rollback();
         }
         return result;
     }
@@ -34,7 +34,7 @@ public class ServiceBook implements IServiceBook {
             conn.commit();
         } catch (Exception e) {
             e.printStackTrace();
-            conn.commit();
+            conn.rollback();
         }
         return result;
     }
@@ -217,6 +217,150 @@ public class ServiceBook implements IServiceBook {
             conn.setAutoCommit(false);
             DaoBook dao = new DaoBook(conn);
             rs = dao.rtBook(book);
+            conn.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            conn.rollback();
+        }
+        return rs;
+    }
+
+    @Override
+    public ResultSet selectBorrow() throws SQLException {
+        ResultSet rs = null;
+
+        try {
+            conn.setAutoCommit(false);
+            DaoBook dao = new DaoBook(conn);
+            rs = dao.selectBorrow();
+            conn.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            conn.rollback();
+        }
+        return rs;
+    }
+
+    @Override
+    public int updateBorrow(ModelBook book) throws SQLException {
+        int result = -1;
+
+        try {
+            conn.setAutoCommit(false);
+            DaoBook dao = new DaoBook(conn);
+            result = dao.updateBorrow(book);
+            conn.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            conn.rollback();
+        }
+        return result;
+    }
+
+    @Override
+    public ResultSet genreTree() throws SQLException {
+        ResultSet rs = null;
+
+        try {
+            conn.setAutoCommit(false);
+            DaoBook dao = new DaoBook(conn);
+            rs = dao.genreTree();
+            conn.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            conn.rollback();
+        }
+        return rs;
+    }
+
+    @Override
+    public int genreTreeCount() throws SQLException {
+        int result = -1;
+
+        try {
+            conn.setAutoCommit(false);
+            DaoBook dao = new DaoBook(conn);
+            result = dao.genreTreeCount();
+            conn.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            conn.rollback();
+        }
+        return result;
+    }
+
+    @Override
+    public ResultSet genreTreeNode(ModelBook book) throws SQLException {
+        ResultSet rs = null;
+
+        try {
+            conn.setAutoCommit(false);
+            DaoBook dao = new DaoBook(conn);
+            rs = dao.genreTreeNode(book);
+            conn.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            conn.rollback();
+        }
+        return rs;
+    }
+
+    @Override
+    public ResultSet publisherTree() throws SQLException {
+        ResultSet rs = null;
+
+        try {
+            conn.setAutoCommit(false);
+            DaoBook dao = new DaoBook(conn);
+            rs = dao.publisherTree();
+            conn.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            conn.rollback();
+        }
+        return rs;
+    }
+
+    @Override
+    public ResultSet writerTree() throws SQLException {
+        ResultSet rs = null;
+
+        try {
+            conn.setAutoCommit(false);
+            DaoBook dao = new DaoBook(conn);
+            rs = dao.writerTree();
+            conn.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            conn.rollback();
+        }
+        return rs;
+    }
+
+    @Override
+    public ResultSet publisherTreeNode(ModelBook book) throws SQLException {
+        ResultSet rs = null;
+
+        try {
+            conn.setAutoCommit(false);
+            DaoBook dao = new DaoBook(conn);
+            rs = dao.publisherTreeNode(book);
+            conn.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            conn.rollback();
+        }
+        return rs;
+    }
+
+    @Override
+    public ResultSet writerTreeNode(ModelBook book) throws SQLException {
+        ResultSet rs = null;
+
+        try {
+            conn.setAutoCommit(false);
+            DaoBook dao = new DaoBook(conn);
+            rs = dao.writerTreeNode(book);
             conn.commit();
         } catch (Exception e) {
             e.printStackTrace();

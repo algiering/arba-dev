@@ -9,9 +9,9 @@ public class game369 {
             
             String x = String.valueOf(i);
             
-            if(x.charAt(3)||x.charAt(6)||x.charAt(9)){
+            if(x.contains("3")||x.contains("6")||x.contains("9")){
                 
-            
+            System.out.println(i+"박수 한번");
                 
             }
         }

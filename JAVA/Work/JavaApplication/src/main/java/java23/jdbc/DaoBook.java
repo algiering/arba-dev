@@ -254,4 +254,162 @@ public class DaoBook implements IBook {
         return rs;
     }
     
+    @Override
+    public ResultSet selectBorrow() throws SQLException {
+        ResultSet rs = null;
+        
+        try {
+            String query = " select bookname, publisher, writer from book where authid = 0 ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            rs = stmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
+    @Override
+    public int updateBorrow(ModelBook book) throws SQLException {
+        int result = -1;
+        
+        try {
+            String query = " update book "
+                    + " set authid = ?, dtm = curdate(), use_yn = 1 "
+                    + " where bookname = ? and publisher = ? ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            stmt.setInt(1, book.getAuthid());
+            stmt.setString(2, book.getBookname());
+            stmt.setString(3, book.getPublisher());
+            
+            result = stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    
+    @Override
+    public ResultSet genreTree() throws SQLException {
+        ResultSet rs = null;
+        
+        try {
+            String query = " select genre from book group by genre ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            rs = stmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
+    @Override
+    public int genreTreeCount() throws SQLException {
+        int result = -1;
+        
+        try {
+            String query = " select count(distinct genre) from book ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            result = rs.getInt(1);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    
+    @Override
+    public ResultSet genreTreeNode(ModelBook book) throws SQLException {
+        ResultSet rs = null;
+        
+        try {
+            String query = " select bookname from book where genre = ? ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            stmt.setString(1, book.getGenre());
+            
+            rs = stmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
+    @Override
+    public ResultSet publisherTree() throws SQLException {
+        ResultSet rs = null;
+        
+        try {
+            String query = " select publisher from book group by publisher ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            rs = stmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
+    @Override
+    public ResultSet writerTree() throws SQLException {
+        ResultSet rs = null;
+        
+        try {
+            String query = " select writer from book group by writer ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            rs = stmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
+    @Override
+    public ResultSet publisherTreeNode(ModelBook book) throws SQLException {
+        ResultSet rs = null;
+        
+        try {
+            String query = " select bookname from book where publisher = ? ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            stmt.setString(1, book.getPublisher());
+            
+            rs = stmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
+    @Override
+    public ResultSet writerTreeNode(ModelBook book) throws SQLException {
+        ResultSet rs = null;
+        
+        try {
+            String query = " select bookname from book where writer = ? ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            stmt.setString(1, book.getWriter());
+            
+            rs = stmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
 }

@@ -31,5 +31,21 @@ public interface IBook {
 
     int rtBook(ModelBook book) throws SQLException;
 
+    ResultSet selectBorrow() throws SQLException;
 
+    int updateBorrow(ModelBook book) throws SQLException;
+
+    ResultSet genreTree() throws SQLException;
+
+    int genreTreeCount() throws SQLException;
+
+    ResultSet genreTreeNode(ModelBook book) throws SQLException;
+
+    ResultSet publisherTree() throws SQLException;
+
+    ResultSet writerTree() throws SQLException;
+
+    ResultSet publisherTreeNode(ModelBook book) throws SQLException;
+
+    ResultSet writerTreeNode(ModelBook book) throws SQLException;
 }
