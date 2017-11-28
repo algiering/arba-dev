@@ -1,0 +1,50 @@
+package java24.mybatis;
+
+public class ModelAuth {
+
+    private Integer authid  = null;
+    private String  name    = "";
+    private String  birth   = null;
+
+
+    public Integer getAuthid() {
+        return authid;
+    }
+
+    public void setAuthid(Integer authid) {
+        this.authid = authid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
+    }
+
+    @Override
+    public String toString() {
+        return "ModelBook [authid=" + authid + ", name=" + name + ", birth=" + birth + "]";
+    }
+
+    public ModelAuth() {
+        super();
+    }
+
+    public ModelAuth(Integer authid, String name, String birth) {
+        super();
+        this.authid = authid;
+        this.name = name;
+        this.birth = birth;
+    }
+    
+}

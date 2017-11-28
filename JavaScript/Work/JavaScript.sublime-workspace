@@ -1,0 +1,2049 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fl",
+				"inline-flex"
+			],
+			[
+				"clo",
+				"color"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"ba",
+				"black"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"text-",
+				"text-align-last"
+			],
+			[
+				"alig",
+				"align-content"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"al",
+				"align-content"
+			],
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"fo",
+				"footer"
+			],
+			[
+				"lo",
+				"locationMenu"
+			],
+			[
+				"wa",
+				"wrapper"
+			],
+			[
+				"wr",
+				"wrap1"
+			],
+			[
+				"he",
+				"header"
+			],
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"a",
+				"align-items"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"ty",
+				"list-style-type"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"align",
+				"vertical-align"
+			],
+			[
+				"align-",
+				"align-items"
+			],
+			[
+				"func",
+				"Function\t( paramsAndBody_..: string ): Function Function"
+			],
+			[
+				"onmouse",
+				"onmouseenter\tAttr"
+			],
+			[
+				"it",
+				"align-items"
+			],
+			[
+				"con",
+				"align-content"
+			],
+			[
+				"me",
+				"meta\tTag"
+			],
+			[
+				"inline-b",
+				"inline-block"
+			],
+			[
+				"p",
+				"position"
+			],
+			[
+				"top",
+				"top"
+			],
+			[
+				"ali",
+				"align-items"
+			],
+			[
+				"v",
+				"vertical-align"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"i",
+				"inline-block"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"displ",
+				"display"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"balc",
+				"background-color"
+			],
+			[
+				"border-",
+				"border-style"
+			],
+			[
+				"tex",
+				"text-overflow"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"cent",
+				"center"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"repeat",
+				"repeat"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"border-co",
+				"border-color"
+			],
+			[
+				"http",
+				"http-equiv\tAttr"
+			],
+			[
+				"lis",
+				"list-style-type"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"bakc",
+				"background-color"
+			],
+			[
+				"paddin",
+				"padding"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"de",
+				"decoration4"
+			],
+			[
+				"dire",
+				"direction2"
+			],
+			[
+				"font-sy",
+				"font-style"
+			],
+			[
+				"mte",
+				"meta\tTag"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"st",
+				"style\tTag"
+			],
+			[
+				"bak",
+				"background-color"
+			],
+			[
+				"up",
+				"upper-roman"
+			],
+			[
+				"sq",
+				"square"
+			],
+			[
+				"texta",
+				"text-align"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"vi",
+				"video1"
+			],
+			[
+				"getE",
+				"getElementById\t( elementId: DOMString ): Element Document"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"mr",
+				"margin-bottom"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"s",
+				"style\tAttr"
+			],
+			[
+				"b",
+				"inline-block"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"u",
+				"ul\tTag"
+			],
+			[
+				"t",
+				"type\tAttr"
+			],
+			[
+				"q",
+				"query"
+			],
+			[
+				"x",
+				"x-www-form-urlencoded"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"conte",
+				"content2"
+			],
+			[
+				"border-col",
+				"border-collapse"
+			],
+			[
+				"w",
+				"column-width"
+			],
+			[
+				"ti",
+				"time\tTag"
+			],
+			[
+				"scri",
+				"script\tTag"
+			],
+			[
+				"axis",
+				"scale()\td3-axis.scale()"
+			],
+			[
+				"sele",
+				"select()\td3.select()"
+			],
+			[
+				"duration",
+				"duration()\td3-transition.duration()"
+			],
+			[
+				"dela",
+				"delay()\td3-transition.delay()"
+			],
+			[
+				"Mathr",
+				"Math_random\t(): number Math"
+			],
+			[
+				"Math",
+				"Math_round\t( x: number ): number Math"
+			],
+			[
+				"data",
+				"dataset"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"wi",
+				"width\t.width()"
+			],
+			[
+				"parseI",
+				"parseInt"
+			],
+			[
+				"for",
+				"for\tfor (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"en",
+				"enter()\td3-selection.enter()"
+			],
+			[
+				"ap",
+				"append()\td3-selection.append()"
+			],
+			[
+				"ht",
+				"html()\td3-selection.html()"
+			],
+			[
+				"select",
+				"select()\td3.select()"
+			],
+			[
+				"bo",
+				"border"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "MyWork/Main.html",
+			"settings":
+			{
+				"buffer_size": 910,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "st01.Hthm&CSS/cs06.포지셔닝/cs06-11.layout.html",
+			"settings":
+			{
+				"buffer_size": 1601,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "st01.Hthm&CSS/cs06.포지셔닝/cs06-31.float.html",
+			"settings":
+			{
+				"buffer_size": 298,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "st01.Hthm&CSS/cs06.포지셔닝/cs06-33.sol.html",
+			"settings":
+			{
+				"buffer_size": 774,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "st01.Hthm&CSS/cs07.레이아웃/cs07-01.layout.html",
+			"settings":
+			{
+				"buffer_size": 490,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "st01.Hthm&CSS/cs07.레이아웃/cs05-99.활용예제1.html",
+			"settings":
+			{
+				"buffer_size": 9423,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "st01.Hthm&CSS/ex01.실습/ex08.스트라이트테이블.html",
+			"settings":
+			{
+				"buffer_size": 1738,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "st01.Hthm&CSS/cs07.레이아웃/cs05-33.layout_B.html",
+			"settings":
+			{
+				"buffer_size": 452,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "st01.Hthm&CSS/cs07.레이아웃/cs05-31.layout_A.html",
+			"settings":
+			{
+				"buffer_size": 819,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "st01.Hthm&CSS/cs07.레이아웃/cs05-35.layout_C1.html",
+			"settings":
+			{
+				"buffer_size": 1036,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Ins",
+				"Package Control: Install Package"
+			],
+			[
+				"view",
+				"View In Browser"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"sidebar",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"install pa",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			]
+		],
+		"width": 624.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/workspace/Lecture/JavaScript/Work",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs07.레이아웃",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ex01.실습"
+	],
+	"file_history":
+	[
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-32.float.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-03.clear1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-07.position.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-08.visibility.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-09.zz-index.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-11.layout.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs05.박스모델과레이아웃/cs05-03-ex1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs05.박스모델과레이아웃/cs05-04.border.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs05.박스모델과레이아웃/cs05-03-ex2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-01.float1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-03.float2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs06.포지셔닝/cs06-05.float3.html",
+		"/C/Users/Administrator/Downloads/cs05-03-ex2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs05.박스모델과레이아웃/cs05-02.div_vs_span.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs05.박스모델과레이아웃/cs05-02-1.box모델.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs05.박스모델과레이아웃/cs05-02-2.box모델.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs05.박스모델과레이아웃/cs05-02-3.margin.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs05.박스모델과레이아웃/cs05-03.display.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs05.박스모델과레이아웃/cs05-01.inline.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-04.box.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-03.market.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-02.font.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-05.quiz1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-08.quiz4.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs04.색상과배경/cs04-01.quiz.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs04.색상과배경/cs04-03.quiz.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-06.quiz2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-07.quiz3.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-00.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs03.폰트와텍스트/cs03-01.text.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-01.기본선택자.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-03.속성선택자.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-01-ex1.tag선택자.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-07.상태선택자.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-09-반응선택자.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-05.자손선택자.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-01-ex2.id선택자.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs02.CSS선택자/cs02-07-ex1.상태선택자.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs01.CSS기초/cs01-01.스타일.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/cs01.CSS기초/style.css",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht10-01-ex1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht10-01.시만택태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht09-02-ex1 (2).html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht09-02.audio.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht09-01.viedo (2).html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht09-01.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht08-04.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht08-03.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht08-03.입력태그실습.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht08-01.form태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht08-02.input태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht07-01.공간분할태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht06-01-ex1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht06-02.anchor태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht06-01.link태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht04-01.테이블태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/table.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht05-01.img태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht05-01-ex1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/1.8표만들기실습.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/1.8표만들기실습",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht03-01-ex1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht03-01-ex2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht03-01.목록태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht02-01-ex1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht01-03.dom-tree.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht02-01.텍스트태그.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht01-00.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/ch01.html/ht01-02.helloworld.html",
+		"/D/workspace/Lecture/JavaScript/Work/st00.docs/ht01-00.html파일구조",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-09.SVG element와 css.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-07.SVG element와 css.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-03.SVG element.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-05.SVG element와 style.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-01.SVG 좌표 시스템.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-01.SVG element.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d03.SVG element와 style/d03-03.SVG element와 style.html",
+		"/D/DevTool/sublimetext/Data/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-02.SVG엘리먼트-line.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-03.SVG엘리먼트-rect.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-04.SVG엘리먼트-circle.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-05.SVG엘리먼트-polygon.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-07.SVG엘리먼트-text.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-08.SVG엘리먼트-g.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.SVG element/d02-01.SVG엘리먼트.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트/ad02-02.SVG엘리먼트-line.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트/ad02-03.SVG엘리먼트-rect.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트/ad02-03.SVG엘리먼트-roundrect.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트/ad02-06.SVG엘리먼트-path.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트와어트리뷰트/ad02-06.SVG엘리먼트-path.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.D3엘리먼트와어트리뷰트/ad02-11.눈금그리기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-17.SVG엘리먼트-text.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-16.SVG엘리먼트-text.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-15.SVG엘리먼트-polygon.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-14.SVG엘리먼트-circle.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-19.SVG엘리먼트-CSS.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-28.SVG에동적도형추가.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-12.SVG엘리먼트-line.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-13.SVG엘리먼트-rect.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d02.데이터다루기/d02-22.가로막대그래프업데이트.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st13.D3/d01.D3기초/d01-11.SVG엘리먼트.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq11.유틸메서드/example08_09.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq11.유틸메서드/example08_10.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq99.미정리문제들/w.jQuery최고의교과서-ch05/advanced/index.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st09.AngularJS/aj02/ja02-01.todo.jquery.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq12.jQuery.Plugin/jq12-ex06.loadTemplate/jq12-ex06-01.loadTemplate.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq12.jQuery.Plugin/jq12-ex06.loadTemplate/jq12-ex06-03.loadTemplate.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq12.jQuery.Plugin/jq12-ex06.loadTemplate/jq12-ex06-05.loadTemplate.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq12.jQuery.Plugin/jq12-ex07.우편번호검색/postcodify.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step00_풀이전코드.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step01_랜덤하게이미지출력.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step02_01_기본드래그기능_구현.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step02_02_선택한_이미지위치를_기준으로_드래그처리.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step02_03_선택한_이미지깊이를_최상위로처리.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step02_04_01_문제점파악.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step02_04_02_문제점해결.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex07-07.드래그앤드드롭만들기/step03.드래그앤드드롭만들기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex08-31.탭메뉴와탭패널/step03_01_방법1_일반함수.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex08-31.탭메뉴와탭패널/step03_02_방법2_콜백함수.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex08-31.탭메뉴와탭패널/step03_03_방법3_이벤트.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex09-01.마우스이벤트/jQuery최고의교과서-chapter04.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex09-03.사이드바/jQuery최고의교과서-ch04-04.사이드바.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex09-97.스크롤스파이만들기/스크롤스파이만들기.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex51.심플배너만들기/step01_01_방법1_left속성을_이용한_풀이.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex51.심플배너만들기/step01_02_방법2_marginlef속성을_이용한_풀이.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex51.심플배너만들기/step01_03_방법3_scroll속성을_이용한_풀이.html",
+		"/D/DevTool/workspace/Lecture/JavaScript/Source/st05.jQuery/jq21.연습문제/ex51.심플배너만들기/step01_04_방법4_animate를_이용한_풀이.html"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+			"D:\\DevTool\\workspace\\Lecture\\JavaScript\\Source"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"jquery-3.1.0.js",
+			"3.1.0",
+			"3.1.",
+			"3.1.0",
+			"\"",
+			"all",
+			"button",
+			"aaa"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"jquery-3.1.1.js",
+			"'",
+			"total"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "D:\\workspace\\Lecture\\JavaScript\\Work"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "MyWork/Main.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 910,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								424,
+								424
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										430,
+										431
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										256,
+										257
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "st01.Hthm&CSS/cs06.포지셔닝/cs06-11.layout.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1601,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								471,
+								471
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										545,
+										546
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										345,
+										346
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "st01.Hthm&CSS/cs06.포지셔닝/cs06-31.float.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								169,
+								81
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "st01.Hthm&CSS/cs06.포지셔닝/cs06-33.sol.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 774,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								353,
+								353
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										360,
+										361
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										331,
+										332
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "st01.Hthm&CSS/cs07.레이아웃/cs07-01.layout.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								263,
+								263
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										268,
+										269
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										225,
+										226
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "st01.Hthm&CSS/cs07.레이아웃/cs05-99.활용예제1.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9423,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								449,
+								449
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										474,
+										475
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										416,
+										417
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "st01.Hthm&CSS/ex01.실습/ex08.스트라이트테이블.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1738,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								447,
+								447
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										456,
+										457
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										381,
+										382
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "st01.Hthm&CSS/cs07.레이아웃/cs05-33.layout_B.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 452,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										14,
+										15
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/angle_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										0,
+										1
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "st01.Hthm&CSS/cs07.레이아웃/cs05-31.layout_A.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 819,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								494,
+								494
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "st01.Hthm&CSS/cs07.레이아웃/cs05-35.layout_C1.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1036,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								202,
+								202
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										207,
+										208
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										178,
+										179
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 215.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

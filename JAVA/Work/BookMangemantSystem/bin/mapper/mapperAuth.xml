@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.mysql.mapperAuth">
+
+    <!-- Auth 쿼리부  -->
+    
+    <select id="getCount" parameterType="ModelAuth" resultType="int">
+    select count(*) from auth
+    where 1=1
+    <if test="name!=null and name!=''"> and name = #{name}</if>
+    </select>
+    
+    <select id="getMaxAuthid" resultType="int">
+    select max(authid) from auth
+    where 1=1
+    </select>
+    
+    <select id="selectAll" resultType="ModelAuth">
+    select * from auth
+    where 1=1
+    order by authid
+    </select>
+    
+    <select id="selectLike" parameterType="ModelAuth" resultType="ModelAuth">
+    select * from auth
+    where 1=1
+    <if test="name!=null and name!=''"> and name like #{name} </if>
+    </select>
+    
+    <select id="selectEqual" parameterType="ModelAuth" resultType="ModelAuth">
+    select * from auth
+    where 1=1
+    <if test="authid!=null and authid!=0"> and authid = #{authid} </if>
+    <if test="name!=null and name!=''"> and name = #{name} </if>
+    <if test="birth!=null"> and birth = #{birth} </if>
+    </select>
+    
+    <insert id="insertAuth" parameterType="ModelAuth">
+    insert into auth (name,    birth)
+             values(#{name}, #{birth})
+    </insert>
+    
+    <update id="updateAuth" parameterType="Map">
+    update auth
+    set name  = #{setauth.name}
+    ,   birth = #{setauth.birth}
+    where
+    1=1
+    <if test="whereauth.authid!=null and whereauth.authid!=0"> and authid = #{whereauth.authid} </if>
+    <if test="whereauth.name!=null and whereauth.name!=''"    > and name   = #{whereauth.name}   </if>
+    </update>
+    
+    <delete id="deleteAuth" parameterType="ModelAuth">
+    delete from auth
+    where
+    1=1
+    <if test="authid!=null and authid!=0"> and authid = #{authid} </if>
+    <if test="name!=null and name!=''"   > and name   = #{name}   </if>
+    <if test="birth!=null and birth!=''" > and birth  = #{birth}  </if>
+    </delete>
+    
+</mapper>
