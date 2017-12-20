@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.mywebview.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5">
+    
+        <EditText
+            android:id="@+id/edtUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="6dp"
+            android:layout_weight="3"
+            android:hint="URL을 입력하세요"/>
+    
+        <Button
+            android:id="@+id/btnGo"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:text="이동"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    
+        <Button
+            android:id="@+id/btnPrev"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:text="이전"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    
+    <WebView
+        android:id="@+id/webV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>
+</LinearLayout>

@@ -1,11 +1,16 @@
 package springboard;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,6 +20,7 @@ import springboard.model.ModelBoard;
 import springboard.model.ModelComments;
 import springboard.svr.ServiceBoard;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestServiceBoard {
     static ServiceBoard service = null;
 
@@ -23,10 +29,23 @@ public class TestServiceBoard {
         @SuppressWarnings("resource")
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:ApplicationContext.xml");
         service = context.getBean("serviceboard", ServiceBoard.class);
+        
+        javax.sql.DataSource dataSource = (DataSource) context.getBean("dataSource");
+        org.apache.ibatis.jdbc.ScriptRunner runner = new org.apache.ibatis.jdbc.ScriptRunner(dataSource.getConnection());
+        
+        runner.setAutoCommit(true);
+        runner.setStopOnError(true);
+        
+        ClassLoader cl = ClassLoader.getSystemClassLoader();
+        String sf = cl.getResource("ddl/board.ddl.mysql.sql").getFile();
+        java.io.Reader br = new java.io.BufferedReader(new java.io.FileReader(sf));
+        
+        runner.runScript(br);
+        runner.closeConnection();
     }
 
     @Test
-    public void testGetBoardName() {
+    public void a01_testGetBoardName() {
         String result = "";
         ModelBoard board = new ModelBoard();
         board.setBoardcd("free");
@@ -40,7 +59,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testGetBoardOne() {
+    public void a02_testGetBoardOne() {
         List<ModelBoard> result = null;
         String boardcd = "free";
         
@@ -53,7 +72,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testGetBoardList() {
+    public void a03_testGetBoardList() {
         List<ModelBoard> result = null;
         
         try {
@@ -66,11 +85,11 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testInsertBoard() {
+    public void a04_testInsertBoard() {
         int result = -1;
         ModelBoard board = new ModelBoard();
-        board.setBoardcd("aaa");
-        board.setBoardnm("aaa");
+        board.setBoardcd("zzz");
+        board.setBoardnm("zzz");
         
         try {
             result = service.insertBoard(board);
@@ -81,17 +100,17 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testUpdateBoard() {
+    public void a05_testUpdateBoard() {
         int result = -1;
         ModelBoard setValue = new ModelBoard();
         ModelBoard whereValue = new ModelBoard();
         
-        setValue.setBoardnm("bbb");
-        setValue.setUseYN(null);
+        setValue.setBoardnm("xxx");
+        setValue.setUseYN(true);
         setValue.setUpdateUID(null);
         setValue.setUpdateDT(null);
         
-        whereValue.setBoardcd("aaa");
+        whereValue.setBoardcd("qna");
         
         try {
             result = service.updateBoard(setValue, whereValue);
@@ -102,10 +121,10 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testDeleteBoard() {
+    public void a06_testDeleteBoard() {
         int result = -1;
         ModelBoard board = new ModelBoard();
-        board.setBoardcd("aaa");
+        board.setBoardcd("data");
         
         try {
             result = service.deleteBoard(board);
@@ -116,7 +135,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testGetBoardSearch() {
+    public void a07_testGetBoardSearch() {
         List<ModelBoard> result = null;
         ModelBoard board = new ModelBoard();
         board.setBoardcd("qn");
@@ -130,42 +149,61 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testGetBoardTotalRecord() {
-        int result = -1;
-        String boardcd = "qna";
-        String searchWord = "QnA게시판";
-        
-        try {
-            result = service.getBoardTotalRecord(boardcd, searchWord);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void testGetBoardPaging() {
-        
-    }
-
-    @Test
-    public void testInsertBoardList() {
+    public void a08_testGetBoardTotalRecord() {
         int result = -1;
         ModelBoard board = new ModelBoard();
-        board.setBoardcd("aaa");
-        board.setBoardnm("aaa");
-        board.setUseYN(true);
+        board.setBoardcd("");
+        board.setBoardnm("");
         
         try {
-            result = service.insertBoardList(board);
-            assertEquals(1, result);
+            result = service.getBoardTotalRecord(board);
+            assertEquals(3, result);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void testGetArticleTotalRecord() {
+    public void a09_testGetBoardPaging() {
+        List<ModelBoard> result = null;
+        String boardcd = "";
+        String searchWord = "";
+        String start = "1";
+        String end = "10";
+        
+        try {
+            result = service.getBoardPaging(boardcd, searchWord, start, end);
+            assertEquals(3, result.size());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void b01_testInsertBoardList() {
+        int result = -1;
+        List<ModelBoard> board = new ArrayList<>();
+        ModelBoard mboard = new ModelBoard();
+        mboard.setBoardcd("ccc");
+        mboard.setBoardnm("ccc");
+        mboard.setUseYN(true);
+        board.add(mboard);
+        
+        ModelBoard mboard2 = new ModelBoard();
+        mboard2.setBoardcd("ddd");
+        mboard2.setBoardnm("ddd");
+        mboard2.setUseYN(true);
+        board.add(mboard2);
+        try {
+            result = service.insertBoardList(board);
+            assertEquals(2, result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void b02_testGetArticleTotalRecord() {
         int result = -1;
         String boardcd = "free";
         String searchWord = "111";
@@ -178,7 +216,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testGetArticleList() {
+    public void b03_testGetArticleList() {
        List<ModelArticle> result = null;
        String boardcd = "free";
        String searchWord = null;
@@ -194,10 +232,10 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testInsertArticle() {
+    public void b04_testInsertArticle() {
         int result = -1;
         ModelArticle article = new ModelArticle();
-        article.setBoardcd("aaa");
+        article.setBoardcd("free");
         article.setTitle("aaa");
         article.setContent("aaa");
         article.setEmail("aaa@aaa.com");
@@ -216,7 +254,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testUpdateArticle() {
+    public void b05_testUpdateArticle() {
         int result = -1;
         ModelArticle setValue = new ModelArticle();
         ModelArticle whereValue = new ModelArticle();
@@ -227,8 +265,7 @@ public class TestServiceBoard {
         setValue.setUpdateUID("aaaaa");
         setValue.setUpdateDT(null);
         
-        whereValue.setArticleno(202);
-        whereValue.setTitle("aaa");
+        whereValue.setArticleno(201);
         
         try {
             result = service.updateArticle(setValue, whereValue);
@@ -239,11 +276,10 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testDeleteArticle() {
+    public void b06_testDeleteArticle() {
         int result = -1;
         ModelArticle article = new ModelArticle();
-        article.setArticleno(202);
-        article.setBoardcd("aaa");
+        article.setArticleno(201);
         
         try {
             result = service.deleteArticle(article);
@@ -254,9 +290,9 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testIncreaseHit() {
+    public void b07_testIncreaseHit() {
         int result = -1;
-        int articleno = 201;
+        int articleno = 193;
         
         try {
             result = service.increaseHit(articleno);
@@ -267,7 +303,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testGetNextArticle() {
+    public void b08_testGetNextArticle() {
         List<ModelArticle> result = null;
         String boardcd = "free";
         String articleno = "24";
@@ -283,7 +319,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testGetPrevArticle() {
+    public void b09_testGetPrevArticle() {
         List<ModelArticle> result = null;
         String boardcd = "free";
         String articleno = "24";
@@ -300,7 +336,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testGetAttachFile() {
+    public void c01_testGetAttachFile() {
         List<ModelAttachFile> result = null;
         int attachFileNo = 1;
         
@@ -313,7 +349,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testGetAttachFileList() {
+    public void c02_testGetAttachFileList() {
         List<ModelAttachFile> result = null;
         int articleno = 1;
         
@@ -327,7 +363,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testInsertAttachFile() {
+    public void c03_testInsertAttachFile() {
         int result = -1;
         ModelAttachFile file = new ModelAttachFile();
         file.setFilename("aaa");
@@ -347,10 +383,10 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testDeleteAttachFile() {
+    public void c04_testDeleteAttachFile() {
         int result = -1;
         ModelAttachFile file = new ModelAttachFile();
-        file.setAttachfileno(8);
+        file.setAttachfileno(7);
         
         try {
             result = service.deleteAttachFile(file);
@@ -361,32 +397,32 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testGetComment() {
+    public void c05_testGetComment() {
         List<ModelComments> result = null;
-        int commentNo = 1; 
+        int commentNo = 2; 
         try {
             result = service.getComment(commentNo);
-            assertEquals(Integer.valueOf("1"), result.get(0).getArticleno());
+            assertSame(2, result.get(0).getCommentno());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void testGetCommentList() {
+    public void c06_testGetCommentList() {
         List<ModelComments> result = null;
-        int articleno = 1;
+        int articleno = 3;
         
         try {
             result = service.getCommentList(articleno);
-            assertEquals(Integer.valueOf("1"), result.get(0).getArticleno());
+            assertSame(3, result.get(0).getCommentno());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void testInsertComment() {
+    public void c07_testInsertComment() {
         int result = -1;
         ModelComments comments = new ModelComments();
         comments.setArticleno(2);
@@ -406,7 +442,7 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testUpdateComment() {
+    public void c08_testUpdateComment() {
         int result = -1;
         ModelComments setValue = new ModelComments();
         ModelComments whereValue = new ModelComments();
@@ -426,10 +462,10 @@ public class TestServiceBoard {
     }
 
     @Test
-    public void testDeleteComment() {
+    public void c09_testDeleteComment() {
         int result = -1;
         ModelComments comments = new ModelComments();
-        comments.setCommentno(4);
+        comments.setCommentno(1);
         
         try {
             result = service.deleteComment(comments);

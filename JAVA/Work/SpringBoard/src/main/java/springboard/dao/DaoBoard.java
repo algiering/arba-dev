@@ -1,6 +1,5 @@
 package springboard.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,18 +77,14 @@ public class DaoBoard implements IBoard {
     }
 
     @Override
-    public Integer getBoardTotalRecord(String boardcd, String searchWord) throws Exception {
+    public Integer getBoardTotalRecord(ModelBoard board) throws Exception {
         int result = -1;
-        Map<String, String> map = new HashMap<>();
-        map.put("boardcd", boardcd);
-        map.put("searchWord", searchWord);
-        
-        result = session.selectOne("mapper.mapperBoard.getBoardTotalRecord", map);
+        result = session.selectOne("mapper.mapperBoard.getBoardTotalRecord", board);
         return result;
     }
 
     @Override
-    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, Integer start, Integer end) throws Exception {
+    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, String start, String end) throws Exception {
         List<ModelBoard> result = null;
         Map<String, String> map = new HashMap<>();
         map.put("boardcd", boardcd);
@@ -102,11 +97,9 @@ public class DaoBoard implements IBoard {
     }
 
     @Override
-    public int insertBoardList(ModelBoard board) throws Exception {
+    public int insertBoardList(List<ModelBoard> board) throws Exception {
         int result = -1;
-        List<ModelBoard> item = new ArrayList<>();
-        item.add(board);
-        result = session.insert("mapper.mapperBoard.insertBoardList", item);
+        result = session.insert("mapper.mapperBoard.insertBoardList", board);
         return result;
     }
 

@@ -3,98 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        div { padding: 5px 5px 5px 5px }
-        .item{float:left; width:100px; }
-    </style>
-    <script src='../jquery-3.1.1.js'></script>
-    <script>
-
-        var MyApp = {};
-
-        // validation 메서드 만들기
-        MyApp.invalidItem = function( ){
-            if( $('#userId').val() === '' ){
-				var msg = '아이디를 입력하세요';
-				$('label[name="userId"]').text(msg);
-                $('#userId').focus();
-                return false;
+    div { padding: 5px 5px 5px 5px }
+    .item{float:left; width:100px; }
+</style>
+<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#regBtn').click(function(event) {
+            if($('#userId').prop('value')=='') {
+                iniLabel();
+                $('label[name="userId"]').text($('#userId').prop('placeholder'));
             }
-            else {
-                $('label[name="userId"]').text('');
+            else if($('#userName').prop('value')=='') {
+                iniLabel();
+                $('label[name="userName"]').text('이름을 입력하세요');
             }
-
-            if( $('#userName').val() === '' ){
-				var msg = '이름을 입력하세요';
-				$('label[name="userName"]').text(msg);
-                $('#userName').focus();
-                return false;
+            else if($('#pwd').prop('value')=='') {
+                iniLabel();
+                $('label[name="pwd"]').text('암호를 입력하세요');
             }
-            else {
-                $('label[name="userName"]').text('');
+            else if($('#pwdConfirm').prop('value')=='') {
+                iniLabel();
+                $('label[name="pwdConfirm"]').text('암호확인을 입력하세요');
             }
-
-            if( $('#pwd').val() === '' ){
-				var msg = '암호를 입력하세요';
-				$('label[name="pwd"]').text(msg);
+            else if($('#pwd').prop('value')!=$('#pwdConfirm').prop('value')) {
+                iniLabel();
+                $('label[name="pwd"]').text('암호가 일치하지 않습니다');
+                $('#pwdConfirm,#pwd').prop('value', '');
                 $('#pwd').focus();
-                return false;
             }
             else {
-                $('label[name="pwd"]').text('');
+                $('form').action = 'http://naver.com';
+                $('form').method = 'post';
+                $('form').target = '_self';
+                $('form').submit();
             }
+        });
 
-            if( $('#pwdConfirm').val() === '' ){
-				var msg = '암호 확인을 입력하세요';
-				$('label[name="pwdConfirm"]').text(msg);
-                $('#pwdConfirm').focus();
-                return false;
-            }
-            else {
-                $('label[name="pwdConfirm"]').text('');
-            }
+        $('#iniBtn').click(function(event) {
+            iniValue();
+            iniLabel();
+        });
 
-            // 암호가 다른 경우
-            if( $('#pwd').val()  !==   $('#pwdConfirm').val()  ) {
-
-                var msg = '암호가 일치하지 않습니다.';
-                $('#pwd').val( '' );
-                $('#pwdConfirm').val( '' );
-                $('#pwd').focus();
-                $('label[name="pwd"]').text(msg);
-
-                return false;
-            }
-
-            return true;
+        var iniLabel = function() {
+            $('label[name="userId"],label[name="userName"],label[name="pwd"],label[name="pwdConfirm"]').text('');
         };
 
-        $(document).ready( function(event) {
+        var iniValue = function() {
+            $('#userId,#userName,#pwd,#pwdConfirm').attr('value', '');
+        };
 
-            //validation
-            $('#regBtn').click( function(event){
-                var result = MyApp.invalidItem();
+    });
+</script>
 
-                if( result )
-                    return $('form[name="fm"]').submit();
-                else
-                    return false;
-            });
-
-            // 초기화
-            $('#iniBtn').click( function(event){
-                $('form[name="fm"]')[0].reset();
-            });
-        });
-    </script>
 </head>
 <body>
-<form name='fm'
+    <form name='fm'
     action="http://www.naver.com"
     enctype="application/x-www-form-urlencoded"
     method="get">
     <div>
         <span class="item"> 아이디 * </span>
-        <input id="userId" name="userId" type="text" placeholder='아이디를 입력하시오'>
+        <input id="userId" name="userId" type="text" placeholder='아이디를 입력하세요'>
         <label name="userId" ></label>
     </div>
     <div>
@@ -117,3 +87,10 @@
 </form>
 </body>
 </html>
+
+
+
+
+
+
+

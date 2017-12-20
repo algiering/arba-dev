@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    td {
+        border: 1px black solid;
+        width: 120px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    #td1 {
+        background-color: lightblue;
+    }
+    table {
+        border: 1px black solid;
+        border-collapse: collapse;
+    }
+
+    td:hover, #td1:hover {
+        background-color: skyblue;
+    }
+
+    #divgugu {
+        width: 98%;
+        border: 2px black solid;
+        padding: 5px;
+        float: left;
+    }
+    #downgugu {
+        width: 70%;
+        height: 200px;
+        border: 2px black solid;
+        float: left;
+    }
+    #sidegugu {
+        width: 28%;
+        height: 200px;
+        border: 2px black solid;
+        float: left;
+    }
+    footer {
+        width: 98%;
+        height: 20px;
+        border: 2px red solid;
+        float: left;
+    }
+</style>
+<script type="text/javascript">
+    function gugu() {
+        document.write("<table>")
+        for(var j=2; j<10; j++){
+            document.write("<tr>")
+            for(var i=1; i<10; i++) {
+                if((j%2)==1) {
+                    document.write("<td id=\"td1\">")
+                }
+                else{
+                    document.write("<td>")
+                }
+
+                if(i==9) {
+                    document.write(j+" * "+i+" = "+j*i);
+                }
+                else {
+                    document.write(j+" * "+i+" = "+j*i);
+                }
+                document.write("</td>")
+
+            };
+            document.write("</tr>")
+        };
+        document.write("</table>")
+    };
+
+</script>
+</head>
+<body>
+    <div id="divgugu">
+        <script type="text/javascript">
+            gugu();
+        </script>
+    </div>
+    <div id="downgugu">
+        아래
+        <input type="text" id="texttest" value="abcd">
+        <input type="button" value="submit" id="buttontest" onclick="getvar()">
+        <script type="text/javascript">
+            function getvar() {
+                var a = document.getElementById("texttest").value;
+                console.log(a);
+                return a;
+            };
+        </script>
+        <script type="text/javascript">
+            console.log(a);
+            var a=document.getElementById("texttest").value;
+            console.log(a);
+        </script>
+    </div>
+    <div id="sidegugu">
+        옆
+    </div>
+    <footer>
+        ddd
+    </footer>
+</body>
+</html>

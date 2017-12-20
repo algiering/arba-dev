@@ -23,11 +23,11 @@ public interface IBoard {
     
     List<ModelBoard> getBoardSearch(ModelBoard board) throws Exception;
     
-    Integer getBoardTotalRecord(String boardcd, String searchWord) throws Exception;
+    Integer getBoardTotalRecord(ModelBoard board) throws Exception;
     
-    List<ModelBoard> getBoardPaging(String boardcd, String searchWord, Integer start, Integer end) throws Exception;
+    List<ModelBoard> getBoardPaging(String boardcd, String searchWord, String start, String end) throws Exception;
     
-    int insertBoardList(ModelBoard board) throws Exception;
+    int insertBoardList(List<ModelBoard> board) throws Exception;
     
     Integer getArticleTotalRecord(String boardcd, String searchWord) throws Exception;
     

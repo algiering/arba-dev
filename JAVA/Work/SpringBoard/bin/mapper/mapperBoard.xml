@@ -30,10 +30,12 @@
     
     <update id="updateBoard" parameterType="hashmap">
         UPDATE TB_Bbs_Board 
-            SET boardnm   = #{setValue.boardnm}
-              , UseYN     = #{setValue.UseYN}
-              , UpdateUID = #{setValue.UpdateUID}
-              , UpdateDT  = #{setValue.UpdateDT}
+            <set>
+              <if test="setValue.boardnm!=null and setValue.boardnm!=''"> boardnm   = #{setValue.boardnm}, </if>
+              <if test="setValue.UseYN!=null"> UseYN     = #{setValue.UseYN}, </if>
+              <if test="setValue.UpdateUID!=null and setValue.UpdateUID!=''"> UpdateUID = #{setValue.UpdateUID}, </if>
+              <if test="setValue.UpdateDT!=null"> UpdateDT  = #{setValue.UpdateDT}, </if>
+              </set>
             WHERE 1 = 1 
               <if test="whereValue.boardcd != null and whereValue.boardcd != ''" >
               AND boardcd    = #{whereValue.boardcd}
@@ -72,14 +74,14 @@
            </if>
     </select>
         
-    <select id="getBoardTotalRecord" parameterType="hashmap" resultType="int">
+    <select id="getBoardTotalRecord" parameterType="ModelBoard" resultType="int">
         SELECT count(*) FROM TB_Bbs_Board 
          WHERE 1 = 1
             <if test="boardcd != null and boardcd != ''">
             AND boardcd = #{boardcd}
             </if>
             <if test="boardnm != null and boardnm != ''">
-            AND boardnm LIKE #{searchWord} 
+            AND boardnm LIKE CONCAT('%',#{boardnm},'%')
             </if>
     </select>
     
@@ -171,11 +173,13 @@
     
     <update id="updateArticle" parameterType="java.util.Map">
         UPDATE TB_BBS_Article 
-           SET title     = #{setValue.title}
-             , content   = #{setValue.content} 
-             , UseYN     = #{setValue.UseYN    }
-             , UpdateUID = #{setValue.UpdateUID}
-             , UpdateDT  = #{setValue.UpdateDT }
+            <set>
+              <if test="setValue.title!=null and setValue.title!=''"> title     = #{setValue.title}, </if>
+              <if test="setValue.content!=null and setValue.content!=''"> content   = #{setValue.content}, </if>
+              <if test="setValue.UseYN!=null"> UseYN     = #{setValue.UseYN}, </if>
+              <if test="setValue.UpdateUID!=null and setValue.UpdateUID!=''"> UpdateUID = #{setValue.UpdateUID}, </if>
+              <if test="setValue.UpdateDT!=null"> UpdateDT  = #{setValue.UpdateDT}, </if>
+            </set>
          WHERE  1 = 1 
               <if test="whereValue.boardcd != null and whereValue.boardcd != ''" >
               AND boardcd    = #{whereValue.boardcd}
@@ -258,10 +262,6 @@
         WHERE r = 1
     </select>
 
-
-
-
-
     <select id="getAttachFile" parameterType="int" resultType="ModelAttachFile">
         SELECT attachfileno, filename, filetype, filesize, articleno
           FROM TB_BBS_Attachfile
@@ -295,7 +295,6 @@
           </if>
     </delete>
     
-    
     <select id="getComment" parameterType="int" resultType="ModelComments">
         SELECT commentno,articleno,email,memo,regdate 
         FROM TB_BBS_Comments 
@@ -317,9 +316,11 @@
     
     <update id="updateComment" parameterType="java.util.Map">
         UPDATE TB_BBS_Comments 
-           SET memo      = #{setValue.memo   } 
-             , regdate   = #{setValue.regdate} 
-             , UseYN     = #{setValue.UseYN  } 
+             <set>
+               <if test="setValue.memo!=null and setValue.memo!=''"> memo      = #{setValue.memo}, </if>
+               <if test="setValue.regdate!=null"> regdate   = #{setValue.regdate}, </if>
+               <if test="setValue.UseYN!=null"> UseYN     = #{setValue.UseYN}, </if>
+             </set>
          WHERE  1 = 1 
               <if test="whereValue.commentno != null and whereValue.commentno != ''" >
               AND commentno = #{whereValue.commentno}

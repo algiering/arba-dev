@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appColor="http://schemas.android.com/apk/res/android"
+              appColor:layout_width="match_parent"
+              appColor:layout_height="match_parent"
+              appColor:background="@android:color/holo_red_dark"
+              appColor:orientation="vertical">
+    
+    <Button
+        appColor:id="@+id/button9"
+        appColor:layout_width="wrap_content"
+        appColor:layout_height="wrap_content"
+        appColor:background="@android:color/holo_green_light"
+        appColor:text="Button"/>
+</LinearLayout>

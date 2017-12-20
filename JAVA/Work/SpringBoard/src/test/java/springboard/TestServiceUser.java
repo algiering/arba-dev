@@ -4,8 +4,12 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,6 +17,7 @@ import springboard.inf.IServiceUser;
 import springboard.model.ModelUser;
 import springboard.svr.ServiceUser;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestServiceUser {
     private static IServiceUser service = null;
 
@@ -22,6 +27,18 @@ public class TestServiceUser {
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:ApplicationContext.xml");
         service = context.getBean("serviceuser", ServiceUser.class);
         
+        javax.sql.DataSource dataSource = (DataSource) context.getBean("dataSource");
+        org.apache.ibatis.jdbc.ScriptRunner runner = new org.apache.ibatis.jdbc.ScriptRunner(dataSource.getConnection());
+        
+        runner.setAutoCommit(true);
+        runner.setStopOnError(true);
+        
+        ClassLoader cl = ClassLoader.getSystemClassLoader();
+        String sf = cl.getResource("ddl/board.ddl.mysql.sql").getFile();
+        java.io.Reader br = new java.io.BufferedReader(new java.io.FileReader(sf));
+        
+        runner.runScript(br);
+        runner.closeConnection();
     }
 
     @Test
@@ -43,7 +60,7 @@ public class TestServiceUser {
     public void testLogin() {
         List<ModelUser> result = null;
         ModelUser user = new ModelUser();
-        user.setUserid("aaaaaaa");
+        user.setUserid("ccc");
         user.setPasswd("ccc");
         try {
             result = service.login(user);
@@ -66,7 +83,7 @@ public class TestServiceUser {
         updateValue.setEmail("bbb@bbb.com");
         updateValue.setPasswd("bbb");
         searchValue.setUserno(1);
-        searchValue.setUserid("aaaaaaa");
+        searchValue.setUserid("aaa");
         try {
             result = service.updateUserInfo(updateValue, searchValue);
             assertEquals(1, result);
@@ -79,8 +96,8 @@ public class TestServiceUser {
     @Test
     public void testUpdatePasswd() {
         int result = -1;
-        String userid = "aaaaaaa";
-        String currentPasswd = "bbb";
+        String userid = "aaa";
+        String currentPasswd = "aaa";
         String newPasswd = "ccc";
         try {
             result = service.updatePasswd(userid, currentPasswd, newPasswd);
@@ -94,7 +111,7 @@ public class TestServiceUser {
     public void testDeleteUser() {
         int result = -1;
         ModelUser user = new ModelUser();
-        user.setUserid("aaaaaaa");
+        user.setUserid("aaa");
         try {
             result = service.deleteUser(user);
             assertEquals(1, result);
@@ -107,23 +124,23 @@ public class TestServiceUser {
     public void testSelectUserOne() {
         List<ModelUser> result = null;
         ModelUser user = new ModelUser();
-        user.setUserid("aaaaaaa");
+        user.setUserid("aaa");
         try {
             result = service.selectUserOne(user);
-            assertEquals("aaaaaaa", result.get(0).getUserid());
+            assertEquals("aaa", result.get(0).getUserid());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void testSelectUserList() {
+    public void a01_testSelectUserList() {
         List<ModelUser> result = null;
         ModelUser user = new ModelUser();
-        user.setUserid("a");
+        user.setUserid("");
         try {
             result = service.selectUserList(user);
-            assertEquals(4, result.size());
+            assertEquals(3, result.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -132,7 +149,7 @@ public class TestServiceUser {
     @Test
     public void testCheckuserid() {
         int result = -1;
-        String userid = "aaaa";
+        String userid = "aaa";
         try {
             result = service.checkuserid(userid);
             assertEquals(1, result);

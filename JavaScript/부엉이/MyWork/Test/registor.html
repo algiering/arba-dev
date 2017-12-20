@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    table, th, td {
+        border: 1px black solid;
+        text-align: left;
+        border-collapse: collapse;
+    }
+    #tdblank {
+        width: 15px;
+    }
+</style>
+<script type="text/javascript">
+    var wY = 2000;
+    var wM = 0;
+    var fdate = 0;
+</script>
+
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <th colspan="3" style="font-size: 20px;">기본 정보 입력</th>
+            </tr>
+            <tr>
+                <td id="tdblank"></td>
+                <td>이름</td>
+                <td>
+                    <input type="text" style="width: 100px;" id="InputNameTxt">
+                </td>
+            </tr>
+            <tr>
+                <td id="tdblank"></td>
+                <td>주민번호</td>
+                <td>
+                  <input type="text" style="width: 60px;" id="InputRrn1Txt">
+                  -
+                  <input type="text" style="width: 60px;" id="InputRrn2Txt">
+              </td>
+          </tr>
+          <tr>
+            <td id="tdblank"></td>
+            <td>아이디</td>
+            <td>
+                <input type="text" style="width: 80px;" id="InputIdTxt">
+                @naver.com
+                <button>중복체크</button>
+            </td>
+        </tr>
+        <tr>
+            <td id="tdblank"></td>
+            <td>별명</td>
+            <td>
+                <input type="text" style="width: 80px;" id="InputNickTxt">
+            </td>
+        </tr>
+        <tr>
+            <td id="tdblank"></td>
+            <td>비밀번호</td>
+            <td>
+                <input type="password" style="width: 100px;" id="InputPswdTxt">
+                <br>
+                <input type="password" style="width: 100px;" id="InputPswdCTxt">
+            </td>
+        </tr>
+        <tr>
+            <td id="tdblank"></td>
+            <td>비밀번호 힌트</td>
+            <td>
+                <select id="OpPswdHnt">
+                    <option>다시 태어나면 되고 싶은 것은?</option>
+                    <option>다시 태어나면 되고 싶은 것은?</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td id="tdblank"></td>
+            <td>생년월일</td>
+            <td>
+                <input type="number" style="width: 50px;" id="OpYear" onchange="javascript:wYear(this)" value="2000">
+                <script type="text/javascript">
+                    function wYear(selectObj) {
+                        wY=selectObj.value;
+                        console.log(wY);
+                    };
+                </script>
+                <select id="OpMonth" onchange="javascript:wMonth(this);">
+                    <script type="text/javascript">
+                        for(var i=1; i<=12; i++) {
+                            document.write("<option onclick=\"selMonth()\">"+i+"</option>")
+                        };
+
+                        function wMonth(selectObj) {
+                            wM=selectObj.value;
+                            var tdate = new Date(wY, wM, 1-1);
+                            fdate = tdate.getDate();
+
+                            console.log(fdate);
+                        };
+                    </script>
+                </select>
+                <select id="OpDay" onclick="javascript:dtrefresh()">
+                    <script type="text/javascript">
+                        function dtrefresh() {
+                            for(var i=1; i<=fdate; i++) {
+                                document.write("<option>"+i+"</option>");
+                            }
+                        }
+                    </script>
+                </select>
+                <input type="radio" name="ey" value="em">음
+                <input type="radio" name="ey" value="yang">양
+            </td>
+        </tr>
+        <tr>
+            <td id="tdblank"></td>
+            <td>핸드폰</td>
+            <td>
+                <select>
+                    <option>010</option>
+                </select>
+                -
+                <input type="text" style="width: 30px">
+                -
+                <input type="text" style="width: 30px">
+                <input type="radio" name="telSel" value="SKT">SKT
+                <input type="radio" name="telSel" value="KTF">KTF
+                <input type="radio" name="telSel" value="LGT">LGT
+            </td>
+        </tr>
+        <tr>
+            <td id="tdblank"></td>
+            <td>주로쓰는 메일</td>
+            <td>
+                <input type="text" style="width: 150px;">
+                <input type="checkbox">네이버 메일 사용
+            </td>
+        </tr>
+        <tr>
+            <td id="tdblank"></td>
+            <td>거주지</td>
+            <td>
+                <select id="OpLoc">
+                    <option>서울</option>
+                    <option>수원</option>
+                    <option>부산</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td id="tdblank"></td>
+            <td>메일 수신 여부</td>
+            <td>
+                <input type="checkbox" id="ChkNNslt">네이버 뉴스레터 <br>
+                <input type="checkbox" id="ChkPInfo">상품정보 메일 <br>
+                <input type="checkbox" id="ChkCache">캐쉬정보 메일 <br>
+                <input type="checkbox" id="ChkGame">게임정보 메일 <br>
+                <input type="checkbox" id="ChkSms">sms 정보 수신<br>
+            </td>
+        </tr>
+        <tr>
+
+            <td colspan="3" style="text-align: center;">
+                <input type="submit" value="확인">
+                <input type="button" value="취소">
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+</body>
+</html>
