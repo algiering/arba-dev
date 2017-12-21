@@ -1,10 +1,10 @@
 
 $.ajax({
-    url : '',
-    data: null,        // 사용하는 경우에는 { data1:'test1', data2:'test2' }
+    url : '',        // 호출되는 서버 주소
+    data: null,        // 서버로 보내는 클라이언트 데이터. 사용하는 경우에는 { data1:'test1', data2:'test2' }
     type: 'get',       // get, post
-    timeout: 30000,    // 30초
-    dataType: 'json',  // text, html, xml, json, jsonp, script
+    timeout: 30000,    // 30초, 최대 대기시간
+    dataType: 'json',  // response로 넘어오는 데이터 형태: text, html, xml, json, jsonp, script
     beforeSend : function() {
         // 통신이 시작되기 전에 이 함수를 타게 된다.
     }

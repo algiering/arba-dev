@@ -4,149 +4,68 @@
     <meta charset="utf-8">
     <title></title>
     <style type="text/css">
-    body {
+    * {
         margin: 0;
         padding: 0;
-        font-size: 14px;
+    }
+    header {
     }
     ul {
-        padding: 0;
-        padding-top: 7px;
-        margin: 0;
         list-style-type: none;
-        text-align: right;
-    }
-
-    li {
-        display: inline-block;
-        margin-top: 5px;
-        margin-right: 10px;
-        padding-top: 5px;
-        padding-bottom: 7px;
-        padding-right: 13px;
-        padding-left: 13px;
-        color: white;
-    }
-
-    #loginBtn {
-        background: white;
-        color: #00a59a;
-    }
-
-    #topImg {
-        margin-top: 4px;
-        width: 30px;
-    }
-
-    #center_img {
-        width: 100%;
-    }
-    #topNbottm {
-        height: 50px;
-        background-color: #00a59a;
-        vertical-align: middle;
-    }
-    #topLeft {
-        float: left;
-        width: 50px;
-        vertical-align: middle;
-    }
-    #topRight {
-        width: 180px;
         float: right;
     }
-
-    #center {
-        display: block;
+    li {
+        padding: 2px 10px 4px 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        display: inline-block;
+        outline: 1px white solid;
+        color: white;
     }
-
-    p {
-        text-align: center;
-
-    }
-
     hr {
-        width: 97%;
-        border: 1px #00a59a solid;
+        margin: 7px 10px 7px 10px;
+        border: 2px #cecece solid;
+        border-radius: 2px;
     }
 
-    #h3 {
-        font-size: 18px;
-        font-weight: bold;
+    #TopNBottom {
+        background-color: #00a526;
+        height: 50px;
+    }
+
+    #contents {
+        margin: 0px 5px 0px 5px;
+        height: 500px;
     }
 
     div {
-        line-height: 0.7em;
+        margin: 0px 5px 0px 5px;
+        background-color: #efefef;
+        border-radius: 10px;
     }
-
-    #top_img {
-        border: 0;
-        padding: 0;
-
-    }
-
-    #bottom_copy {
-        margin-top: 7px;
-        padding-top: 20px;
-        color: white;
-    }
-
 </style>
 
-<script type="text/javascript" src="jquery-3.2.1.js"></script>
-<script type="text/javascript">
-
-</script>
 </script>
 </head>
 <body>
-    <div id="topNbottm">
-        <ul>
-            <div id="topLeft">
-                <img id="topImg" src="img/ic_thumb_up_white_48px.svg">
-            </div>
-            <div id="topRight">
-                <li id="regBtn" class="menuBtn">회원가입</li>
-                <li id="loginBtn" class="menuBtn">로그인</li>
-            </div>
-
-        </ul>
-    </div>
-
-    <div id="center">
-        <hr>
-        <p id="center_img_p">
-            <img id="center_img" src="img/29.jpg">
-        </p>
-        <p id="h3">
-            세상의 모든 사람과 만나보세요
-        </p>
-        <p>
-            다양한 플랫폼을 지원합니다
-        </p>
-        <hr>
-
+    <header id="TopNBottom">
         <div>
-            <p id="center_img_p">
-                <img id="center_img" src="img/main_photo1.jpg">
-            </p>
-            <p id="h3">
-            자신만의 사진을 저장하세요
-        </p>
-        <p>
-            사진 저장공간을 제공합니다
-        </p>
+            <ul>
+                <li>회원가입</li>
+                <li>로그인</li>
+            </ul>
+        </div>
+    </header>
+    <hr>
+    <div style="height: 500px;">
+        <div id="contents">
+            메인 컨텐츠 영역
         </div>
 
-        <hr>
     </div>
+    <hr>
+    <footer id="TopNBottom">
 
-    <footer>
-        <div id="topNbottm">
-            <p id="bottom_copy">
-            Copyright(c)2017 JJ All rights reserved. &nbsp&nbsp 문의사항
-            </p>
-        </div>
     </footer>
 </body>
 </html>
