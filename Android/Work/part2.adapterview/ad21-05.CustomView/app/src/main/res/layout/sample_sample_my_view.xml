@@ -8,9 +8,10 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:background="#ccc"
+        android:paddingBottom="40dp"
         app:exampleColor="#33b5e5"
         app:exampleDimension="24sp"
         app:exampleDrawable="@android:drawable/ic_menu_add"
-        app:exampleString="Hello, sample_my_view"/>
+        app:exampleString="Hello, MyView"/>
 
 </FrameLayout>
