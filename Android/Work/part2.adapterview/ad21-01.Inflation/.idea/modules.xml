@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ad21-01.Inflation.iml" filepath="$PROJECT_DIR$/ad21-01.Inflation.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/st5inflationcustomtoast/st5inflationcustomtoast.iml" filepath="$PROJECT_DIR$/st5inflationcustomtoast/st5inflationcustomtoast.iml" />
     </modules>
   </component>
 </project>

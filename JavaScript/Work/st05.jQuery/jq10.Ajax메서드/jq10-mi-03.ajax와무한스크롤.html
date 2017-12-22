@@ -24,10 +24,10 @@
     </style>
     <script type="text/javascript" src="../jquery-3.2.1.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            var temp = {};
+
+        var appendContent = function(start, end) {
             $.ajax({
-                url: 'http://localhost:3000/json',
+                url: 'http://localhost:3000/board?start='+start+'&end='+end,
                 type: 'get',
                 dataType: 'json',
                 data: null,
@@ -37,13 +37,18 @@
                 }
             })
             .done(function(data, textStatus, xhr) {
-                console.log(temp);
-                $(window).scroll(function(event) {
-                    var diff = $(document).height() - $(window).scrollTop() - $(window).height();
-                    if (diff < 20) {
+                for(var i in data) {
+                    var tmp = $('#template>div.wrap').clone();
+                    $(tmp).find('[data-content="no"]').text(data[i].no);
+                    $(tmp).find('[data-content="writer"]').text(data[i].writer);
+                    $(tmp).find('[data-content="title"]').text(data[i].title);
+                    $(tmp).find('[data-content="content"]').text(data[i].content);
 
-                    }
-                });
+                    $('#posts-container').append(tmp);
+                }
+                if(data.length<10) {
+                    return false;
+                }
             })
             .fail(function(xhr, textStatus, error) {
                 console.log("error");
@@ -51,7 +56,20 @@
             .always(function(data, textStatus, xhr) {
                 $('#loading').html('');
             });
+        }
 
+        $(document).ready(function() {
+
+            $(window).scroll(function(event) {
+                var diff = $(document).height() - $(window).scrollTop() - $(window).height();
+                if (diff < 20) {
+                    appendContent(i+1, i+10);
+                    i = i+10;
+                }
+            });
+
+            var i = 9;
+            appendContent(0, i);
         });
     </script>
 
@@ -59,19 +77,26 @@
 <body>
 
     <!-- 템플릿 생성 -->
-
+<div id="template" style="display: none;">
+    <div class="wrap">
+        <div class="bbsbox">
+            <div class="box_top">
+                <div data-content="no">?</div>
+                <div data-content="writer">?</div>
+            </div>
+            <div class="box_btm">
+                <div data-content="title">?</div>
+                <span data-content="content">?</span>
+            </div>
+            <div class="liner"></div>
+        </div>
+    </div>
+</div>
 
 
     <!-- 템플릿이 들어갈 컨테이너 생성 -->
     <div id="posts-container">
 
-        <table>
-            <tr><th>글번호</th><th id=""></th></tr>
-            <tr id="bbs_title"><th>제목</th><th id="bbs_title"></th></tr>
-        </table>
-        <div id="bbs_content">
-
-        </div>
     </div>
 
 
