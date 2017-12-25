@@ -8,32 +8,58 @@ http://stackoverflow.com/questions/5603117/jquery-create-object-from-form-fields
     <meta charset="UTF-8">
     <title>폼 데이터를 JSON 형태로 변환</title>
     <style>
-        div { font-weight: bold; color:red; }
+    div { font-weight: bold; color:red; }
 
-        .profile { position: relative; z-index: 10; zoom: 1; border: 1px solid #dcdcdc; border-bottom: 0; height: 99px; _width: 298px }
-        .profile .user_area { background-color: #f3f4f3; border-bottom: 1px solid #dcdcdc; height: 54px; position: relative; z-index: 10 }
-        .profile .user_info { position: relative; padding: 8px 0 4px 58px; zoom: 1 }
-        .profile .user_thumbnail { position: absolute; left: 11px; top: 5px; width: 42px; height: 42px; overflow: hidden }
-        .profile .user_thumbnail img { width: auto; height: auto; max-width: 100%; max-height: 100% }
-        .profile .user_thumbnail .mask { width: 100%; height: 100%; position: absolute; left: 0; top: 0 }
+    .profile { position: relative; z-index: 10; zoom: 1; border: 1px solid #dcdcdc; border-bottom: 0; height: 99px; _width: 298px }
+    .profile .user_area { background-color: #f3f4f3; border-bottom: 1px solid #dcdcdc; height: 54px; position: relative; z-index: 10 }
+    .profile .user_info { position: relative; padding: 8px 0 4px 58px; zoom: 1 }
+    .profile .user_thumbnail { position: absolute; left: 11px; top: 5px; width: 42px; height: 42px; overflow: hidden }
+    .profile .user_thumbnail img { width: auto; height: auto; max-width: 100%; max-height: 100% }
+    .profile .user_thumbnail .mask { width: 100%; height: 100%; position: absolute; left: 0; top: 0 }
 
-        .profile .private { margin-bottom: 5px; line-height: 19px; white-space: nowrap; position: relative }
-        .profile .private .user_name { max-width: 90px; *width: 90px; vertical-align: middle; position: relative; overflow: hidden; box-sizing: content-box; margin-right: 6px }
-        .profile .private .user_name a { color: #2f3743; font-weight: bold }
-        .profile .private .user_name a:hover { text-decoration: none }
-        .profile .private .user_name a strong { max-width: 79px; *width: 79px; vertical-align: top; *vertical-align: middle }
-        .profile .private .user_name a:hover strong { text-decoration: underline }
-        .profile .private .login_on { width: 17px; height: 11px; margin: 4px 2px 0 0; overflow: hidden; background-position: -20px -340px; vertical-align: top }
-        .profile .private .link_myinfo { color: #848688; text-decoration: underline }
-        .profile .private .set_login_protect { width: 12px; height: 18px; background-position: -58px 4px; vertical-align: top; margin-left: -1px }
-        .profile .private .btn_logout { position: absolute; right: 12px; border: 1px solid #d1d1d1; color: #848688; height: 16px; overflow: hidden; vertical-align: top }
-        .profile .private .btn_logout .btn_inr { border: 1px solid #fff; border-right: 0; border-bottom: 0; background-color: #f6f7f8; padding: 0 4px 0; height: 15px; line-height: 15px; vertical-align: top; *line-height: 17px }
+    .profile .private { margin-bottom: 5px; line-height: 19px; white-space: nowrap; position: relative }
+    .profile .private .user_name { max-width: 90px; *width: 90px; vertical-align: middle; position: relative; overflow: hidden; box-sizing: content-box; margin-right: 6px }
+    .profile .private .user_name a { color: #2f3743; font-weight: bold }
+    .profile .private .user_name a:hover { text-decoration: none }
+    .profile .private .user_name a strong { max-width: 79px; *width: 79px; vertical-align: top; *vertical-align: middle }
+    .profile .private .user_name a:hover strong { text-decoration: underline }
+    .profile .private .login_on { width: 17px; height: 11px; margin: 4px 2px 0 0; overflow: hidden; background-position: -20px -340px; vertical-align: top }
+    .profile .private .link_myinfo { color: #848688; text-decoration: underline }
+    .profile .private .set_login_protect { width: 12px; height: 18px; background-position: -58px 4px; vertical-align: top; margin-left: -1px }
+    .profile .private .btn_logout { position: absolute; right: 12px; border: 1px solid #d1d1d1; color: #848688; height: 16px; overflow: hidden; vertical-align: top }
+    .profile .private .btn_logout .btn_inr { border: 1px solid #fff; border-right: 0; border-bottom: 0; background-color: #f6f7f8; padding: 0 4px 0; height: 15px; line-height: 15px; vertical-align: top; *line-height: 17px }
 
-        .bar { width: 1px; height: 16px; background-position: 100% -18px; vertical-align: top; overflow: hidden }
+    .bar { width: 1px; height: 16px; background-position: 100% -18px; vertical-align: top; overflow: hidden }
 
-    </style>
-    
-    
+</style>
+<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.login').hide();
+        $('.profile').show();
+
+        $.ajax({
+            url: 'http://localhost:3000/login',
+            type: 'get',
+            dataType: 'json',
+            data: null,
+            setTimeout : 30000,
+            beforeSend : function() {
+                $('#loading').html('<img src="loading.gif"/>');
+            }
+        })
+        .done(function(data, textStatus, xhr) {
+            $('#user_name').text(data.username);
+        })
+        .fail(function(xhr, textStatus, error) {
+            console.log("error");
+        })
+        .always(function(data, textStatus, xhr) {
+            $('#loading').html('');
+        });
+
+    });
+</script>
 </head>
 <body>
 
@@ -73,6 +99,9 @@ http://stackoverflow.com/questions/5603117/jquery-create-object-from-form-fields
     <div id="result"></div>
 </body>
 </html>
+
+
+
 
 
 

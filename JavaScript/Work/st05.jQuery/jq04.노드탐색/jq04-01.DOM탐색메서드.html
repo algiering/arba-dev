@@ -9,8 +9,43 @@
         .after { background: pink }
         .selected {border: 4px blue solid !important; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.parents').click(function(event) {
+                $('#center').parents().css('border', '2px blue dotted');
+            });
+            $('.parent').click(function(event) {
+                $('#center').parent().css('border','2px blue dotted');
+            });
+            $('.first').click(function(event) {
+                $('#center').parent().children().first().css('border','2px blue dotted');
+            });
+            $('.prevAll').click(function(event) {
+                $('#center').prevAll().css('border','2px blue dotted');
+            });
+            $('.prev').click(function(event) {
+                $('#center').prev().css('border','2px blue dotted');
+            });
+            $('.next').click(function(event) {
+                $('#center').next().css('border','2px blue dotted');
+            });
+            $('.nextAll').click(function(event) {
+                $('#center').nextAll().css('border','2px blue dotted');
+            });
+            $('.last').click(function(event) {
+                $('#center').parent().children().last().css('border','2px blue dotted');
+            });
+            $('.siblings').click(function(event) {
+                $('#center').siblings().css('border','2px blue dotted');;
+            });
+            $('.children').click(function(event) {
+                $('#center').children().css('border','2px blue dotted');
+            });
+        });
+
+    </script>
+
 </head>
 <body>
     <p>부모, 형제, 자식 노드</p>
@@ -59,6 +94,9 @@
     <div id="result">&nbsp;</div>
 </body>
 </html>
+
+
+
 
 
 

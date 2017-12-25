@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.compoundwidget.MainActivity">
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    
+            <CheckBox
+                android:id="@+id/chkAnd"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="안드로이드"/>
+    
+            <CheckBox
+                android:id="@+id/chkIos"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="아이폰"/>
+    
+            <CheckBox
+                android:id="@+id/chkWin"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="윈도우"/>
+    
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:gravity="right"
+                android:text="Switch"/>
+    
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Button"/>
+    
+            <RadioGroup
+                android:id="@+id/radioG1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                >
+    
+                <RadioButton
+                    android:id="@+id/g1H"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="가로"/>
+    
+                <RadioButton
+                    android:id="@+id/g1V"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="세로"/>
+
+            </RadioGroup>
+    
+            <RadioGroup
+                android:id="@+id/radioG2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1">
+    
+                <RadioButton
+                    android:id="@+id/g2L"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="왼쪽"
+                    />
+    
+                <RadioButton
+                    android:id="@+id/g2C"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="가운데"/>
+    
+                <RadioButton
+                    android:id="@+id/g2R"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="오른쪽"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FourButton</string>
+    <string name="onNate">네이트 홈페이지 열기</string>
+    <string name="onNateMsg">네이트로 연결합니다</string>
+    <string name="on911">911 응급전화 걸기</string>
+    <string name="on911Msg">911에 연결합니다</string>
+    <string name="onGallary">갤러리 열기</string>
+    <string name="onGallaryMsg">갤러리로 연결합니다</string>
+    <string name="exit">끝내기</string>
+    <string name="exitMsg">종료합니다</string>
+</resources>

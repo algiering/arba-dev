@@ -3,19 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        button { cursor: pointer;}
-        p { cursor: pointer; width: 500px; }
-        p:hover { background: #c1ceff; }
-        div     { width: 500px; background: yellow; padding-bottom: 5px; }
-        hr      { width: 500px; float: left; }
-        ul      { width: 300px; }
-        .yellow { background: yellow; }
-        .red    { background: red;    }
-        .white  { background: white; cursor:pointer; }
-        .gray   { background: gray;   }
-    </style>
-    
-    
+    button { cursor: pointer;}
+    p { cursor: pointer; width: 500px; }
+    p:hover { background: #c1ceff; }
+    div     { width: 500px; background: yellow; padding-bottom: 5px; }
+    hr      { width: 500px; float: left; }
+    ul      { width: 300px; }
+    .yellow { background: yellow; }
+    .red    { background: red;    }
+    .white  { background: white; cursor:pointer; }
+    .gray   { background: gray;   }
+</style>
+<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#element_read').click(function(event) {
+            alert($('.pclick').html());
+        });
+        $('#element_create').click(function(event) {
+            $('#result_element').html('<img src="images/fish.png"/>');
+
+        });
+        $('#element_update').click(function(event) {
+            $('#result_element').html($('.pclick').html());
+        });
+        $('#element_delete').click(function(event) {
+            //$('#result_element').html("");
+            $('#result_element').remove();
+        });
+        $('.text_read').click(function(event) {
+            alert($(this).text());
+        });
+        $('.text_create').click(function(event) {
+            $(this).text($(this).text()+'> 추가');
+        });
+
+        $('.text_update').click(function(event) {
+            $(this).text($('.pclick').text());
+        });
+        $('.text_delete').click(function(event) {
+            $(this).text("");
+            //$('.text_delete').remove();
+        });
+    });
+</script>
+
 </head>
 <body>
     <p class="pclick">
@@ -44,6 +76,9 @@
     </div>
 </body>
 </html>
+
+
+
 
 
 

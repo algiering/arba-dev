@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appPadding="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              appPadding:layout_width="match_parent"
+              appPadding:layout_height="wrap_content"
+              appPadding:layout_marginLeft="20dp"
+              appPadding:layout_marginRight="20dp"
+              appPadding:layout_marginTop="20dp"
+              appPadding:orientation="vertical">
+    
+    <TextView
+        appPadding:id="@+id/textView"
+        appPadding:layout_width="wrap_content"
+        appPadding:layout_height="wrap_content"
+        appPadding:layout_weight="1"
+        appPadding:padding="10dp"
+        appPadding:text="아래에 이름을 입력:"/>
+    
+    <EditText
+        appPadding:layout_width="wrap_content"
+        appPadding:layout_height="wrap_content"
+        appPadding:layout_weight="1"
+        appPadding:ems="10"
+        appPadding:hint="여기에 채우세요"
+        appPadding:inputType="textPersonName"
+        appPadding:padding="10dp"
+        appPadding:selectAllOnFocus="false"
+        />
+    
+    <Button
+        appPadding:layout_width="match_parent"
+        appPadding:layout_height="wrap_content"
+        appPadding:layout_weight="1"
+        appPadding:padding="10dp"
+        appPadding:text="확인"/>
+</LinearLayout>

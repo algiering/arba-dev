@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>sample2</title>
     <style>
-        *{ margin:0; padding:0; list-style-type:none; }
-        #container{ margin:100px auto; width:537px; }
-        ul.menu li{ float:left; width:179px; height:48px; position:relative;
+    *{ margin:0; padding:0; list-style-type:none; }
+    #container{ margin:100px auto; width:537px; }
+    ul.menu li{ float:left; width:179px; height:48px; position:relative;
         background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALMAAAAwCAYAAABaMEuFAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNAay06AAAAAWdEVYdENyZWF0aW9uIFRpbWUAMTEvMTAvMDkwvH1eAAADj0lEQVR4nO3dz24TVxTH8e9MrGCHjG0Y2xQk7JQNVV+AFS/QFUv6TDwGXSIh9t33HVighLi08Z+QxAlJq9Lp4s4dzx2PwZZKfAd+R8rmo3OiRDpzcv+MleDpszsJCsVXEDWAnx49cXC3HnN+NZXJKmG/vHzB7Xs108wAv71+DkAc7TGd7TtFMpnf1gDSyZwk5qsT7TE5c4tksioYYCdzQCf6nslsHwjcIpnMc7NRA9i90WFc0v0yWRXsDX8CEAKcX00WEiazxSKZzGcza2YgSYI0YcD47AB3tMtk/ltILjrRgMnsAJmsaga5ZvbpB5PJ1jEbuQ3gW3z4UyGTrWv7/AFkG0D3ZsWnp04mW9VyG8B5gul+t0gm892ySxNzcWI73R3jMpnvBrnr7Lis+5symf9mIwSIGjGTkiKZrApmowYw+zDNLk1swvi0MNplMm/NrJadSxOb4NNTJ5Otas5pxrzT3aKD4SE7kWtleTLZpgzyr4A299JOd8f45OyA96MtPswCWnHC3W5/aZ5MtgmzYW4A6/FCp3cL3f/XZcBoGHAxOyS6BWFYnieTXbf9zhBI18yzy+li0ZLjj4vTgPFwi6uLoDRPJtuUOZcmbsLiGLfx8R84Pgo5Px1yqxewVSt+83mtTHZdZtow/QxgtzlgVDLG33FIWfx9BUdvQ3bbCQ8G/dJamew6DHKnGZ1oL00ISoqWT2mAnRttRqfuW3dltTLZlzAb2Q3gKmuUYmzX4eEP9wgbJ5+tlcm+lNkwN4BrbAABghBanYT73/n1S8m+VTNTOl0zB9l19ueWFjsR7Lah115tWSKTXZc519mfGuPbdYjvQnQbeu1NP4kymWvgbACX7xqbMdRvGvtUnky2qZMMSJs5qscUPwPYbfYzs42ct7I8mWwTNsI0dw3g7HKafWwKoNvqp0dtMll1bOEV0G6rz7ikSCbz3ZzTjG6rz+ikMMZlMu/NLCvCfIIvT5hMto7ZMK+ANuK0090imawKNmEfyG4AjymO8XHxXQuZzFszkS0zliXIZFWx3CugAb1sjM+7XyargkFuMvdai+d4MlkVzIa5AWzEHJ0sFslkVbDjd2+A7AbQ3QDOu18mq4KZcP51mk3w6amTyVa1sJjgyzpIJlvHIHea0W0O0k53x7hM5rvZCAGindibJ0wmW9dsBE+f3Uke//gzr359jkJRxWj2tqnV/jXNvOkfRqH4P+I/8ZrMifG07MoAAAAASUVORK5CYII='); }
 
         * html ul.menu li{ display:inline; zoom:1; }
@@ -22,71 +22,78 @@
         ul.menu{ zoom:1; }
         ul.menu:after { height:0; visibility:hidden; content:"."; display:block; clear:both; }
     </style>
-
-
-    
-    
-
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('ul li').on({
+                'mouseover':function(event) {$(this).children('ul').show();},
+                'mouseout':function(event) {$(this).children('ul').hide();}
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="container">
-    <ul class="menu">
-        <li><a href="#">메뉴A</a>
-            <ul class="sub">
-                <li>
-                    <a href="#">서브메뉴A</a>
-                    <ul class="sub">
-                        <li><a href="#">서브메뉴A0</a></li>
-                        <li><a href="#">서브메뉴A0</a></li>
-                        <li><a href="#">서브메뉴A0</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">서브메뉴A</a></li>
-                <li><a href="#">서브메뉴A</a>
-                    <ul class="sub">
-                        <li><a href="#">서브메뉴A2</a></li>
-                        <li><a href="#">서브메뉴A2</a></li>
-                        <li><a href="#">서브메뉴A2</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li><a href="#">메뉴B</a>
-            <ul class="sub">
-                <li><a href="#">서브메뉴B</a></li>
-                <li><a href="#">서브메뉴B</a>
-                    <ul class="sub">
-                        <li><a href="#">서브메뉴B2</a></li>
-                        <li><a href="#">서브메뉴B2</a></li>
-                        <li><a href="#">서브메뉴B2</a>
-                            <ul class="sub">
-                                <li><a href="#">서브메뉴B3</a></li>
-                                <li><a href="#">서브메뉴B3</a></li>
-                                <li><a href="#">서브메뉴B3</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#">서브메뉴B</a></li>
-            </ul>
-        </li>
-        <li><a href="#">메뉴C</a>
-            <ul class="sub">
-                <li><a href="#">서브메뉴B</a>
-                    <ul class="sub">
-                        <li><a href="#">서브메뉴C2</a></li>
-                        <li><a href="#">서브메뉴C2</a></li>
-                        <li><a href="#">서브메뉴C2</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">서브메뉴B</a></li>
-                <li><a href="#">서브메뉴B</a></li>
-            </ul>
-        </li>
-    </ul>
+        <ul class="menu">
+            <li><a href="#">메뉴A</a>
+                <ul class="sub">
+                    <li>
+                        <a href="#">서브메뉴A</a>
+                        <ul class="sub">
+                            <li><a href="#">서브메뉴A0</a></li>
+                            <li><a href="#">서브메뉴A0</a></li>
+                            <li><a href="#">서브메뉴A0</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">서브메뉴A</a></li>
+                    <li><a href="#">서브메뉴A</a>
+                        <ul class="sub">
+                            <li><a href="#">서브메뉴A2</a></li>
+                            <li><a href="#">서브메뉴A2</a></li>
+                            <li><a href="#">서브메뉴A2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">메뉴B</a>
+                <ul class="sub">
+                    <li><a href="#">서브메뉴B</a></li>
+                    <li><a href="#">서브메뉴B</a>
+                        <ul class="sub">
+                            <li><a href="#">서브메뉴B2</a></li>
+                            <li><a href="#">서브메뉴B2</a></li>
+                            <li><a href="#">서브메뉴B2</a>
+                                <ul class="sub">
+                                    <li><a href="#">서브메뉴B3</a></li>
+                                    <li><a href="#">서브메뉴B3</a></li>
+                                    <li><a href="#">서브메뉴B3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">서브메뉴B</a></li>
+                </ul>
+            </li>
+            <li><a href="#">메뉴C</a>
+                <ul class="sub">
+                    <li><a href="#">서브메뉴B</a>
+                        <ul class="sub">
+                            <li><a href="#">서브메뉴C2</a></li>
+                            <li><a href="#">서브메뉴C2</a></li>
+                            <li><a href="#">서브메뉴C2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">서브메뉴B</a></li>
+                    <li><a href="#">서브메뉴B</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </body>
 </html>
+
+
+
 
 
 

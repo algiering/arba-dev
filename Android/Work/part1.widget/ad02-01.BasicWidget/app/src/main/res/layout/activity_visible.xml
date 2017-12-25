@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appVisible="http://schemas.android.com/apk/res/android"
+              appVisible:layout_width="match_parent"
+              appVisible:layout_height="wrap_content"
+              appVisible:orientation="vertical">
+    
+    <Button
+        appVisible:id="@+id/button1"
+        appVisible:layout_width="match_parent"
+        appVisible:layout_height="wrap_content"
+        appVisible:layout_weight="1"
+        appVisible:text="버튼1"/>
+    
+    <Button
+        appVisible:id="@+id/button2"
+        appVisible:layout_width="match_parent"
+        appVisible:layout_height="wrap_content"
+        appVisible:layout_weight="1"
+        appVisible:text="버튼2"
+        appVisible:visibility="invisible"/>
+    
+    <Button
+        appVisible:id="@+id/button3"
+        appVisible:layout_width="match_parent"
+        appVisible:layout_height="wrap_content"
+        appVisible:layout_weight="1"
+        appVisible:text="버튼3"
+        appVisible:enabled="false"
+        />
+    
+    <Button
+        appVisible:id="@+id/button4"
+        appVisible:layout_width="match_parent"
+        appVisible:layout_height="wrap_content"
+        appVisible:layout_weight="1"
+        appVisible:text="버튼4"
+        appVisible:visibility="gone"/>
+    
+    <Button
+        appVisible:id="@+id/button5"
+        appVisible:layout_width="match_parent"
+        appVisible:layout_height="wrap_content"
+        appVisible:layout_weight="1"
+        appVisible:text="버튼5"/>
+</LinearLayout>

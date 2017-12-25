@@ -5,8 +5,22 @@
     <style>
         div { background : #FFF; padding:10px; margin:10px; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#filter').click(function(event) {
+                $('div>ul>li').filter(':gt(1)').css('background-color', 'red');
+            });
+            $('#children').click(function(event) {
+                var lis = $('div>ul');
+                $(lis).children('li').css('border', '1px solid red');
+            });
+            $('#find').click(function(event) {
+                var lis = $('div>ul');
+                $(lis).find('li').css('border', '1px solid blue');
+            });
+        });
+    </script>
 </head>
 <body>
     <div>
@@ -28,6 +42,9 @@
     <input id="find"     type="button" value="find를이용하는방법">
 </body>
 </html>
+
+
+
 
 
 

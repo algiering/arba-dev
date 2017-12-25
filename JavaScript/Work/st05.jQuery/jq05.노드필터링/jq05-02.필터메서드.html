@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        table { border:1px solid #AAA; }
-        td { border:1px solid #AAA; width:25px; height:25px; }
-        div { background : #FFF; margin:5px; width:100%; }
-    </style>
-    
-    
+    table { border:1px solid #AAA; }
+    td { border:1px solid #AAA; width:25px; height:25px; }
+    div { background : #FFF; margin:5px; width:100%; }
+</style>
+<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#selector').click(function(event) {
+            $('ul:eq(1)').css('background-color', 'red');
+        });
+        $('#method').click(function(event) {
+            $('ul').eq(1).css('background-color', 'red');
+        });
+        $('#eq2').click(function(event) {
+            $('ul:eq(0)>li:eq(2)').css('background-color', 'gray');
+        });
+        $('#eq2method').click(function(event) {
+            $('ul').children('li:eq(2)').css('background-color', 'gray');
+        });
+        $('#first').click(function(event) {
+            $('ul:eq(0)>li:first()').css('background-color', 'gray');
+        });
+        $('#firstmethod').click(function(event) {
+            $('ul').children('li:first()').css('background-color', 'gray');
+        });
+        $('#last').click(function(event) {
+            $('ul:eq(0)>li:last()').css('background-color', 'gray');
+        });
+        $('#lastmethod').click(function(event) {
+            $('ul').eq(0).children('li:last()').css('background-color', 'gray');
+        });
+    });
+</script>
+
 </head>
 <body>
     <div>
@@ -28,7 +56,7 @@
     <hr>
     <input id="selector" type="button" value="셀렉터를이용하는방법">
     <input id="method"   type="button" value="재검색을이용하는방법">
-	<hr>
+    <hr>
     <input id="eq2"         type="button" value="eq(2)">
     <input id="eq2method"   type="button" value="eq(2) 재검색">
     <hr>
@@ -40,6 +68,9 @@
     <hr>
 </body>
 </html>
+
+
+
 
 
 

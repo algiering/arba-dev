@@ -6,10 +6,17 @@
     <style>
         div { width: 180px;  height: 80px; margin: 3px;  float: left; }
     </style>
-    
-    
-
-
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#menu1').click(function(event) {
+                $('#message1').load('item.html');
+            });
+            $('#menu2').click(function(event) {
+                $('#message2').load('item.html ul');
+            });
+        });
+    </script>
 </head>
 <body>
 <div>
@@ -22,6 +29,9 @@
 </div>
 </body>
 </html>
+
+
+
 
 
 

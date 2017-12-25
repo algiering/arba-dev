@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    * {
+        font-family: 'Nanum Gothic', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        height: 50px;
+        background-color: #0ec838;
+    }
+    footer {
+        height: 50px;
+        background-color: #f1f1f1;
+    }
+    header ul {
+        float: right;
+    }
+    header li {
+        padding: 5px 10px 5px 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        display: inline-block;
+        outline: 1px white solid;
+        color: white;
+        font-weight: bold;
+    }
+    hr {
+        margin: 7px 0px 7px 0px;
+        border: 1px #f1f1f1 solid;
+    }
+
+    #contents {
+        margin: 0px 5px 0px 5px;
+
+    }
+
+    p {
+        text-align: center;
+    }
+
+    input {
+        background-color: #0ec838;
+        border: none;
+        width: 150px;
+        height: 15px;
+        padding: 10px;
+        margin: 3px 2px 3px 2px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    table {
+        text-align: center;
+        margin: auto;
+    }
+
+    #login_title {
+        padding: 8px 10px 0px 10px;
+        background-color: #0ec838;
+        color: white;
+        height: 27px;
+        font-weight: bold;
+    }
+
+    #loginbtn {
+        height: 50px;
+        font-size: 20px;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    #login_google {
+        padding: 6px 10px 0px 10px;
+        background-color: #c40000;
+        color: white;
+        height: 27px;
+        width: 200px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    #login_img {
+        width: 35px;
+        vertical-align: middle;
+    }
+    #login_naver {
+        padding: 6px 10px 0px 10px;
+        background-color: #0ec838;
+        color: white;
+        height: 27px;
+        width: 200px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    #login_facebook {
+        padding: 6px 10px 0px 10px;
+        background-color: #0044b2;
+        color: white;
+        height: 27px;
+        width: 200px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    #row1 {
+        width: 20px;
+    }
+
+    #blank {
+        height: 20px;
+    }
+    #header_icon {
+        margin: 9px 0px 0px 10px;
+        float: left;
+        width: 30px;
+    }
+</style>
+
+</script>
+</head>
+<body>
+    <header>
+        <div>
+            <img id="header_icon" src="img/ic_view_headline_white_24px.svg">
+            <ul>
+                <li>회원가입</li>
+                <li>로그인</li>
+            </ul>
+        </div>
+    </header>
+    <hr>
+    <div>
+        <div id="blank">
+        </div>
+        <div id="contents">
+            <form>
+                <table>
+                    <tr><td><p id="login_title">아이디</p></td><td><input type="text" name=""></td></tr>
+                    <tr><td><p id="login_title">비밀번호</p><td><input type="password" name=""></td></tr>
+                </table>
+                <br>
+                <p><input id="loginbtn" type="submit" value="로그인"></p>
+            </form>
+        </div>
+        <div id="blank">
+        </div>
+    </div>
+    <hr>
+    <div>
+        <div id="blank">
+        </div>
+        <table>
+            <tr><td><img id="login_img" src="img/img_google.png"/></td><td><p id="login_google">구글 로그인</p></td></tr>
+            <tr><td><img id="login_img" src="img/img_naver.png"/></td><td><p id="login_naver">네이버 로그인</p></td></tr>
+            <tr><td><img id="login_img" src="img/img_facebook.png"/></td><td><p id="login_facebook">페이스북 로그인</p></td></tr>
+        </table>
+        <div id="blank">
+        </div>
+    </div>
+    <hr>
+    <footer>
+
+    </footer>
+</body>
+</html>

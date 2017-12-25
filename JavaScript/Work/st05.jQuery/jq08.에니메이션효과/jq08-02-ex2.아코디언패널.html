@@ -4,27 +4,41 @@
     <meta charset="UTF-8">
     <title>sample3</title>
     <style>
-        body{ background:#252422; }
-        div{ width:800px; height:300px; margin:50px auto; overflow:hidden; }
-        dl{ width:900px; height:300px; }
-        dt{ width:35px; height:300px; float:left; }
-        dt span{ display:block; width:100%; height:100%; text-indent:-9999px; }
-        dt span.over{ cursor:pointer; }
-        dt span.selected{ cursor:default; }
-        dt#step1 span{ background:url("images/background-1.jpg"); }
-        dt#step1 span.over{ background:url("images/background-1-over.jpg"); }
-        dt#step1 span.selected{ background:url("images/background-1-selected.jpg"); }
-        dt#step2 span{ background:url("images/background-2.jpg"); }
-        dt#step2 span.over{ background:url("images/background-2-over.jpg"); }
-        dt#step2 span.selected{ background:url("images/background-2-selected.jpg"); }
-        dt#step3 span{ background:url("images/background-3.jpg"); }
-        dt#step3 span.over{ background:url("images/background-3-over.jpg"); }
-        dt#step3 span.selected{ background:url("images/background-3-selected.jpg"); }
-        dd{ margin:0; width:695px; height:300px; float:left; background:#D4D0C8; overflow:hidden; }
-        dd  p{ width:655px; text-indent:1em; padding:20px; }
-    </style>
-    
-	
+    body{ background:#252422; }
+    div{ width:800px; height:300px; margin:50px auto; overflow:hidden; }
+    dl{ width:900px; height:300px; }
+    dt{ width:35px; height:300px; float:left; }
+    dt span{ display:block; width:100%; height:100%; text-indent:-9999px; }
+    dt span.over{ cursor:pointer; }
+    dt span.selected{ cursor:default; }
+    dt#step1 span{ background:url("images/background-1.jpg"); }
+    dt#step1 span.over{ background:url("images/background-1-over.jpg"); }
+    dt#step1 span.selected{ background:url("images/background-1-selected.jpg"); }
+    dt#step2 span{ background:url("images/background-2.jpg"); }
+    dt#step2 span.over{ background:url("images/background-2-over.jpg"); }
+    dt#step2 span.selected{ background:url("images/background-2-selected.jpg"); }
+    dt#step3 span{ background:url("images/background-3.jpg"); }
+    dt#step3 span.over{ background:url("images/background-3-over.jpg"); }
+    dt#step3 span.selected{ background:url("images/background-3-selected.jpg"); }
+    dd{ margin:0; width:695px; height:300px; float:left; background:#D4D0C8; overflow:hidden; }
+    dd  p{ width:655px; text-indent:1em; padding:20px; }
+</style>
+<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('dd:gt(0)').width(0);
+        $('dt:first span').addClass('selected')
+
+        $('dt').click(function(event) {
+            if($(this).children('span').hasClass('selected')==false) {
+                $('.selected').parent().next('dd').animate({width:0});
+                $(this).next('dd').animate({width:695})
+                $('.selected').removeClass('selected');
+                $(this).children('span').addClass('selected');
+            }
+        });
+        });
+    </script>
 </head>
 <body>
     <div>
@@ -39,6 +53,9 @@
     </div>
 </body>
 </html>
+
+
+
 
 
 

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    p {
+    }
+    div {
+        width: 700px;
+    }
+    #subTitle {
+        margin-left: 20px;
+        font-weight: bold;
+    }
+    label {
+        display: inline-block;
+        float: left;
+        width: 140px;
+    }
+    #title {
+        font-size: 30px;
+        font-weight: bold;
+        width: 100%;
+    }
+    #pass {
+        width: 100px;
+        margin-left: 160px;
+    }
+    #mailyn, #telradio, #ml {
+        margin-left: 160px;
+    }
+    #mlID {
+        margin-left: 160px;
+        line-height: 0em;
+        margin-top: -8px;
+    }
+    #nameInput {
+        width: 140px;
+    }
+    #rrnInput {
+        width: 80px;
+    }
+    #idInput {
+        width: 80px;
+    }
+    #iddInput {
+        width: 100px;
+    }
+    #passInput {
+        width: 120px;
+    }
+    #yearInput {
+        width: 60px;
+    }
+    #telInput {
+        width: 40px;
+    }
+    #mailInput {
+        width: 160px;
+    }
+    hr {
+        position: absolute;
+        height: 554px;
+        width: 0px;
+        border-right: 0px;
+        top: 46px;
+        left: 165px;
+    }
+    #container {
+        border: 1px black solid;
+    }
+</style>
+</head>
+<body>
+    <div>
+
+        <fieldset>
+            <legend><label id="title">기본 정보 입력</label></legend>
+            <div id="container">
+
+                <p>
+                    <p id="subTitle"><label>이름</label></p>
+                    <p id="ml"><input type="text" id="nameInput"></p>
+                </p>
+                <p>
+                    <p id="subTitle"><label>주민번호</label></p>
+                    <p id="ml">
+                        <input type="text" id="rrnInput">-<input type="text" id="rrnInput">
+                    </p>
+                </p>
+                <p>
+                    <p id="subTitle"><label>아이디</label></p>
+                    <p id="ml">
+                        <input type="text" id="idInput">@naver.com<input type="button" value="중복체크"><br>
+                    </p>
+                    <p id="mlID">영문으로 시작하는 4~10자리의 영문, 숫자 조합만 가능합니다.</p>
+                </p>
+                <p>
+                    <p id="subTitle"><label>별명</label></p>
+                    <p id="ml"><input type="text" id="iddInput">
+                    </p>
+                </p>
+                <p>
+                    <p id="subTitle"><label>비밀번호</label></p>
+                    <p id="pass">
+                        <input type="password" id="passInput">
+                        <input type="password" id="passInput">
+                    </p>
+                </p>
+                <p>
+                    <p id="subTitle"><label>비밀번호 힌트</label></p>
+                    <p id="ml">
+                        <select>
+                            <option>다시 태어나면 되고 싶은 것은?</option>
+                        </select>
+                    </p>
+                </p>
+                <p>
+
+                    <p id="subTitle"><label>생년월일</label></p>
+                    <p id="ml">
+                        <input type="number" id="yearInput">
+                        <select>
+                            <option>01</option>
+                        </select>
+                        <select>
+                            <option>01</option>
+                        </select>
+                        <input type="radio" name="yy">양
+                        <input type="radio" name="yy">음
+                    </p>
+                </p>
+                <p>
+                    <p id="subTitle"><label>핸드폰</label></p>
+                    <p id="telradio">
+                        <select>
+                            <option>010</option>
+                        </select>
+                        <input type="text" id="telInput">-<input type="text" id="telInput">
+                        <input type="radio" name="telSelect">SKT
+                        <input type="radio" name="telSelect">KTF
+                        <input type="radio" name="telSelect">LGT
+                    </p>
+                </p>
+
+                <p>
+                    <p id="subTitle"><label>주로쓰는 메일</label></p>
+                    <p id="ml">
+                        <input type="text" id="mailInput"><input type="checkbox">네이버 메일 사용
+                    </p>
+                </p>
+                <p>
+                    <p id="subTitle"><label>거주지</label></p>
+                    <p>
+                        <select>
+                            <option>부산</option>
+                        </select>
+                    </p>
+                </p>
+                <p>
+                    <p id="subTitle"><label>메일 수신 여부</label></p>
+                    <p id="mailyn">
+                        <input type="checkbox">네이버 뉴스레터
+                        <br>
+                        <input type="checkbox">상품정보 메일
+                        <br>
+                        <input type="checkbox">캐쉬정보 메일
+                        <br>
+                        <input type="checkbox">게임정보 메일
+                        <br>
+                        <input type="checkbox">sms 정보 수신
+                    </p>
+                </p>
+                <hr>
+            </div>
+        </fieldset>
+
+    </div>
+</body>
+</html>

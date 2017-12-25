@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.basicwidget.RadioActivity">
+    
+    <LinearLayout xmlns:appRadio="http://schemas.android.com/apk/res/android"
+                  appRadio:layout_width="match_parent"
+                  appRadio:layout_height="match_parent"
+                  appRadio:orientation="vertical">
+    
+        <TextView
+            appRadio:layout_width="match_parent"
+            appRadio:layout_height="wrap_content"
+            appRadio:text="성별"/>
+    
+        <RadioGroup
+            appRadio:layout_width="match_parent"
+            appRadio:layout_height="wrap_content"
+            appRadio:orientation="horizontal">
+    
+            <RadioButton
+                appRadio:id="@+id/radioButton1"
+                appRadio:layout_width="wrap_content"
+                appRadio:layout_height="wrap_content"
+                appRadio:layout_weight="1"
+                appRadio:text="남자"/>
+    
+            <RadioButton
+                appRadio:id="@+id/radioButton2"
+                appRadio:layout_width="wrap_content"
+                appRadio:layout_height="wrap_content"
+                appRadio:layout_weight="1"
+                appRadio:text="여자"/>
+        </RadioGroup>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

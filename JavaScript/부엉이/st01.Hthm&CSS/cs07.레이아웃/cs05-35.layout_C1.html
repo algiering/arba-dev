@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>레이아웃 C1</title>
+    <style type="text/css">
+    #wrap1>div {
+        height: 50px;
+    }
+    #wrap2 {
+        display: flex;
+    }
+    #header {
+        background-color: lightgreen;
+    }
+    #leftbar {
+        background-color:  pink;
+        width: 20%;
+    }
+    #content {
+        background-color:  lightblue;
+        width: 60%;
+    }
+    #rightbar {
+        background-color:  pink;
+        width: 20%;
+    }
+    #footer {
+        background-color:  brown;
+    }
+
+</style>
+</head>
+
+<body>
+    <h1>레이아웃 C1</h1>
+
+    <div id="wrap1">
+        <div id="header">
+            header
+        </div>
+
+        <div id="wrap2">
+            <div id="leftbar">
+                leftbar
+            </div>
+
+            <div id="content">
+                content
+            </div>
+
+            <div id="rightbar">
+                rightbar
+            </div>
+        </div>
+
+        <div id="footer">
+            footer
+        </div>
+
+    </div>
+
+</body>
+
+</html>

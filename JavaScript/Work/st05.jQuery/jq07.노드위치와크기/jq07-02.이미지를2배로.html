@@ -1,19 +1,46 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
+<head>
     <meta charset="UTF-8">
     <title>이벤트 객체</title>
     <style>
-        img{  width: 140px; height: 120px; }
-    </style>
-    
-    
+    img{  width: 140px; height: 120px; }
+</style>
+<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('img').click(function(event) {
+            var x = $(this).width();
+            var y = $(this).height();
 
+            x = x * 2;
+            y = y * 2;
+
+            // $(this).width(x);
+            // $(this).height(y);
+
+            // $(this).css('width', x*2);
+            // $(this).css('height', y*2);
+
+            // $(this).css({width:x, height:y});
+
+            var obj = {
+                width: x,
+                height: y
+            }
+
+            $(this).css(obj);
+        });
+    });
+</script>
 </head>
 <body>
-   <img src="images/im1.jpg" />
+ <img src="images/im1.jpg" />
 </body>
 </html>
+
+
+
 
 
 

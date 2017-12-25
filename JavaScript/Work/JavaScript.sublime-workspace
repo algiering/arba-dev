@@ -1,0 +1,1279 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"t",
+				"td\tTag"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"onload",
+				"onload\t: EventHandler Document"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"console",
+				"console_log"
+			],
+			[
+				"align",
+				"align-items"
+			],
+			[
+				"al",
+				"align-items"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"padi",
+				"padding-bottom"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"ali",
+				"align-items"
+			],
+			[
+				"messag",
+				"message2"
+			],
+			[
+				"mes",
+				"message1"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"text-a",
+				"text-align"
+			],
+			[
+				"mouse",
+				"onmouseleave\t: EventHandler Document"
+			],
+			[
+				"remov",
+				"removeAttr\t.removeAttr()"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"cen",
+				"center_img"
+			],
+			[
+				"animat",
+				"animate\t.animate()"
+			],
+			[
+				"slide",
+				"slideToggle\t.slideToggle()"
+			],
+			[
+				"ch",
+				"children\t.children()"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"opac",
+				"opacity"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"algin",
+				"align-content"
+			],
+			[
+				"v",
+				"vertical-align"
+			],
+			[
+				"pading",
+				"padding-left"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"select",
+				"selectNode\t( node: Node ): void Range"
+			],
+			[
+				"eas",
+				"easing"
+			],
+			[
+				"scroll",
+				"scroll\t.scroll()"
+			],
+			[
+				"scro",
+				"scroll"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"wi",
+				"width\t.width()"
+			],
+			[
+				"tri",
+				"trigger\t.trigger()"
+			],
+			[
+				"offset",
+				"offset\t.offset()"
+			],
+			[
+				"outer",
+				"outerHeight\t.outerHeight()"
+			],
+			[
+				"add",
+				"addEventListener\t( type: DOMString, callback: EventListener, capture?: boolean ): void EventTarget"
+			],
+			[
+				"replac",
+				"replaceWith\t.replaceWith()"
+			],
+			[
+				"pre",
+				"prepend\t.prepend()"
+			],
+			[
+				"Date",
+				"Date\t(): Date Date"
+			],
+			[
+				"filter",
+				"filter\t.filter()"
+			],
+			[
+				"css",
+				"css\t.css() - single"
+			],
+			[
+				"cs",
+				"css\t.css() - single"
+			],
+			[
+				"he",
+				"header\tTag"
+			],
+			[
+				"cols",
+				"columnSpan\t = 'inherit' Style CSS"
+			],
+			[
+				"oncl",
+				"onclick\t: EventHandler Window"
+			],
+			[
+				"setT",
+				"setTimeout\t( handler: any, timeout?: long, arguments_..: any ): long Window"
+			],
+			[
+				"index",
+				"indexOf\t( searchElement: any, fromIndex?: int ): int Array"
+			],
+			[
+				"inde",
+				"indexOf\t( searchElement: any, fromIndex?: int ): int Array"
+			],
+			[
+				"class",
+				"classList\t: DOMTokenList Element"
+			],
+			[
+				"che",
+				"checked"
+			],
+			[
+				"tex",
+				"text()\td3.text()-snippet"
+			],
+			[
+				"prop",
+				"prop\t.prop() - single"
+			],
+			[
+				"val",
+				"val\t.val()"
+			],
+			[
+				"prop_",
+				"prop_update"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"st",
+				"style\tTag"
+			],
+			[
+				"icon",
+				"icon-links"
+			],
+			[
+				"href$",
+				"href$=\"ppt"
+			],
+			[
+				"unde",
+				"undefined\t: object Global"
+			],
+			[
+				"attr",
+				"attr\t.attr() - single"
+			],
+			[
+				"text",
+				"text()\td3.text()-snippet"
+			],
+			[
+				"result",
+				"result_element"
+			],
+			[
+				"cl",
+				"click\t.click()"
+			],
+			[
+				"chec",
+				"checked"
+			],
+			[
+				"la",
+				"largetext"
+			],
+			[
+				"simpl",
+				"simpletext1"
+			],
+			[
+				"italic",
+				"italictext"
+			],
+			[
+				"ita",
+				"italic"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"fontweght",
+				"fontWeight\t = 'bold' Style CSS"
+			],
+			[
+				"read",
+				"ready\t$(document).ready"
+			],
+			[
+				"scr",
+				"src\tAttr"
+			],
+			[
+				"rea",
+				"ready\t$(document).ready"
+			],
+			[
+				"getEl",
+				"getElementsByTagName\t( localName: DOMString ): HTMLCollection Document"
+			],
+			[
+				"getE",
+				"getElementById\t( elementId: DOMString ): Element Document"
+			],
+			[
+				"MYAPP",
+				"MYAPP.Cookie.js"
+			],
+			[
+				"getElemen",
+				"getElementById\t( elementId: DOMString ): Element Document"
+			],
+			[
+				"va",
+				"value\tAngularJS"
+			],
+			[
+				"spl",
+				"splice\t( start: int, deleteCount: int, items_..: any ): Array Array"
+			],
+			[
+				"sp",
+				"splice\t( start: int, deleteCount: int, items_..: any ): Array Array"
+			],
+			[
+				"bu",
+				"button1"
+			],
+			[
+				"getElement",
+				"getElementsByTagName\t( localName: DOMString ): HTMLCollection Element"
+			],
+			[
+				"me",
+				"meta\tTag"
+			],
+			[
+				"inpu",
+				"inputTopSubmit"
+			],
+			[
+				"close",
+				"close\t(): void Window"
+			],
+			[
+				"confi",
+				"confirm\t( message?: DOMString ): boolean Window"
+			],
+			[
+				"ale",
+				"alert"
+			],
+			[
+				"getele",
+				"getElementById\t( elementId: DOMString ): Element Document"
+			],
+			[
+				"ta",
+				"table-cell"
+			],
+			[
+				"onloa",
+				"onload\t: EventHandler Document"
+			],
+			[
+				"getMi",
+				"getMinutes\t(): int Date"
+			],
+			[
+				"input",
+				"input\tTag"
+			],
+			[
+				"repl",
+				"replace\t( searchValue: string, replaceValue: string ): string String"
+			],
+			[
+				"Array",
+				"Array\t( size: int ): Array Array"
+			],
+			[
+				"nicn",
+				"nickname"
+			],
+			[
+				"com",
+				"compNumber"
+			],
+			[
+				"sort",
+				"sort()\td3-selection.sort()"
+			],
+			[
+				"prompt",
+				"prompt"
+			],
+			[
+				"le",
+				"length\t: unsigned long FileList"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"quot",
+				"quotient"
+			],
+			[
+				"min",
+				"minus2"
+			],
+			[
+				"arra",
+				"array3"
+			],
+			[
+				"arr",
+				"array2"
+			],
+			[
+				"conf",
+				"confirm\t( message?: DOMString ): boolean Window"
+			],
+			[
+				"sc",
+				"script\tTag"
+			],
+			[
+				"do",
+				"document"
+			],
+			[
+				"Mo",
+				"OpMonth"
+			],
+			[
+				"doc",
+				"document\t: Document Window"
+			],
+			[
+				"butt",
+				"button\tTag"
+			],
+			[
+				"douc",
+				"document\t: Document Window"
+			],
+			[
+				"fo",
+				"footer\tTag"
+			],
+			[
+				"border-co",
+				"border-collapse"
+			],
+			[
+				"wir",
+				"write\t( text_..: DOMString ): void Document"
+			],
+			[
+				"facto",
+				"factorial"
+			],
+			[
+				"fac",
+				"factorial"
+			],
+			[
+				"scrip",
+				"script\tTag"
+			],
+			[
+				"sec",
+				"select\tTag"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"b",
+				"block"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "MyWork/Test/Main/main.html",
+			"settings":
+			{
+				"buffer_size": 1333,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MyWork/Test/Main/afterLogin.html",
+			"settings":
+			{
+				"buffer_size": 3801,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MyWork/Test/Main/main-index.html",
+			"settings":
+			{
+				"buffer_size": 2005,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Ins",
+				"Package Control: Install Package"
+			],
+			[
+				"view",
+				"View In Browser"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"sidebar",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"install pa",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			]
+		],
+		"width": 624.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/workspace/Lecture/JavaScript/Work",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/img",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/temp",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3"
+	],
+	"file_history":
+	[
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/main-index",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-mi-03.ajax와무한스크롤.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/ajax_코드틀.txt",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/item.json",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-mi-01.ajax와로그인.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-12.무한스크롤.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/server.js",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-02.ajax.1.8.gt.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-01.load.html",
+		"/D/workspace/Lecture/JavaScript/Work/st00.docs/html동영상시청목록.html",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/afterLogin.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/main.js",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/index.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq41.프로젝트/ex03.모바일웹/step3/header.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq09.이벤트바인딩/jq09-13.동적이벤트등록.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq09.이벤트바인딩/jq09-11.단축이벤트등록.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq09.이벤트바인딩/jq09-mi-02.jQuery드랍메뉴.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq09.이벤트바인딩/jq09-mi-01.CSS드랍메뉴.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq09.이벤트바인딩/jq09-01.event.target.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-02-ex1.아코디언패널.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-02.슬라이딩FAQ.html",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/main.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-02-ex2.아코디언패널.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq08.에니메이션효과/jq08-01.에니메이션효과.html",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/img/afterLogin.html",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/jquery-3.2.1.js",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-01.offset.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-02.이미지를2배로.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-03.outerWidth-outerHeight.2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-11.스크롤.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-01-ex1-동적메뉴만들기.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq06.노드조작/jq06-01.dom_manipulation.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq05.노드필터링/jq05-02.필터메서드.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq05.노드필터링/jq05-03.노드재검색.html",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/test.html",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Main.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq04.노드탐색/jq04-mi-01.탭메뉴아이템.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq05.노드필터링/jq05-01.필터셀렉터.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq04.노드탐색/jq04-02.DOM셀렉터.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-03.input태그설정.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-03-ex1.폼유효성검사.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq04.노드탐색/jq04-01.DOM탐색메서드.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq04.노드탐색/jq04-02-ex1.DOM셀렉터.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-02-ex1.이미지조작.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-02-ex2.링크아이콘달기.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/images/im1.jpg",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/images/presentation.png",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/testmybatis.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-02.attribute설정.html",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/test2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/images/video.png",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/images/im5.jpg",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq02.노드찾기/jq02-03.폼셀렉터.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정/jq03-01.element설정.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq01.jQuery개요/jq01-03.jquery페이지로딩순서.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq01.jQuery개요/jq01-12.jquery로테이블행색깔반복.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq02.노드찾기/jq02-01.기본셀렉터.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq02.노드찾기/jq02-02.속성셀렉터.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq02.노드찾기/jq02-02-ex1.Attribute셀렉터.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq01.jQuery개요/jq01-02.jquery임포트.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq01.jQuery개요/ex01-1.class변경하기.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js22.DOM/js22-01.element_vs_attribute.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/MYAPP.Cookie.js",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-32.쿠키팝업창.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js22.DOM/ex22-1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js22.DOM/jquery-3.2.1.min.js",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-31.쿠키예제.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-31.js",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/ex21-3.에니메이션.html",
+		"/C/DevTool/sublimetext/Data/Settings/SideBarEnhancements.json",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-22.location.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-11.폼유효성검사.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-21.location.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-04.window객체.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-05.setInterval.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-06.setTimeout.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/ex21-1.이벤트모델.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-02.이벤트모델.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js10.함수는값이다/js10-11.콜백함수.html",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/layout.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js21.브라우저객체/js21-01.페이지로딩순서.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js09.객체와프로토타입/js09-04.객체CRUD.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js09.객체와프로토타입/js09-05.객체열거.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js09.객체와프로토타입/js09-06.객체비교.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js09.객체와프로토타입/js09-07.기본형vs참조형.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js09.객체와프로토타입/js09-13.String객체.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js09.객체와프로토타입/js09-14.Boolean객체.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js09.객체와프로토타입/js09-02.객체선언.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js09.객체와프로토타입/js09-03.객체에무엇을담을수있나.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js09.객체와프로토타입/ex09-1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js09.객체와프로토타입/js09-01.객체생성.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js08.함수는블랙박스다/js08-12.함수유효범위.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js08.함수는블랙박스다/js08-13.함수유효범위.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js08.함수는블랙박스다/js08-17.ScopeChain.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js08.함수는블랙박스다/js08-11.함수유효범위.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js08.함수는블랙박스다/js08-09.함수의호출순서.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js08.함수는블랙박스다/js08-08.함수의리턴.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js08.함수는블랙박스다/js08-01.함수의선언.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js08.함수는블랙박스다/js08-05.숨겨진매개변수.arguments.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/js07-08.Array객체.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/ex07-1.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js08.함수는블랙박스다/ex08-1.산술연산.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/js07-01.배열의선언.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/js07-04.배열요소추가.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/js07-05.배열요소수정.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/js07-06.배열요소삭제.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-21.예외처리.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-01.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-17.forin.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js06.선택문_반복문_예외문/js06-18.forin.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js05.연산자/js05-02.몫__나머지.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js03.프로그래밍기초/js03-01.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js03.프로그래밍기초/js03-02.표준입출력.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js04.변수와타입/js04-01.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js04.변수와타입/js04-02.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js04.변수와타입/js04-04.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js05.연산자/js05-01.산술연산자.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js05.연산자/js05-03.대입연산자.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js05.연산자/js05-09.자동형변환.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js05.연산자/js05-10.강제형변환.html",
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js03.프로그래밍기초/js03-01.js",
+		"/D/workspace/Lecture/JavaScript/Work/st00.docs/st03.자바스크립트.요약.20160613.pdf",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/login.html",
+		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/registor.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/modify/index.html",
+		"/C/Users/Administrator/Desktop/modify/index.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/modify/registor2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/제출용/index.html"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+			"D:\\DevTool\\workspace\\Lecture\\JavaScript\\Source"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"login",
+			"alert(\"\")",
+			"hov",
+			"nno",
+			"div",
+			"sidebar",
+			"p",
+			"jquery-3.1.0.js",
+			"3.1.0",
+			"3.1.",
+			"3.1.0",
+			"\"",
+			"all",
+			"button",
+			"aaa"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"jquery-3.1.1.js",
+			"'",
+			"total"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "D:\\workspace\\Lecture\\JavaScript\\Work"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "MyWork/Test/Main/main.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1333,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1160,
+								1160
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1153,
+										1159
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										939,
+										945
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "MyWork/Test/Main/afterLogin.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3801,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								458,
+								458
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										485,
+										486
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										457,
+										458
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "MyWork/Test/Main/main-index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2005,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1003,
+								1003
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1991,
+										1995
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										998,
+										1002
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 716.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 261.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

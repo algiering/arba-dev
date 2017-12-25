@@ -3,19 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        button { cursor: pointer;}
-        p { cursor: pointer; width: 500px; }
-        p:hover { background: #c1ceff; }
-        div     { width: 500px; background: yellow; padding-bottom: 5px; }
-        hr      { width: 500px; float: left; }
-        ul      { width: 300px; }
-        .yellow { background: yellow; }
-        .red    { background: red;    }
-        .white  { background: white;  }
-        .gray   { background: gray;   }
-    </style>
-    
-    
+    button { cursor: pointer;}
+    p { cursor: pointer; width: 500px; }
+    p:hover { background: #c1ceff; }
+    div     { width: 500px; background: yellow; padding-bottom: 5px; }
+    hr      { width: 500px; float: left; }
+    ul      { width: 300px; }
+    .yellow { background: yellow; }
+    .red    { background: red;    }
+    .white  { background: white;  }
+    .gray   { background: gray;   }
+</style>
+<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#value_read').click(function(event) {
+            alert($('#text').val());
+        });
+
+
+        $('#value_create').click(function(event) {
+            var tmp = $('#text').val() + '추가';
+            $('#text').val(tmp);
+        });
+
+        $('#value_update').click(function(event) {
+            $('#text').val($('#value_update').text());
+        });
+
+        $('#value_delete').click(function(event) {
+            $('#text').val('');
+            //$('#text').removeAttr('value');
+        });
+
+        $('#prop_read').click(function(event) {
+            alert($('input[name="aaa"]').prop('checked'));
+        });
+
+        $('#prop_create').click(function(event) {
+            $('input[name="bbb"]').prop('checked', true);
+        });
+
+        $('#prop_update').click(function(event) {
+            $('input[name="aaa"]').prop('checked', false);
+        });
+
+        $('#prop_delete').click(function(event) {
+            $('input[name="ccc"]').prop('disabled', false);
+        });
+    });
+</script>
+
 </head>
 <body>
 
@@ -49,6 +88,9 @@
     </div>
 </body>
 </html>
+
+
+
 
 
 

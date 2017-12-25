@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BottomNavigation</string>
+    <string name="title_dog">Dog</string>
+    <string name="title_cat">Cat</string>
+    <string name="title_horse">Horse</string>
+    <string name="title_rabbit">Rabbit</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appMargin="http://schemas.android.com/apk/res/android"
+              appMargin:layout_width="match_parent"
+              appMargin:layout_height="wrap_content"
+              appMargin:orientation="vertical">
+    
+    <TextView
+        appMargin:id="@+id/textView3"
+        appMargin:layout_width="wrap_content"
+        appMargin:layout_height="wrap_content"
+        appMargin:layout_margin="20dp"
+        appMargin:layout_weight="1"
+        appMargin:text="아래에 이름을 입력:"/>
+    
+    <EditText
+        appMargin:id="@+id/editText2"
+        appMargin:layout_width="match_parent"
+        appMargin:layout_height="wrap_content"
+        appMargin:layout_margin="20dp"
+        appMargin:layout_weight="1"
+        appMargin:ems="10"
+        appMargin:hint="여기에 채우세요"
+        appMargin:inputType="textPersonName"
+        appMargin:textCursorDrawable="@color/colorAccent"/>
+    
+    <Button
+        appMargin:layout_width="match_parent"
+        appMargin:layout_height="wrap_content"
+        appMargin:layout_margin="20dp"
+        appMargin:layout_weight="1"
+        appMargin:text="확인"/>
+</LinearLayout>

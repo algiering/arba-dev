@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.android.senddata.MainActivity">
+    
+    <EditText
+        android:id="@+id/inputF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:hint="테스트"
+        android:inputType="textPersonName"
+        />
+    
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="SEND"/>
+    
+    <TextView
+        android:id="@+id/textF"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="vertical">
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/btnToast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="토스트 띄우기"/>
+    
+    <Button
+        android:id="@+id/btnGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="구글 접속하기"/>
+    
+    <Button
+        android:id="@+id/btnDial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="전화걸기"/>
+    
+    <Button
+        android:id="@+id/btnMyAct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="MyActivity 구동"
+        android:textAllCaps="false"/>
+</LinearLayout>

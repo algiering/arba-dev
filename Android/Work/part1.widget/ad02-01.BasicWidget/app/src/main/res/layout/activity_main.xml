@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appMain="http://schemas.android.com/apk/res/android"
+              appMain:layout_width="match_parent"
+              appMain:layout_height="match_parent"
+              appMain:orientation="vertical">
+    
+    <Button
+        appMain:id="@+id/button1"
+        appMain:layout_width="match_parent"
+        appMain:layout_height="wrap_content"
+        appMain:layout_weight="1"
+        appMain:text="Radio"/>
+    
+    <Button
+        appMain:id="@+id/button2"
+        appMain:layout_width="match_parent"
+        appMain:layout_height="wrap_content"
+        appMain:layout_weight="1"
+        appMain:text="Height"/>
+    
+    <Button
+        appMain:id="@+id/button3"
+        appMain:layout_width="match_parent"
+        appMain:layout_height="wrap_content"
+        appMain:layout_weight="1"
+        appMain:text="Width"/>
+    
+    <Button
+        appMain:id="@+id/button4"
+        appMain:layout_width="match_parent"
+        appMain:layout_height="wrap_content"
+        appMain:layout_weight="1"
+        appMain:text="Color"/>
+    
+    <Button
+        appMain:id="@+id/button5"
+        appMain:layout_width="match_parent"
+        appMain:layout_height="wrap_content"
+        appMain:layout_weight="1"
+        appMain:text="Margin"/>
+    
+    <Button
+        appMain:id="@+id/button6"
+        appMain:layout_width="match_parent"
+        appMain:layout_height="wrap_content"
+        appMain:layout_weight="1"
+        appMain:text="Padding"/>
+    
+    <Button
+        appMain:id="@+id/button7"
+        appMain:layout_width="match_parent"
+        appMain:layout_height="wrap_content"
+        appMain:layout_weight="1"
+        appMain:text="Visible"/>
+</LinearLayout>

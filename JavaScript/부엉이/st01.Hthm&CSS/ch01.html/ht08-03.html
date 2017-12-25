@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+    label { width: 120px; display: inline-block; }
+    input, textarea { vertical-align: top; margin-top: 8px; }
+    fieldset { line-height: 2em; }
+    legend { font-weight: bold; }
+    ul { margin-bottom: 30px; }
+
+</style>
+</head>
+<body>
+    <h1>상품 주문서</h1>
+
+    <fieldset>
+        <legend>개인 정보</legend>
+        <ul>
+            <li>
+                <label>이름</label>
+                <input type="text" name="name" placeholder="여백없이 입력">
+            </li>
+            <li>
+                <label>연락처</label>
+                <input type="text" name="posTel" placeholder="연락가능한 번호">
+            </li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>배송지 정보</legend>
+        <ul>
+            <li>
+                <label>주소</label>
+                <input type="text" name="address" style="width: 350px;">
+            </li>
+            <li>
+                <label>전화번호</label>
+                <input type="number" name="tel">
+            </li>
+            <li>
+                <label>메모</label>
+                <textarea style="width: 240px; height: 100px; margin-bottom: 5px;"></textarea>
+            </li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>주문 정보</legend>
+        <ul>
+            <li>
+                <input type="checkbox" name="" style="margin-top: 11px;">
+                <label id="label1" style="width: 190px;">과테말라 안티구아 (100g)</label>
+                <input type="number" name="mandelin" style="width: 50px;"><label>개</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" style="margin-top: 11px;">
+                <label id="label1" style="width: 190px;">인도네시아 만델링 (100g)</label>
+                <input type="number" name="mandelin" style="width: 50px;"><label>개</label>
+            </li>
+            <li>
+                <input type="checkbox" name="" style="margin-top: 11px;">
+                <label id="label1" style="width: 190px;">탐라는도다(블렌딩) (100g)</label>
+                <input type="number" name="tamra" style="width: 50px;"><label>개</label>
+            </li>
+        </ul>
+    </fieldset>
+
+
+    <center>
+        <input type="submit" name="" value="주문하기">
+        <input type="submit" name="" value="다시작성">
+    </center>
+
+</body>
+</html>
