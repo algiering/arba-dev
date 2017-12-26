@@ -18,72 +18,9 @@
         text-align: center;
         border-collapse: collapse;
     }
-
-    #table_title td {
-        color: #dddddd;
-        font-weight: bold;
-        font-size: 14px;
-    }
-
-    #table_title tr {
-        height: 30px;
-        background-color: #1e1e1e;
-    }
-
-    #table_title_tr_col_1 {
-        width: 60%;
-        border-right: 1px #dddddd solid;
-    }
-
-    #table_title_tr_col_2 {
-        width: 15%;
-        border-right: 1px #dddddd solid;
-    }
-
-    #table_title_tr_col_3 {
-        width: 13%;
-        border-right: 1px #dddddd solid;
-    }
-    #table_title_tr_col_4 {
-        width: 12%;
-    }
-
-    #col_1 {
-        padding-left: 15px;
-        text-align: left;
-        width: 60%;
-        font-size: 18px;
-        font-weight: bold;
-    }
-    #col_2 {
-        width: 15%;
-        font-size: 16px;
-        font-weight: bold;
-        border-left: 1px #b2b2b2 dashed;
-    }
-    #col_3 {
-        width: 13%;
-        font-size: 14px;
-        border-left: 1px #b2b2b2 dashed;
-    }
-    #col_4 {
-        width: 12%;
-        font-size: 14px;
-        border-left: 1px #b2b2b2 dashed;
-    }
     hr {
         margin: 1px 0px 1px 0px;
         border: 1px #1e1e1e solid;
-    }
-
-    #contents_table {
-        width: 100%;
-        height: 150px;
-    }
-    #contents_table_tr {
-        height: 30px;
-        border-top: 1px #b2b2b2 dashed;
-        border-bottom: 1px #b2b2b2 dashed;
     }
 
     #page_num td {
@@ -93,6 +30,7 @@
         background-color: #1e1e1e;
         color: #dddddd;
         height: 30px;
+        text-align: center;
     }
 
     #page_num_border {
@@ -105,6 +43,29 @@
         background-color: #1e1e1e;
         padding: 10px;
     }
+
+    #board_0row>span[id*="board_0row"] {
+        background-color: #1e1e1e;
+        color: #dddddd;
+        display: inline-block;
+        text-align: center;
+    }
+
+    #board_0row_1col {
+        width: 60%;
+    }
+    #board_0row_2col {
+        width: 10%;
+    }
+    #board_0row_3col {
+        width: 10%;
+    }
+    #board_0row_4col {
+        width: 10%;
+    }
+    #board_0row_5col {
+        width: 10%;
+    }
 </style>
 </head>
 <body>
@@ -114,107 +75,14 @@
     </div>
     <hr>
     <div id="body">
-        <table id="table_title">
-            <tr id="table_title_tr">
-                <td id="table_title_tr_col_1">글제목</td>
-                <td id="table_title_tr_col_2">작성자</td>
-                <td id="table_title_tr_col_3">조회수</td>
-                <td id="table_title_tr_col_4">작성일</td>
-            </tr>
-        </table>
         <hr>
-            <table id="contents_table">
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-                <tr id="contents_table_tr">
-                    <td id="col_1">123456789012345</td>
-                    <td id="col_2">123</td>
-                    <td id="col_3">0</td>
-                    <td id="col_4">2017<br>12-24</td>
-                </tr>
-            </table>
+        <div id="board_0row">
+            <span id="board_0row_1col">제목</span>
+            <span id="board_0row_2col">아이디</span>
+            <span id="board_0row_3col">조회수</span>
+            <span id="board_0row_4col">추천</span>
+            <span id="board_0row_5col">등록일</span>
+        </div>
         <hr>
         <table id="page_num">
             <td id="page_num_border">&nbsp</td>
