@@ -6,20 +6,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText edtName, edtStNum, edtDepart, edtItemNum;
     private Button btnAddSt, btnItemDel, btnItemAllDel, btnItemSort;
     private ListView listView;
-
-    private List<>
+    private ListViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        adapter = new ListViewAdapter();
+
+        listView = findViewById(R.id.listView);
+        listView.setAdapter(adapter);
 
         edtName = findViewById(R.id.edtName);
         edtStNum = findViewById(R.id.edtStNum);
@@ -31,9 +34,12 @@ public class MainActivity extends AppCompatActivity {
         btnItemAllDel = findViewById(R.id.btnItemAllDel);
         btnItemSort = findViewById(R.id.btnItemSort);
 
-        listView = findViewById(R.id.listView);
-
-
-
+        adapter.addItem("aaaa", "1", "aaaa");
+        adapter.addItem("bbbb", "2", "bbbb");
+        adapter.addItem("cccc", "3", "cccc");
+        adapter.addItem("dddd", "4", "dddd");
+        adapter.addItem("eeee", "5", "eeee");
+        adapter.addItem("ffff", "6", "ffff");
+        adapter.addItem("gggg", "7", "gggg");
     }
 }
