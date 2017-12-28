@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Checkable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,7 +15,7 @@ import android.widget.TextView;
  * Created by Administrator on 2017-12-26.
  */
 
-public class PersonView extends RelativeLayout {
+public class PersonView extends RelativeLayout{
 
     private ImageView imageCheck,imagePhoto;
     private TextView textName,textAge;
@@ -72,6 +73,8 @@ public class PersonView extends RelativeLayout {
             ta.recycle();
 
             person = new PersonData(name, age, photo);
+
+
         }
 
         imagePhoto.setOnClickListener(new OnClickListener() {
@@ -90,6 +93,13 @@ public class PersonView extends RelativeLayout {
             public void onClick(View view) {
                 if(PersonView.this.imageClickListener != null) {
                     imageClickListener.onImageClick(PersonView.this, person);
+                    Drawable dr = getResources().getDrawable(android.R.drawable.checkbox_off_background);
+                    if (imageCheck.getDrawable() == dr) {
+                        imageCheck.setImageDrawable(getResources().getDrawable(android.R.drawable.checkbox_on_background));
+                    }
+                    else {
+                        imageCheck.setImageDrawable(getResources().getDrawable(android.R.drawable.checkbox_off_background));
+                    }
                 }
             }
         });
