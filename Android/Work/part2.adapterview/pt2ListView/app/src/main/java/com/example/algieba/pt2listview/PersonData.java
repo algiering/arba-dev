@@ -7,7 +7,7 @@ package com.example.algieba.pt2listview;
 public class PersonData {
 
     private String name;
-    private String num;
+    private int num;
     private String depart;
 
     public String getName() {
@@ -18,11 +18,11 @@ public class PersonData {
         this.name = name;
     }
 
-    public String getNum() {
+    public int getNum() {
         return num;
     }
 
-    public void setNum(String num) {
+    public void setNum(int num) {
         this.num = num;
     }
 
@@ -43,7 +43,7 @@ public class PersonData {
                 '}';
     }
 
-    public PersonData(String name, String num, String depart) {
+    public PersonData(String name, int num, String depart) {
         this.name = name;
         this.num = num;
         this.depart = depart;

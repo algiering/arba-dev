@@ -26,7 +26,7 @@ public class ServiceProduct implements IServiceProduct {
 
     @Override
     public ModelProduct getException(String name) throws Exception {
-        ModelProduct product = dao.getProduct(name);
+        ModelProduct product = dao.getException(name);
         return product;
     }
 

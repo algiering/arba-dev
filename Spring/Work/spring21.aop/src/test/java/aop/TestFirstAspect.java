@@ -33,4 +33,14 @@ public class TestFirstAspect {
         
         assertTrue(1000 == product.getPrice());
     }
+    
+    @Test
+    public void testGetNone() {
+        service.getNone();
+    }
+    
+    @Test(expected = Exception.class)
+    public void testGetException() throws Exception {
+        ModelProduct product = service.getException("bbb");
+    }
 }

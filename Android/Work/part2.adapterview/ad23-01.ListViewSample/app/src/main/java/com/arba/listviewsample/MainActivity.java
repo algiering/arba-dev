@@ -1,5 +1,7 @@
 package com.arba.listviewsample;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -49,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
         listView1.setAdapter(adapterList);
         listView1.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+        listView1.setDivider(new ColorDrawable(Color.GRAY));
+        listView1.setDividerHeight(3);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btnDelete: {
                     if(!items.isEmpty()) {
                         SparseBooleanArray chktemp = listView1.getCheckedItemPositions();
-                        textView1.setText(chktemp.toString());
                         for (int i = items.size()-1; i >= 0 ; i--) {
                             if(chktemp.get(i)==true) {
                                 items.remove(i);
