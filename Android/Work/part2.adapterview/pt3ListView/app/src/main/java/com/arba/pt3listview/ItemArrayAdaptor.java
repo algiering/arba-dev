@@ -20,8 +20,6 @@ public class ItemArrayAdaptor extends ArrayAdapter<PersonData> {
 
     ArrayList<PersonData> items;
 
-    private TextView txtName, txtNum, txtDept;
-
     public ItemArrayAdaptor(@NonNull Context context, int resource, @NonNull ArrayList<PersonData> objects) {
         super(context, resource, objects);
         this.items = objects;

@@ -2,13 +2,14 @@ package com.arba.pt3listview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -21,18 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView list_view;
 
-    private Button btn_add, btn_search, btn_sort, btn_del, btn_all_del, btn_init;
     private EditText edit_name, edit_number, edit_department, edit_item;
-    private RadioGroup radio_sort;
-    private RadioButton radioButton1, radioButton2;
-    private Spinner spinner;
 
     private ArrayList<PersonData> items;
     private ArrayList<PersonData> temp_items;
 
-    private ArrayAdapter adapter_spinner;
-
     private ItemArrayAdaptor adapter;
+    private ItemArrayAdaptor temp_adapter;
 
     private int search_stmt = 0;
     private int radio_stmt = 0;
@@ -44,61 +40,61 @@ public class MainActivity extends AppCompatActivity {
 
         list_view = findViewById(R.id.list_view);
 
-        btn_add = findViewById(R.id.btn_add);
-        btn_search = findViewById(R.id.btn_search);
-        btn_sort = findViewById(R.id.btn_sort);
-        btn_del = findViewById(R.id.btn_del);
-        btn_all_del = findViewById(R.id.btn_all_del);
-        btn_init = findViewById(R.id.btn_init);
+        Button btn_add = findViewById(R.id.btn_add);
+        Button btn_search = findViewById(R.id.btn_search);
+        Button btn_sort = findViewById(R.id.btn_sort);
+        Button btn_del = findViewById(R.id.btn_del);
+        Button btn_all_del = findViewById(R.id.btn_all_del);
+        Button btn_init = findViewById(R.id.btn_init);
 
         edit_name = findViewById(R.id.edit_name);
         edit_number = findViewById(R.id.edit_number);
         edit_department = findViewById(R.id.edit_department);
         edit_item = findViewById(R.id.edit_item);
 
-        spinner = findViewById(R.id.spinner);
+        Spinner spinner = findViewById(R.id.spinner);
 
-        radio_sort = findViewById(R.id.radio_sort);
+        RadioGroup radio_sort = findViewById(R.id.radio_sort);
 
-        radioButton1 = findViewById(R.id.radioButton1);
-        radioButton2 = findViewById(R.id.radioButton2);
-
-        radioButton1.setChecked(true);
-
-        items = new ArrayList<PersonData>();
+        items = new ArrayList<>();
         adapter = new ItemArrayAdaptor(this, R.layout.view_person, items);
 
+        list_view.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         list_view.setAdapter(adapter);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             adapter.addItem("aaa " + i, i, "aaa " + i);
         }
+        for (int i = 0; i < 5; i++) {
+            adapter.addItem("bbb " + i, i, "bbb " + i);
+        }
 
-        adapter_spinner = ArrayAdapter.createFromResource(this, R.array.str_arrays, android.R.layout.simple_dropdown_item_1line);
+        ArrayAdapter adapter_spinner = ArrayAdapter.createFromResource(this, R.array.str_arrays, android.R.layout.simple_dropdown_item_1line);
 
         spinner.setAdapter(adapter_spinner);
 
-        ButtonInner bi = new ButtonInner();
-        btn_add.setOnClickListener(bi);
-        btn_search.setOnClickListener(bi);
-        btn_del.setOnClickListener(bi);
-        btn_all_del.setOnClickListener(bi);
-        btn_sort.setOnClickListener(bi);
-        btn_init.setOnClickListener(bi);
+        InnerListener il = new InnerListener();
+        btn_add.setOnClickListener(il);
+        btn_search.setOnClickListener(il);
+        btn_del.setOnClickListener(il);
+        btn_all_del.setOnClickListener(il);
+        btn_sort.setOnClickListener(il);
+        btn_init.setOnClickListener(il);
 
-        SpinnerInner si = new SpinnerInner();
-        spinner.setOnItemSelectedListener(si);
+        spinner.setOnItemSelectedListener(il);
 
-        RadioInner ri = new RadioInner();
-        radio_sort.setOnCheckedChangeListener(ri);
+        radio_sort.setOnCheckedChangeListener(il);
 
-        ListViewInner li = new ListViewInner();
-        list_view.setOnItemLongClickListener(li);
+        list_view.setOnItemLongClickListener(il);
+
+        temp_items = new ArrayList<>();
+        temp_adapter = new ItemArrayAdaptor(MainActivity.this, R.layout.view_person, temp_items);
+
     }
 
 
-    // Listner Area
-    private class ButtonInner implements View.OnClickListener {
+    // Listener Area
+    private class InnerListener implements View.OnClickListener, Spinner.OnItemSelectedListener, RadioGroup.OnCheckedChangeListener, ListView.OnItemLongClickListener {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
@@ -131,32 +127,21 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.btn_search:
                     // 0이름 1번호 2학과
-                    temp_items = new ArrayList<PersonData>();
-                    ItemArrayAdaptor temp_adapter = new ItemArrayAdaptor(MainActivity.this, R.layout.view_person, temp_items);
-                    PersonData temp_p = new PersonData();
+                    String temp = edit_item.getText().toString();
+                    temp_items.clear();
 
                     if (search_stmt == 0) {
                         int temp_chk = -1;
-                        String temp = edit_item.getText().toString();
                         for (int i = 0; i < items.size(); i++) {
-                            if (items.get(i).getName().contains(temp)) {
-                                temp_adapter.addItem(items.get(i).getName(), items.get(i).getNumber(), items.get(i).getDepartment());
-                                list_view.setAdapter(temp_adapter);
-                                temp_chk = 1;
-                            }
+                            temp_chk = SearchStudent(i, temp_chk, items.get(i).getName().contains(temp));
                         }
                         if (temp_chk == -1) {
                             Toast.makeText(MainActivity.this, "일치하는 데이터가 없습니다", Toast.LENGTH_SHORT).show();
                         }
                     } else if (search_stmt == 1) {
                         int temp_chk = -1;
-                        String temp = edit_item.getText().toString();
                         for (int i = 0; i < items.size(); i++) {
-                            if (String.valueOf(items.get(i).getNumber()).contains(temp)) {
-                                temp_adapter.addItem(items.get(i).getName(), items.get(i).getNumber(), items.get(i).getDepartment());
-                                list_view.setAdapter(temp_adapter);
-                                temp_chk = 1;
-                            }
+                            temp_chk = SearchStudent(i, temp_chk, String.valueOf(items.get(i).getNumber()).contains(temp));
                         }
                         if (temp_chk == -1) {
                             Toast.makeText(MainActivity.this, "일치하는 데이터가 없습니다", Toast.LENGTH_SHORT).show();
@@ -164,13 +149,8 @@ public class MainActivity extends AppCompatActivity {
 
                     } else if (search_stmt == 2) {
                         int temp_chk = -1;
-                        String temp = edit_item.getText().toString();
                         for (int i = 0; i < items.size(); i++) {
-                            if (items.get(i).getDepartment().contains(temp)) {
-                                temp_adapter.addItem(items.get(i).getName(), items.get(i).getNumber(), items.get(i).getDepartment());
-                                list_view.setAdapter(temp_adapter);
-                                temp_chk = 1;
-                            }
+                            temp_chk = SearchStudent(i, temp_chk, items.get(i).getDepartment().contains(temp));
                         }
                         if (temp_chk == -1) {
                             Toast.makeText(MainActivity.this, "일치하는 데이터가 없습니다", Toast.LENGTH_SHORT).show();
@@ -179,35 +159,49 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.btn_sort:
+                    if (temp_items.isEmpty()) {
+                        temp_items.addAll(items);
+                    }
                     if (radio_stmt == 0) {
                         Compare compare = new Compare();
-                        Collections.sort(items, compare);
+                        Collections.sort(temp_items, compare);
                     } else if (radio_stmt == 1) {
                         Compare_Reverse compare_reverse = new Compare_Reverse();
-                        Collections.sort(items, compare_reverse);
+                        Collections.sort(temp_items, compare_reverse);
                     }
-                    adapter.notifyDataSetChanged();
+                    list_view.setAdapter(temp_adapter);
+                    temp_adapter.notifyDataSetChanged();
                     break;
 
                 case R.id.btn_del:
+                    SparseBooleanArray check_selected_position = list_view.getCheckedItemPositions();
+
+                    for (int i = items.size()-1; i >= 0; i--) {
+                        if (check_selected_position.get(i)) {
+                            items.remove(i);
+                        }
+                    }
+
+                    list_view.clearChoices();
+                    adapter.notifyDataSetChanged();
                     break;
 
                 case R.id.btn_all_del:
-                    items.removeAll(items);
+                    items.clear();
                     adapter.notifyDataSetChanged();
                     break;
 
                 case R.id.btn_init:
                     if (!items.isEmpty()) {
                         list_view.setAdapter(adapter);
-                        temp_items.removeAll(temp_items);
+                        if (!temp_items.isEmpty()) {
+                            temp_items.clear();
+                        }
                     }
                     break;
             }
         }
-    }
 
-    private class SpinnerInner implements Spinner.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             // 0이름 1번호 2학과
@@ -230,9 +224,8 @@ public class MainActivity extends AppCompatActivity {
         public void onNothingSelected(AdapterView<?> parent) {
 
         }
-    }
 
-    private class RadioInner implements RadioGroup.OnCheckedChangeListener {
+
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             switch (group.getCheckedRadioButtonId()) {
@@ -245,9 +238,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
-    }
 
-    private class ListViewInner implements ListView.OnItemLongClickListener {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
             items.remove(position);
@@ -257,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    Object Arraylist Sort Method Area
+    //    Object Arraylist Sort Method Area
     private class Compare implements Comparator<PersonData> {
 
         @Override
@@ -292,5 +283,18 @@ public class MainActivity extends AppCompatActivity {
                 return 0;
             }
         }
+    }
+
+    // Custom Method Area
+
+    private int SearchStudent (int i, int temp_chk, boolean searchType) {
+
+        if (searchType) {
+            temp_adapter.addItem(items.get(i).getName(), items.get(i).getNumber(), items.get(i).getDepartment());
+            list_view.setAdapter(temp_adapter);
+            temp_chk = 1;
+        }
+
+        return  temp_chk;
     }
 }
