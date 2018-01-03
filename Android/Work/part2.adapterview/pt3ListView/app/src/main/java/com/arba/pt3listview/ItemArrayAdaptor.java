@@ -8,7 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -38,6 +41,7 @@ public class ItemArrayAdaptor extends ArrayAdapter<PersonData> {
             holder.txtName = v.findViewById(R.id.txtName);
             holder.txtNum = v.findViewById(R.id.txtNum);
             holder.txtDept = v.findViewById(R.id.txtDept);
+            holder.checkBox = v.findViewById(R.id.custom_checkbox);
 
             v.setTag(holder);
         }
@@ -50,16 +54,18 @@ public class ItemArrayAdaptor extends ArrayAdapter<PersonData> {
             holder.txtName.setText(p.getName());
             holder.txtNum.setText(String.valueOf(p.getNumber()));
             holder.txtDept.setText(p.getDepartment());
+            holder.checkBox.setVisibility(View.GONE);
         }
         return v;
     }
 
-    public void addItem(String name, int number, String department) {
+    public void addItem(String name, int number, String department, int ukey) {
         PersonData item = new PersonData();
 
         item.setName(name);
         item.setNumber(number);
         item.setDepartment(department);
+        item.setUkey(ukey);
 
         items.add(item);
     }
@@ -68,5 +74,8 @@ public class ItemArrayAdaptor extends ArrayAdapter<PersonData> {
         private TextView txtName;
         private TextView txtNum;
         private TextView txtDept;
+        private CheckBox checkBox;
     }
+
+
 }

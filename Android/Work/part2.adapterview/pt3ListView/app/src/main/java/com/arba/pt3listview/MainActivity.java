@@ -14,9 +14,11 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
     private int search_stmt = 0;
     private int radio_stmt = 0;
+
+    private int ukey = 1;
+
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         edit_department = findViewById(R.id.edit_department);
         edit_item = findViewById(R.id.edit_item);
 
-        Spinner spinner = findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner);
 
         RadioGroup radio_sort = findViewById(R.id.radio_sort);
 
@@ -62,11 +68,13 @@ public class MainActivity extends AppCompatActivity {
         list_view.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         list_view.setAdapter(adapter);
 
-        for (int i = 0; i < 5; i++) {
-            adapter.addItem("aaa " + i, i, "aaa " + i);
+        for (int i = 0; i < 7; i++) {
+            adapter.addItem("aaa " + i, i, "aaa " + i, ukey);
+            ukey++;
         }
-        for (int i = 0; i < 5; i++) {
-            adapter.addItem("bbb " + i, i, "bbb " + i);
+        for (int i = 0; i < 7; i++) {
+            adapter.addItem("bbb " + i, i, "bbb " + i, ukey);
+            ukey++;
         }
 
         ArrayAdapter adapter_spinner = ArrayAdapter.createFromResource(this, R.array.str_arrays, android.R.layout.simple_dropdown_item_1line);
@@ -112,7 +120,8 @@ public class MainActivity extends AppCompatActivity {
                         String name = edit_name.getText().toString();
                         int number = Integer.parseInt(edit_number.getText().toString());
                         String department = edit_department.getText().toString();
-                        items.add(new PersonData(name, number, department));
+                        items.add(new PersonData(name, number, department, ukey));
+                        ukey++;
 
                         edit_name.setText("");
                         edit_number.setText("");
@@ -127,63 +136,60 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.btn_search:
                     // 0이름 1번호 2학과
-                    String temp = edit_item.getText().toString();
-                    temp_items.clear();
+                    String searchitem = getFieldName(spinner.getSelectedItem().toString());
+                    String searchvalue = edit_item.getText().toString();
 
-                    if (search_stmt == 0) {
-                        int temp_chk = -1;
-                        for (int i = 0; i < items.size(); i++) {
-                            temp_chk = SearchStudent(i, temp_chk, items.get(i).getName().contains(temp));
-                        }
-                        if (temp_chk == -1) {
-                            Toast.makeText(MainActivity.this, "일치하는 데이터가 없습니다", Toast.LENGTH_SHORT).show();
-                        }
-                    } else if (search_stmt == 1) {
-                        int temp_chk = -1;
-                        for (int i = 0; i < items.size(); i++) {
-                            temp_chk = SearchStudent(i, temp_chk, String.valueOf(items.get(i).getNumber()).contains(temp));
-                        }
-                        if (temp_chk == -1) {
-                            Toast.makeText(MainActivity.this, "일치하는 데이터가 없습니다", Toast.LENGTH_SHORT).show();
-                        }
-
-                    } else if (search_stmt == 2) {
-                        int temp_chk = -1;
-                        for (int i = 0; i < items.size(); i++) {
-                            temp_chk = SearchStudent(i, temp_chk, items.get(i).getDepartment().contains(temp));
-                        }
-                        if (temp_chk == -1) {
-                            Toast.makeText(MainActivity.this, "일치하는 데이터가 없습니다", Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                    PersonData.MyPredicateContains predicate = new PersonData.MyPredicateContains(searchitem, searchvalue);
+                    List<PersonData> result = (List<PersonData>) CollectionUtils.select(items, predicate);
+                    adapter.clear();
+                    adapter.addAll(result);
                     break;
 
                 case R.id.btn_sort:
+                    // 0이름 1번호 2학과
                     if (temp_items.isEmpty()) {
                         temp_items.addAll(items);
                     }
                     if (radio_stmt == 0) {
-                        Compare compare = new Compare();
+                        PersonData.NameCompare compare = new PersonData.NameCompare();
                         Collections.sort(temp_items, compare);
                     } else if (radio_stmt == 1) {
-                        Compare_Reverse compare_reverse = new Compare_Reverse();
-                        Collections.sort(temp_items, compare_reverse);
+                        PersonData.NameCompare compare = new PersonData.NameCompare(true);
+                        Collections.sort(temp_items, compare);
                     }
                     list_view.setAdapter(temp_adapter);
                     temp_adapter.notifyDataSetChanged();
                     break;
 
                 case R.id.btn_del:
-                    SparseBooleanArray check_selected_position = list_view.getCheckedItemPositions();
 
-                    for (int i = items.size()-1; i >= 0; i--) {
-                        if (check_selected_position.get(i)) {
-                            items.remove(i);
+                    if (temp_items.size() > 0) {
+                        SparseBooleanArray check_selected_position_temp = list_view.getCheckedItemPositions();
+
+                        for (int i = temp_items.size() - 1; i >= 0; i--) {
+                            if (check_selected_position_temp.get(i)) {
+                                for (int j = items.size() - 1; j >= 0; j--) {
+                                    if (temp_items.get(i).getUkey() == items.get(j).getUkey()) {
+                                        items.remove(j);
+                                    }
+                                }
+                                temp_items.remove(i);
+                            }
+                        }
+                    } else {
+
+                        SparseBooleanArray check_selected_position = list_view.getCheckedItemPositions();
+
+                        for (int i = items.size() - 1; i >= 0; i--) {
+                            if (check_selected_position.get(i)) {
+                                items.remove(i);
+                            }
                         }
                     }
 
                     list_view.clearChoices();
                     adapter.notifyDataSetChanged();
+                    temp_adapter.notifyDataSetChanged();
                     break;
 
                 case R.id.btn_all_del:
@@ -241,60 +247,47 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-            items.remove(position);
+
+            if (!temp_items.isEmpty()) {
+                for (int i = items.size() - 1; i >= 0; i--) {
+                    if (temp_items.get(position).getUkey() == items.get(i).getUkey()) {
+                        temp_items.remove(i);
+                        items.remove(i);
+                    }
+                }
+            } else {
+                items.remove(position);
+            }
+
             adapter.notifyDataSetChanged();
+            temp_adapter.notifyDataSetChanged();
             return false;
-        }
-    }
-
-
-    //    Object Arraylist Sort Method Area
-    private class Compare implements Comparator<PersonData> {
-
-        @Override
-        public int compare(PersonData o1, PersonData o2) {
-
-            int t1 = o1.getNumber();
-            int t2 = o2.getNumber();
-
-            if (t1 < t2) {
-                return -1;
-            } else if (t2 > t1) {
-                return 1;
-            } else {
-                return 0;
-            }
-        }
-    }
-
-    private class Compare_Reverse implements Comparator<PersonData> {
-
-        @Override
-        public int compare(PersonData o1, PersonData o2) {
-
-            int t1 = o1.getNumber();
-            int t2 = o2.getNumber();
-
-            if (t1 > t2) {
-                return -1;
-            } else if (t2 < t1) {
-                return 1;
-            } else {
-                return 0;
-            }
         }
     }
 
     // Custom Method Area
 
-    private int SearchStudent (int i, int temp_chk, boolean searchType) {
+    private int SearchStudent(int i, int temp_chk, boolean searchType) {
 
         if (searchType) {
-            temp_adapter.addItem(items.get(i).getName(), items.get(i).getNumber(), items.get(i).getDepartment());
+            temp_adapter.addItem(items.get(i).getName(), items.get(i).getNumber(), items.get(i).getDepartment(), items.get(i).getUkey());
             list_view.setAdapter(temp_adapter);
             temp_chk = 1;
         }
 
-        return  temp_chk;
+        return temp_chk;
+    }
+
+    private String getFieldName(String selectedItem) {
+        if (selectedItem.equals("이름")) {
+            return "name";
+        }
+        else if (selectedItem.equals("학번")) {
+            return "number";
+        }
+        else if (selectedItem.equals("학과")) {
+            return "department";
+        }
+        else return "";
     }
 }
