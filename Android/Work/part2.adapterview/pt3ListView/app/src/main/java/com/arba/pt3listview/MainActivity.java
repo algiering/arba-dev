@@ -1,7 +1,7 @@
 package com.arba.pt3listview;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AbsListView;
@@ -14,11 +14,10 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import org.apache.commons.collections.CollectionUtils;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -135,14 +134,26 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 case R.id.btn_search:
-                    // 0이름 1번호 2학과
-                    String searchitem = getFieldName(spinner.getSelectedItem().toString());
-                    String searchvalue = edit_item.getText().toString();
+//                    // 0이름 1번호 2학과
+//                    String searchitem = getFieldName(spinner.getSelectedItem().toString());
+//                    String searchvalue = edit_item.getText().toString();
+//
+//                    PersonData.MyPredicateContains predicate = new PersonData.MyPredicateContains(searchitem, searchvalue);
+//                    List<PersonData> result = (List<PersonData>) CollectionUtils.select(items, predicate);
+//                    adapter.clear();
+//                    adapter.addAll(result);
 
-                    PersonData.MyPredicateContains predicate = new PersonData.MyPredicateContains(searchitem, searchvalue);
-                    List<PersonData> result = (List<PersonData>) CollectionUtils.select(items, predicate);
+                    final String search = edit_item.getText().toString();
+                    List<PersonData> result = new ArrayList<>();
+                    for (PersonData e : items) {
+                        if (e.getName().contains(search)) {
+                            result.add(e);
+                        }
+                    }
+
                     adapter.clear();
                     adapter.addAll(result);
+
                     break;
 
                 case R.id.btn_sort:
@@ -204,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
                             temp_items.clear();
                         }
                     }
+
                     break;
             }
         }
