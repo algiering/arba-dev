@@ -27,14 +27,17 @@ public class DaoUser implements IUser {
     }
 
     @Override
-    public List<ModelUser> login(ModelUser user) throws Exception {
-        List<ModelUser> result = null;
-        result = session.selectList("mapper.mapperUser.login", user);
+    public ModelUser login(String userid, String passwd) throws Exception {
+        ModelUser result = null;
+        ModelUser user = new ModelUser();
+        user.setUserid(userid);
+        user.setPasswd(passwd);
+        result = session.selectOne("mapper.mapperUser.login", user);
         return result;
     }
 
     @Override
-    public int logout() throws Exception {
+    public int logout(String userid) throws Exception {
         int result = -1;
         result = session.insert("mapper.mapperUser.logout");
         return result;
@@ -70,9 +73,9 @@ public class DaoUser implements IUser {
     }
 
     @Override
-    public List<ModelUser> selectUserOne(ModelUser user) throws Exception {
-        List<ModelUser> result = null;
-        result = session.selectList("mapper.mapperUser.selectUserOne", user);
+    public ModelUser selectUserOne(ModelUser user) throws Exception {
+        ModelUser result = null;
+        result = session.selectOne("mapper.mapperUser.selectUserOne", user);
         return result;
     }
 

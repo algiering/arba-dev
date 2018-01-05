@@ -31,9 +31,9 @@ public class DaoBoard implements IBoard {
     }
 
     @Override
-    public List<ModelBoard> getBoardOne(String boardcd) throws Exception {
-        List<ModelBoard> result = null;
-        result = session.selectList("mapper.mapperBoard.getBoardOne", boardcd);
+    public ModelBoard getBoardOne(String boardcd) throws Exception {
+        ModelBoard result = null;
+        result = session.selectOne("mapper.mapperBoard.getBoardOne", boardcd);
         return result;
     }
 
@@ -84,7 +84,7 @@ public class DaoBoard implements IBoard {
     }
 
     @Override
-    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, String start, String end) throws Exception {
+    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) throws Exception {
         List<ModelBoard> result = null;
         Map<String, String> map = new HashMap<>();
         map.put("boardcd", boardcd);

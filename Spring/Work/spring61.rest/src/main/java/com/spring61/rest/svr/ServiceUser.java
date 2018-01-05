@@ -29,10 +29,10 @@ public class ServiceUser implements IServiceUser {
     }
 
     @Override
-    public List<ModelUser> login(ModelUser user) throws Exception {
-        List<ModelUser> result = null;
+    public ModelUser login(String userid, String passwd) throws Exception {
+        ModelUser result = null;
         try {
-            result = dao.login(user);
+            result = dao.login(userid, passwd);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,10 +40,10 @@ public class ServiceUser implements IServiceUser {
     }
 
     @Override
-    public int logout() throws Exception {
+    public int logout(String userid) throws Exception {
         int result = -1;
         try {
-            result = dao.logout();
+            result = dao.logout(userid);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -84,10 +84,10 @@ public class ServiceUser implements IServiceUser {
     }
 
     @Override
-    public List<ModelUser> selectUserOne(ModelUser user) throws Exception {
-        List<ModelUser> result = null;
+    public ModelUser selectUserOne(ModelUser user) throws Exception {
+        ModelUser result = null;
         try {
-            result = dao.selectUserList(user);
+            result = dao.selectUserOne(user);
         } catch (Exception e) {
             e.printStackTrace();
         }

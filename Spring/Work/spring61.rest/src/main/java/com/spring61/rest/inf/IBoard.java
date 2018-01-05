@@ -11,7 +11,7 @@ public interface IBoard {
     
     String getBoardName(ModelBoard board) throws Exception;
     
-    List<ModelBoard> getBoardOne(String boardcd) throws Exception;
+    ModelBoard getBoardOne(String boardcd) throws Exception;
     
     List<ModelBoard> getBoardList() throws Exception;
     
@@ -25,7 +25,7 @@ public interface IBoard {
     
     Integer getBoardTotalRecord(ModelBoard board) throws Exception;
     
-    List<ModelBoard> getBoardPaging(String boardcd, String searchWord, String start, String end) throws Exception;
+    List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) throws Exception;
     
     int insertBoardList(List<ModelBoard> board) throws Exception;
     

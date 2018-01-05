@@ -8,9 +8,9 @@ public interface IUser {
     
     int insertUser(ModelUser user) throws Exception;
     
-    List<ModelUser> login(ModelUser user) throws Exception;
+    ModelUser login(String userid, String passwd) throws Exception;
     
-    int logout() throws Exception;
+    int logout(String userid) throws Exception;
     
     int updateUserInfo(ModelUser updateValue, ModelUser searchValue) throws Exception;
     
@@ -18,7 +18,7 @@ public interface IUser {
     
     int deleteUser(ModelUser user) throws Exception;
     
-    List<ModelUser> selectUserOne(ModelUser user) throws Exception;
+    ModelUser selectUserOne(ModelUser user) throws Exception;
     
     List<ModelUser> selectUserList(ModelUser user) throws Exception;
     

@@ -58,13 +58,10 @@ public class TestServiceUser {
 
     @Test
     public void test02Login() {
-        List<ModelUser> result = null;
-        ModelUser user = new ModelUser();
-        user.setUserid("aaa");
-        user.setPasswd("aaa");
+        ModelUser result = null;
         try {
-            result = service.login(user);
-            assertEquals(1, result.size());
+            result = service.login("aaa", "aaa");
+            assertEquals("aaa", result.getUserid());
         } catch (Exception e) {
             e.printStackTrace();
         }

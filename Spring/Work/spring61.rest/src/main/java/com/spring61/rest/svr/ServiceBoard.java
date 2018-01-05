@@ -32,8 +32,8 @@ public class ServiceBoard implements IServiceBoard {
     }
 
     @Override
-    public List<ModelBoard> getBoardOne(String boardcd) throws Exception {
-        List<ModelBoard> result = null;
+    public ModelBoard getBoardOne(String boardcd) throws Exception {
+        ModelBoard result = null;
         try {
             result = dao.getBoardOne(boardcd);
         } catch (Exception e) {
@@ -109,7 +109,7 @@ public class ServiceBoard implements IServiceBoard {
     }
 
     @Override
-    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, String start, String end) throws Exception {
+    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) throws Exception {
         List<ModelBoard> result = null;
         try {
             result = dao.getBoardPaging(boardcd, searchWord, start, end);

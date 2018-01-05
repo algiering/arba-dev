@@ -83,7 +83,11 @@ public class PersonData implements Comparable<PersonData> {
         }
 
         public NameCompare(boolean desc) {
-            mode = -1;
+            if (desc == false) {
+                mode = 1;
+            } else if (desc == true) {
+                mode = -1;
+            }
         }
 
         @Override
@@ -93,14 +97,18 @@ public class PersonData implements Comparable<PersonData> {
     }
 
     public static class NumberCompare implements Comparator<PersonData> {
-        int mode = 1;
+        private int mode = 1;
 
         public NumberCompare() {
             mode = 1;
         }
 
         public NumberCompare(boolean desc) {
-            mode = -1;
+            if (desc == false) {
+                mode = 1;
+            } else if (desc == true) {
+                mode = -1;
+            }
         }
 
         @Override
@@ -112,6 +120,28 @@ public class PersonData implements Comparable<PersonData> {
             } else {
                 return 0;
             }
+        }
+    }
+
+    public static class DeptCompare implements Comparator<PersonData> {
+
+        private int mode = 1;
+
+        public DeptCompare() {
+            mode = 1;
+        }
+
+        public DeptCompare(boolean desc) {
+            if (desc == false) {
+                mode = 1;
+            } else if (desc == true) {
+                mode = -1;
+            }
+        }
+
+        @Override
+        public int compare(PersonData o1, PersonData o2) {
+            return o1.getName().compareTo(o2.getName()) * mode;
         }
     }
 
