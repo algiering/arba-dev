@@ -1,5 +1,12 @@
 package com.arba.pt3listview;
 
+<<<<<<< HEAD
+=======
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.support.v7.app.AppCompatActivity;
+>>>>>>> 91d3d066bd3361363d828ee74ed203c59a2a358a
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
@@ -15,6 +22,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -97,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         temp_items = new ArrayList<>();
         temp_adapter = new ItemArrayAdaptor(MainActivity.this, R.layout.view_person, temp_items);
 
+
     }
 
 
@@ -151,9 +160,17 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
+<<<<<<< HEAD
                     adapter.clear();
                     adapter.addAll(result);
 
+=======
+                    temp_items.clear();
+                    PersonData.MyPredicateContains predicate = new PersonData.MyPredicateContains(searchitem, searchvalue);
+                    temp_items.addAll((ArrayList<PersonData>) CollectionUtils.select(items, predicate));
+                    list_view.setAdapter(temp_adapter);
+                    temp_adapter.notifyDataSetChanged();
+>>>>>>> 91d3d066bd3361363d828ee74ed203c59a2a358a
                     break;
 
                 case R.id.btn_sort:
@@ -161,11 +178,23 @@ public class MainActivity extends AppCompatActivity {
                     if (temp_items.isEmpty()) {
                         temp_items.addAll(items);
                     }
+
+                    boolean mode = false;
+
                     if (radio_stmt == 0) {
-                        PersonData.NameCompare compare = new PersonData.NameCompare();
-                        Collections.sort(temp_items, compare);
+                        mode = false;
                     } else if (radio_stmt == 1) {
-                        PersonData.NameCompare compare = new PersonData.NameCompare(true);
+                        mode = true;
+                    }
+
+                    if (search_stmt == 0) {
+                        PersonData.NameCompare compare = new PersonData.NameCompare(mode);
+                        Collections.sort(temp_items, compare);
+                    } else if (search_stmt == 1) {
+                        PersonData.NumberCompare compare = new PersonData.NumberCompare(mode);
+                        Collections.sort(temp_items, compare);
+                    } else if (search_stmt == 2) {
+                        PersonData.DeptCompare compare = new PersonData.DeptCompare(mode);
                         Collections.sort(temp_items, compare);
                     }
                     list_view.setAdapter(temp_adapter);
@@ -259,17 +288,29 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
-            if (!temp_items.isEmpty()) {
-                for (int i = items.size() - 1; i >= 0; i--) {
-                    if (temp_items.get(position).getUkey() == items.get(i).getUkey()) {
-                        temp_items.remove(i);
-                        items.remove(i);
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            alert.setTitle("삭제");
+            alert.setMessage("정말로 삭제하시겠습니까?");
+            alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (!temp_items.isEmpty()) {
+                        for (int i = items.size() - 1; i >= 0; i--) {
+                            if (temp_items.get(position).getUkey() == items.get(i).getUkey()) {
+                                temp_items.remove(i);
+                                items.remove(i);
+                            }
+                        }
+                    } else {
+                        items.remove(position);
                     }
+                    adapter.notifyDataSetChanged();
+                    temp_adapter.notifyDataSetChanged();
+                    list_view.clearChoices();
                 }
-            } else {
-                items.remove(position);
-            }
+            }).setNegativeButton("취소", null);
+            alert.show();
+
 
             adapter.notifyDataSetChanged();
             temp_adapter.notifyDataSetChanged();
@@ -293,13 +334,10 @@ public class MainActivity extends AppCompatActivity {
     private String getFieldName(String selectedItem) {
         if (selectedItem.equals("이름")) {
             return "name";
-        }
-        else if (selectedItem.equals("학번")) {
+        } else if (selectedItem.equals("학번")) {
             return "number";
-        }
-        else if (selectedItem.equals("학과")) {
+        } else if (selectedItem.equals("학과")) {
             return "department";
-        }
-        else return "";
+        } else return "";
     }
 }

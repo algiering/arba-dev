@@ -54,7 +54,6 @@ public class ItemArrayAdaptor extends ArrayAdapter<PersonData> {
             holder.txtName.setText(p.getName());
             holder.txtNum.setText(String.valueOf(p.getNumber()));
             holder.txtDept.setText(p.getDepartment());
-            holder.checkBox.setVisibility(View.GONE);
         }
         return v;
     }

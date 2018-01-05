@@ -6,21 +6,22 @@ import com.spring61.rest.model.ModelUser;
 
 public interface IUser {
     
-    int insertUser(ModelUser user) throws Exception;
+    int logout(String userid);
     
-    List<ModelUser> login(ModelUser user) throws Exception;
+    ModelUser login(String userid, String passwd);
     
-    int logout() throws Exception;
+    // id 중복 확인시 사용되는 메서드
+    int checkuserid(String userid);
     
-    int updateUserInfo(ModelUser updateValue, ModelUser searchValue) throws Exception;
+    int updatePasswd(String userid, String currentPasswd, String newPasswd);
+
+    List<ModelUser> selectUserList(ModelUser user);
     
-    int updatePasswd(String userid, String currentPasswd, String newPasswd) throws Exception;
+    ModelUser selectUserOne(ModelUser user);
     
-    int deleteUser(ModelUser user) throws Exception;
+    int insertUser(ModelUser user);
     
-    List<ModelUser> selectUserOne(ModelUser user) throws Exception;
+    int updateUserInfo(ModelUser setValue, ModelUser whereValue);
     
-    List<ModelUser> selectUserList(ModelUser user) throws Exception;
-    
-    int checkuserid(String userid) throws Exception;
+    int updateRetire(ModelUser user);
 }
