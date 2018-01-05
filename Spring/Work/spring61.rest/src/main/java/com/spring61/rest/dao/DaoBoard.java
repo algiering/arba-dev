@@ -1,252 +1,198 @@
 package com.spring61.rest.dao;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import com.spring61.rest.inf.IBoard;
-import com.spring61.rest.model.ModelArticle;
-import com.spring61.rest.model.ModelAttachFile;
-import com.spring61.rest.model.ModelBoard;
-import com.spring61.rest.model.ModelComments;
+import com.spring61.rest.inf.*;
+import com.spring61.rest.model.*;
+
+import java.util.*;
 
 @Repository("daoboard")
 public class DaoBoard implements IBoard {
     
     @Autowired
     @Qualifier("sqlSession")
-    private SqlSession session;
-    
+    private SqlSession session;    
 
     @Override
-    public String getBoardName(ModelBoard board) throws Exception {
-        String result = "";
-        result = session.selectOne("mapper.mapperBoard.getBoardName", board);
-        return result;
+    public String getBoardName(String boardcd) {
+        return  session.selectOne("mapper.mapperBoard.getBoardName", boardcd);        
     }
 
     @Override
-    public ModelBoard getBoardOne(String boardcd) throws Exception {
-        ModelBoard result = null;
-        result = session.selectOne("mapper.mapperBoard.getBoardOne", boardcd);
-        return result;
+    public ModelBoard getBoardOne(String boardcd) {
+        return  session.selectOne("mapper.mapperBoard.getBoardOne", boardcd);        
     }
 
     @Override
-    public List<ModelBoard> getBoardList() throws Exception {
-        List<ModelBoard> result = null;
-        result = session.selectList("mapper.mapperBoard.getBoardList");
-        return result;
+    public int getBoardTotalRecord(String boardnm) {
+        return  session.selectOne("mapper.mapperBoard.getBoardTotalRecord", boardnm); 
     }
 
     @Override
-    public int insertBoard(ModelBoard board) throws Exception {
-        int result = -1;
-        result = session.insert("mapper.mapperBoard.insertBoard", board);
-        return result;
+    public List<ModelBoard> getBoardList(String searchWord) {
+        return  session.selectList("mapper.mapperBoard.getBoardList", searchWord);        
     }
 
     @Override
-    public int updateBoard(ModelBoard setValue, ModelBoard whereValue) throws Exception {
-        int result = -1;
-        Map<String, ModelBoard> map = new HashMap<>();
+    public int insertBoard(ModelBoard board) {
+        return  session.insert("mapper.mapperBoard.insertBoard", board);        
+    }
+
+    @Override
+    public int updateBoard(ModelBoard setValue, ModelBoard whereValue) {
+        Map<String, ModelBoard> map = new HashMap<String, ModelBoard>();
+        map.put("setValue", setValue);
+        map.put("whereValue", whereValue);
+        return  session.update("mapper.mapperBoard.updateBoard", map);        
+    }
+
+    @Override
+    public int deleteBoard(ModelBoard board) {
+        return  session.delete("mapper.mapperBoard.deleteBoard", board);        
+    }
+
+    @Override
+    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) {
+        
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("boardcd"   , boardcd    );
+        map.put("searchWord", searchWord );
+        map.put("start"     , start      );
+        map.put("end"       , end        );
+        
+        List<ModelBoard> result = session.selectList("mapper.mapperBoard.getBoardPaging", map);
+        return   result;
+    }
+
+    @Override
+    public int insertBoardList(List<ModelBoard> list) {
+        return  session.insert("mapper.mapperBoard.insertBoardList", list);        
+    }
+
+    @Override
+    public int getArticleTotalRecord(String boardcd, String searchWord) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("boardcd"   , boardcd    );
+        map.put("searchWord", searchWord );
+        
+        return  session.selectOne("mapper.mapperBoard.getArticleTotalRecord", map);        
+    }
+
+    @Override
+    public List<ModelArticle> getArticleList(String boardcd, String searchWord, int start, int end) {
+        
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("boardcd"   , boardcd    );
+        map.put("searchWord", searchWord );
+        map.put("start"     , start      );
+        map.put("end"       , end        );
+        
+        return  session.selectList("mapper.mapperBoard.getArticleList", map);        
+    }
+
+    @Override
+    public ModelArticle getArticle(int articleno) {
+        return  session.selectOne("mapper.mapperBoard.getArticle", articleno);        
+    }
+
+    @Override
+    public int insertArticle(ModelArticle article) {
+        return  session.insert("mapper.mapperBoard.insertArticle", article );        
+    }
+
+    @Override
+    public int updateArticle(ModelArticle setValue, ModelArticle whereValue) {
+        
+        Map<String, ModelArticle> map = new HashMap<String, ModelArticle>();
         map.put("setValue", setValue);
         map.put("whereValue", whereValue);
         
-        result = session.update("mapper.mapperBoard.updateBoard", map);
-        return result;
+        return  session.update("mapper.mapperBoard.updateArticle", map );    
     }
 
     @Override
-    public int deleteBoard(ModelBoard board) throws Exception {
-        int result = -1;
-        result = session.delete("mapper.mapperBoard.deleteBoard", board);
-        return result;
+    public int deleteArticle(ModelArticle article) {
+        return  session.delete("mapper.mapperBoard.deleteArticle", article ); 
     }
 
     @Override
-    public List<ModelBoard> getBoardSearch(ModelBoard board) throws Exception {
-        List<ModelBoard> result = null;
-        result = session.selectList("mapper.mapperBoard.getBoardSearch", board);
-        return result;
+    public int increaseHit(int articleno) {
+        return  session.update("mapper.mapperBoard.increaseHit", articleno ); 
     }
 
     @Override
-    public Integer getBoardTotalRecord(ModelBoard board) throws Exception {
-        int result = -1;
-        result = session.selectOne("mapper.mapperBoard.getBoardTotalRecord", board);
-        return result;
-    }
-
-    @Override
-    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) throws Exception {
-        List<ModelBoard> result = null;
-        Map<String, String> map = new HashMap<>();
-        map.put("boardcd", boardcd);
-        map.put("searchWord", searchWord);
-        map.put("start", String.valueOf(start));
-        map.put("end", String.valueOf(end));
+    public ModelArticle getNextArticle(int articleno, String boardcd, String searchWord) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("boardcd"   , boardcd    );
+        map.put("articleno" , articleno  );
+        map.put("searchWord", searchWord );
         
-        result = session.selectList("mapper.mapperBoard.getBoardPaging", map);
-        return result;
+        return  session.selectOne("mapper.mapperBoard.getNextArticle", map);        
     }
 
     @Override
-    public int insertBoardList(List<ModelBoard> board) throws Exception {
-        int result = -1;
-        result = session.insert("mapper.mapperBoard.insertBoardList", board);
-        return result;
+    public ModelArticle getPrevArticle(int articleno, String boardcd, String searchWord) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("boardcd"   , boardcd    );
+        map.put("articleno" , articleno  );
+        map.put("searchWord", searchWord );
+        return  session.selectOne("mapper.mapperBoard.getPrevArticle", map);        
     }
 
     @Override
-    public Integer getArticleTotalRecord(String boardcd, String searchWord) throws Exception {
-        int result = -1;
-        Map<String, String> map = new HashMap<>();
-        map.put("boardcd", boardcd);
-        map.put("searchWord", searchWord);
+    public ModelAttachFile getAttachFile(int attachFileNo) {
+        return  session.selectOne("mapper.mapperBoard.getAttachFile", attachFileNo);        
+    }
+
+    @Override
+    public List<ModelAttachFile> getAttachFileList(int articleno) {
+        return  session.selectList("mapper.mapperBoard.getAttachFileList", articleno);        
+    }
+
+    @Override
+    public int insertAttachFile(ModelAttachFile attachFile) {
+        return  session.insert("mapper.mapperBoard.insertAttachFile", attachFile );        
+    }
+
+    @Override
+    public int deleteAttachFile(ModelAttachFile attachFile) {
+        return  session.delete("mapper.mapperBoard.deleteAttachFile", attachFile );        
+    }
+
+    @Override
+    public int insertComment(ModelComments comment) {
+        return  session.insert("mapper.mapperBoard.insertComment", comment );        
+    }
+
+    @Override
+    public int updateComment(ModelComments setValue, ModelComments whereValue) {
         
-        result = session.selectOne("mapper.mapperBoard.getArticleTotalRecord", map);
-        return result;
-    }
-
-    @Override
-    public List<ModelArticle> getArticleList(String boardcd, String searchWord, String start, String end) throws Exception {
-        List<ModelArticle> result = null;
-        Map<String, String> map = new HashMap<>();
-        map.put("boardcd", boardcd);
-        map.put("searchWord", searchWord);
-        map.put("start", start);
-        map.put("end", end);
-        
-        result = session.selectList("mapper.mapperBoard.getArticleList", map);
-        return result;
-    }
-
-    @Override
-    public int insertArticle(ModelArticle article) throws Exception {
-        int result = -1;
-        result = session.insert("mapper.mapperBoard.insertArticle", article);
-        return result;
-    }
-
-    @Override
-    public int updateArticle(ModelArticle setValue, ModelArticle whereValue) throws Exception {
-        int result = -1;
-        Map<String, ModelArticle> map = new HashMap<>();
-        map.put("setValue", setValue);
-        map.put("whereValue", whereValue);
-        
-        result = session.update("mapper.mapperBoard.updateArticle", map);
-        return result;
-    }
-
-    @Override
-    public int deleteArticle(ModelArticle article) throws Exception {
-        int result = -1;
-        result = session.delete("mapper.mapperBoard.deleteArticle", article);
-        return result;
-    }
-
-    @Override
-    public Integer increaseHit(Integer articleno) throws Exception {
-        int result = -1;
-        result = session.update("mapper.mapperBoard.increaseHit", articleno);
-        return result;
-    }
-
-    @Override
-    public List<ModelArticle> getNextArticle(String boardcd, String articleno, String searchWord) throws Exception {
-        List<ModelArticle> result = null;
-        Map<String, String> map = new HashMap<>();
-        map.put("boardcd", boardcd);
-        map.put("articleno", String.valueOf(articleno));
-        map.put("searchWord", searchWord);
-        
-        result = session.selectList("mapper.mapperBoard.getNextArticle", map);
-        return result;
-    }
-
-    @Override
-    public List<ModelArticle> getPrevArticle(String boardcd, String articleno, String searchWord) throws Exception {
-        List<ModelArticle> result = null;
-        Map<String, String> map = new HashMap<>();
-        map.put("boardcd", boardcd);
-        map.put("articleno", String.valueOf(articleno));
-        map.put("searchWord", searchWord);
-        
-        result = session.selectList("mapper.mapperBoard.getPrevArticle", map);
-        return result;
-    }
-
-    @Override
-    public List<ModelAttachFile> getAttachFile(Integer attachFileNo) throws Exception {
-        List<ModelAttachFile> result = null;
-        result = session.selectList("mapper.mapperBoard.getAttachFile", attachFileNo);
-        return result;
-    }
-
-    @Override
-    public List<ModelAttachFile> getAttachFileList(Integer articleno) throws Exception {
-        List<ModelAttachFile> result = null;
-        result = session.selectList("mapper.mapperBoard.getAttachFileList", articleno);
-        return result;
-    }
-
-    @Override
-    public int insertAttachFile(ModelAttachFile file) throws Exception {
-        int result = -1;
-        result = session.insert("mapper.mapperBoard.insertAttachFile", file);
-        return result;
-    }
-
-    @Override
-    public int deleteAttachFile(ModelAttachFile file) throws Exception {
-        int result = -1;
-        result = session.delete("mapper.mapperBoard.deleteAttachFile", file);
-        return result;
-    }
-
-    @Override
-    public List<ModelComments> getComment(Integer commentNo) throws Exception {
-        List<ModelComments> result = null;
-        result = session.selectList("mapper.mapperBoard.getComment", commentNo);
-        return result;
-    }
-
-    @Override
-    public List<ModelComments> getCommentList(Integer articleno) throws Exception {
-        List<ModelComments> result = null;
-        result = session.selectList("mapper.mapperBoard.getCommentList", articleno);
-        return result;
-    }
-
-    @Override
-    public int insertComment(ModelComments comments) throws Exception {
-        int result = -1;
-        result = session.insert("mapper.mapperBoard.insertComment", comments);
-        return result;
-    }
-
-    @Override
-    public int updateComment(ModelComments setValue, ModelComments whereValue) throws Exception {
-        int result = -1;
         Map<String, ModelComments> map = new HashMap<>();
         map.put("setValue", setValue);
         map.put("whereValue", whereValue);
         
-        result = session.update("mapper.mapperBoard.updateComment", map);
-        return result;
+        return  session.update("mapper.mapperBoard.updateComment", map );        
     }
 
     @Override
-    public int deleteComment(ModelComments comments) throws Exception {
-        int result = -1;
-        result = session.delete("mapper.mapperBoard.deleteComment", comments);
-        return result;
+    public int deleteComment(ModelComments comment) {
+        return  session.delete("mapper.mapperBoard.deleteComment", comment );        
     }
+
+    @Override
+    public ModelComments getComment(int commentNo) {
+        return  session.selectOne("mapper.mapperBoard.getComment", commentNo);        
+    }
+
+    @Override
+    public List<ModelComments> getCommentList(int articleno) {
+        return  session.selectList("mapper.mapperBoard.getCommentList", articleno);        
+    }
+    
 }

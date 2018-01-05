@@ -1,11 +1,13 @@
 package com.spring61.rest;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
-import javax.sql.DataSource;
 
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -14,465 +16,369 @@ import org.junit.runners.MethodSorters;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.spring61.rest.inf.IServiceBoard;
 import com.spring61.rest.model.ModelArticle;
 import com.spring61.rest.model.ModelAttachFile;
 import com.spring61.rest.model.ModelBoard;
 import com.spring61.rest.model.ModelComments;
-import com.spring61.rest.svr.ServiceBoard;
 
+//Sorts by method name
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestServiceBoard {
-    static ServiceBoard service = null;
-
+    
+    private static IServiceBoard service  = null;
+    
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        @SuppressWarnings("resource")
         ApplicationContext context = new ClassPathXmlApplicationContext("file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml");
-        service = context.getBean("serviceboard", ServiceBoard.class);
+        service   = context.getBean("serviceboard", IServiceBoard.class); 
         
-        javax.sql.DataSource dataSource = (DataSource) context.getBean("dataSource");
+        // DB Table 초기화 코드
+        javax.sql.DataSource dataSource = context.getBean("dataSource", javax.sql.DataSource.class);                 
         org.apache.ibatis.jdbc.ScriptRunner runner = new org.apache.ibatis.jdbc.ScriptRunner(dataSource.getConnection());
-        
         runner.setAutoCommit(true);
         runner.setStopOnError(true);
-        
-        ClassLoader cl = ClassLoader.getSystemClassLoader();
-        String sf = cl.getResource("ddl/board.ddl.mysql.sql").getFile();
-        java.io.Reader br = new java.io.BufferedReader(new java.io.FileReader(sf));
-        
-        runner.runScript(br);
+        String sqlScriptFilePath = ClassLoader.getSystemClassLoader().getResource("java21/ddl/board.ddl.mysql.sql").getFile();
+        java.io.Reader br = new java.io.BufferedReader(new java.io.FileReader(sqlScriptFilePath ));
+        runner.runScript( br);
         runner.closeConnection();
     }
-
+    
     @Test
-    public void a01_testGetBoardName() {
-        String result = "";
-        ModelBoard board = new ModelBoard();
-        board.setBoardcd("free");
-        
-        try {
-            result = service.getBoardName(board);
-            assertEquals("자유게시판", result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void test01_getBoardName() {
+        String result = service.getBoardName("free");
+        assertEquals(result, "자유게시판");
     }
 
     @Test
-    public void a02_testGetBoardOne() {
-        List<ModelBoard> result = null;
-        String boardcd = "free";
-        
-        try {
-            result = service.getBoardOne(boardcd);
-            assertEquals("자유게시판", result.get(0).getBoardnm());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void test02_getBoardOne() {      
+        ModelBoard result = service.getBoardOne("free");
+        assertEquals(result.getBoardnm(), "자유게시판");
+        assertEquals(result.getBoardcd(), "free"      );
+        assertEquals(result.getUseYN()  , true        );
     }
 
     @Test
-    public void a03_testGetBoardList() {
-        List<ModelBoard> result = null;
-        
-        try {
-            result = service.getBoardList();
-            assertEquals("qna", result.get(0).getBoardcd());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-    }
+    public void test03_getBoardList() {    
 
-    @Test
-    public void a04_testInsertBoard() {
-        int result = -1;
-        ModelBoard board = new ModelBoard();
-        board.setBoardcd("zzz");
-        board.setBoardnm("zzz");
-        
-        try {
-            result = service.insertBoard(board);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void a05_testUpdateBoard() {
-        int result = -1;
-        ModelBoard setValue = new ModelBoard();
-        ModelBoard whereValue = new ModelBoard();
-        
-        setValue.setBoardnm("xxx");
-        setValue.setUseYN(true);
-        setValue.setUpdateUID(null);
-        setValue.setUpdateDT(null);
-        
-        whereValue.setBoardcd("qna");
-        
-        try {
-            result = service.updateBoard(setValue, whereValue);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void a06_testDeleteBoard() {
-        int result = -1;
-        ModelBoard board = new ModelBoard();
-        board.setBoardcd("data");
-        
-        try {
-            result = service.deleteBoard(board);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void a07_testGetBoardSearch() {
-        List<ModelBoard> result = null;
-        ModelBoard board = new ModelBoard();
-        board.setBoardcd("qn");
-        
-        try {
-            result = service.getBoardSearch(board);
-            assertEquals("qna", result.get(0).getBoardcd());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void a08_testGetBoardTotalRecord() {
-        int result = -1;
-        ModelBoard board = new ModelBoard();
-        board.setBoardcd("");
-        board.setBoardnm("");
-        
-        try {
-            result = service.getBoardTotalRecord(board);
-            assertEquals(3, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void a09_testGetBoardPaging() {
-        List<ModelBoard> result = null;
-        String boardcd = "";
         String searchWord = "";
-        String start = "1";
-        String end = "10";
+        List<ModelBoard> result = service.getBoardList(searchWord);        
+        assertSame(70, result.size());
         
-        try {
-            result = service.getBoardPaging(boardcd, searchWord, start, end);
-            assertEquals(3, result.size());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        searchWord ="자료실";
+        result = service.getBoardList(searchWord);        
+        assertSame(result.size(), 1);
     }
 
     @Test
-    public void b01_testInsertBoardList() {
-        int result = -1;
-        List<ModelBoard> board = new ArrayList<>();
-        ModelBoard mboard = new ModelBoard();
-        mboard.setBoardcd("ccc");
-        mboard.setBoardnm("ccc");
-        mboard.setUseYN(true);
-        board.add(mboard);
-        
-        ModelBoard mboard2 = new ModelBoard();
-        mboard2.setBoardcd("ddd");
-        mboard2.setBoardnm("ddd");
-        mboard2.setUseYN(true);
-        board.add(mboard2);
-        try {
-            result = service.insertBoardList(board);
-            assertEquals(2, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void test05_getBoardTotalRecord() {
+        String searchWord = "";
+        int result = service.getBoardTotalRecord( searchWord );
+        assertEquals(70, result);
+
+        searchWord ="자료실";
+        result = service.getBoardTotalRecord( searchWord );
+        assertEquals(1, result);
     }
 
     @Test
-    public void b02_testGetArticleTotalRecord() {
-        int result = -1;
-        String boardcd = "free";
-        String searchWord = "111";
-        try {
-            result = service.getArticleTotalRecord(boardcd, searchWord);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void test06_getBoardPaging() {
+
+        String boardcd    = "";
+        String searchWord = "";
+        int    start = 1;
+        int    end   = 3;
+        
+        List<ModelBoard> result = service.getBoardPaging(boardcd, searchWord, start, end);
+        assertEquals(result.size(), 3-1+1);        
     }
 
     @Test
-    public void b03_testGetArticleList() {
-       List<ModelArticle> result = null;
-       String boardcd = "free";
-       String searchWord = null;
-       String start = "1";
-       String end = "15";
-       
-       try {
-        result = service.getArticleList(boardcd, searchWord, start, end);
-        assertEquals(15, result.size());
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    }
-
-    @Test
-    public void b04_testInsertArticle() {
-        int result = -1;
-        ModelArticle article = new ModelArticle();
-        article.setBoardcd("free");
-        article.setTitle("aaa");
-        article.setContent("aaa");
-        article.setEmail("aaa@aaa.com");
-        article.setRegdate(null);
-        article.setInsertUID("aaaa");
-        article.setInsertDT(null);
-        article.setUpdateUID(null);
-        article.setUpdateDT(null);
-        
-        try {
-            result = service.insertArticle(article);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void test11_insertBoard()  {
+        ModelBoard model = new ModelBoard();
+        model.setBoardcd("notice");
+        model.setBoardnm("공지사항");
+        model.setInsertDT(new Date());
+        model.setInsertUID("insertUID");
+        model.setUpdateDT(new Date());
+        model.setUpdateUID("updateUID");
+        model.setUseYN(true);
+                       
+        int result = service.insertBoard(model);
+        assertEquals(result, 1);
     }
 
     @Test
-    public void b05_testUpdateArticle() {
-        int result = -1;
-        ModelArticle setValue = new ModelArticle();
-        ModelArticle whereValue = new ModelArticle();
+    public void test12_insertBoardList() {
+        ModelBoard model = null;
+        List<ModelBoard> list = new ArrayList<ModelBoard>();
+        Date d = new Date();
+        String current = new SimpleDateFormat("yyMMddHHmmss").format( d );
         
-        setValue.setTitle("bbb");
-        setValue.setContent("bbb");
-        setValue.setUseYN(true);
-        setValue.setUpdateUID("aaaaa");
-        setValue.setUpdateDT(null);
-        
-        whereValue.setArticleno(201);
-        
-        try {
-            result = service.updateArticle(setValue, whereValue);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void b06_testDeleteArticle() {
-        int result = -1;
-        ModelArticle article = new ModelArticle();
-        article.setArticleno(201);
-        
-        try {
-            result = service.deleteArticle(article);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void b07_testIncreaseHit() {
-        int result = -1;
-        int articleno = 193;
-        
-        try {
-            result = service.increaseHit(articleno);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void b08_testGetNextArticle() {
-        List<ModelArticle> result = null;
-        String boardcd = "free";
-        String articleno = "24";
-        String searchWord = null;
-        
-        try {
-            result = service.getNextArticle(boardcd, articleno, searchWord);
-            assertEquals(1, result.size());
-            assertEquals(Integer.valueOf("25"), result.get(0).getArticleno());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void b09_testGetPrevArticle() {
-        List<ModelArticle> result = null;
-        String boardcd = "free";
-        String articleno = "24";
-        String searchWord = null;
-        
-        try {
-            result = service.getPrevArticle(boardcd, articleno, searchWord);
-            assertEquals(1, result.size());
-            assertEquals(Integer.valueOf("23"), result.get(0).getArticleno());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-    }
-
-    @Test
-    public void c01_testGetAttachFile() {
-        List<ModelAttachFile> result = null;
-        int attachFileNo = 1;
-        
-        try {
-            result = service.getAttachFile(attachFileNo);
-            assertEquals(Integer.valueOf("10"), result.get(0).getFilesize());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void c02_testGetAttachFileList() {
-        List<ModelAttachFile> result = null;
-        int articleno = 1;
-        
-        try {
-            result = service.getAttachFileList(articleno);
-            assertEquals(7, result.size());
+        for( int i=0; i<10; i=i+1){            
+            model = new ModelBoard();
+            model.setBoardcd("notice" + current + i );
+            model.setBoardnm("공지사항" + current + i );
+            model.setUseYN(true);     
+            model.setInsertDT( d );
+            model.setInsertUID("insertUID" + i);
+            model.setUpdateDT( d );
+            model.setUpdateUID("updateUID" + i);  
             
-        } catch (Exception e) {
-            e.printStackTrace();
+            list.add( model );
         }
+               
+        int result = service.insertBoardList(list);
+        assertEquals(result, list.size());
     }
 
     @Test
-    public void c03_testInsertAttachFile() {
-        int result = -1;
-        ModelAttachFile file = new ModelAttachFile();
-        file.setFilename("aaa");
-        file.setFiletype(null);
-        file.setFilesize(null);
-        file.setInsertUID("aaaa");
-        file.setInsertDT(null);
-        file.setUpdateUID(null);
-        file.setUpdateDT(null);
+    public void test13_updateBoard() {
+        ModelBoard setBoard = new ModelBoard();
+        setBoard.setBoardcd("notice");
+        setBoard.setBoardnm("새로운 공지사항");
+        setBoard.setUpdateDT(new Date());
+        setBoard.setUpdateUID("updateUID");
+        setBoard.setUseYN(true);
         
-        try {
-            result = service.insertAttachFile(file);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void c04_testDeleteAttachFile() {
-        int result = -1;
-        ModelAttachFile file = new ModelAttachFile();
-        file.setAttachfileno(7);
+        ModelBoard whereBoard = new ModelBoard();
+        whereBoard.setBoardcd("notice");
+               
+        int result = service.updateBoard(setBoard, whereBoard);
+        assertEquals(result, 1);
         
-        try {
-            result = service.deleteAttachFile(file);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    @Test
-    public void c05_testGetComment() {
-        List<ModelComments> result = null;
-        int commentNo = 1; 
-        try {
-            result = service.getComment(commentNo);
-            assertEquals("comment test", result.get(0).getMemo());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void c06_testGetCommentList() {
-        List<ModelComments> result = null;
-        int articleno = 1;
+        setBoard.setBoardnm("");
+        setBoard.setUpdateDT(null);
+        setBoard.setUpdateUID("updateUID");
+        setBoard.setUseYN(true);
         
-        try {
-            result = service.getCommentList(articleno);
-            assertEquals("comment test", result.get(0).getMemo());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        whereBoard = new ModelBoard();
+        whereBoard.setBoardcd("notice");
+               
+        result = service.updateBoard(setBoard, whereBoard);
+        assertEquals(result, 1);
     }
 
     @Test
-    public void c07_testInsertComment() {
-        int result = -1;
-        ModelComments comments = new ModelComments();
-        comments.setArticleno(2);
-        comments.setEmail("aaa@aaa.com");
-        comments.setMemo("aaa");
-        comments.setRegdate(null);
-        comments.setInsertUID("aaaa");
-        comments.setUpdateUID(null);
-        comments.setUpdateDT(null);
-        
-        try {
-            result = service.insertComment(comments);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void test14_deleteBoard() {
+        ModelBoard model = new ModelBoard();
+        model.setBoardcd("notice");
+        model.setUseYN(true);
+               
+        int result = service.deleteBoard(model);
+        assertEquals(result, 1);
     }
 
     @Test
-    public void c08_testUpdateComment() {
-        int result = -1;
-        ModelComments setValue = new ModelComments();
-        ModelComments whereValue = new ModelComments();
+    public void test21_getArticleTotalRecord() {
+         
+        String boardcd    = "free";  
+        String searchWord = "article";        
+        int result = service.getArticleTotalRecord(boardcd, searchWord);
+        assertEquals(result, 201);
+
+        boardcd    = "free";  
+        searchWord = "";        
+        result = service.getArticleTotalRecord(boardcd, searchWord);
+        assertEquals(result, 201);
+    }
+
+    @Test
+    public void test22_getArticleList() {
+         
+        String boardcd    = "free";  
+        String searchWord = "article";
+        int    start = 2;
+        int    end   = 7;
         
-        setValue.setMemo("changed memo");
-        setValue.setRegdate(null);
+        List<ModelArticle> result = service.getArticleList(boardcd, searchWord, start, end);
+        assertEquals(6, result.size());
+        
+        boardcd    = "free";  
+        searchWord = "10";
+        start = 1;
+        end   = 12;
+        result = service.getArticleList(boardcd, searchWord, start, end);
+        assertEquals(12, result.size());
+    }
+
+    @Test
+    public void test23_getArticle() {
+          
+        ModelArticle result = service.getArticle(1);
+        assertEquals(result.getTitle(), "article test  01");
+    }
+
+    @Test
+    public void test24_insertArticle() {
+        ModelArticle model = new ModelArticle();
+        model.setBoardcd("free");
+        model.setContent("tesr yd cyt");
+        model.setEmail("sjydevil@gamil.com");
+        model.setHit(0);
+        model.setRegdate( new Date() );
+        model.setTitle("insert article test");
+        model.setUseYN(true);
+        
+        model.setInsertDT(new Date());
+        model.setInsertUID("insertUID");
+        model.setUpdateDT(new Date());
+        model.setUpdateUID("updateUID");
+                       
+        int result = service.insertArticle(model);
+        assertEquals(result, 1);
+    }
+
+    @Test
+    public void test25_updateArticle() {       
+        
+        ModelArticle setValue = new ModelArticle(); 
+        setValue.setContent("tesr update cyt");
+        setValue.setTitle("update article test");
         setValue.setUseYN(true);
+        setValue.setUpdateDT(new Date());
+        setValue.setUpdateUID("updateUID");
         
-        whereValue.setCommentno(1);
-        
-        try {
-            result = service.updateComment(setValue, whereValue);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ModelArticle whereValue = new ModelArticle();     
+        whereValue.setBoardcd("free");
+        whereValue.setContent("tesr update cyt");
+        whereValue.setEmail("sjydevil@gamil.com");
+                       
+        int result = service.updateArticle(setValue, whereValue);
+        assertEquals(result, 1);
     }
 
     @Test
-    public void c09_testDeleteComment() {
-        int result = -1;
-        ModelComments comments = new ModelComments();
-        comments.setCommentno(1);
-        
-        try {
-            result = service.deleteComment(comments);
-            assertEquals(1, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void test26_deleteArticle() {
+        ModelArticle whereValue = new ModelArticle();     
+        whereValue.setBoardcd("free");
+        whereValue.setContent("tesr update cyt");
+        whereValue.setEmail("sjydevil@gamil.com");
+                       
+        int result = service.deleteArticle(whereValue);
+        assertEquals(result, 1);
     }
 
+    @Test
+    public void test27_increaseHit() {  
+        int articleno  = 1;
+        
+        ModelArticle beforeArticle = service.getArticle(articleno);        
+                                     service.increaseHit(articleno);        
+        ModelArticle afterArticle  = service.getArticle(articleno);
+
+        assertSame(beforeArticle.getHit()+2, afterArticle.getHit());
+    }
+
+    @Test
+    public void test28_getNextArticle() {
+        ModelArticle result = service.getNextArticle(186, "free", "test");
+        assertTrue(187 == result.getArticleno() );
+    }
+
+    @Test
+    public void test29_getPrevArticle() {
+        ModelArticle result = service.getPrevArticle(186, "free", "test");
+        assertTrue(185 == result.getArticleno() );
+    }
+
+    @Test
+    public void test41_getAttachFile() {
+        ModelAttachFile result = service.getAttachFile( 2 );
+        assertSame(result.getArticleno(), 1);
+    }
+
+    @Test
+    public void test42_getAttachFileList() {
+        List<ModelAttachFile> result = service.getAttachFileList(1);
+        assertSame(result.size(), 7);
+    }
+    @Test
+    public void test43_insertAttachFile() {
+        ModelAttachFile model = new ModelAttachFile();
+        model.setArticleno(2);
+        model.setFilename("insert Attach File test");
+        model.setFilesize((long)2008);
+        model.setFiletype("txt");
+        model.setUseYN(true);        
+        model.setInsertDT(new Date());
+        model.setInsertUID("insertUID");
+        model.setUpdateDT(new Date());
+        model.setUpdateUID("updateUID");
+                       
+        int result = service.insertAttachFile(model);
+        assertEquals(result, 1);
+    }
+
+    @Test
+    public void test44_deleteAttachFile() {
+        ModelAttachFile model = new ModelAttachFile();
+        model.setAttachfileno(3);
+        //model.setArticleno(1);
+        model.setUseYN(true);        
+                       
+        int result = service.deleteAttachFile(model);
+        assertEquals(result, 1);
+    }
+
+    @Test
+    public void test61_getComment() {
+        ModelComments result = service.getComment( 1 );
+        assertSame(result.getArticleno(), 1);
+    }
+
+    @Test
+    public void test62_getCommentList() {
+        List<ModelComments> result = service.getCommentList( 1 );
+        assertSame(result.size(), 1);
+    }
+
+    @Test
+    public void test63_insertComment() {
+        ModelComments model = new ModelComments();
+        model.setArticleno(1); 
+        //model.setCommentno(commentno);
+        model.setEmail("sjydevil@gmail.com");
+        model.setMemo("insert comment");
+        model.setRegdate(new Date()); 
+        model.setInsertDT(new Date());
+        model.setInsertUID("insertUID");
+        model.setUpdateDT(new Date());
+        model.setUpdateUID("updateUID");
+                       
+        int result = service.insertComment(model);
+        assertEquals(result, 1);
+    }
+
+    @Test
+    public void test64_updateComment() {    
+        
+        ModelComments setValue = new ModelComments(); 
+        setValue.setMemo("update Comment test");
+        setValue.setRegdate( new Date() );
+        setValue.setUseYN(true);
+        setValue.setUpdateDT(new Date());
+        setValue.setUpdateUID("updateUID");
+        
+        ModelComments whereValue = new ModelComments();     
+        whereValue.setCommentno(1);
+        whereValue.setArticleno(1);
+        //whereValue.setEmail("sjydevil@gamil.com");        
+               
+        int result = service.updateComment(setValue, whereValue);
+        assertEquals(result, 1);
+    }
+
+    @Test
+    public void test65_deleteComment() {
+        ModelComments whereValue = new ModelComments();     
+        whereValue.setCommentno(2);
+        whereValue.setArticleno(1);
+        whereValue.setUseYN(true);
+        whereValue.setEmail("sjydevil@gmail.com");
+                       
+        int result = service.deleteComment(whereValue);
+        assertEquals(result, 1);
+    }
 }
