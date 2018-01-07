@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ad21-05.CustomView.iml" filepath="$PROJECT_DIR$/ad21-05.CustomView.iml" />
+      <module fileurl="file://E:\JAVA\arba-dev\Android\Work\part2.adapterview\ad21-05.CustomView\ad21-05.CustomView.iml" filepath="E:\JAVA\arba-dev\Android\Work\part2.adapterview\ad21-05.CustomView\ad21-05.CustomView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://E:\JAVA\arba-dev\Android\Work\part2.adapterview\ad21-05.CustomView\app\app.iml" filepath="E:\JAVA\arba-dev\Android\Work\part2.adapterview\ad21-05.CustomView\app\app.iml" />
     </modules>
   </component>
 </project>

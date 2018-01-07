@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         listview = findViewById(R.id.listview);
         listview.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
 
-        View headerView = LayoutInflater.from(MainActivity.this).inflate(R.layout.view_header, null);
+        final View headerView = LayoutInflater.from(MainActivity.this).inflate(R.layout.view_header, null);
 
         edit_search = headerView.findViewById(R.id.edit_search);
         button_search = headerView.findViewById(R.id.button_search);

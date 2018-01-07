@@ -92,15 +92,15 @@ public class ViewPerson extends LinearLayout implements Checkable {
         this.setChecked(person.isCheck());
     }
 
-    // 1 인터페이스 선언
-    public static interface OnCheckedChangedListener {
-        void onCheckedChangedListener(View checkableView, boolean isChecked);
-    }
-
-    // 2 리스너 선언
-    private OnCheckedChangedListener checkedChangedListener;
-    public void setOnCheckedChangedListener(OnCheckedChangedListener listener) {
-        this.checkedChangedListener = listener;
-    }
+//    // 1 인터페이스 선언
+//    public static interface OnCheckedChangedListener {
+//        void onCheckedChangedListener(View checkableView, boolean isChecked);
+//    }
+//
+//    // 2 리스너 선언
+//    private OnCheckedChangedListener checkedChangedListener;
+//    public void setOnCheckedChangedListener(OnCheckedChangedListener listener) {
+//        this.checkedChangedListener = listener;
+//    }
 
 }

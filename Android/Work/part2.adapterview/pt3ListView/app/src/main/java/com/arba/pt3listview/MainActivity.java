@@ -1,12 +1,7 @@
 package com.arba.pt3listview;
 
-<<<<<<< HEAD
-=======
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
-import android.support.v7.app.AppCompatActivity;
->>>>>>> 91d3d066bd3361363d828ee74ed203c59a2a358a
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
@@ -21,8 +16,9 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -143,9 +139,9 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 case R.id.btn_search:
-//                    // 0이름 1번호 2학과
-//                    String searchitem = getFieldName(spinner.getSelectedItem().toString());
-//                    String searchvalue = edit_item.getText().toString();
+                    // 0이름 1번호 2학과
+                    String searchitem = getFieldName(spinner.getSelectedItem().toString());
+                    String searchvalue = edit_item.getText().toString();
 //
 //                    PersonData.MyPredicateContains predicate = new PersonData.MyPredicateContains(searchitem, searchvalue);
 //                    List<PersonData> result = (List<PersonData>) CollectionUtils.select(items, predicate);
@@ -160,17 +156,14 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
-<<<<<<< HEAD
                     adapter.clear();
                     adapter.addAll(result);
 
-=======
                     temp_items.clear();
                     PersonData.MyPredicateContains predicate = new PersonData.MyPredicateContains(searchitem, searchvalue);
                     temp_items.addAll((ArrayList<PersonData>) CollectionUtils.select(items, predicate));
                     list_view.setAdapter(temp_adapter);
                     temp_adapter.notifyDataSetChanged();
->>>>>>> 91d3d066bd3361363d828ee74ed203c59a2a358a
                     break;
 
                 case R.id.btn_sort:
