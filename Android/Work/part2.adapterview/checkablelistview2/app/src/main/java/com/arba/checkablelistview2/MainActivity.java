@@ -8,7 +8,6 @@ import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,7 +15,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private ListView listview;
-    private Button button_search;
+    private Button button_search, button_select;
     private EditText edit_search;
 
     AdapterPerson adapter;
@@ -49,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String text = edit_search.getText().toString();
-                if (!text.isEmpty()) {
-                    Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
-                }
             }
         });
 
@@ -61,6 +57,24 @@ public class MainActivity extends AppCompatActivity {
         listview.addHeaderView(headerView);
         listview.setAdapter(adapter);
 
+        button_select = findViewById(R.id.button_select);
+
+        button_select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (ModelPerson p : adapter.getList()) {
+                    if (p.isCheck_visible_stmt()) {
+                        p.setCheck_visible_stmt(false);
+                        button_select.setText("Select Off");
+                        p.setCheck(false);
+                    } else {
+                        p.setCheck_visible_stmt(true);
+                        button_select.setText("Select On");
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private void initData() {

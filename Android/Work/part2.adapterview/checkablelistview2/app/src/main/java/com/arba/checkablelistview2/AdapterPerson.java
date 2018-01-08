@@ -3,26 +3,27 @@ package com.arba.checkablelistview2;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2018-01-05.
  */
 
 public class AdapterPerson extends ArrayAdapter<ModelPerson> {
+    private List<ModelPerson> list;
 
     public AdapterPerson(@NonNull Context context, int resource, @NonNull ArrayList<ModelPerson> objects) {
         super(context, resource, objects);
+        this.list = objects;
     }
 
     @NonNull
@@ -32,8 +33,7 @@ public class AdapterPerson extends ArrayAdapter<ModelPerson> {
 
         if (convertView == null) {
 
-            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.view_person, null);
+            v = new ViewPerson(getContext());
 
             final ViewHolder holder = new ViewHolder();
 
@@ -54,6 +54,7 @@ public class AdapterPerson extends ArrayAdapter<ModelPerson> {
             holder.img_photo.setImageDrawable(p.getPhoto());
             holder.text_name.setText(p.getName());
             holder.text_age.setText(String.valueOf(p.getAge()));
+            holder.checkBox.setVisibility(View.INVISIBLE);
 
             holder.checkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,6 +75,13 @@ public class AdapterPerson extends ArrayAdapter<ModelPerson> {
             } else {
                 holder.custom_Linear.setBackground(v.getResources().getDrawable(R.color.transparent));
             }
+
+            if (getItem(position).isCheck_visible_stmt()) {
+                holder.checkBox.setVisibility(View.VISIBLE);
+            }
+            else {
+                holder.checkBox.setVisibility(View.INVISIBLE);
+            }
         }
         return v;
     }
@@ -87,15 +95,12 @@ public class AdapterPerson extends ArrayAdapter<ModelPerson> {
         private LinearLayout custom_Linear;
     }
 
-    // 1 인터페이스 선언
-    public static interface OnClickedListener {
-        void onClickedListener(View v);
-    }
+    public ArrayList<ModelPerson> getList() {
+        ArrayList<ModelPerson> p = new ArrayList<>();
+        for (int i = 0; i < getCount(); i++) {
+            p.add(getItem(i));
+        }
 
-    // 2 리스너 선언
-    private OnClickedListener clickedListener;
-    public void setClickedListener(OnClickedListener listener) {
-        this.clickedListener = listener;
+        return p;
     }
-
 }

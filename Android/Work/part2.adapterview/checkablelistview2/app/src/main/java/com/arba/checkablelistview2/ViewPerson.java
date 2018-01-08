@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -102,5 +101,16 @@ public class ViewPerson extends LinearLayout implements Checkable {
 //    public void setOnCheckedChangedListener(OnCheckedChangedListener listener) {
 //        this.checkedChangedListener = listener;
 //    }
+
+    // 1 인터페이스 선언
+    public interface OnClickedListener {
+        void onClickedListener(View v);
+    }
+
+    // 2 리스너 선언
+    private OnClickedListener clickedListener;
+    public void setClickedListener(OnClickedListener listener) {
+        this.clickedListener = listener;
+    }
 
 }

@@ -12,6 +12,7 @@ public class ModelPerson {
     private int age;
     private Drawable photo;
     private boolean check;
+    private boolean check_visible_stmt;
 
     public boolean isCheck() {
         return check;
@@ -45,6 +46,15 @@ public class ModelPerson {
         this.photo = photo;
     }
 
+
+    public boolean isCheck_visible_stmt() {
+        return check_visible_stmt;
+    }
+
+    public void setCheck_visible_stmt(boolean check_visible_stmt) {
+        this.check_visible_stmt = check_visible_stmt;
+    }
+
     @Override
     public String toString() {
         return "ModelPerson{" +
@@ -55,11 +65,12 @@ public class ModelPerson {
                 '}';
     }
 
-    public ModelPerson(String name, int age, Drawable photo, boolean check) {
+    public ModelPerson(String name, int age, Drawable photo, boolean check, boolean check_visible_stmt) {
         this.name = name;
         this.age = age;
         this.photo = photo;
         this.check = check;
+        this.check_visible_stmt = check_visible_stmt;
     }
 
     public ModelPerson() {

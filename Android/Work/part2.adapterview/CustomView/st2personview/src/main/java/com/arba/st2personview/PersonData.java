@@ -35,19 +35,21 @@ class PersonData {
         this.photo = photo;
     }
 
+
     @Override
     public String toString() {
         return "PersonData{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", photo=" + photo +
+                ", check_visible_stmp" + check_visible_stmt +
                 '}';
     }
 
     public PersonData() {
     }
 
-    public PersonData(String name, int age, Drawable photo) {
+    public PersonData(String name, int age, Drawable photo, boolean check_visible_stmt) {
         this.name = name;
         this.age = age;
         this.photo = photo;
