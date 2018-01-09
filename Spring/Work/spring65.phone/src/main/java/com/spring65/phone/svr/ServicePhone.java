@@ -48,7 +48,7 @@ public class ServicePhone implements IServicePhone {
             e.printStackTrace();
         }
 
-        return null;
+        return result;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class ServicePhone implements IServicePhone {
             e.printStackTrace();
         }
 
-        return 0;
+        return result;
     }
 
     @Override
@@ -77,7 +77,7 @@ public class ServicePhone implements IServicePhone {
             e.printStackTrace();
         }
         
-        return 0;
+        return result;
     }
 
 }

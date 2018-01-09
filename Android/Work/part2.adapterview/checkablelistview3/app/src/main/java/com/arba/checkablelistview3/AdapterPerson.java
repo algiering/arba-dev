@@ -1,6 +1,7 @@
 package com.arba.checkablelistview3;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -34,52 +35,63 @@ public class AdapterPerson extends ArrayAdapter<ModelPerson> {
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View v = convertView;
+        // return getViewHolder(position, convertView, parent);
+        return getViewClass(position, convertView, parent);
+    }
 
-        if (v == null) {
+    @NonNull
+    public View getViewHolder(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View rowView = convertView;
 
-            v = LayoutInflater.from(this.context).inflate(R.layout.view_person, parent, false);
+        ViewHolder holder = new ViewHolder();
 
-            ViewHolder holder = new ViewHolder();
-            holder.image_photo = v.findViewById(R.id.image_photo);
-            holder.text_name = v.findViewById(R.id.text_name);
-            holder.text_age = v.findViewById(R.id.text_age);
-            holder.image_check = v.findViewById(R.id.image_check);
+        if (rowView == null) {
 
-            v.setTag(holder);
+            rowView = LayoutInflater.from(this.context).inflate(R.layout.view_person, parent, false);
+
+
+            holder.image_photo = rowView.findViewById(R.id.image_photo);
+            holder.text_name = rowView.findViewById(R.id.text_name);
+            holder.text_age = rowView.findViewById(R.id.text_age);
+            holder.image_check = rowView.findViewById(R.id.image_check);
+
+            rowView.setTag(holder);
         } else {
-
+            holder = (ViewHolder) rowView.getTag();
         }
 
-        ModelPerson p = getItem(position);
+        final ModelPerson p = getItem(position);
 
         if (p != null) {
-            final ViewHolder holder = (ViewHolder) v.getTag();
 
             holder.image_photo.setImageDrawable(p.getImagePhoto());
             holder.text_name.setText(p.getTextName());
             holder.text_age.setText(p.getTextAge());
             holder.image_check.setChecked(p.getImageCheck());
 
-            holder.image_check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            final View finalRowView = rowView;
+            holder.image_check.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        list.get(position).setImageCheck(true);
-                    } else {
-                        list.get(position).setImageCheck(false);
-                    }
+                public void onClick(View v) {
+
+                    p.setImageCheck(!p.getImageCheck());
+
+                    redraw(finalRowView, p);
                 }
             });
 
-            if (list.get(position).getImageCheck()) {
-                holder.image_check.setChecked(true);
-            } else {
-                holder.image_check.setChecked(false);
-            }
+            redraw(rowView, p);
         }
 
-        return v;
+        return rowView;
+    }
+
+    private void redraw(View rowView, ModelPerson p) {
+        if (p.getImageCheck()) {
+            rowView.setBackgroundColor(Color.GRAY);
+        } else {
+            rowView.setBackgroundColor(Color.TRANSPARENT);
+        }
     }
 
     private class ViewHolder {
@@ -88,4 +100,21 @@ public class AdapterPerson extends ArrayAdapter<ModelPerson> {
         private TextView text_age;
         private CheckBox image_check;
     }
+
+    
+    @NonNull
+    public View getViewClass(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        ViewPerson rowView = (ViewPerson) convertView;
+
+        if(rowView == null) {
+            rowView = new ViewPerson(parent.getContext());
+        }
+
+        ModelPerson p = list.get(position);
+
+        rowView.setPerson(p);
+
+        return rowView;
+    }
+
 }
