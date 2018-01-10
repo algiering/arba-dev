@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.arba.multitypelistview.MainActivity">
+                tools:context="com.arba.multitypelistview.view.MainActivity">
     
     <ListView
         android:layout_width="wrap_content"
@@ -13,19 +13,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     
-    <com.arba.multitypelistview.ActorView
+    <com.arba.multitypelistview.view.ActorView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     
-    <com.arba.multitypelistview.CommentView
+    <com.arba.multitypelistview.view.CommentView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     
-    <com.arba.multitypelistview.DramaView
+    <com.arba.multitypelistview.view.DramaView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     
-    <com.arba.multitypelistview.MovieView
+    <com.arba.multitypelistview.view.MovieView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </RelativeLayout>

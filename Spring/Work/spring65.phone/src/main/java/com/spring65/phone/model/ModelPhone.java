@@ -41,9 +41,8 @@ public class ModelPhone {
                 + "]";
     }
 
-    public ModelPhone(Logger logger, String name, String manufacturer, Integer price) {
+    public ModelPhone(String name, String manufacturer, Integer price) {
         super();
-        this.logger = logger;
         this.name = name;
         this.manufacturer = manufacturer;
         this.price = price;

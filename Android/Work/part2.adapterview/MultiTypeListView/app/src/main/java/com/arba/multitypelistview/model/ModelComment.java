@@ -1,4 +1,4 @@
-package com.arba.multitypelistview;
+package com.arba.multitypelistview.model;
 
 import android.widget.TextView;
 

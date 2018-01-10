@@ -1,7 +1,10 @@
-package com.arba.multitypelistview;
+package com.arba.multitypelistview.model;
 
 import android.graphics.drawable.Drawable;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2018-01-09.
@@ -9,10 +12,27 @@ import android.widget.TextView;
 
 public class ModelActor {
 
-    private Drawable imagePhoto;
-    private String textName;
-    private String textAge;
-    private String textDescription;
+    private Drawable imagePhoto      ;
+    private String   textName        ;
+    private String   textAge         ;
+    private String   textDescription ;
+
+    // child data
+    List<ModelComment> comments = new ArrayList<>();
+    List<ModelDrama>   dramas   = new ArrayList<>();
+    List<ModelMovie>   movies   = new ArrayList<>();
+
+    public List<ModelComment> getComments() {
+        return comments;
+    }
+
+    public List<ModelDrama> getDramas() {
+        return dramas;
+    }
+
+    public List<ModelMovie> getMovies() {
+        return movies;
+    }
 
     public Drawable getImagePhoto() {
         return imagePhoto;
@@ -57,9 +77,9 @@ public class ModelActor {
     }
 
     public ModelActor(Drawable imagePhoto, String textName, String textAge, String textDescription) {
-        this.imagePhoto = imagePhoto;
-        this.textName = textName;
-        this.textAge = textAge;
+        this.imagePhoto      = imagePhoto;
+        this.textName        = textName;
+        this.textAge         = textAge;
         this.textDescription = textDescription;
     }
 

@@ -1,17 +1,16 @@
-package com.arba.multitypelistview;
+package com.arba.multitypelistview.model;
 
 import android.graphics.drawable.Drawable;
-import android.widget.TextView;
 
 /**
  * Created by Administrator on 2018-01-09.
  */
 
-public class ModelDrama {
+public class ModelMovie {
 
     private Drawable imagePicture;
     private String textTitle;
-    private String textInterval;
+    private String textYear;
 
     public Drawable getImagePicture() {
         return imagePicture;
@@ -29,29 +28,29 @@ public class ModelDrama {
         this.textTitle = textTitle;
     }
 
-    public String getTextInterval() {
-        return textInterval;
+    public String getTextYear() {
+        return textYear;
     }
 
-    public void setTextInterval(String textInterval) {
-        this.textInterval = textInterval;
+    public void setTextYear(String textYear) {
+        this.textYear = textYear;
     }
 
     @Override
     public String toString() {
-        return "ModelDrama{" +
+        return "ModelMovie{" +
                 "imagePicture=" + imagePicture +
                 ", textTitle='" + textTitle + '\'' +
-                ", textInterval='" + textInterval + '\'' +
+                ", textYear='" + textYear + '\'' +
                 '}';
     }
 
-    public ModelDrama(Drawable imagePicture, String textTitle, String textInterval) {
+    public ModelMovie(Drawable imagePicture, String textTitle, String textYear) {
         this.imagePicture = imagePicture;
         this.textTitle = textTitle;
-        this.textInterval = textInterval;
+        this.textYear = textYear;
     }
 
-    public ModelDrama() {
+    public ModelMovie() {
     }
 }

@@ -1,4 +1,4 @@
-package com.arba.multitypelistview;
+package com.arba.multitypelistview.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.arba.multitypelistview.R;
+import com.arba.multitypelistview.model.ModelActor;
 
 /**
  * Created by Administrator on 2018-01-09.

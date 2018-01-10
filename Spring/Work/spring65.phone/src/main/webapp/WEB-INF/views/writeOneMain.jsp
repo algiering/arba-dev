@@ -20,8 +20,7 @@ th {
         });
         
         $('#writeone2').click(function(e) {
-            $('form').attr('action', '/writeone2')
-            $('form').attr('method', 'post').submit();
+            $('form').attr('action', '/writeone2').submit();
         });
         
         $('#writeone3').click(function(e) {
