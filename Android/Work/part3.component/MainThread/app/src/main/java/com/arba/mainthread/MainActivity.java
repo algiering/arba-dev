@@ -31,11 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
                 for (int i = 0; i < 10; i++) {
 
-                    Log.i("superdroid", "Current Count" + mCount);
-
                     mCount++;
-
-
 
                     try {
 
@@ -48,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                         };
 
                         handler.post(message);
+                        //count.post(message);
+                        //MainActivity.this.runOnUiThread(message);
 
 
                         Thread.sleep(1000);

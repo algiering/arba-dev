@@ -10,35 +10,12 @@
         margin: 0px;
         padding: 0px;
     }
-    #body {
+    body {
         background-color: #dddddd;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        height: 720px;
-
-    }
-    #body>table {
-        width: 100%;
-        text-align: center;
-        border-collapse: collapse;
     }
     hr {
         margin: 1px 0px 1px 0px;
         border: 1px #1e1e1e solid;
-    }
-
-    #page_num td {
-        width: 1%;
-        font-size: 20px;
-        font-weight: bold;
-        background-color: #1e1e1e;
-        color: #dddddd;
-        height: 30px;
-        text-align: center;
-    }
-
-    #page_num_border {
-        border-right: 1px #dddddd solid;
     }
 
     #board_title {
@@ -46,248 +23,150 @@
         color: #dddddd;
         background-color: #1e1e1e;
         padding: 10px;
-    }
-
-    #board_0row>span[id*="board_0row"] {
-        background-color: #1e1e1e;
-        color: #dddddd;
-        display: inline-block;
-        text-align: center;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        font-weight: bold;
     }
 
     #table_title {
-        width: 100%;
+        font-weight: bold;
+        display: flex;
+    }
+
+    #table_title * {
         text-align: center;
-        border-collapse: collapse;
+        font-size: 22px;
+        padding-bottom: 2px;
+        background-color: #f4f4f4;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 25px;
     }
 
-    #board_0row_1col {
-        width: 60%;
-        border-right: 2px #1e1e1e solid;
-    }
-    #board_0row_2col {
-        width: 10%;
-        border-right: 2px #1e1e1e solid;
-    }
-    #board_0row_3col {
-        width: 10%;
-        border-right: 2px #1e1e1e solid;
-    }
-    #board_0row_4col {
-        width: 10%;
-        border-right: 2px #1e1e1e solid;
-    }
-    #board_0row_5col {
-        width: 10%;
+    #table_title>#col_0 {
+        flex: 5;
+        margin-right: 2px;
     }
 
-    #article_list_1col {
-        width: 60%;
-        border-right: 1px #1e1e1e solid;
+    #table_title>#col_1 {
+        flex: 1;
+        margin-right: 2px;
     }
-    #article_list_2col {
-        width: 10%;
-        border-right: 1px #1e1e1e solid;
+
+    #table_title>#col_2 {
+        flex: 1;
+        margin-right: 2px;
     }
-    #article_list_3col {
-        width: 10%;
-        border-right: 1px #1e1e1e solid;
+
+    #table_title>#col_3 {
+        flex: 1;
+        margin-right: 2px;
     }
-    #article_list_4col {
-        width: 10%;
-        border-right: 1px #1e1e1e solid;
+
+    #table_title>#col_4 {
+        flex: 1;
+        margin-right: 2px;
     }
-    #article_list_5col {
-        width: 10%;
+
+
+    #table_body {
+        display: flex;
+
     }
+
+    #table_body * {
+        font-size: 18px;
+        height: 25px;
+        background-color: #f4f4f4;
+        margin-top: 1px;
+        margin-bottom: 1px;
+        height: 25px;
+
+    }
+
+    #table_body>#col_0 {
+        flex: 5;
+        margin-right: 2px;
+    }
+    #table_body p {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #table_body>#col_1 {
+        flex: 1;
+        margin-right: 2px;
+    }
+
+    #table_body>#col_2 {
+        flex: 1;
+        margin-right: 2px;
+    }
+
+    #table_body>#col_3 {
+        flex: 1;
+        margin-right: 2px;
+    }
+
+    #table_body>#col_4, #table_body>#col_4>p  {
+        flex: 1;
+        margin-right: 2px;
+        font-size: 13px;
+        line-height: 2.5em;
+    }
+
+    #body {
+        width: 100%;
+    }
+
 
 </style>
 </head>
 <body>
-    <hr>
-    <div id="board_title">
-        <span>게시판1</span>
-    </div>
-    <hr>
-    <div>
-        <table id="table_title">
-            <th id="board_0row_1col">제목</th>
-            <th id="board_0row_2col">닉네임</th>
-            <th id="board_0row_3col">조회수</th>
-            <th id="board_0row_4col">추천수</th>
-            <th id="board_0row_5col">등록일</th>
-        </table>
-    </div>
     <div id="body">
-
         <hr>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
-        <table id="article_list">
-            <td id="article_list_1col">제목1234</td>
-            <td id="article_list_2col">asdf</td>
-            <td id="article_list_3col">0</td>
-            <td id="article_list_4col">0</td>
-            <td id="article_list_5col">2017-12-27</td>
-        </table>
+        <div id="board_title">
+            <span>게시판1</span>
+        </div>
         <hr>
-
+        <div id="table_title">
+            <div id="col_0"><p>제목</p></div>
+            <div id="col_1"><p>닉네임</p></div>
+            <div id="col_2"><p>조회</p></div>
+            <div id="col_3"><p>추천</p></div>
+            <div id="col_4"><p>등록일</p></div>
+        </div>
         <hr>
+        <div id="table_body">
+            <div id="col_0"><p>aaaaa</p></div>
+            <div id="col_1"><p>aaaaa</p></div>
+            <div id="col_2"><p>0</p></div>
+            <div id="col_3"><p>1</p></div>
+            <div id="col_4"><p>2017-05-07</p></div>
+        </div>
+        <div id="table_body">
+            <div id="col_0">aaaaa</div>
+            <div id="col_1">aaaaa</div>
+            <div id="col_2">0</div>
+            <div id="col_3">1</div>
+            <div id="col_4">2017-05-07</div>
+        </div>
+        <div id="table_body">
+            <div id="col_0">aaaaa</div>
+            <div id="col_1">aaaaa</div>
+            <div id="col_2">0</div>
+            <div id="col_3">1</div>
+            <div id="col_4">2017-05-07</div>
+        </div>
+        <div id="table_body">
+            <div id="col_0">aaaaa</div>
+            <div id="col_1">aaaaa</div>
+            <div id="col_2">0</div>
+            <div id="col_3">1</div>
+            <div id="col_4">2017-05-07</div>
+        </div>
     </div>
-    <div>
-        <table id="page_num">
-            <td id="page_num_border">&nbsp</td>
-            <td id="page_num_border">1</td>
-            <td id="page_num_border">2</td>
-            <td id="page_num_border">3</td>
-            <td id="page_num_border">4</td>
-            <td id="page_num_border">5</td>
-            <td id="page_num_border">6</td>
-            <td id="page_num_border">7</td>
-            <td id="page_num_border">8</td>
-            <td id="page_num_border">9</td>
-            <td id="page_num_border">10</td>
-            <td>&nbsp</td>
-        </table>
-    </div>
-
 </body>
 </html>

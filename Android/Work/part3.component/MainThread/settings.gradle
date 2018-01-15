@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':countdown', ':viewpager', ':progressbar', ':progressbar2'

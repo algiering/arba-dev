@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/OpenActivity.iml" filepath="$PROJECT_DIR$/OpenActivity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/st2intro/st2intro.iml" filepath="$PROJECT_DIR$/st2intro/st2intro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/startactivity/startactivityforresult.iml" filepath="$PROJECT_DIR$/startactivity/startactivityforresult.iml" />
+      <module fileurl="file://$PROJECT_DIR$/startactivityforresult/startactivityforresult.iml" filepath="$PROJECT_DIR$/startactivityforresult/startactivityforresult.iml" />
+    </modules>
+  </component>
+</project>

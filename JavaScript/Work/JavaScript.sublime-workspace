@@ -4,12 +4,48 @@
 		"selected_items":
 		[
 			[
-				"border",
-				"border-right"
+				"al",
+				"align-items"
+			],
+			[
+				"fl",
+				"flex-flow"
+			],
+			[
+				"ali",
+				"align-content"
+			],
+			[
+				"text",
+				"text-align"
 			],
 			[
 				"ov",
-				"overflow-y"
+				"overflow"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"ta",
+				"table"
+			],
+			[
+				"tab",
+				"table-cell"
+			],
+			[
+				"pa",
+				"padding-bottom"
+			],
+			[
+				"border",
+				"border-right"
 			],
 			[
 				"over",
@@ -48,20 +84,12 @@
 				"align-items"
 			],
 			[
-				"al",
-				"align-items"
-			],
-			[
 				"padding",
 				"padding-bottom"
 			],
 			[
 				"font",
 				"font-size"
-			],
-			[
-				"ali",
-				"align-items"
 			],
 			[
 				"messag",
@@ -76,16 +104,8 @@
 				"color"
 			],
 			[
-				"pa",
-				"padding"
-			],
-			[
 				"di",
 				"display"
-			],
-			[
-				"ma",
-				"margin"
 			],
 			[
 				"text-a",
@@ -264,10 +284,6 @@
 				"inline-block"
 			],
 			[
-				"mar",
-				"margin"
-			],
-			[
 				"st",
 				"style\tTag"
 			],
@@ -286,10 +302,6 @@
 			[
 				"attr",
 				"attr\t.attr() - single"
-			],
-			[
-				"text",
-				"text()\td3.text()-snippet"
 			],
 			[
 				"result",
@@ -400,10 +412,6 @@
 				"getElementById\t( elementId: DOMString ): Element Document"
 			],
 			[
-				"ta",
-				"table-cell"
-			],
-			[
 				"onloa",
 				"onload\t: EventHandler Document"
 			],
@@ -506,27 +514,17 @@
 			[
 				"facto",
 				"factorial"
-			],
-			[
-				"fac",
-				"factorial"
-			],
-			[
-				"scrip",
-				"script\tTag"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"utf-8\">\n    <title></title>\n    <style type=\"text/css\">\n    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);\n    * {\n        font-family: 'Nanum Gothic', sans-serif;\n        margin: 0px;\n        padding: 0px;\n    }\n    #body {\n        background-color: #dddddd;\n        overflow-x: hidden;\n        overflow-y: scroll;\n        height: 720px;\n\n    }\n    #body>table {\n        width: 100%;\n        text-align: center;\n        border-collapse: collapse;\n    }\n    hr {\n        margin: 1px 0px 1px 0px;\n        border: 1px #1e1e1e solid;\n    }\n\n    #page_num td {\n        width: 1%;\n        font-size: 20px;\n        font-weight: bold;\n        background-color: #1e1e1e;\n        color: #dddddd;\n        height: 30px;\n        text-align: center;\n    }\n\n    #page_num_border {\n        border-right: 1px #dddddd solid;\n    }\n\n    #board_title {\n        font-size: 30px;\n        color: #dddddd;\n        background-color: #1e1e1e;\n        padding: 10px;\n    }\n\n    #board_0row>span[id*=\"board_0row\"] {\n        background-color: #1e1e1e;\n        color: #dddddd;\n        display: inline-block;\n        text-align: center;\n    }\n\n    #table_title {\n        width: 100%;\n        text-align: center;\n        border-collapse: collapse;\n    }\n\n    #board_0row_1col {\n        width: 60%;\n        border-right: 2px #1e1e1e solid;\n    }\n    #board_0row_2col {\n        width: 10%;\n        border-right: 2px #1e1e1e solid;\n    }\n    #board_0row_3col {\n        width: 10%;\n        border-right: 2px #1e1e1e solid;\n    }\n    #board_0row_4col {\n        width: 10%;\n        border-right: 2px #1e1e1e solid;\n    }\n    #board_0row_5col {\n        width: 10%;\n    }\n\n    #article_list_1col {\n        width: 60%;\n        border-right: 1px #1e1e1e solid;\n    }\n    #article_list_2col {\n        width: 10%;\n        border-right: 1px #1e1e1e solid;\n    }\n    #article_list_3col {\n        width: 10%;\n        border-right: 1px #1e1e1e solid;\n    }\n    #article_list_4col {\n        width: 10%;\n        border-right: 1px #1e1e1e solid;\n    }\n    #article_list_5col {\n        width: 10%;\n    }\n\n</style>\n</head>\n<body>\n    <hr>\n    <div id=\"board_title\">\n        <span>게시판1</span>\n    </div>\n    <hr>\n    <div>\n        <table id=\"table_title\">\n            <th id=\"board_0row_1col\">제목</th>\n            <th id=\"board_0row_2col\">닉네임</th>\n            <th id=\"board_0row_3col\">조회수</th>\n            <th id=\"board_0row_4col\">추천수</th>\n            <th id=\"board_0row_5col\">등록일</th>\n        </table>\n    </div>\n    <div id=\"body\">\n\n        <hr>\n        <hr>\n\n        <hr>\n    </div>\n    <div>\n        <table id=\"page_num\">\n            <td id=\"page_num_border\">&nbsp</td>\n            <td id=\"page_num_border\">1</td>\n            <td id=\"page_num_border\">2</td>\n            <td id=\"page_num_border\">3</td>\n            <td id=\"page_num_border\">4</td>\n            <td id=\"page_num_border\">5</td>\n            <td id=\"page_num_border\">6</td>\n            <td id=\"page_num_border\">7</td>\n            <td id=\"page_num_border\">8</td>\n            <td id=\"page_num_border\">9</td>\n            <td id=\"page_num_border\">10</td>\n            <td>&nbsp</td>\n        </table>\n    </div>\n\n</body>\n</html>\n",
 			"file": "/D/workspace/Lecture/JavaScript/Project/Mobile Web/body.html",
-			"file_size": 9884,
-			"file_write_time": 131588088775850296,
 			"settings":
 			{
-				"buffer_size": 3215,
+				"buffer_size": 3626,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -767,7 +765,7 @@
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -824,7 +822,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -833,15 +831,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3215,
+						"buffer_size": 3626,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1022,
-								1022
+								1501,
+								1501
 							]
 						],
 						"settings":
@@ -853,8 +851,8 @@
 								{
 									"1":
 									[
-										1027,
-										1028
+										1557,
+										1558
 									]
 								},
 								"icon":
@@ -869,8 +867,8 @@
 								{
 									"1":
 									[
-										914,
-										915
+										1393,
+										1394
 									]
 								},
 								"unmatched":
@@ -879,26 +877,21 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -909,31 +902,36 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
@@ -941,10 +939,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 608.0,
+						"translation.y": 1440.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -999,16 +997,26 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -1024,21 +1032,16 @@
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
@@ -1048,12 +1051,7 @@
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_unmatched_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
@@ -1061,7 +1059,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 741.0,
+						"translation.y": 638.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1119,51 +1117,51 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
@@ -1181,10 +1179,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 456.0,
+						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1192,7 +1190,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -1229,7 +1227,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 50.0
+		"height": 52.0
 	},
 	"save_all_on_build": true,
 	"select_file":
