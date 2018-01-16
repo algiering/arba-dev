@@ -1,5 +1,6 @@
 package com.arba.startactivityforresult;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -38,8 +39,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == resultCode) {
-            textResult.setText(String.valueOf(data.getIntExtra("result", 0)));
+        if (REQUEST_CODE_MAIN == requestCode && resultCode == RESULT_OK) {
+            int result = data.getIntExtra("result", 0);
+            textResult.setText(String.valueOf(result));
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            alert.setIcon(R.mipmap.ic_launcher);
+            alert.setMessage("계산결과 :" + result);
+            alert.setPositiveButton("확인", null);
+            alert.show();
         }
         else {
 

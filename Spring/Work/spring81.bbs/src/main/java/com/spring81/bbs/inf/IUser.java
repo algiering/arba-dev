@@ -13,6 +13,8 @@ public interface IUser {
     // id 중복 확인시 사용되는 메서드
     int checkuserid(String userid);
     
+    int checkpassword(String id, String pw);
+    
     int updatePasswd(String userid, String currentPasswd, String newPasswd);
 
     List<ModelUser> selectUserList(ModelUser user);

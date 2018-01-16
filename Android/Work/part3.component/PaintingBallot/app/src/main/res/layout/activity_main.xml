@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.arba.paintingballot.MainActivity">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="3"
+            android:rowCount="4">
+            
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/mov00"
+                android:layout_marginTop="20dp"/>
+            
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/mov01"
+                android:layout_marginTop="20dp"/>
+            
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/mov02"
+                android:layout_marginTop="20dp"/>
+            
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/mov03"
+                android:layout_marginTop="20dp"/>
+            
+            <ImageView
+                android:id="@+id/image5"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/mov04"
+                android:layout_marginTop="20dp"/>
+            
+            <ImageView
+                android:id="@+id/image6"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/mov05"
+                android:layout_marginTop="20dp"/>
+            
+            <ImageView
+                android:id="@+id/image7"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/mov06"
+                android:layout_marginTop="20dp"/>
+            
+            <ImageView
+                android:id="@+id/image8"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/mov07"
+                android:layout_marginTop="20dp"/>
+            
+            <ImageView
+                android:id="@+id/image9"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/mov08"
+                android:layout_marginTop="20dp"/>
+        
+        </GridLayout>
+    
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+        <TextView
+            android:id="@+id/text_vote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textColor="#000000"
+            android:gravity="center"/>
+        
+        <Button
+            android:id="@+id/btn_finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="투표종료"
+            android:layout_margin="5dp"
+            android:textSize="30dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

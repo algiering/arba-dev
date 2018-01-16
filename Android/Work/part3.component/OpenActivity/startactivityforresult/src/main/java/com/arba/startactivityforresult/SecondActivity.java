@@ -26,7 +26,7 @@ public class SecondActivity extends AppCompatActivity {
                 int result = val[0] + val[1];
                 i.putExtra("result", result);
 
-                setResult(10000, i);
+                setResult(RESULT_OK, i);
 
                 SecondActivity.this.finish();
             }

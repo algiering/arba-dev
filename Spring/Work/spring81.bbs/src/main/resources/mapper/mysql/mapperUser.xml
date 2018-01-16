@@ -51,6 +51,13 @@
             FROM TB_USER
             where userid = #{userid}
     </select>
+    
+    <select id="checkpassword" parameterType="java.util.Map" resultType="int">
+            SELECT count(*)
+            FROM TB_USER
+            where userid = #{userid}
+            and   passwd = #{pw}
+    </select>
 
 	<update id="logout" parameterType="String" >
 	</update>
@@ -87,6 +94,8 @@
 	        UPDATE TB_USER 
 	           SET retireYN=1            
 	        WHERE userid = #{userid}
+            AND   email  = #{email }
+            AND   passwd = #{passwd}
 	</update>
 
 </mapper>

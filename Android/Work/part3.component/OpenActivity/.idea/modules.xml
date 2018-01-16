@@ -5,8 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/OpenActivity.iml" filepath="$PROJECT_DIR$/OpenActivity.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/st2intro/st2intro.iml" filepath="$PROJECT_DIR$/st2intro/st2intro.iml" />
-      <module fileurl="file://$PROJECT_DIR$/startactivity/startactivityforresult.iml" filepath="$PROJECT_DIR$/startactivity/startactivityforresult.iml" />
+      <module fileurl="file://$PROJECT_DIR$/startactivity/startactivity.iml" filepath="$PROJECT_DIR$/startactivity/startactivity.iml" />
       <module fileurl="file://$PROJECT_DIR$/startactivityforresult/startactivityforresult.iml" filepath="$PROJECT_DIR$/startactivityforresult/startactivityforresult.iml" />
+      <module fileurl="file://D:\workspace\Lecture\Android\Work\part3.component\OpenActivity\startactivity\startactivityforresult.iml" filepath="D:\workspace\Lecture\Android\Work\part3.component\OpenActivity\startactivity\startactivityforresult.iml" />
     </modules>
   </component>
 </project>
