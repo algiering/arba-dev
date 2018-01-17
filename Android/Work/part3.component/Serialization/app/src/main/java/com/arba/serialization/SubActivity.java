@@ -24,16 +24,26 @@ public class SubActivity extends AppCompatActivity {
             text.setText(text.getText() + d1 + "\n");
         }
 
-        int[] array = intent.getIntArrayExtra("data");
+        int[] array = intent.getIntArrayExtra("array");
         if (array != null) {
             for (int i = 0; i < array.length; i++) {
                 text.setText(text.getText() + String.valueOf(array[i]));
             }
         }
 
-        ModelSerial serial = (ModelSerial) intent.getSerializableExtra("data");
+        ModelSerial serial = (ModelSerial) intent.getSerializableExtra("serial");
         if (serial != null) {
             text.setText(serial.getIdata() + " : " + serial.getSdata());
+        }
+
+        ModelParcel parcel = intent.getParcelableExtra("parcel");
+        if (parcel != null) {
+            text.setText(parcel.getIdata() + " : " + parcel.getSdata());
+        }
+
+        Bundle bundle = intent.getBundleExtra("bundle");
+        if (bundle != null) {
+            text.setText(bundle.getInt("idata") + " : " + bundle.getString("sdata"));
         }
     }
 }

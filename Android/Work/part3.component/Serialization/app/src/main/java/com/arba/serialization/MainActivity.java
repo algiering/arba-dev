@@ -42,21 +42,32 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.btn2:
                     int[] array = {0,1,2,3,4,5,6,7,8,9};
-                    intent.putExtra("data",array);
+                    intent.putExtra("array",array);
                     break;
 
                 case R.id.btn3:
                     ModelSerial serial = new ModelSerial();
                     serial.setIdata(55);
-                    serial.setSdata("test3");
+                    serial.setSdata("serial");
 
-                    intent.putExtra("data", serial);
+                    intent.putExtra("serial", serial);
                     break;
 
+                    // android에서 주로 사용 - 직렬화
                 case R.id.btn4:
+                    ModelParcel parcel = new ModelParcel();
+                    parcel.setIdata(66);
+                    parcel.setSdata("parcel");
+
+                    intent.putExtra("parcel", parcel);
                     break;
 
                 case R.id.btn5:
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("idata", 30);
+                    bundle.putString("sdata", "bundle");
+
+                    intent.putExtra("bundle", bundle);
                     break;
             }
             startActivity(intent);
