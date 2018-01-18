@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         btnNext.setOnClickListener(cl);
         btnPrev.setOnClickListener(cl);
 
+        if (count == 0) {
+            btnPrev.setVisibility(View.INVISIBLE);
+        }
+
     }
 
     private class ClickListener implements View.OnClickListener {
@@ -62,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.btn_cunning:
-                    if (count == quizList.size() - 1) {
+                    if (count == quizList.size()) {
                         break;
                     }
                     Intent intent = new Intent(getApplicationContext(), CunningActivity.class);
@@ -72,18 +76,35 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.btn_next:
-                    if (count == quizList.size() - 1) {
+                    if (count == 0) {
+                        btnPrev.setVisibility(View.VISIBLE);
+                    }
+                    if (count == quizList.size()-2) {
+                        btnNext.setVisibility(View.INVISIBLE);
+                    }
+                    if (count == quizList.size()) {
                         ShowToast(Quiz.TEXT_NO_MORE_QUIZ);
 
                         CheckCunning();
                         break;
-                    } else {
+                    } else if (count < quizList.size()-1){
                         SetQuiz();
+                        break;
+                    } else {
+                        // Not Used
+                        ShowToast(Quiz.TEXT_NO_MORE_QUIZ);
                         break;
                     }
 
                 case R.id.btn_prev:
+                    if (count == 1) {
+                        btnPrev.setVisibility(View.INVISIBLE);
+                    }
+                    if (count == quizList.size()-1) {
+                        btnNext.setVisibility(View.VISIBLE);
+                    }
                     if (count == 0) {
+
                         ShowToast("1번 문제 입니다");
                         break;
                     } else {
@@ -96,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void CheckTF(boolean check) {
-        if (count == quizList.size() - 1) {
+        if (count == quizList.size()) {
             ShowToast(Quiz.TEXT_NO_MORE_QUIZ);
             CheckCunning();
             return;

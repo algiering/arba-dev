@@ -54,12 +54,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Next"/>
     
         <Button
             android:id="@+id/btn_prev"
@@ -67,7 +61,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Prev"/>
-        
+    
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Next"/>
+
     </LinearLayout>
    
 
