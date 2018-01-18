@@ -15,10 +15,10 @@
 
     <link rel="stylesheet" href="/resources/css/screen.css" type="text/css" media="screen" />
     <style>
-    #content { min-height: 800px; }
-    p { margin: 0; padding: 0; }
-    form div {text-align: left; padding-bottom: 15px; }
-</style>    
+        #content { min-height: 800px; }
+        p { margin: 0; padding: 0; }
+        form div {text-align: left; padding-bottom: 15px; }
+    </style>    
     
 </head>
 <body>

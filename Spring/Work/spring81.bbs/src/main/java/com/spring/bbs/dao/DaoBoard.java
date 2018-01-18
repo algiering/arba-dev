@@ -58,10 +58,9 @@ public class DaoBoard implements IBoard {
     }
 
     @Override
-    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) {
+    public List<ModelBoard> getBoardPaging(String searchWord, int start, int end) {
         
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("boardcd"   , boardcd    );
         map.put("searchWord", searchWord );
         map.put("start"     , start      );
         map.put("end"       , end        );

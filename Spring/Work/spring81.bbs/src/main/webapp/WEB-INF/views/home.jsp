@@ -118,6 +118,15 @@
         <br />
         
         <li><span> boardview 에 boarddelete 연결하기 </span></li>
+        <br />
+        
+        <li><span> /board/boardlist?curPage=1&searchWord=  에 페이징 기능 추가 </span></li>
+        <li><span> boardview 에 boarddelete 연결하기 </span></li>
+        <br />
+        
+        <li><span> /board/boardlist?curPage=1&searchWord=  에 searchWord를 이용한 검색 기능 추가 </span></li>
+        <br />
+        
         <li>jsp 파일에 layout include 하기
             <ul> 
                 <li> boardlist.jsp      </li>

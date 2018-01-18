@@ -55,8 +55,7 @@
                 	<!--  반복 구간 끝 -->
                 	</table>
                 		
-                	<div id="paging" style="text-align: center;">
-                		
+                	<div id="paging" style="text-align: center;">                		
                 		<c:if test="${prevLink > 0 }">
                 			<a href="javascript:goList('${prevPage }')">[이전]</a>
                 		</c:if>
@@ -74,8 +73,7 @@
                 		
                 		<c:if test="${nextLink > 0 }">
                 			<a href="javascript:goList('${nextPage }')">[다음]</a>
-                		</c:if>
-                		
+                		</c:if>                		
                 	</div>
                 
                 	<div id="list-menu" style="text-align:  right;">
@@ -86,7 +84,7 @@
                 		<form id="searchForm" action="./articlelist" method="get" style="margin: 0;padding: 0;">
                 			<p style="margin: 0;padding: 0;">
                 				<input type="hidden" name="boardcd" value="${boardcd }" />
-                				<input type="text" name="searchWord" size="15" maxlength="30" />
+                				<input type="text" name="searchWord" value="${searchWord }" size="15" maxlength="30" />
                 				<input type="submit" value="검색" />
                 			</p>	
                 		</form>

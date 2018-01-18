@@ -148,12 +148,11 @@ public class RestController {
 
     @RequestMapping(value = "/getboardpaging", method = {RequestMethod.GET, RequestMethod.POST} )
     @ResponseBody
-    public List<ModelBoard> getBoardPaging(   String boardcd
-                                            , String searchWord
+    public List<ModelBoard> getBoardPaging(   String searchWord
                                             , @RequestParam(defaultValue="0" )  int start
                                             , @RequestParam(defaultValue="10")  int end  ) {
         logger.info("/rest/getBoardPaging");        
-        return boardsvr.getBoardPaging( boardcd, searchWord, start, end  );
+        return boardsvr.getBoardPaging( searchWord, start, end  );
     } 
 
     @RequestMapping(value = "/getboardlist", method = {RequestMethod.GET, RequestMethod.POST} )

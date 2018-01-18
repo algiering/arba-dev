@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"sub",
+				"submit\t.submit()"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"cre",
+				"createElement\t( localName: DOMString ): Element Document"
+			],
+			[
 				"al",
 				"align-items"
 			],
@@ -268,10 +280,6 @@
 				"prop\t.prop() - single"
 			],
 			[
-				"val",
-				"val\t.val()"
-			],
-			[
 				"prop_",
 				"prop_update"
 			],
@@ -506,14 +514,6 @@
 			[
 				"border-co",
 				"border-collapse"
-			],
-			[
-				"wir",
-				"write\t( text_..: DOMString ): void Document"
-			],
-			[
-				"facto",
-				"factorial"
 			]
 		]
 	},
@@ -529,10 +529,13 @@
 			}
 		},
 		{
+			"contents": "<!--\nhttp://stackoverflow.com/questions/5603117/jquery-create-object-from-form-fields\n-->\n\n<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>폼 데이터를 JSON 형태로 변환</title>\n    <style>\n    div { font-weight: bold; color:red; }\n\n    .profile { position: relative; z-index: 10; zoom: 1; border: 1px solid #dcdcdc; border-bottom: 0; height: 99px; _width: 298px }\n    .profile .user_area { background-color: #f3f4f3; border-bottom: 1px solid #dcdcdc; height: 54px; position: relative; z-index: 10 }\n    .profile .user_info { position: relative; padding: 8px 0 4px 58px; zoom: 1 }\n    .profile .user_thumbnail { position: absolute; left: 11px; top: 5px; width: 42px; height: 42px; overflow: hidden }\n    .profile .user_thumbnail img { width: auto; height: auto; max-width: 100%; max-height: 100% }\n    .profile .user_thumbnail .mask { width: 100%; height: 100%; position: absolute; left: 0; top: 0 }\n\n    .profile .private { margin-bottom: 5px; line-height: 19px; white-space: nowrap; position: relative }\n    .profile .private .user_name { max-width: 90px; *width: 90px; vertical-align: middle; position: relative; overflow: hidden; box-sizing: content-box; margin-right: 6px }\n    .profile .private .user_name a { color: #2f3743; font-weight: bold }\n    .profile .private .user_name a:hover { text-decoration: none }\n    .profile .private .user_name a strong { max-width: 79px; *width: 79px; vertical-align: top; *vertical-align: middle }\n    .profile .private .user_name a:hover strong { text-decoration: underline }\n    .profile .private .login_on { width: 17px; height: 11px; margin: 4px 2px 0 0; overflow: hidden; background-position: -20px -340px; vertical-align: top }\n    .profile .private .link_myinfo { color: #848688; text-decoration: underline }\n    .profile .private .set_login_protect { width: 12px; height: 18px; background-position: -58px 4px; vertical-align: top; margin-left: -1px }\n    .profile .private .btn_logout { position: absolute; right: 12px; border: 1px solid #d1d1d1; color: #848688; height: 16px; overflow: hidden; vertical-align: top }\n    .profile .private .btn_logout .btn_inr { border: 1px solid #fff; border-right: 0; border-bottom: 0; background-color: #f6f7f8; padding: 0 4px 0; height: 15px; line-height: 15px; vertical-align: top; *line-height: 17px }\n\n    .bar { width: 1px; height: 16px; background-position: 100% -18px; vertical-align: top; overflow: hidden }\n\n</style>\n<script type=\"text/javascript\" src=\"../jquery-3.2.1.js\"></script>\n<script type=\"text/javascript\">\n    $(document).ready(function() {\n        $('.login').hide();\n        $('.profile').show();\n\n        $.ajax({\n            url: 'http://localhost:3000/login',\n            type: 'get',\n            dataType: 'json',\n            data: null,\n            setTimeout : 30000,\n            beforeSend : function() {\n                $('#loading').html('<img src=\"loading.gif\"/>');\n            }\n        })\n        .done(function(data, textStatus, xhr) {\n            $('#user_name').text(data.username);\n        })\n        .fail(function(xhr, textStatus, error) {\n            console.log(\"error\");\n        })\n        .always(function(data, textStatus, xhr) {\n            $('#loading').html('');\n        });\n    });\n</script>\n</head>\n<body>\n\n    <div class=\"login\">\n        <form>\n            <input type=\"hidden\" name=\"seq\" value=\"1\">\n            <label> 이름을 입력하세요 : </label>\n            <input type=\"text\" name=\"username\"/>  <br/>\n            <label> 패스워드를 입력하세요 :</label>\n            <input type=\"password\"  name=\"password\"/>  <br/>\n            <input type=\"checkbox\" name=\"hobby\" value=\"music\"> music\n            <input type=\"checkbox\" name=\"hobby\" value=\"yoga\"> yoga\n            <input type=\"checkbox\" name=\"hobby\" value=\"reading\"> reading <br/>\n            <input type=\"button\" id=\"submit\" value=\"전송\"/>\n        </form>\n    </div>\n\n    <div class=\"profile\" style=\"display: none;\">\n        <div class=\"user_area\">\n            <div class=\"user_info\">\n                <a href=\"#\" class=\"user_thumbnail\">\n                    <span class=\"mask\"></span>\n                    <img id=\"profile_image\" src=\"myInfo.gif\">\n                </a>\n                <div class=\"private\">\n                    <span class=\"user_name\"><a href=\"#\"><strong id=\"user_name\">???</strong>님</a></span>\n                    <a href=\"#\" target=\"_parent\" class=\"link_myinfo\">내정보</a>\n                    <a href=\"http://nid.naver.com/nidlogin.logout?returl=http://www.naver.com\" target=\"_parent\" class=\"btn_logout\">\n                        <span class=\"btn_inr\">로그아웃</span>\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <hr>\n    <div id=\"result\"></div>\n</body>\n</html>\n\n\n\n\n\n\n\n",
 			"file": "st05.jQuery/jq10.Ajax메서드/jq10-mi-01.ajax와로그인.html",
+			"file_size": 4902,
+			"file_write_time": 131583021398511886,
 			"settings":
 			{
-				"buffer_size": 4718,
+				"buffer_size": 4717,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -822,7 +825,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -927,7 +930,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -936,15 +939,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4718,
+						"buffer_size": 4717,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2639,
-								2639
+								3225,
+								3225
 							]
 						],
 						"settings":
@@ -956,8 +959,8 @@
 								{
 									"1":
 									[
-										2923,
-										2924
+										3230,
+										3231
 									]
 								},
 								"icon":
@@ -972,8 +975,8 @@
 								{
 									"1":
 									[
-										2638,
-										2639
+										2562,
+										2563
 									]
 								},
 								"unmatched":
@@ -982,61 +985,61 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content"
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
@@ -1044,10 +1047,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 638.0,
+						"translation.y": 698.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
