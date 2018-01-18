@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     if (count == quizList.size() - 1) {
                         break;
                     }
-                    Intent intent = new Intent(MainActivity.this, CunningActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), CunningActivity.class);
                     ModelQuiz quiz = quizList.get(count);
                     intent.putExtra("quiz", quiz);
                     startActivityForResult(intent, Quiz.REQUSET_CODE_CUNNING);
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        textQuiz.setText(correct_count + "개 정답"+"\n" + "커닝을 " + temp_count + " 번 했습니다");
+        textQuiz.setText(correct_count + "개 정답" + "\n" + "커닝을 " + temp_count + " 번 했습니다");
     }
 
     @Override
@@ -141,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             quizList.get(count).setCunning(data.getBooleanExtra("cunning", false));
-            this.quizList = data.getParcelableArrayListExtra("quiztemp");
         }
     }
 
@@ -186,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         this.count = savedInstanceState.getInt("count");
-        textQuiz.setText(quizList.get(count).getQuiz());
+        this.quizList = savedInstanceState.getParcelableArrayList("quiztemp");
         super.onRestoreInstanceState(savedInstanceState);
     }
 

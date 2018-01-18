@@ -16,12 +16,20 @@
     
     <h2> 로그인 처리 </h2>
     <ol>
-        <li> <a href="./user/login"           target="_blank">./user/login           </a> </li>
-        <li> <a href="./user/logout"          target="_blank">./user/logout          </a> </li>
-        <li> <a href="./user/register"        target="_blank">./user/register        </a> </li>
-        <li> <a href="./user/unregister"      target="_blank">./user/unregister      </a> </li>
-        <li> <a href="./user/usermodify"      target="_blank">./user/usermodify          </a> </li>
-        <li> <a href="./user/changepassword"  target="_blank">./user/changepassword  </a> </li>        
+        <li> UserController 만들기 </li>
+        <li> <a href="/user/"                target="_blank">/user/                </a> </li>
+        <li> <a href="/user/login"           target="_blank">/user/login           </a> </li>
+        <li> <a href="/user/logout"          target="_blank">/user/logout          </a> </li>
+        <li> 
+            <a href="/user/register"         target="_blank">/user/register        </a>
+            <ul>
+                <li><a href="/rest/checkuserid?userid=aaa"        target="_blank">/rest/checkuserid?userid=aaa     </a></li>
+                <li><a href="/rest/checkuserid?userid=userid"        target="_blank">/rest/checkuserid?userid=userid     </a></li>
+            </ul> 
+        </li>
+        <li> <a href="/user/usermodify"      target="_blank">/user/usermodify          </a> </li>
+        <li> <a href="/user/changepassword"  target="_blank">/user/changepassword  </a> </li>        
+        <li> <a href="/user/unregister"      target="_blank">/user/unregister      </a> </li>
         <li>jsp 파일에 layout include 하기
             <ul> 
                 <li> login.jsp      </li>
@@ -43,7 +51,7 @@
     </div>
         
     <div id="sidebar">
-        < %@ include file="bbs-menu.jsp" % >
+        < %@ include file="../inc/bbs-menu.jsp" % >
     </div>
     
     <div id="extra">
@@ -63,17 +71,24 @@
     <h2>board 게시판 만들기</h2>  
     
     <ol>
-        <li><a href="./board/boardlist"  target="_blank">./board/boardlist </a></li>
-        <li><a href="./board/boardview?boardcd=qna" target="_blank">./board/boardview?boardcd=qna </a></li>
-        <li><a href="./board/boardview" target="_blank">./board/boardview  == ./board/boardview?boardcd=free</a></li>
-        <li><a href="./board/boardview/qna" target="_blank">./board/boardview/qna</a></li>
-        <li><span> boardlist 에 boardview 연결하기 </span> </li>
-        <li><span> boardlist의 tr을 클릭하면 boardview 가 열리게 하시오 </span>
+        <li><a href="/board/boardlist"  target="_blank">/board/boardlist </a></li>
+        <li><a href="/board/boardlist?searchWord="  target="_blank">/board/boardlist?searchWord= </a></li>
+        <li><a href="/board/boardlist?searchWord=자유게시판"  target="_blank">/board/boardlist?searchWord=자유게시판 </a></li>
+        <br />
+        
+        <li><a href="/board/boardview?boardcd=qna" target="_blank">/board/boardview?boardcd=qna </a></li>
+        <li><a href="/board/boardview" target="_blank">/board/boardview  == /board/boardview?boardcd=free</a></li>
+        <br />
+        
+        <li><a href="/board/boardview/qna" target="_blank">/board/boardview/qna </a>  &nbsp;&nbsp; @Pathvarable을 사용</li>
+        <br />
+        
+        <li><span> boardlist 에 boardview 연결하기 </span> <br />
+            <span> boardlist의 tr을 클릭하면 boardview 가 열리게 하시오 </span>
             <xmp>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>    
-        $(document).ready( function(e){
-            
+        $(document).ready( function(e){             
             //boardlist에서 해당 게시글을 클릭하면 boardview 가 열리게 하시오
             $('div#bbs > table > tbody > tr').click( function(e){
                 var boardcd = $(this).attr('boardcd');
@@ -84,11 +99,24 @@
     </script> 
             </xmp>        
         </li>
-        <li><a href="./board/boardmodify?boardcd=qna" target="_blank">./board/boardmodify?boardcd=qna</a></li>
-        <li><a href="./board/boardmodify/qna" target="_blank">./board/boardmodify/qna</a></li>
+        <li><a href="/board/boardmodify?boardcd=qna" target="_blank">/board/boardmodify?boardcd=qna</a></li>
+        <li><a href="/board/boardmodify/qna" target="_blank">/board/boardmodify/qna</a></li>
         <li><span> boardview 에 boardmodify 연결하기 </span></li>
-        <li><a href="./board/boardwrite" target="_blank">./board/boardwrite</a></li>
+        <br />
+        
+        <li><a href="/board/boardwrite" target="_blank">/board/boardwrite</a></li>
         <li><span> boardlist와 boardview 에 boardwrite 연결하기 </span></li>
+        <br />
+        
+        <li><a href="/board/boarddelete" target="_blank">/board/boarddelete</a>  
+            <br />delete는 반드시 post로 만들어야 한다. get으로 만들어서는 안된다.
+            <ul> 
+                <li>ajax를 이용하는 방법</li>
+                <li>form을 이용하는 방법</li>
+            </ul>
+        </li>
+        <br />
+        
         <li><span> boardview 에 boarddelete 연결하기 </span></li>
         <li>jsp 파일에 layout include 하기
             <ul> 
@@ -131,11 +159,11 @@
     
     <h2>article 게시판 만들기</h2>  
     <ul>
-        <li><a href="./board/articlelist"  target="_blank">./board/articlelist</a> </li>
-        <li><a href="./board/articleview?boardcd=free&articleno=17&curPage=1&searchWord="   target="_blank">/board/articleview?boardcd=free&amp;articleno=17&amp;curPage=1&amp;searchWord=  </a></li>
-        <li><a href="./board/articlewrite?boardcd=free"                                     target="_blank">/board/articlewrite?boardcd=free                                                </a></li>
-        <li><a href="./board/articlemodify?boardcd=free&articleno=17&curPage=1&searchWord=" target="_blank">/board/articlemodify?boardcd=free&amp;articleno=17&amp;curPage=1&amp;searchWord=</a></li>
-        <li><a href="./board/articledelete?boardcd=free&articleno=17&curPage=1&searchWord=" target="_blank">/board/articledelete?boardcd=free&amp;articleno=17&amp;curPage=1&amp;searchWord=</a></li>
+        <li><a href="/board/articlelist"  target="_blank">/board/articlelist</a> </li>
+        <li><a href="/board/articleview?boardcd=free&articleno=17&curPage=1&searchWord="   target="_blank">/board/articleview?boardcd=free&amp;articleno=17&amp;curPage=1&amp;searchWord=  </a></li>
+        <li><a href="/board/articlewrite?boardcd=free"                                     target="_blank">/board/articlewrite?boardcd=free                                                </a></li>
+        <li><a href="/board/articlemodify?boardcd=free&articleno=17&curPage=1&searchWord=" target="_blank">/board/articlemodify?boardcd=free&amp;articleno=17&amp;curPage=1&amp;searchWord=</a></li>
+        <li><a href="/board/articledelete?boardcd=free&articleno=17&curPage=1&searchWord=" target="_blank">/board/articledelete?boardcd=free&amp;articleno=17&amp;curPage=1&amp;searchWord=</a></li>
     </ul>
     <br />
     <hr />
@@ -189,19 +217,19 @@ public class RestController {
         </li>
         <li>ajaxone.jsp 작성
             <p>
-                <a href="./restservice/ajaxone?id=free"    target="_blank">./restservice/ajaxone?id=free    </a> <br />
+                <a href="/restservice/ajaxone?id=free"    target="_blank">/restservice/ajaxone?id=free    </a> <br />
             </p>
         </li>
         <li>ajaxlist.jsp  작성
             <p>
-                <a href="./restservice/ajaxlist?id=free"   target="_blank">./restservice/ajaxlist?id=free   </a> <br />
+                <a href="/restservice/ajaxlist?id=free"   target="_blank">/restservice/ajaxlist?id=free   </a> <br />
             </p>
         </li>        
         <li>댓글용 rest 서비스 만들기
             <ol>
-                <li>./restservice/commentadd    만들기 </li>
-                <li>./restservice/commentedit   만들기 </li>
-                <li>./restservice/commentdelete 만들기 </li>
+                <li>/restservice/commentadd    만들기 </li>
+                <li>/restservice/commentedit   만들기 </li>
+                <li>/restservice/commentdelete 만들기 </li>
             </ol>
         </li>
     </ol>  

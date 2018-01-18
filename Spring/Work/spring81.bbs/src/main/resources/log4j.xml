@@ -72,8 +72,7 @@
  
     
     <!-- Application Loggers -->
-    <!-- 수정 해야함 -->
-    <logger name="com.spring67.upload">
+    <logger name="com.spring.bbs">
         <level value="info" />
     </logger>
     

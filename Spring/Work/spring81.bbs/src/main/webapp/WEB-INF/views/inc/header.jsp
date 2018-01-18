@@ -6,7 +6,7 @@
 </h1>
 <div id="memberMenu" style="float: right; position: relative; top: 7px;">
 	<c:choose>
-		<c:when test="${empty user}">
+		<c:when test="${empty user}">  <!--  user는 세션명이다. -->
 			<input type="button" value="로그인" onclick="location.href='/user/login'" />
 			<input type="button" value="회원가입" onclick="location.href='/user/register'" />
 		</c:when>
