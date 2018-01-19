@@ -44,4 +44,6 @@ public class CunningActivity extends AppCompatActivity {
         Toast.makeText(CunningActivity.this, "컨닝은 나쁜거에요", Toast.LENGTH_SHORT).show();
         super.onStop();
     }
+
+
 }
