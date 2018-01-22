@@ -1,6 +1,7 @@
 package com.arba.st1fragmenttransaction;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.content.Intent;
 
 
 /**
@@ -19,11 +21,13 @@ import android.widget.TextView;
 public class FragmentTwo extends Fragment {
 
     public static final String KEY_INPUT = "input";
+    private static final int REQUEST_CODE_OTHER_ACTIVITY = 10000;
     private String inputText;
     private EditText inputView;
     private TextView messageView;
     private Button btnSend;
     private Button btnSend2;
+    private Button btnSend3;
 
     public static FragmentTwo newInstance(String input) {
         FragmentTwo fragment = new FragmentTwo();
@@ -91,6 +95,16 @@ public class FragmentTwo extends Fragment {
                 }
             }
         });
+
+        btnSend3 = view.findViewById(R.id.btn_send3);
+
+        btnSend3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), OtherActivity.class);
+                startActivityForResult(i, REQUEST_CODE_OTHER_ACTIVITY);
+            }
+        });
         return view;
     }
 
@@ -111,4 +125,11 @@ public class FragmentTwo extends Fragment {
         public void displayMessage(String message);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == REQUEST_CODE_OTHER_ACTIVITY && resultCode == Activity.RESULT_OK) {
+            String result = data.getStringExtra(Common.OTHER_RESULT);
+            messageView.setText(result);
+        }
+    }
 }

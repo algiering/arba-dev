@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ad3301Fragment.iml" filepath="$PROJECT_DIR$/ad3301Fragment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/st1FragmentInDesign/app.iml" filepath="$PROJECT_DIR$/st1FragmentInDesign/app.iml" />
+      <module fileurl="file://D:\workspace\Lecture\Android\Work\part3.component\ad3301Fragment\st1FragmentInDesign\app.iml" filepath="D:\workspace\Lecture\Android\Work\part3.component\ad3301Fragment\st1FragmentInDesign\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/st1FragmentInDesign/st1FragmentInDesign.iml" filepath="$PROJECT_DIR$/st1FragmentInDesign/st1FragmentInDesign.iml" />
       <module fileurl="file://$PROJECT_DIR$/st3FragmentTransaction/st3FragmentTransaction.iml" filepath="$PROJECT_DIR$/st3FragmentTransaction/st3FragmentTransaction.iml" />
     </modules>
   </component>

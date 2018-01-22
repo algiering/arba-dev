@@ -1,32 +1,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
               android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             tools:context="com.arba.st1fragmenttransaction.MainActivity">
+              tools:context="com.arba.st1fragmenttransaction.MainActivity">
     
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="One Fragment"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="One Fragment"/>
     
     <EditText
         android:id="@+id/edit_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/btn_send"
-        android:layout_width="wrap_content"
+    
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send"/>
-    <Button
-        android:id="@+id/btn_send2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send"/>
+        android:orientation="horizontal">
+        
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"/>
+        
+        <Button
+            android:id="@+id/btn_send2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send2"/>
+        
+        <Button
+            android:id="@+id/btn_send3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send3"/>
+    </LinearLayout>
     
     <TextView
         android:id="@+id/text_message"

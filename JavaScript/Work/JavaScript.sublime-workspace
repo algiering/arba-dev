@@ -4,6 +4,94 @@
 		"selected_items":
 		[
 			[
+				"btn_del",
+				"btn_delete_recomment"
+			],
+			[
+				"btn_edi",
+				"btn_edit_recomment"
+			],
+			[
+				"btn_de",
+				"btn_delete_comment"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"comm",
+				"comment_content"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"comment",
+				"comment_edit"
+			],
+			[
+				"com",
+				"comment"
+			],
+			[
+				"re",
+				"recoment_id"
+			],
+			[
+				"come",
+				"comment_id"
+			],
+			[
+				"article_",
+				"article_comment"
+			],
+			[
+				"ar",
+				"article_comment"
+			],
+			[
+				"arti",
+				"article_comment"
+			],
+			[
+				"btn_",
+				"btn_delete"
+			],
+			[
+				"btn",
+				"btn_list"
+			],
+			[
+				"input",
+				"input_rrn1"
+			],
+			[
+				"articl",
+				"article_body"
+			],
+			[
+				"margi",
+				"margin"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
 				"sub",
 				"submit\t.submit()"
 			],
@@ -36,24 +124,12 @@
 				"overflow"
 			],
 			[
-				"mar",
-				"margin-top"
-			],
-			[
-				"ma",
-				"margin-bottom"
-			],
-			[
 				"ta",
 				"table"
 			],
 			[
 				"tab",
 				"table-cell"
-			],
-			[
-				"pa",
-				"padding-bottom"
 			],
 			[
 				"border",
@@ -98,10 +174,6 @@
 			[
 				"padding",
 				"padding-bottom"
-			],
-			[
-				"font",
-				"font-size"
 			],
 			[
 				"messag",
@@ -288,10 +360,6 @@
 				"list-style-type"
 			],
 			[
-				"in",
-				"inline-block"
-			],
-			[
 				"st",
 				"style\tTag"
 			],
@@ -428,10 +496,6 @@
 				"getMinutes\t(): int Date"
 			],
 			[
-				"input",
-				"input\tTag"
-			],
-			[
 				"repl",
 				"replace\t( searchValue: string, replaceValue: string ): string String"
 			],
@@ -444,108 +508,33 @@
 				"nickname"
 			],
 			[
-				"com",
-				"compNumber"
-			],
-			[
 				"sort",
 				"sort()\td3-selection.sort()"
 			],
 			[
 				"prompt",
 				"prompt"
-			],
-			[
-				"le",
-				"length\t: unsigned long FileList"
-			],
-			[
-				"con",
-				"console"
-			],
-			[
-				"quot",
-				"quotient"
-			],
-			[
-				"min",
-				"minus2"
-			],
-			[
-				"arra",
-				"array3"
-			],
-			[
-				"arr",
-				"array2"
-			],
-			[
-				"conf",
-				"confirm\t( message?: DOMString ): boolean Window"
-			],
-			[
-				"sc",
-				"script\tTag"
-			],
-			[
-				"do",
-				"document"
-			],
-			[
-				"Mo",
-				"OpMonth"
-			],
-			[
-				"doc",
-				"document\t: Document Window"
-			],
-			[
-				"butt",
-				"button\tTag"
-			],
-			[
-				"douc",
-				"document\t: Document Window"
-			],
-			[
-				"fo",
-				"footer\tTag"
-			],
-			[
-				"border-co",
-				"border-collapse"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/D/workspace/Lecture/JavaScript/Project/Mobile Web/body.html",
+			"file": "/D/ArbaDev/web/article.html",
 			"settings":
 			{
-				"buffer_size": 2102,
+				"buffer_size": 6545,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<!--\nhttp://stackoverflow.com/questions/5603117/jquery-create-object-from-form-fields\n-->\n\n<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>폼 데이터를 JSON 형태로 변환</title>\n    <style>\n    div { font-weight: bold; color:red; }\n\n    .profile { position: relative; z-index: 10; zoom: 1; border: 1px solid #dcdcdc; border-bottom: 0; height: 99px; _width: 298px }\n    .profile .user_area { background-color: #f3f4f3; border-bottom: 1px solid #dcdcdc; height: 54px; position: relative; z-index: 10 }\n    .profile .user_info { position: relative; padding: 8px 0 4px 58px; zoom: 1 }\n    .profile .user_thumbnail { position: absolute; left: 11px; top: 5px; width: 42px; height: 42px; overflow: hidden }\n    .profile .user_thumbnail img { width: auto; height: auto; max-width: 100%; max-height: 100% }\n    .profile .user_thumbnail .mask { width: 100%; height: 100%; position: absolute; left: 0; top: 0 }\n\n    .profile .private { margin-bottom: 5px; line-height: 19px; white-space: nowrap; position: relative }\n    .profile .private .user_name { max-width: 90px; *width: 90px; vertical-align: middle; position: relative; overflow: hidden; box-sizing: content-box; margin-right: 6px }\n    .profile .private .user_name a { color: #2f3743; font-weight: bold }\n    .profile .private .user_name a:hover { text-decoration: none }\n    .profile .private .user_name a strong { max-width: 79px; *width: 79px; vertical-align: top; *vertical-align: middle }\n    .profile .private .user_name a:hover strong { text-decoration: underline }\n    .profile .private .login_on { width: 17px; height: 11px; margin: 4px 2px 0 0; overflow: hidden; background-position: -20px -340px; vertical-align: top }\n    .profile .private .link_myinfo { color: #848688; text-decoration: underline }\n    .profile .private .set_login_protect { width: 12px; height: 18px; background-position: -58px 4px; vertical-align: top; margin-left: -1px }\n    .profile .private .btn_logout { position: absolute; right: 12px; border: 1px solid #d1d1d1; color: #848688; height: 16px; overflow: hidden; vertical-align: top }\n    .profile .private .btn_logout .btn_inr { border: 1px solid #fff; border-right: 0; border-bottom: 0; background-color: #f6f7f8; padding: 0 4px 0; height: 15px; line-height: 15px; vertical-align: top; *line-height: 17px }\n\n    .bar { width: 1px; height: 16px; background-position: 100% -18px; vertical-align: top; overflow: hidden }\n\n</style>\n<script type=\"text/javascript\" src=\"../jquery-3.2.1.js\"></script>\n<script type=\"text/javascript\">\n    $(document).ready(function() {\n        $('.login').hide();\n        $('.profile').show();\n\n        $.ajax({\n            url: 'http://localhost:3000/login',\n            type: 'get',\n            dataType: 'json',\n            data: null,\n            setTimeout : 30000,\n            beforeSend : function() {\n                $('#loading').html('<img src=\"loading.gif\"/>');\n            }\n        })\n        .done(function(data, textStatus, xhr) {\n            $('#user_name').text(data.username);\n        })\n        .fail(function(xhr, textStatus, error) {\n            console.log(\"error\");\n        })\n        .always(function(data, textStatus, xhr) {\n            $('#loading').html('');\n        });\n    });\n</script>\n</head>\n<body>\n\n    <div class=\"login\">\n        <form>\n            <input type=\"hidden\" name=\"seq\" value=\"1\">\n            <label> 이름을 입력하세요 : </label>\n            <input type=\"text\" name=\"username\"/>  <br/>\n            <label> 패스워드를 입력하세요 :</label>\n            <input type=\"password\"  name=\"password\"/>  <br/>\n            <input type=\"checkbox\" name=\"hobby\" value=\"music\"> music\n            <input type=\"checkbox\" name=\"hobby\" value=\"yoga\"> yoga\n            <input type=\"checkbox\" name=\"hobby\" value=\"reading\"> reading <br/>\n            <input type=\"button\" id=\"submit\" value=\"전송\"/>\n        </form>\n    </div>\n\n    <div class=\"profile\" style=\"display: none;\">\n        <div class=\"user_area\">\n            <div class=\"user_info\">\n                <a href=\"#\" class=\"user_thumbnail\">\n                    <span class=\"mask\"></span>\n                    <img id=\"profile_image\" src=\"myInfo.gif\">\n                </a>\n                <div class=\"private\">\n                    <span class=\"user_name\"><a href=\"#\"><strong id=\"user_name\">???</strong>님</a></span>\n                    <a href=\"#\" target=\"_parent\" class=\"link_myinfo\">내정보</a>\n                    <a href=\"http://nid.naver.com/nidlogin.logout?returl=http://www.naver.com\" target=\"_parent\" class=\"btn_logout\">\n                        <span class=\"btn_inr\">로그아웃</span>\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <hr>\n    <div id=\"result\"></div>\n</body>\n</html>\n\n\n\n\n\n\n\n",
-			"file": "st05.jQuery/jq10.Ajax메서드/jq10-mi-01.ajax와로그인.html",
-			"file_size": 4902,
-			"file_write_time": 131583021398511886,
+			"file": "/D/ArbaDev/web/basicform.html",
 			"settings":
 			{
-				"buffer_size": 4717,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "st05.jQuery/jq10.Ajax메서드/jq10-mi-03.ajax와무한스크롤.html",
-			"settings":
-			{
-				"buffer_size": 3602,
+				"buffer_size": 389,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -628,23 +617,26 @@
 	"expanded_folders":
 	[
 		"/D/workspace/Lecture/JavaScript/Work",
-		"/D/workspace/Lecture/JavaScript/Work/MyWork",
-		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test",
-		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main",
-		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/img",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS"
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq03.노드설정"
 	],
 	"file_history":
 	[
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jquery-3.2.1.min.js",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/제출용/register.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/제출용/login.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/제출용/index.html",
+		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/제출용/register2.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-mi-03.ajax와무한스크롤.html",
+		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-mi-01.ajax와로그인.html",
+		"/D/workspace/Lecture/JavaScript/Project/Mobile Web/body.html",
 		"/D/workspace/Lecture/JavaScript/Project/Mobile Web/sidebar.html",
 		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/main.html",
 		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/afterLogin.html",
 		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/main-index.html",
 		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/Main/main-index",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-mi-03.ajax와무한스크롤.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/ajax_코드틀.txt",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/item.json",
-		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-mi-01.ajax와로그인.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq07.노드위치와크기/jq07-12.무한스크롤.html",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/server.js",
 		"/D/workspace/Lecture/JavaScript/Work/st05.jQuery/jq10.Ajax메서드/jq10-02.ajax.1.8.gt.html",
@@ -757,13 +749,7 @@
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js05.연산자/js05-01.산술연산자.html",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js05.연산자/js05-03.대입연산자.html",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js05.연산자/js05-09.자동형변환.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js05.연산자/js05-10.강제형변환.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js03.프로그래밍기초/js03-01.js",
-		"/D/workspace/Lecture/JavaScript/Work/st00.docs/st03.자바스크립트.요약.20160613.pdf",
-		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/login.html",
-		"/D/workspace/Lecture/JavaScript/Work/MyWork/Test/registor.html",
-		"/D/workspace/Lecture/JavaScript/Work/st01.Hthm&CSS/modify/index.html",
-		"/C/Users/Administrator/Desktop/modify/index.html"
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js05.연산자/js05-10.강제형변환.html"
 	],
 	"find":
 	{
@@ -819,29 +805,32 @@
 	[
 		{
 			"path": "D:\\workspace\\Lecture\\JavaScript\\Work"
+		},
+		{
+			"path": "D:\\ArbaDev\\web"
 		}
 	],
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/D/workspace/Lecture/JavaScript/Project/Mobile Web/body.html",
+					"file": "/D/ArbaDev/web/article.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2102,
+						"buffer_size": 6545,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								430,
-								430
+								6545,
+								6545
 							]
 						],
 						"settings":
@@ -869,46 +858,46 @@
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -921,32 +910,32 @@
 								"bh_tag_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"open_with_edit": true,
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"word_wrap": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4689.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "st05.jQuery/jq10.Ajax메서드/jq10-mi-01.ajax와로그인.html",
+					"file": "/D/ArbaDev/web/basicform.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4717,
+						"buffer_size": 389,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3225,
-								3225
+								284,
+								284
 							]
 						],
 						"settings":
@@ -958,8 +947,8 @@
 								{
 									"1":
 									[
-										3230,
-										3231
+										289,
+										290
 									]
 								},
 								"icon":
@@ -974,8 +963,8 @@
 								{
 									"1":
 									[
-										2562,
-										2563
+										195,
+										196
 									]
 								},
 								"unmatched":
@@ -984,31 +973,31 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -1019,106 +1008,11 @@
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 698.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "st05.jQuery/jq10.Ajax메서드/jq10-mi-03.ajax와무한스크롤.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3602,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1406,
-								1406
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1418,
-										1419
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/single_quote.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1383,
-										1384
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -1129,47 +1023,21 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content"
+								"bh_tag_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 120.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1181,7 +1049,7 @@
 	},
 	"input":
 	{
-		"height": 39.0
+		"height": 40.0
 	},
 	"layout":
 	{
