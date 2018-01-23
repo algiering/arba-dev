@@ -4,10 +4,20 @@
 
 <mapper namespace="mapper.mysql.mapperArticle">
 
-    <select id="getArticleOne" parameterType="java.util.HashMap" resultType="ModelArticle">
+    <select id="getArticleOne" parameterType="java.util.HashMap"
+        resultType="ModelArticle">
         SELECT * FROM bbs_article
-        WHERE article_subno = #{article_subno}
+        WHERE article_subno =
+        #{article_subno}
         AND board_id = #{board_id}
+    </select>
+
+    <select id="getArticleList" parameterType="int" resultType="ModelArticle">
+        SELECT * FROM bbs_article
+        WHERE 1 = 1
+        <if test="board_id != null and board_id != 0">
+            AND board_id = #{board_id}
+        </if>
     </select>
 
 </mapper>

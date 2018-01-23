@@ -10,5 +10,9 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+
+<a href="/phone/writemain" target="_blank">/phone/writemain</a>
+<br>
+<a href="/phone/writeoneresult" target="_blank">/phone/writeoneresult</a>
 </body>
 </html>

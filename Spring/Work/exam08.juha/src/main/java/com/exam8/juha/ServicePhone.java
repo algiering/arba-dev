@@ -29,10 +29,21 @@ public class ServicePhone implements IServicePhone {
     }
 
     @Override
-    public List<ModelPhone> getPhoneList() {
+    public List<ModelPhone> getPhoneList(int start, int end) {
         List<ModelPhone> result = null;
         try {
-            result = dao.getPhoneList();
+            result = dao.getPhoneList(start, end);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    
+    @Override
+    public int getPhoneTotalRecord() {
+        int result = -1;
+        try {
+            result = dao.getPhoneTotalRecord();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,4 +60,6 @@ public class ServicePhone implements IServicePhone {
         }
         return result;
     }
+
+    
 }

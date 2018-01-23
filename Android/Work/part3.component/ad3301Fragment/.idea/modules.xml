@@ -6,6 +6,7 @@
       <module fileurl="file://D:\workspace\Lecture\Android\Work\part3.component\ad3301Fragment\st1FragmentInDesign\app.iml" filepath="D:\workspace\Lecture\Android\Work\part3.component\ad3301Fragment\st1FragmentInDesign\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/st1FragmentInDesign/st1FragmentInDesign.iml" filepath="$PROJECT_DIR$/st1FragmentInDesign/st1FragmentInDesign.iml" />
       <module fileurl="file://$PROJECT_DIR$/st3FragmentTransaction/st3FragmentTransaction.iml" filepath="$PROJECT_DIR$/st3FragmentTransaction/st3FragmentTransaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/st5backstack/st5backstack.iml" filepath="$PROJECT_DIR$/st5backstack/st5backstack.iml" />
     </modules>
   </component>
 </project>

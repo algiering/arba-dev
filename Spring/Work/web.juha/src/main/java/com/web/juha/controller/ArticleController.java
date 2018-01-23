@@ -67,4 +67,12 @@ public class ArticleController {
 		return "article";
 	}
 	
+	@RequestMapping(value = "/articlelist", method = RequestMethod.GET)
+    public String articlelist(Model model) {
+        logger.info("");
+        
+        
+        return "articlelist";
+    }
+	
 }

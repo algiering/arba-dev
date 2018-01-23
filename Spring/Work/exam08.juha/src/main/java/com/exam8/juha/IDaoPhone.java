@@ -6,7 +6,9 @@ public interface IDaoPhone {
     
     ModelPhone getPhoneOne(String name);
     
-    List<ModelPhone> getPhoneList();
+    List<ModelPhone> getPhoneList(int start, int end);
+    
+    int getPhoneTotalRecord();
     
     int insertPhone(ModelPhone phone);
     
