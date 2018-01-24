@@ -1,4 +1,4 @@
-package com.web.juha.controller;
+package com.web.juha.common;
 
 public class WebConstant {
 

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.web.juha.common.WebConstant;
 import com.web.juha.inf.IServiceUser;
 import com.web.juha.model.ModelUser;
 
@@ -63,7 +64,7 @@ public class UserController {
             return "redirect:/login";
 	    }
 	    else {
-	        return "redirect:/article?article_subno=1&board_id=0"; // TODO 메인으로 가도록 수정
+	        return "redirect:/articlelist?board_id=0"; // TODO 메인으로 가도록 수정
 	    }
     }
 	

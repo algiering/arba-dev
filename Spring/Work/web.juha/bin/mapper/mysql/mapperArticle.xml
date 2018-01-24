@@ -14,10 +14,27 @@
 
     <select id="getArticleList" parameterType="int" resultType="ModelArticle">
         SELECT * FROM bbs_article
-        WHERE 1 = 1
-        <if test="board_id != null and board_id != 0">
-            AND board_id = #{board_id}
-        </if>
+        WHERE board_id = #{board_id}
+        ORDER BY
+        article_subno DESC
     </select>
+
+    <update id="increaseHit" parameterType="int">
+        UPDATE bbs_article
+        SET hit = hit + 1
+        WHERE article_no = #{article_no}
+    </update>
+    
+    <update id="increaseGood" parameterType="int">
+        UPDATE bbs_article
+        SET good = good + 1
+        WHERE article_no = #{article_no}
+    </update>
+    
+    <update id="increaseBad" parameterType="int">
+        UPDATE bbs_article
+        SET bad = bad + 1
+        WHERE article_no = #{article_no}
+    </update>
 
 </mapper>
