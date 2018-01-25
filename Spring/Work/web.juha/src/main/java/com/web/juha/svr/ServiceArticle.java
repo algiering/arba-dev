@@ -42,10 +42,10 @@ public class ServiceArticle implements IServiceArticle {
     }
 
     @Override
-    public int increaseHit(Integer article_no) {
+    public int increaseHit(Integer article_subno, Integer board_id) {
         int result = -1;
         try {
-            result = dao.increaseHit(article_no);
+            result = dao.increaseHit(article_subno, board_id);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,10 +53,10 @@ public class ServiceArticle implements IServiceArticle {
     }
 
     @Override
-    public int increaseGood(Integer article_no) {
+    public int increaseGood(Integer article_subno, Integer board_id) {
         int result = -1;
         try {
-            result = dao.increaseGood(article_no);
+            result = dao.increaseGood(article_subno, board_id);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,10 +64,43 @@ public class ServiceArticle implements IServiceArticle {
     }
 
     @Override
-    public int increaseBad(Integer article_no) {
+    public int increaseBad(Integer article_subno, Integer board_id) {
         int result = -1;
         try {
-            result = dao.increaseBad(article_no);
+            result = dao.increaseBad(article_subno, board_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int insertArticle(String article_title, String article_content, String user_id, Integer board_id) {
+        int result = -1;
+        try {
+            result = dao.insertArticle(article_title, article_content, user_id, board_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int getCountArticleList(Integer board_id) {
+        int result = -1;
+        try {
+            result = dao.getCountArticleList(board_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public List<ModelArticle> getArticlePaging(Integer board_id, String searchWord, Integer start, Integer end) {
+        List<ModelArticle> result = null;
+        try {
+            result = dao.getArticlePaging(board_id, searchWord, start, end);
         } catch (Exception e) {
             e.printStackTrace();
         }

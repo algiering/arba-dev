@@ -98,6 +98,7 @@
 
 #col_2 {
     width: 8%;
+    font-size: 12px;
 }
 
 #col_3 {
@@ -116,9 +117,84 @@
 hr {
     width: 100%;
 }
+
+#table_paging {
+    width: 96%;
+    margin: 0 1% 0 1%;
+    padding: 0 1% 0 1%;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+#table_paging>div {
+    display: inline-block;
+    outline: black 1px solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+#table_paging>div:hover {
+    outline: #ff9b4f 1px solid;
+}
+
+#table_btn {
+    width: 96%;
+    margin: 0 1% 1% 1%;
+    padding: 0 1% 1% 1%;
+    background-color: #f9f9f9;
+}
+
+#table_btn>* {
+    display: inline-block;
+    outline: black 1px solid;
+    padding: 1%;
+    margin: 1%;
+    width: 80px;
+    text-align: center;
+    background-color: white;
+}
+
+#table_btn>*:hover {
+    outline: #ff9b4f 1px solid;
+}
+
+.btn_write {
+    float: right;
+}
+
+#table_search {
+    text-align: center;
+    padding: 1%;
+    margin: 1%;
+    background-color: #f9f9f9;
+}
+
+.btn_search {
+    display: inline-block;
+    outline: black 1px solid;
+    width: 80px;
+    text-align: center;
+    background-color: white;
+    padding: 1%;
+    margin: 1%;
+}
+
+.input_search {
+    padding: 1%;
+    margin: 1%;
+}
+
+.bbs-strong {
+    outline: #ff9b4f 1px solid !important;
+}
 </style>
 <script type="text/javascript" src="/resources/jquery-3.2.1.js"></script>
 <script type="text/javascript">
+
+var goList = function( page ) {
+    window.location.href = "/articlelist/?board_id=0&searchWord=${searchWord}&curPage=" +page ;
+};
+
     $(document).ready(function() {
 
         $('#table_content').children().mouseenter(function(event) {
@@ -141,9 +217,41 @@ hr {
             	  + 'article_subno=' + article_subno;
             	  
             }
-        });  
-    });
-</script>
+        });
+        
+        $('.btn_list').on({"click" : function() {
+            window.location.href = '/articlelist'
+                                 + '?'
+                                 + 'board_id=0'; // TODO 세션에서 board_id를 가져오도록 해야함
+            }
+        });
+        
+        $('.btn_write').on({"click" : function() {
+        	window.location.href = '/articlewrite';
+            }
+        });
+        
+        $('.btn_links').on({"click" : function() {
+        	var page = $(this).text();
+        	goList(page);
+            }
+        });
+        
+        $('.btn_next').on({"click" : function() {
+            var page = ${nextLink};
+            goList(page);
+            }
+        });
+        
+        $('.btn_prev').on({"click" : function() {
+            var page = ${prevLink};
+            goList(page);
+            }
+        });
+        
+
+    })
+    </script>
 </head>
 <body>
     <div id="container">
@@ -175,6 +283,37 @@ hr {
             </div>
 
             <hr>
+        </div>
+        
+        <div id="table_search">
+        <input type="text" class="input_search">
+        <div class="btn_search">검색</div>
+        </div>
+
+        <div id="table_paging">
+            <c:if test="${prevLink > 0 }">
+                <div class="btn_prev" href="javascript:goList( ${prevLink} )">[이전]</div>
+            </c:if>
+            <c:forEach var="i" items="${pageLinks }" varStatus="stat">
+                <c:choose>
+                    <c:when test="${curPage == i}">
+                        <div class="bbs-strong">${i }</div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="btn_links"
+                            href="javascript:goList( ${i} )">${i }</div>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+            <c:if test="${nextLink > 0 }">
+                <div class="btn_next"
+                    href="javascript:goList( ${nextLink} )">[다음]</div>
+            </c:if>
+        </div>
+
+        <div id="table_btn">
+            <div class="btn_list">목록</div>
+            <div class="btn_write">글쓰기</div>
         </div>
 
     </div>

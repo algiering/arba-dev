@@ -195,6 +195,7 @@
     width: 80px;
     text-align: center;
     float: right;
+    margin: 0 1% 0 1%;
 }
 
 #article_vote>div:hover {
@@ -207,7 +208,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('.btn_list').on({"click" : function() {
-            alert("click ok");
+        	window.location.href = '/articlelist'
+                                 + '?'
+                                 + 'board_id=0' // TODO 세션에서 board_id를 가져오도록 해야함
             }
         });
 
@@ -253,19 +256,19 @@
         
         $('#btn_good').click(function(event) {
 
-        	var article_no = $(".article_no").text();
-            var article = { article_no : article_no, clicked: 0 }
+        	var article_subno = $(".article_no").text();
+            var article = { article_subno : article_subno, clicked: 0, board_id: 0 } // TODO board_id는 세션에서 가져오도록 해야함
             
         	$.ajax({
         	    url : '/article_vote',        // 호출되는 서버 주소
         	    data: article,        // 서버로 보내는 클라이언트 데이터. 사용하는 경우에는 { data1:'test1', data2:'test2' }
-        	    type: 'get',       // get, post
+        	    type: 'post',       // get, post
         	    timeout: 30000,    // 30초, 최대 대기시간
         	    dataType: 'json',  // response로 넘어오는 데이터 형태: text, html, xml, json, jsonp, script
         	    beforeSend : function() {
         	    }
         	}).done( function(data, textStatus, xhr ){
-        		alert("connection ok");
+        		$('#btn_good').text('추천 : ' + data) // TODO 세션에서 해당 아이디가 추천을 최대 한번까지만 가능하도록 해야함
         	}).fail( function(xhr, textStatus, error ) {
         		alert("connection fail");
         	}).always( function(data, textStatus, xhr ) {
@@ -273,19 +276,19 @@
         })
         
         $('#btn_bad').click(function(event) {
-        	var article_no = $(".article_no").text();
-            var article = { article_no : article_no, clicked: 1 }
+        	var article_subno = $(".article_no").text();
+            var article = { article_subno : article_subno, clicked: 1, board_id: 0 } // TODO board_id는 세션에서 가져오도록 해야함
             
             $.ajax({
                 url : '/article_vote',        // 호출되는 서버 주소
                 data: article,        // 서버로 보내는 클라이언트 데이터. 사용하는 경우에는 { data1:'test1', data2:'test2' }
-                type: 'get',       // get, post
+                type: 'post',       // get, post
                 timeout: 30000,    // 30초, 최대 대기시간
                 dataType: 'json',  // response로 넘어오는 데이터 형태: text, html, xml, json, jsonp, script
                 beforeSend : function() {
                 }
             }).done( function(data, textStatus, xhr ){
-            	alert("connection ok");
+            	$('#btn_bad').text('비추천 : ' + data) // TODO 세션에서 해당 아이디가 비추천을 최대 한번까지만 가능하도록 해야함
             }).fail( function(xhr, textStatus, error ) {
             	alert("connection fail");
             }).always( function(data, textStatus, xhr ) {
@@ -382,10 +385,10 @@
     </div>
 
     <div id="article_footer">
-        <div id="btn_list">목록</div>
-        <div id="btn_write">글쓰기</div>
-        <div id="btn_delete">삭제</div>
-        <div id="btn_edit">수정</div>
+        <div id="btn_list" class="btn_list">목록</div>
+        <div id="btn_write" class="btn_write">글쓰기</div>
+        <div id="btn_delete" class="btn_delete">삭제</div>
+        <div id="btn_edit" class="btn_edit">수정</div>
     </div>
     
     <!-- article_footer -->

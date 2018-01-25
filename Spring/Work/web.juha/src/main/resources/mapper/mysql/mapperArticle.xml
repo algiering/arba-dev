@@ -19,22 +19,60 @@
         article_subno DESC
     </select>
 
-    <update id="increaseHit" parameterType="int">
+    <update id="increaseHit" parameterType="java.util.HashMap">
         UPDATE bbs_article
         SET hit = hit + 1
-        WHERE article_no = #{article_no}
+        WHERE article_subno = #{article_subno}
+        AND   board_id      = #{board_id     }
     </update>
     
-    <update id="increaseGood" parameterType="int">
+    <update id="increaseGood" parameterType="java.util.HashMap">
         UPDATE bbs_article
         SET good = good + 1
-        WHERE article_no = #{article_no}
+        WHERE article_subno = #{article_subno}
+        AND   board_id      = #{board_id     }
     </update>
     
-    <update id="increaseBad" parameterType="int">
+    <update id="increaseBad" parameterType="java.util.HashMap">
         UPDATE bbs_article
         SET bad = bad + 1
-        WHERE article_no = #{article_no}
+        WHERE article_subno = #{article_subno}
+        AND   board_id      = #{board_id     }
     </update>
 
+    <insert id="insertArticle" parameterType="java.util.HashMap">
+        <selectKey keyProperty="maxsubno" resultType="int" order="BEFORE">
+            SELECT(SELECT MAX(article_subno)+1 FROM bbs_article WHERE board_id = 0)
+          </selectKey>
+        
+
+        INSERT INTO bbs_article
+               ( article_subno,   article_title  ,   article_content  ,   article_regdate  ,   user_id  ,   board_id  )
+        VALUES ( #{maxsubno}    , #{article_title} , #{article_content} ,   NOW()            , #{user_id} , #{board_id} )
+    </insert>
+    
+    <select id="getCountArticleList" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM bbs_article
+        WHERE board_id = #{board_id}
+        ORDER BY
+        article_subno DESC
+    </select>
+
+    <select id="getArticlePaging" parameterType="java.util.HashMap" resultType="ModelArticle">
+        SELECT article_subno, article_title, article_content, article_regdate, user_id, good, hit 
+        FROM   
+            (SELECT @RNUM := @RNUM + 1  r, a.* 
+            FROM
+                (SELECT article_subno, article_title, article_content, article_regdate, user_id, good, hit
+                FROM
+                    bbs_article 
+                WHERE
+                    board_id = #{board_id} 
+                <if test="searchWord != null and searchWord != ''">
+                AND article_title LIKE CONCAT('%', #{searchWord}, '%')
+                </if>
+                ORDER BY article_subno desc) a
+                ,(select @RNUM:=0) b) temp
+        WHERE r BETWEEN #{start} AND #{end};
+    </select>
 </mapper>

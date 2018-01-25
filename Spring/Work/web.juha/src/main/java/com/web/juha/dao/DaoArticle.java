@@ -39,23 +39,65 @@ public class DaoArticle implements IDaoArticle {
     }
 
     @Override
-    public int increaseHit(Integer article_no) {
+    public int increaseHit(Integer article_subno, Integer board_id) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("article_subno", article_subno);
+        map.put("board_id", board_id);
         
-        int result = session.update("mapper.mysql.mapperArticle.increaseHit", article_no);
+        int result = session.update("mapper.mysql.mapperArticle.increaseHit", map);
         return result;
     }
 
     @Override
-    public int increaseGood(Integer article_no) {
+    public int increaseGood(Integer article_subno, Integer board_id) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("article_subno", article_subno);
+        map.put("board_id", board_id);
         
-        int result = session.update("mapper.mysql.mapperArticle.increaseGood", article_no);
+        int result = session.update("mapper.mysql.mapperArticle.increaseGood", map);
         return result;
     }
 
     @Override
-    public int increaseBad(Integer article_no) {
+    public int increaseBad(Integer article_subno, Integer board_id) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("article_subno", article_subno);
+        map.put("board_id", board_id);
         
-        int result = session.update("mapper.mysql.mapperArticle.increaseBad", article_no);
+        int result = session.update("mapper.mysql.mapperArticle.increaseBad", map);
+        return result;
+    }
+
+    @Override
+    public int insertArticle(String article_title, String article_content, String user_id, Integer board_id) {
+        Map<String, String> map = new HashMap<>();
+        map.put("article_title", article_title);
+        map.put("article_content", article_content);
+        map.put("user_id", user_id);
+        map.put("board_id", String.valueOf(board_id));
+        
+        int result = session.insert("mapper.mysql.mapperArticle.insertArticle", map);
+        return result;
+    }
+
+    @Override
+    public int getCountArticleList(Integer board_id) {
+        int result = session.selectOne("mapper.mysql.mapperArticle.getCountArticleList", board_id);
+        return result;
+    }
+
+    @Override
+    public List<ModelArticle> getArticlePaging(Integer board_id, String searchWord, Integer start, Integer end) {
+        List<ModelArticle> result = null;
+        
+        Map<String, String> map = new HashMap<>();
+        map.put("board_id", String.valueOf(board_id));
+        map.put("searchWord", searchWord);
+        map.put("start", String.valueOf(start));
+        map.put("end", String.valueOf(end));
+        
+        result = session.selectList("mapper.mysql.mapperArticle.getArticlePaging" , map);
+        
         return result;
     }
     
