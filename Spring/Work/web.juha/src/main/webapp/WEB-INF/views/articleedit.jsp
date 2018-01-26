@@ -98,8 +98,39 @@ hr {
         }).always( function(data, textStatus, xhr ) {
         });
 
-        $('.btn_write').click(function(event) {
-        	
+        $('.btn_edit').click(function(event) {
+        	$.ajax({
+        		
+        		var article_title = $('#input_title').val();
+        		var article_content = $('#input_content').val();
+        		var board_id = ${board_id};
+        		var article_subno = ${article_subno};
+        		
+        		var mdata = {
+                        article_subno: article_subno,
+                        board_id: board_id,
+                        article_title: article_title,
+                        article_content: article_content
+                };
+        		
+                url : '/article_update',        // 호출되는 서버 주소,
+                data: JSON.stringify( mdata ),     // 사용하는 경우에는 
+                type: 'post',       // get, post
+                timeout: 30000,    // 30초, 최대 대기시간
+                dataType: 'json',  // response로 넘어오는 데이터 형태: text, html, xml, json, jsonp, script
+                headers: {  'Accept': 'application/json', 'Content-Type': 'application/json' } ,
+                beforeSend : function() {
+                }
+            }).done( function(data, textStatus, xhr ){
+            	window.location.href = '/article'
+                    + '?'
+                    + 'board_id=' + board_id)
+                    + '&'
+                    + 'article_subno' + article_subno
+            }).fail( function(xhr, textStatus, error ) {
+                alert("connection fail");
+            }).always( function(data, textStatus, xhr ) {
+            });
         })
 
         $('.btn_cancel').click(function(event) {
@@ -128,7 +159,7 @@ hr {
         </div>
 
         <div id="btn">
-            <div class="btn_write">수정</div>
+            <div class="btn_edit">수정</div>
             <div class="btn_cancel">취소</div>
         </div>
     </div>

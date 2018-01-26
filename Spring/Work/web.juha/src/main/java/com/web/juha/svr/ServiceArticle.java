@@ -118,4 +118,15 @@ public class ServiceArticle implements IServiceArticle {
         return result;
     }
 
+    @Override
+    public int updateArticle(Integer board_id, Integer article_subno, String article_title, String article_content) {
+        int result = -1;
+        try {
+            result = dao.updateArticle(board_id, article_subno, article_title, article_content);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }

@@ -239,4 +239,18 @@ public class ArticleController {
         return article;
     }
     
+    @RequestMapping(value = "/article_edit", method = RequestMethod.POST)
+    @ResponseBody
+    public int article_edit(Model model
+            , @RequestBody ModelArticle mdata) {
+        logger.info("");
+        
+        int article_subno = mdata.getArticle_subno();
+        int board_id = mdata.getBoard_id();
+        
+        int result = svr_article.updateArticle(board_id, article_subno);
+        
+        return result;
+    }
+    
 }

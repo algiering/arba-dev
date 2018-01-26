@@ -23,4 +23,6 @@ public interface IDaoArticle {
     List<ModelArticle> getArticlePaging(Integer board_id, String searchWord, Integer start, Integer end);
     
     int deleteArticle(Integer board_id, Integer article_subno);
+    
+    int updateArticle(Integer board_id, Integer article_subno, String article_title, String article_content);
 }
