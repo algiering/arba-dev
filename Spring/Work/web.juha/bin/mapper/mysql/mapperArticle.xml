@@ -7,14 +7,15 @@
     <select id="getArticleOne" parameterType="java.util.HashMap"
         resultType="ModelArticle">
         SELECT * FROM bbs_article
-        WHERE article_subno =
-        #{article_subno}
+        WHERE article_use = 1
+        AND article_subno = #{article_subno}
         AND board_id = #{board_id}
     </select>
 
     <select id="getArticleList" parameterType="int" resultType="ModelArticle">
         SELECT * FROM bbs_article
-        WHERE board_id = #{board_id}
+        WHERE article_use = 1
+        AND board_id = #{board_id}
         ORDER BY
         article_subno DESC
     </select>
@@ -42,18 +43,21 @@
 
     <insert id="insertArticle" parameterType="java.util.HashMap">
         <selectKey keyProperty="maxsubno" resultType="int" order="BEFORE">
-            SELECT(SELECT MAX(article_subno)+1 FROM bbs_article WHERE board_id = 0)
-          </selectKey>
+            SELECT(SELECT MAX(article_subno)+1 FROM bbs_article)
+        </selectKey>
         
-
         INSERT INTO bbs_article
                ( article_subno,   article_title  ,   article_content  ,   article_regdate  ,   user_id  ,   board_id  )
         VALUES ( #{maxsubno}    , #{article_title} , #{article_content} ,   NOW()            , #{user_id} , #{board_id} )
     </insert>
     
-    <select id="getCountArticleList" parameterType="int" resultType="int">
+    <select id="getCountArticleList" parameterType="java.util.HashMap" resultType="int">
         SELECT COUNT(*) FROM bbs_article
-        WHERE board_id = #{board_id}
+        WHERE article_use = 1
+        AND board_id = #{board_id}
+        <if test="searchWord != null and searchWord != ''">
+        AND article_title LIKE CONCAT('%', #{searchWord}, '%')
+        </if>
         ORDER BY
         article_subno DESC
     </select>
@@ -66,8 +70,8 @@
                 (SELECT article_subno, article_title, article_content, article_regdate, user_id, good, hit
                 FROM
                     bbs_article 
-                WHERE
-                    board_id = #{board_id} 
+                WHERE article_use = 1
+                AND board_id = #{board_id} 
                 <if test="searchWord != null and searchWord != ''">
                 AND article_title LIKE CONCAT('%', #{searchWord}, '%')
                 </if>
@@ -75,4 +79,18 @@
                 ,(select @RNUM:=0) b) temp
         WHERE r BETWEEN #{start} AND #{end};
     </select>
+    
+    <update id="deleteArticle" parameterType="java.util.HashMap">
+        UPDATE bbs_article
+        SET article_use = 0
+        WHERE board_id = #{board_id}
+        AND article_subno = #{article_subno}
+    </update>
+    
+    <update id="updateArticle" parameterType="java.util.HashMap">
+        UPDATE bbs_article
+        SET article_title = #{article_title}', article_content = #{article_content}
+        WHERE board_id = #{board_id}
+        AND article_subno = #{article_subno}
+    </update>
 </mapper>

@@ -78,7 +78,7 @@ hr {
     		var article_title = $('#input_title').val();
     		var article_content = $('#input_content').val();
     		var user_id = 'algiering';  // TODO 세션에서 가져오게
-    		var board_id = 0; // TODO 세션에서 가져오게
+    		var board_id = ${board_id}; // TODO 세션에서 가져오게
     		
             var mdata = { article_title: article_title
             		   , article_content: article_content

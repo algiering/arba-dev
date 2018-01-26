@@ -81,8 +81,12 @@ public class DaoArticle implements IDaoArticle {
     }
 
     @Override
-    public int getCountArticleList(Integer board_id) {
-        int result = session.selectOne("mapper.mysql.mapperArticle.getCountArticleList", board_id);
+    public int getCountArticleList(Integer board_id, String searchWord) {
+        Map<String, String> map = new HashMap<>();
+        map.put("board_id", String.valueOf(board_id));
+        map.put("searchWord", searchWord);
+        
+        int result = session.selectOne("mapper.mysql.mapperArticle.getCountArticleList", map);
         return result;
     }
 
@@ -97,6 +101,19 @@ public class DaoArticle implements IDaoArticle {
         map.put("end", String.valueOf(end));
         
         result = session.selectList("mapper.mysql.mapperArticle.getArticlePaging" , map);
+        
+        return result;
+    }
+
+    @Override
+    public int deleteArticle(Integer board_id, Integer article_subno) {
+        int result = -1;
+        
+        Map<String, Integer> map = new HashMap<>();
+        map.put("board_id", board_id);
+        map.put("article_subno", article_subno);
+        
+        result = session.update("mapper.mysql.mapperArticle.deleteArticle", map);
         
         return result;
     }

@@ -206,11 +206,12 @@
 
 <script type="text/javascript" src="/resources/jquery-3.2.1.js"></script>
 <script type="text/javascript">
+
     $(document).ready(function() {
         $('.btn_list').on({"click" : function() {
         	window.location.href = '/articlelist'
-                                 + '?'
-                                 + 'board_id=0' // TODO 세션에서 board_id를 가져오도록 해야함
+                + '?'
+                + 'board_id=' + ${board_id} // TODO 세션에서 board_id를 가져오도록 해야함
             }
         });
 
@@ -220,12 +221,32 @@
         });
 
         $('.btn_delete').on({"click" : function() {
-            alert("click ok");
+        	
+        	var article_subno = $(".article_no").text();
+        	
+        	window.location.href = '/articledelete'
+        	                     + '?'
+        	                     + 'board_id=' + ${board_id}
+                                 + '&'
+                                 + 'article_subno=' + article_subno
+                                 + '&'
+                                 + 'user_id=' + 'algiering'
             }
         });
 
         $('.btn_edit').on({"click" : function() {
-            alert("click ok");
+        	
+        	var article_subno = $(".article_no").text();
+        	var user_id = $(".user_id").text();
+        	
+        	window.location.href = '/articleedit'
+        	                     + '?'
+        	                     + 'board_id=' + ${board_id}
+        	                     + '&'
+                                 + 'article_subno=' + article_subno
+        	                     + '&'
+        	                     + 'user_id=' + user_id;
+        	
             }
         });
 
@@ -314,7 +335,7 @@
             <div id="row2">
                 <div id="col1">작성자</div>
                 &nbsp&nbsp&nbsp&nbsp
-                <div>${user_id}</div>
+                <div class="user_id">${user_id}</div>
             </div>
             <div id="row3">
                 <div id="col1">작성일</div>

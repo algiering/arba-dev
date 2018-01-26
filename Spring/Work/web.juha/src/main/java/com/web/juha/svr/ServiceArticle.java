@@ -86,10 +86,10 @@ public class ServiceArticle implements IServiceArticle {
     }
 
     @Override
-    public int getCountArticleList(Integer board_id) {
+    public int getCountArticleList(Integer board_id, String searchWord) {
         int result = -1;
         try {
-            result = dao.getCountArticleList(board_id);
+            result = dao.getCountArticleList(board_id, searchWord);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -101,6 +101,17 @@ public class ServiceArticle implements IServiceArticle {
         List<ModelArticle> result = null;
         try {
             result = dao.getArticlePaging(board_id, searchWord, start, end);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int deleteArticle(Integer board_id, Integer article_subno) {
+        int result = -1;
+        try {
+            result = dao.deleteArticle(board_id, article_subno);
         } catch (Exception e) {
             e.printStackTrace();
         }

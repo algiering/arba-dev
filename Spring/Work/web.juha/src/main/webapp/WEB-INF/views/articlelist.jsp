@@ -179,6 +179,10 @@ hr {
     margin: 1%;
 }
 
+.btn_search:hover {
+    outline: #ff9b4f 1px solid;
+}
+
 .input_search {
     padding: 1%;
     margin: 1%;
@@ -227,7 +231,9 @@ var goList = function( page ) {
         });
         
         $('.btn_write').on({"click" : function() {
-        	window.location.href = '/articlewrite';
+        	window.location.href = '/articlewrite'
+        	                     + '?'
+        	                     + 'board_id=' + 0 ;
             }
         });
         
@@ -249,6 +255,13 @@ var goList = function( page ) {
             }
         });
         
+        $('.btn_search').click(function(event) {
+        	window.location.href = '/articlelist'
+        		                 + '?'
+        		                 + 'board_id=' + 0
+                                 + '&searchWord=' + $('.input_search').val();
+                                 
+        })
 
     })
     </script>
@@ -284,15 +297,15 @@ var goList = function( page ) {
 
             <hr>
         </div>
-        
+
         <div id="table_search">
-        <input type="text" class="input_search">
-        <div class="btn_search">검색</div>
+            <input type="text" class="input_search" name="searchWord">
+            <div class="btn_search">검색</div>
         </div>
 
         <div id="table_paging">
             <c:if test="${prevLink > 0 }">
-                <div class="btn_prev" href="javascript:goList( ${prevLink} )">[이전]</div>
+                <div class="btn_prev">[이전]</div>
             </c:if>
             <c:forEach var="i" items="${pageLinks }" varStatus="stat">
                 <c:choose>
@@ -300,14 +313,12 @@ var goList = function( page ) {
                         <div class="bbs-strong">${i }</div>
                     </c:when>
                     <c:otherwise>
-                        <div class="btn_links"
-                            href="javascript:goList( ${i} )">${i }</div>
+                        <div class="btn_links">${i }</div>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
             <c:if test="${nextLink > 0 }">
-                <div class="btn_next"
-                    href="javascript:goList( ${nextLink} )">[다음]</div>
+                <div class="btn_next">[다음]</div>
             </c:if>
         </div>
 

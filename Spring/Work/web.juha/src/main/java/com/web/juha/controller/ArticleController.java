@@ -3,7 +3,9 @@ package com.web.juha.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.JsonObject;
 import com.web.juha.common.PagingHelper;
 import com.web.juha.inf.IServiceArticle;
 import com.web.juha.inf.IServiceComment;
@@ -95,6 +98,8 @@ public class ArticleController {
         model.addAttribute("comment_list", comment);
 
         model.addAttribute("recomment_list", recomment);
+        
+        model.addAttribute("board_id", board_id);
 
         return "article";
     }
@@ -106,7 +111,7 @@ public class ArticleController {
             , @RequestParam(defaultValue = "1") int curPage) {
         logger.info("");
         
-        int totalRecord = svr_article.getCountArticleList(board_id);
+        int totalRecord = svr_article.getCountArticleList(board_id, searchWord);
         
         PagingHelper paging = new PagingHelper(totalRecord, curPage, 10, 10);
 
@@ -155,8 +160,11 @@ public class ArticleController {
     }
     
     @RequestMapping(value = "/articlewrite", method = RequestMethod.GET)
-    public String articlewrite(Model model) {
+    public String articlewrite(Model model
+            , @RequestParam(defaultValue="-1") int board_id) {
         logger.info("");
+        
+        model.addAttribute("board_id", board_id);
         
         return "articlewrite";
     }
@@ -175,5 +183,60 @@ public class ArticleController {
         
         return result;
     }
-
+    
+    @RequestMapping(value = "/articledelete", method = RequestMethod.GET)
+    public String articledelete(Model model
+            , @RequestParam int article_subno
+            , @RequestParam int board_id
+            , @RequestParam String user_id) {
+        logger.info("");
+        
+        model.addAttribute("article_subno", article_subno);
+        model.addAttribute("board_id", board_id);
+        model.addAttribute("user_id", user_id);
+        
+        return "articledelete";
+    }
+    
+    @RequestMapping(value = "/article_delete", method = RequestMethod.POST)
+    @ResponseBody
+    public int article_delete(Model model
+            , @RequestParam int article_subno
+            , @RequestParam int board_id
+            , @RequestParam String user_id) {
+        int result = -1;
+        
+        result = svr_article.deleteArticle(board_id, article_subno);
+        
+        return result;
+    }
+    
+    @RequestMapping(value = "/articleedit", method = RequestMethod.GET)
+    public String articleedit(Model model
+            , @RequestParam int article_subno
+            , @RequestParam int board_id
+            , @RequestParam String user_id) {
+        logger.info("");
+        
+        model.addAttribute("article_subno", article_subno);
+        model.addAttribute("board_id", board_id);
+        model.addAttribute("user_id", user_id);
+        
+        return "articleedit";
+    }
+    
+    @RequestMapping(value = "/article_getone", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelArticle article_getone(Model model
+            , @RequestBody ModelArticle mdata) {
+        logger.info("");
+        
+        int article_subno = mdata.getArticle_subno();
+        int board_id = mdata.getBoard_id();
+        
+        ModelArticle article = svr_article.getArticleOne(article_subno, board_id);
+        
+        return article;
+    }
+    
 }
