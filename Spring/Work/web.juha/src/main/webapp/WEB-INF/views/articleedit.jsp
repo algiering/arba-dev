@@ -99,21 +99,21 @@ hr {
         });
 
         $('.btn_edit').click(function(event) {
+        	
+            var article_title = $('#input_title').val();
+            var article_content = $('#input_content').val();
+            var board_id = ${board_id};
+            var article_subno = ${article_subno};
+            
+            var mdata = {
+                    article_subno: article_subno,
+                    board_id: board_id,
+                    article_title: article_title,
+                    article_content: article_content
+            };
+            
         	$.ajax({
-        		
-        		var article_title = $('#input_title').val();
-        		var article_content = $('#input_content').val();
-        		var board_id = ${board_id};
-        		var article_subno = ${article_subno};
-        		
-        		var mdata = {
-                        article_subno: article_subno,
-                        board_id: board_id,
-                        article_title: article_title,
-                        article_content: article_content
-                };
-        		
-                url : '/article_update',        // 호출되는 서버 주소,
+                url : '/article_edit',        // 호출되는 서버 주소,
                 data: JSON.stringify( mdata ),     // 사용하는 경우에는 
                 type: 'post',       // get, post
                 timeout: 30000,    // 30초, 최대 대기시간
@@ -122,11 +122,16 @@ hr {
                 beforeSend : function() {
                 }
             }).done( function(data, textStatus, xhr ){
+            	if(data == 1) {
             	window.location.href = '/article'
                     + '?'
-                    + 'board_id=' + board_id)
+                    + 'board_id=' + board_id
                     + '&'
-                    + 'article_subno' + article_subno
+                    + 'article_subno=' + article_subno
+            	}
+            	else {
+            		alert("update fail");
+            	}
             }).fail( function(xhr, textStatus, error ) {
                 alert("connection fail");
             }).always( function(data, textStatus, xhr ) {

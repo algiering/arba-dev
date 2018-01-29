@@ -107,28 +107,24 @@ public class DaoArticle implements IDaoArticle {
 
     @Override
     public int deleteArticle(Integer board_id, Integer article_subno) {
-        int result = -1;
-        
         Map<String, Integer> map = new HashMap<>();
         map.put("board_id", board_id);
         map.put("article_subno", article_subno);
         
-        result = session.update("mapper.mysql.mapperArticle.deleteArticle", map);
+        int result = session.update("mapper.mysql.mapperArticle.deleteArticle", map);
         
         return result;
     }
 
     @Override
     public int updateArticle(Integer board_id, Integer article_subno, String article_title, String article_content) {
-        int result = -1;
-        
         Map<String, String> map = new HashMap<>();
         map.put("board_id", String.valueOf(board_id));
         map.put("article_subno", String.valueOf(article_subno));
         map.put("article_title", article_title);
         map.put("article_content", article_content);
         
-        result = session.update("mapper.mysql.mapperArticle.updateArticle", map);
+        int result = session.update("mapper.mysql.mapperArticle.updateArticle", map);
         
         return result;
     }

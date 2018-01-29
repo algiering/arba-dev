@@ -100,6 +100,8 @@
     padding: 1%;
     outline: black 1px solid;
     background-color: white;
+    display: inline-block;
+    width: 96%;
 }
 
 #article_comment * {
@@ -200,6 +202,28 @@
 
 #article_vote>div:hover {
     outline: #ff9b4f 1px solid !important;
+}
+
+#input_comment {
+    width: 98%;
+    height: 100px;
+    margin-top: 1%;
+    padding: 1%;
+    line-height: 1.5em;
+    display: inline-block;
+}
+
+#btn_write_comment {
+    width:80px;
+    outline: black 1px solid;
+    text-align: center;
+    display: inline-block;
+    float: right;
+    padding: 5px 0 5px 0;
+}
+
+#btn_write_comment:hover {
+    outline: #ff9b4f 1px solid;
 }
 
 </style>
@@ -363,7 +387,12 @@
         <div id="row0">
             <div>댓글</div>
         </div>
-
+        
+        <div id="input_comment_form">
+            <textarea id="input_comment"></textarea>
+            <div id="btn_write_comment">입력</div>
+        </div>
+        
         <c:forEach var="comment" items="${comment_list}">
             <div id="comment">
                 <div>작성자</div>&nbsp&nbsp<div><div id="comment_id">${comment.user_id}</div>

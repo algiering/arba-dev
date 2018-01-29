@@ -89,7 +89,7 @@
     
     <update id="updateArticle" parameterType="java.util.HashMap">
         UPDATE bbs_article
-        SET article_title = #{article_title}', article_content = #{article_content}
+        SET article_title = #{article_title}, article_content = #{article_content}
         WHERE board_id = #{board_id}
         AND article_subno = #{article_subno}
     </update>

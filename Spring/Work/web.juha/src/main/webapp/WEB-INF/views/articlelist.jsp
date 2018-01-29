@@ -262,6 +262,16 @@ var goList = function( page ) {
                                  + '&searchWord=' + $('.input_search').val();
                                  
         })
+        
+        $(".btn_first").click(function(event) {
+        	var page = ${totalFirstPage};
+        	goList(page);
+        })
+        
+        $(".btn_last").click(function(event) {
+            var page = ${totalLastPage};
+            goList(page);
+        })
 
     })
     </script>
@@ -304,6 +314,9 @@ var goList = function( page ) {
         </div>
 
         <div id="table_paging">
+        <c:if test="${curPage ne totalFirstPage}">
+            <div class="btn_first">[처음]</div>
+        </c:if>
             <c:if test="${prevLink > 0 }">
                 <div class="btn_prev">[이전]</div>
             </c:if>
@@ -320,6 +333,9 @@ var goList = function( page ) {
             <c:if test="${nextLink > 0 }">
                 <div class="btn_next">[다음]</div>
             </c:if>
+            <c:if test="${curPage ne totalLastPage}">
+            <div class="btn_last">[마지막]</div>
+        </c:if>
         </div>
 
         <div id="table_btn">

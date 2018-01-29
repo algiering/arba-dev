@@ -128,6 +128,9 @@ public class ArticleController {
         model.addAttribute("prevLink", paging.getPrevLink());
         model.addAttribute("pageLinks", paging.getPageLinks());
         model.addAttribute("nextLink", paging.getNextLink());
+        
+        model.addAttribute("totalLastPage", paging.getTotalLastPage());
+        model.addAttribute("totalFirstPage", paging.getTotalFirstPage());
 
         return "articlelist";
     }
@@ -247,8 +250,10 @@ public class ArticleController {
         
         int article_subno = mdata.getArticle_subno();
         int board_id = mdata.getBoard_id();
+        String article_title = mdata.getArticle_title();
+        String article_content = mdata.getArticle_content();
         
-        int result = svr_article.updateArticle(board_id, article_subno);
+        int result = svr_article.updateArticle(board_id, article_subno, article_title, article_content);
         
         return result;
     }
