@@ -46,28 +46,7 @@ public class TestServiceUser {
     }
 
     @Test
-    public void test01_SelectUserOne() {
-        ModelUser user = new ModelUser();
-        user.setUserno(1);
-
-        ModelUser result = service.selectUserOne(user);
-        
-        assertEquals(result.getUserid(), "userid");
-    }
-
-    @Test
-    public void test02_SelectUserList() {
-        
-        ModelUser user = new ModelUser();
-        
-        user.setUserid("userid");
-        List<ModelUser> result = service.selectUserList(user); 
-        assertNotNull( result );
-        assertTrue( result.size() >= 1 );
-    }
-
-    @Test
-    public void test03_Login() {
+    public void test01_Login() {
         String userid = "userid";
         String passwd = "password";
 
@@ -78,17 +57,39 @@ public class TestServiceUser {
     }
 
     @Test
-    public void test04_Logout() {
+    public void test02_Logout() {
     }
 
     @Test
-    public void test05_checkuserid() {
+    public void test03_checkuserid() {
         String userid= "userid" ;
         int result = service.checkuserid(userid);
         
         assertSame(1, result );
     }
 
+
+    @Test
+    public void test04_SelectUserOne() {
+        ModelUser user = new ModelUser();
+        user.setUserno(1);
+
+        ModelUser result = service.selectUserOne(user);
+        
+        assertEquals(result.getUserid(), "userid");
+    }
+
+    @Test
+    public void test05_SelectUserList() {
+        
+        ModelUser user = new ModelUser();
+        
+        user.setUserid("userid");
+        List<ModelUser> result = service.selectUserList(user); 
+        assertNotNull( result );
+        assertTrue( result.size() >= 1 );
+    }
+    
     @Test
     public void test21_InsertUser() {
         ModelUser user = new ModelUser();
@@ -113,7 +114,7 @@ public class TestServiceUser {
         updatevalue.setEmail("sonyo@hanmail.net");
         updatevalue.setMobile("010-5555-6666");
         updatevalue.setName("98g uhu ihuu");
-        updatevalue.setRetireYN(true);
+        updatevalue.setRetireYN(false);
         updatevalue.setPasswd("girls8888");
         updatevalue.setUpdateDT(from);
         updatevalue.setUpdateUID("JYP");

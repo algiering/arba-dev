@@ -7,17 +7,15 @@
     
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="6">
-        
+        android:layout_height="wrap_content">
         <TextView
             android:id="@+id/no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="no"
             android:layout_alignParentLeft="true"
-            android:layout_weight="1"
-            android:text="no"/>
-        
+            android:layout_weight="1" />
+    
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -26,16 +24,14 @@
             android:layout_toEndOf="@+id/no"
             android:layout_weight="4"
             android:text="title"/>
-        
         <TextView
             android:id="@+id/hit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_weight="1"
-            android:text="hit"/>
+            android:text="hit"
+            android:layout_weight="1"/>
     </RelativeLayout>
-    
     <TextView
         android:id="@+id/content"
         android:layout_width="match_parent"

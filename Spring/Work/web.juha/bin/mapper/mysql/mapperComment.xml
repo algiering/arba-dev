@@ -7,6 +7,23 @@
     <select id="getCommentList" parameterType="int" resultType="ModelComment">
         SELECT * FROM bbs_comment
         WHERE article_no = #{article_no}
-        AND comment_use = 1;
+        AND comment_use = 1
     </select>
+    
+    <select id="getCommentLastNo" parameterType="int" resultType="int">
+        SELECT MAX(comment_no) FROM bbs_comment
+        WHERE comment_use = 1
+    </select>
+    
+    <select id="getCommentOne" parameterType="int" resultType="ModelComment">
+        SELECT * FROM bbs_comment
+        WHERE comment_no = #{comment_no}
+        AND comment_use = 1
+    </select>
+    
+    <insert id="insertComment" parameterType="java.util.HashMap">
+    INSERT INTO bbs_comment
+           (   comment_content ,   comment_regdate , comment_updatedate,   article_no  ,   user_id  ) 
+    VALUES ( #{comment_content},   NOW()           , null              , #{article_no} , #{user_id} )
+    </insert>
 </mapper>

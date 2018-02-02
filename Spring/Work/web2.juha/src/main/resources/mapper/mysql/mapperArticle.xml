@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.mysql.mapperArticle">
+    
+    <select id="getArticleList" parameterType="String" resultType="ModelArticle">
+        SELECT * FROM bbs_article
+        WHERE  article_use = 1
+        AND    board_id = #{board_id}
+        ORDER BY article_subno DESC
+    </select>
+    
+    <select id="getArticleTotalRecord" parameterType="HashMap" resultType="int">
+        SELECT COUNT(*) FROM bbs_article
+        WHERE  article_use = 1
+        <if test="board_id != null and board_id != ''">
+        AND    board_id        =    #{board_id}
+        </if>
+        <if test="searchMode == 1 or searchMode == 0">
+        AND    article_title   LIKE CONCAT('%', #{searchWord}, '%')
+        </if>
+        <if test="searchMode == 2 or searchMode == 0">
+        AND    article_content LIKE CONCAT('%', #{searchWord}, '%')
+        </if>
+        <if test="searchMode == 3">
+        AND    user_id         LIKE CONCAT('%', #{searchWord}, '%')
+        </if>
+        ORDER BY article_subno DESC
+    </select>
+    
+    <select id="getArticlePaging" parameterType="HashMap" resultType="ModelArticle">
+        SELECT article_subno, article_title, article_content, article_regdate, user_id, article_good, article_hit 
+        FROM   
+            (SELECT @RNUM := @RNUM + 1  r, a.* 
+            FROM
+                (SELECT article_subno, article_title, article_content, article_regdate, user_id, article_good, article_hit
+                FROM
+                    bbs_article 
+                WHERE article_use = 1
+                AND board_id = #{board_id} 
+                <if test="searchWord != null and searchWord != ''">
+                AND article_title LIKE CONCAT('%', #{searchWord}, '%')
+                </if>
+                ORDER BY article_subno desc) a
+                ,(select @RNUM:=0) b) temp
+        WHERE r BETWEEN #{start} AND #{end};
+    </select>
+    
+    <select id="getArticleOne" parameterType="ModelArticle" resultType="ModelArticle">
+        SELECT * FROM bbs_article
+        WHERE board_id = #{board_id}
+        AND article_subno = #{article_subno}
+    </select>
+    
+</mapper>

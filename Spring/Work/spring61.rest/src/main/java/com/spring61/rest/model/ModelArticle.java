@@ -17,7 +17,7 @@ public class ModelArticle {
     String  UpdateUID ;     
     Date    UpdateDT  ;
     
-    // ï¿½ß°ï¿½ï¿½ï¿½ ï¿½Êµï¿½. 
+    // Ãß°¡µÈ ÇÊµå. 
     Integer attachFileNum;
     Integer commentNum;
     
@@ -112,7 +112,10 @@ public class ModelArticle {
     public ModelArticle() {
         super();
     }
-    
+    public ModelArticle(Integer articleno) {
+        super();
+        this.articleno = articleno;
+    }
     
     @Override
     public String toString() {

@@ -278,12 +278,12 @@
             alert("click ok");
             }
         });
-
-        $('.btn_edit_comment').on({"click" : function() {
-            alert("click ok");
-            }
+        
+        $('#article_comment').on('click', '.btn_edit_comment',function() {
+        	var comment_no = $(this).parent().next().text();
+            alert(comment_no);
         });
-
+        		
         $('.btn_delete_comment').on({"click" : function() {
             alert("click ok");
             }
@@ -339,7 +339,45 @@
             }).always( function(data, textStatus, xhr ) {
             });
         })
-
+        
+        $('.btn_write_comment').on({"click" : function() {
+        	var comment_content = $("#input_comment").val();
+        	var user_id = '${user_id}';
+        	
+        	var mdata = { comment_content: comment_content,
+                          user_id: user_id };
+        	
+        	var board_id = ${board_id};
+            var article_subno = $(".article_no").text();
+            
+        	var mdata2 = {
+        			board_id: ${board_id},
+        			article_subno: article_subno
+        	}
+        	
+        	var map = {'mdata': mdata,
+        	'mdata2': mdata2}
+        	$.ajax({
+        	    url : '/comment_insert'
+        	    , data: JSON.stringify( map )        // 사용하는 경우에는 JSON.stringify( { 'data1':'test1', 'data2':'test2' } )
+        	    , type: 'post'       // get, post
+        	    , timeout: 30000    // 30초
+        	    , dataType: 'html'  // text, html, xml, json, jsonp, script
+        	    , headers: {  'Accept': 'application/json', 'Content-Type': 'application/json' }
+        	    , beforeSend : function() {
+        	        // 통신이 시작되기 전에 이 함수를 타게 된다.
+        	    }
+        	}).done( function(data, textStatus, xhr ){
+        		$('#article_comment').append( data );
+                $('#input_comment').val('');
+        	}).fail( function(xhr, textStatus, error ) {
+        		alert("connetion failed");
+        	}).always( function(data, textStatus, xhr ) {
+        	    // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+        	});
+        	
+            }
+        });
     });
 </script>
 </head>
@@ -390,7 +428,7 @@
         
         <div id="input_comment_form">
             <textarea id="input_comment"></textarea>
-            <div id="btn_write_comment">입력</div>
+            <div id="btn_write_comment" class="btn_write_comment">입력</div>
         </div>
         
         <c:forEach var="comment" items="${comment_list}">
@@ -405,6 +443,7 @@
                     <div id="btn_delete_comment"
                         class="btn_delete_comment">삭제</div>
                 </div>
+                <div id="comment_no">${comment.comment_no}</div>
                 <div id="comment_content">${comment.comment_content}</div>
                 <c:forEach var="recomment" items="${recomment_list}">
                     <c:if

@@ -58,10 +58,9 @@ public class DaoBoard implements IBoard {
     }
 
     @Override
-    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) {
+    public List<ModelBoard> getBoardPaging(String searchWord, int start, int end) {
         
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("boardcd"   , boardcd    );
         map.put("searchWord", searchWord );
         map.put("start"     , start      );
         map.put("end"       , end        );
@@ -103,7 +102,9 @@ public class DaoBoard implements IBoard {
 
     @Override
     public int insertArticle(ModelArticle article) {
-        return  session.insert("mapper.mapperBoard.insertArticle", article );        
+        session.insert("mapper.mapperBoard.insertArticle", article );
+        
+        return article.getArticleno(); // inserted primary key 값이 반환된다.
     }
 
     @Override
@@ -167,7 +168,10 @@ public class DaoBoard implements IBoard {
 
     @Override
     public int insertComment(ModelComments comment) {
-        return  session.insert("mapper.mapperBoard.insertComment", comment );        
+        
+        // inserted 된 primary key 값, commentno 를 반환.
+        session.insert("mapper.mapperBoard.insertComment", comment );
+        return comment.getCommentno();
     }
 
     @Override

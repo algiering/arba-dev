@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.web.juha.common.PagingHelper;
 import com.web.juha.inf.IServiceArticle;
@@ -258,4 +259,34 @@ public class ArticleController {
         return result;
     }
     
+    @RequestMapping(value = "/comment_insert", method = RequestMethod.POST)
+    public String article_edit(Model model
+            , @RequestBody Map<String, Object> map) {
+        logger.info("");
+        
+        ModelArticle article = new Gson().fromJson(map.get("mdata2").toString(), ModelArticle.class);
+        ModelComment mComment = new Gson().fromJson(map.get("mdata").toString(), ModelComment.class);
+        
+        int article_subno = article.getArticle_subno();
+        int board_id = article.getBoard_id();
+        
+        String comment_content = mComment.getComment_content();
+        String user_id = mComment.getUser_id();
+        
+        article = svr_article.getArticleOne(article_subno, board_id);
+        
+        int article_no = article.getArticle_no();
+         
+        int result = -2;
+        
+        result = svr_comment.insertComment(comment_content, article_no, user_id);
+        
+        int comment_no = svr_comment.getCommentLastNo();
+        
+        ModelComment comment = svr_comment.getCommentOne(comment_no);
+        
+        model.addAttribute("comment", comment);
+        
+        return "article_comment_list";
+    }
 }

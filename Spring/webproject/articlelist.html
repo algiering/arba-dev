@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    * {
+        font-family: 'Nanum Gothic', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* common */
+    #blank {
+        height: 20px;
+    }
+
+    /* table */
+    #table>#row0_top_line {
+        border-color:#93bcff;
+    }
+    #table #line {
+        border-color:white;
+    }
+    #table>#row0 {
+        width: 100%;
+        background-color: #f7f7f7;
+        height: 28px;
+    }
+    #table>#row0>div {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    #talbe>#row {
+    }
+    #table>#row>div {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+        height: 20px;
+        padding-bottom: 4px;
+    }
+    #table .col0 {
+        width: 10%;
+    }
+    #table .col1 {
+        width: 46%;
+    }
+    #table .col2 {
+        width: 10%;
+    }
+    #table .col3 {
+        width: 10%;
+    }
+    #table .col4 {
+        width: 10%;
+    }
+    #table .col5 {
+        width: 10%;
+    }
+    #table>#row #article_no {
+        font-size: 12px;
+    }
+    #table>#row #article_regdate {
+        font-size: 12px;
+    }
+
+    /* btn_container */
+    #btn_container {
+        display: inline-block;
+        width: 100%;
+    }
+    #btn_container>div {
+        border: #a0a0a0 1px solid;
+        padding-bottom: 3px;
+        width: 75px;
+        height: 25px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        font-size: 13px;
+    }
+    #btn_container>#btn_list {
+        float: left;
+    }
+    #btn_container>#btn_write {
+        float: right;
+    }
+    #btn_container>div:hover {
+        border-color: #93bcff;
+        color: #93bcff;
+    }
+
+    /* paging_container */
+    #paging_container{
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        display: inline-flex;
+        justify-content: center;
+    }
+    #paging_container>div {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 2px 0 2px;
+        border: #a0a0a0 1px solid;
+        height: 20px;
+        padding: 0 4px 3px 4px;
+    }
+    #paging_container>#page_num {
+        font-weight: bold;
+        font-size: 16px;
+    }
+    #paging_container>div:hover {
+        color: #93bcff;
+        border-color: #93bcff;
+    }
+
+    #row:hover {
+        background-color: #93bcff;
+    }
+
+</style>
+<script type="text/javascript" src="resources/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+    });
+</script>
+</head>
+<body>
+    <div id="container">
+        <div id="table">
+            <hr id="row0_top_line">
+            <div id="row0">
+                <div id="article_no" class="col0"><div>번호</div></div>
+                <div id="article_title" class="col1"><div>제목</div></div>
+                <div id="article_user_id" class="col2"><div>작성자</div></div>
+                <div id="article_regdate" class="col3"><div>작성일시</div></div>
+                <div id="article_hit" class="col4"><div>조회수</div></div>
+                <div id="article_good" class="col5"><div>추천수</div></div>
+            </div>
+            <hr id="line">
+            <div id="row">
+                <div id="article_no" class="col0"><div>1111111</div></div>
+                <div id="article_title" class="col1"><div>1988-06-18 10:10:10</div></div>
+                <div id="article_user_id" class="col2"><div>aaaaaaa</div></div>
+                <div id="article_regdate" class="col3"><div>1988-06-18</div></div>
+                <div id="article_hit" class="col4"><div>조회수</div></div>
+                <div id="article_good" class="col5"><div>추천수</div></div>
+            </div>
+            <hr id="line">
+        </div>
+        <!-- table끝 -->
+
+        <div id="blank"></div>
+
+        <div id="btn_container">
+            <div id="btn_list">✅전체목록</div>
+            <div id="btn_write">글쓰기</div>
+        </div>
+        <!-- btn_container끝 -->
+
+        <div id="paging_container">
+            <div><<처음</div>
+            <div><이전</div>
+            <div id="page_num">1</div>
+            <div id="page_num">2</div>
+            <div id="page_num">3</div>
+            <div id="page_num">4</div>
+            <div id="page_num">5</div>
+            <div id="page_num">6</div>
+            <div id="page_num">7</div>
+            <div id="page_num">8</div>
+            <div>다음></div>
+            <div>마지막>></div>
+
+        </div>
+        <!-- paging_container끝 -->
+
+    </div>
+    <!-- container끝 -->
+
+</body>
+</html>
