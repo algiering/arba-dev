@@ -2,486 +2,129 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style type="text/css">
-    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-    * {
-        font-family: 'Nanum Gothic', sans-serif;
-        margin: 0;
-        padding: 0;
-    }
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
-    /* board_container */
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-    #board_container>#row0 {
-        margin: 30px;
-        display: flex;
-    }
+#board_container {
+    border: black 1px solid;
+    width: 300px;
+    height: 326px;
+    background-color: #f7f7f7;
+    margin: 30px;
+}
 
-    #board_container>div>div {
-        width: 25%;
-        height: 200px;
-        min-width: 250px;
-        border: #e8e8e8 1px solid;
-        background-color: #f7f7f7;
-        margin: 0 4% 0 0;
-    }
-    #board_container>div>div>#btn_goboard {
-        display: inline-flex;
-        width: 100%;
-        padding-bottom: 5px;
-        align-items: center;
-        justify-content: center;
-        outline: #e8e8e8 1px solid;
-        height: 40px;
-        background-color: #93bcff;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-    }
-    #board_container>div>div>#row {
-        padding: 3px 10px 3px 10px;
-        width: 92%;
-        display: flex;
-        font-size: 14px;
-        color: #474747;
-    }
-    #board_container>div>div>#btn_goboard>#board_id {
-        display: none;
-    }
-    #board_container>div>div>#row>#col0 {
-        width: 80%;
-    }
-    #board_container>div>div>#row>#col1 {
-        width: 20%;
-    }
-    #board_container>div>div>#row>#subno {
-        display: none;
-    }
-    #board_container>div>div>#row:hover {
-        background-color: #93bcff;
-    }
-    #board_container hr {
-        border-style: dashed;
-        border-color: #e8e8e8;
-    }
+#board_container>#board_title {
+    height: 60px;
+    background-color: #93bcff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+}
 
-    #board_container>#row1 {
-        margin: 30px;
-        display: flex;
-    }
+#board_container>#board_title * {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+#board_container>#board_title>#board_id {
+    display: none;
+}
+
+#board_container>#board_content>hr {
+    border-style: dashed;
+    border-color: #cecece;
+    background-color: #e8e8e8;
+}
+
+#board_container>#board_content>#row {
+    display: inline-flex;
+    width: 100%;
+    padding-bottom: 3px;
+    align-items: center;
+}
+
+#board_container>#board_content>#row>#article_subno {
+    display: none;
+}
+
+#board_container>#board_content>#row>#content {
+    width: 60%;
+    padding-left: 10px;
+}
+
+#board_container>#board_content>#row>#comment_count {
+    font-size: 11px;
+    margin-left: 5px;
+    width: 10%;
+}
+
+#board_container>#board_content>#row>#writer {
+    width: 30%;
+}
+
+#board_container>#board_content>#row:hover {
+    background-color: #93bcff;
+}
 </style>
-<script type="text/javascript" src="resources/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="/resources/js/jquery-3.2.1.js"></script>
 <script type="text/javascript">
-
     $(document).ready(function() {
-        $('.btn_goboard').click(function(event) {
-            alert('');
+
+        $('.board_id').click(function(event) {
+            var board_id = $(this).children('#board_id').text();
+            window.location.href = '/articlelist'
+                + '/'
+                + board_id;
         });
 
-        $('.btn_article').click(function(event) {
-            alert('');
-        });
+        $('.row').click(function(event) {
+            var board_id = $(this).parent().parent().children('#board_title').children('#board_id').text();
+            var article_subno = $(this).children('#article_subno').text();
+
+            window.location.href = '/articlelist'
+                + '/'
+                + board_id
+                + '/'
+                + 'article='
+                + article_subno;
+        })
     });
 </script>
 </head>
 <body>
     <div id="container">
         <div id="board_container">
-            <div id="row0">
-                <div id="board0">
-                    <div id="btn_goboard" class="btn_goboard">
-                        <div id="board_id">mhw</div>몬스터 헌터 게시판
-                    </div>
-                    <div id="row" class="btn_article">
-                        <div id="subno">12</div>
-                        <div id="col0">
-                            <div>sdfjksdlfjsdlkj</div>
-                        </div>
-                        <div id="col1">
-                            <div>dskffdg</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                </div>
-                <div id="board0">
-                    <div id="btn_goboard" class="btn_goboard">
-                        <div id="board_id"></div>미구현 게시판
-                    </div>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                </div>
-                <div id="board0">
-                    <div id="btn_goboard" class="btn_goboard">
-                        <div id="board_id"></div>미구현 게시판
-                    </div>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                </div>
+            <div id="board_title" class="board_id">
+                <div id="board_id">mhw</div>
+                <div>몬스터헌터 게시판</div>
             </div>
-            <div id="row0">
-                <div id="board0">
-                    <div id="btn_goboard" class="btn_goboard">
-                        <div id="board_id">mhw</div>미구현 게시판
-                    </div>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
+            <div id="board_content">
+                <c:forEach var="article" items="${article_list}">
                     <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
+                    <div id="row" class="row">
+                        <div id="article_subno">${article.article_subno}</div>
+                        <div id="content">${article.article_content}</div>
+                        <div id="comment_count">[${article.comment_count}]</div>
+                        <div id="writer">${article.user_id}</div>
                     </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                </div>
-                <div id="board0">
-                    <div id="btn_goboard" class="btn_goboard">
-                        <div id="board_id">mhw</div>미구현 게시판
-                    </div>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                </div>
-                <div id="board0">
-                    <div id="btn_goboard" class="btn_goboard">
-                        <div id="board_id">mhw</div>미구현 게시판
-                    </div>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="row" class="btn_article">
-                        <div id="subno"></div>
-                        <div id="col0">
-                            <div></div>
-                        </div>
-                        <div id="col1">
-                            <div>&nbsp</div>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
-        <!-- board_container end -->
+
     </div>
     <!-- container끝 -->
 

@@ -1,12 +1,47 @@
 package com.example.bbs.model;
 
-public class ModelPerson {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ModelPerson implements Parcelable {
     
     private String id      = ""; 
     private String pw      = "";
     private String name    = ""; 
     private String email   = "";
-    
+
+    protected ModelPerson(Parcel in) {
+        id = in.readString();
+        pw = in.readString();
+        name = in.readString();
+        email = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(pw);
+        dest.writeString(name);
+        dest.writeString(email);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<ModelPerson> CREATOR = new Creator<ModelPerson>() {
+        @Override
+        public ModelPerson createFromParcel(Parcel in) {
+            return new ModelPerson(in);
+        }
+
+        @Override
+        public ModelPerson[] newArray(int size) {
+            return new ModelPerson[size];
+        }
+    };
+
     public String getId() {
         return id;
     }

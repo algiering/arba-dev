@@ -16,6 +16,7 @@ public class ModelArticle {
     private Integer article_bad        ; // `article_bad` INT(11) NULL DEFAULT '0',
     private String  board_id           ; // `board_id` VARCHAR(100) NOT NULL DEFAULT '-1' COMMENT 'TODO FORIEGN KEY',
     private String  user_id            ; // `user_id` VARCHAR(50) NOT NULL COMMENT 'TODO FORIEGN KEY',
+    private Integer comment_count      ;
 
     public Integer getArticle_no() {
         return article_no;
@@ -113,13 +114,21 @@ public class ModelArticle {
         this.user_id = user_id;
     }
 
+    public Integer getComment_count() {
+        return comment_count;
+    }
+
+    public void setComment_count(Integer comment_count) {
+        this.comment_count = comment_count;
+    }
+
     public ModelArticle() {
         super();
     }
-    
+
     public ModelArticle(Integer article_no, Integer article_subno, String article_title, String article_content,
             Date article_regdate, Date article_updatedate, Integer article_use, Integer article_hit,
-            Integer article_good, Integer article_bad, String board_id, String user_id) {
+            Integer article_good, Integer article_bad, String board_id, String user_id, Integer comment_count) {
         super();
         this.article_no = article_no;
         this.article_subno = article_subno;
@@ -133,6 +142,7 @@ public class ModelArticle {
         this.article_bad = article_bad;
         this.board_id = board_id;
         this.user_id = user_id;
+        this.comment_count = comment_count;
     }
 
     @Override
@@ -141,6 +151,6 @@ public class ModelArticle {
                 + article_title + ", article_content=" + article_content + ", article_regdate=" + article_regdate
                 + ", article_updatedate=" + article_updatedate + ", article_use=" + article_use + ", article_hit="
                 + article_hit + ", article_good=" + article_good + ", article_bad=" + article_bad + ", board_id="
-                + board_id + ", user_id=" + user_id + "]";
+                + board_id + ", user_id=" + user_id + ", comment_count=" + comment_count + "]";
     }
 }

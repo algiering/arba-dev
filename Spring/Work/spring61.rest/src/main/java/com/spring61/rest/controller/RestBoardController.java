@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import com.google.gson.Gson;
 import com.spring61.rest.inf.*;
 import com.spring61.rest.model.*;
 
@@ -32,11 +33,13 @@ public class RestBoardController {
     
 	// ServiceUser 인스턴스 만들기.
 	@Autowired 
-	IServiceUser usersvr;
+	private IServiceUser usersvr;
 
     // ServiceBoard 인스턴스 만들기.
     @Autowired
-    IServiceBoard boardsvr;
+    private IServiceBoard boardsvr;
+
+    private Gson gson = new Gson();
 
     @RequestMapping(value = "/login", method = {RequestMethod.GET, RequestMethod.POST} )
     @ResponseBody
@@ -57,6 +60,13 @@ public class RestBoardController {
     public int checkuserid(String userid) {
         logger.info("/rest/checkuserid");        
         return usersvr.checkuserid( userid );
+    } 
+    
+    @RequestMapping(value = "/checkpassword", method = {RequestMethod.GET, RequestMethod.POST} )
+    @ResponseBody
+    public int checkpassword(String userid, String passwd) {
+        logger.info("/rest/checkpassword");        
+        return usersvr.checkpassword( userid, passwd );
     } 
     
     @RequestMapping(value = "/selectuserone", method = {RequestMethod.GET, RequestMethod.POST} )
@@ -91,10 +101,12 @@ public class RestBoardController {
     @ResponseBody
     public int updateuserinfo( @RequestBody Map<String, Object> maps) {
         logger.info("/rest/updateuserinfo");        
-        
-        ModelUser setValue   = (ModelUser) maps.get("setValue");
-        ModelUser whereValue = (ModelUser) maps.get("whereValue");
-        
+
+        //JSONObject(json string) ---> ModelUser객체(java object)
+        Gson gson = new Gson();
+        ModelUser setValue   = gson.fromJson(maps.get("setValue").toString()  , ModelUser.class);
+        ModelUser whereValue = gson.fromJson(maps.get("whereValue").toString(), ModelUser.class);
+                
         return usersvr.updateUserInfo( setValue, whereValue );
     } 
     
@@ -183,20 +195,25 @@ public class RestBoardController {
     } 
     @RequestMapping(value = "/getarticlelist", method = {RequestMethod.GET, RequestMethod.POST} )
     @ResponseBody
-    public List<ModelArticle> getArticleList( String boardcd
+    public String getArticleList( String boardcd
             , String searchWord
             , @RequestParam(defaultValue="0") int start
             , @RequestParam(defaultValue="10") int end ) {
         logger.info("/rest/getArticleList");    
         
-        return boardsvr.getArticleList( boardcd, searchWord,start, end );
+        List<ModelArticle> list = boardsvr.getArticleList( boardcd, searchWord,start, end );
+        String result = gson.toJson(list);
+        
+        return result;
     } 
 
     @RequestMapping(value = "/getarticle", method = {RequestMethod.GET, RequestMethod.POST} )
     @ResponseBody
-    public ModelArticle getArticle( @RequestParam(defaultValue="0") int articleno ) {
-        logger.info("/rest/getArticle");            
-        return boardsvr.getArticle( articleno );
+    public String getArticle( @RequestParam(defaultValue="0") int articleno ) {
+        logger.info("/rest/getArticle");        
+        ModelArticle article = boardsvr.getArticle( articleno );
+        String result = gson.toJson(article);
+        return result;
     }
 
     @RequestMapping(value = "/insertarticle", method = {RequestMethod.GET, RequestMethod.POST} )
@@ -245,6 +262,47 @@ public class RestBoardController {
         return boardsvr.getPrevArticle( articleno, boardcd, searchWord );
     }
 
+    @RequestMapping(value = "/getcomment", method = {RequestMethod.GET, RequestMethod.POST} )
+    @ResponseBody
+    public String getComment( @RequestParam(defaultValue="0") int commentNo) {
+        logger.info("/rest/getComment");   
+        ModelComments comment = boardsvr.getComment( commentNo );
+        String result = gson.toJson( comment );
+        return result;
+    }
+
+    @RequestMapping(value = "/getcommentlist", method = {RequestMethod.GET, RequestMethod.POST} )
+    @ResponseBody
+    public String getCommentList( @RequestParam(defaultValue="0") int articleno) {
+        logger.info("/rest/getCommentList");   
+
+        List<ModelComments> comments = boardsvr.getCommentList( articleno ); 
+        String result = gson.toJson( comments );
+        return result;
+    }
+
+    @RequestMapping(value = "/insertcomment", method = {RequestMethod.GET, RequestMethod.POST} )
+    @ResponseBody
+    public int insertComment( @RequestBody ModelComments comment) {
+        logger.info("/rest/insertComment");            
+        return boardsvr.insertComment( comment );
+    }
+
+    @RequestMapping(value = "/updatecomment", method = {RequestMethod.GET, RequestMethod.POST} )
+    @ResponseBody
+    public int updateComment( @RequestBody ModelComments setValue
+                            , @RequestBody ModelComments whereValue) {
+        logger.info("/rest/updateComment");            
+        return boardsvr.updateComment( setValue, whereValue );
+    }
+
+    @RequestMapping(value = "/deletecomment", method = {RequestMethod.GET, RequestMethod.POST} )
+    @ResponseBody
+    public int deleteComment( @RequestBody ModelComments comment) {
+        logger.info("/rest/deleteComment");            
+        return boardsvr.deleteComment( comment );
+    }
+
     @RequestMapping(value = "/getattachfile", method = {RequestMethod.GET, RequestMethod.POST} )
     @ResponseBody
     public ModelAttachFile getAttachFile( @RequestParam(defaultValue="0") int attachFileNo) {
@@ -271,41 +329,5 @@ public class RestBoardController {
     public int deleteAttachFile( @RequestBody ModelAttachFile attachFile) {
         logger.info("/rest/deleteAttachFile");            
         return boardsvr.deleteAttachFile( attachFile );
-    }
-
-    @RequestMapping(value = "/getcomment", method = {RequestMethod.GET, RequestMethod.POST} )
-    @ResponseBody
-    public ModelComments getComment( @RequestParam(defaultValue="0") int commentNo) {
-        logger.info("/rest/getComment");            
-        return boardsvr.getComment( commentNo );
-    }
-
-    @RequestMapping(value = "/getcommentlist", method = {RequestMethod.GET, RequestMethod.POST} )
-    @ResponseBody
-    public List<ModelComments> getCommentList( @RequestParam(defaultValue="0") int articleno) {
-        logger.info("/rest/getCommentList");            
-        return boardsvr.getCommentList( articleno );
-    }
-
-    @RequestMapping(value = "/insertcomment", method = {RequestMethod.GET, RequestMethod.POST} )
-    @ResponseBody
-    public int insertComment( @RequestBody ModelComments comment) {
-        logger.info("/rest/insertComment");            
-        return boardsvr.insertComment( comment );
-    }
-
-    @RequestMapping(value = "/updatecomment", method = {RequestMethod.GET, RequestMethod.POST} )
-    @ResponseBody
-    public int updateComment( @RequestBody ModelComments setValue
-                            , @RequestBody ModelComments whereValue) {
-        logger.info("/rest/updateComment");            
-        return boardsvr.updateComment( setValue, whereValue );
-    }
-
-    @RequestMapping(value = "/deletecomment", method = {RequestMethod.GET, RequestMethod.POST} )
-    @ResponseBody
-    public int deleteComment( @RequestBody ModelComments comment) {
-        logger.info("/rest/deleteComment");            
-        return boardsvr.deleteComment( comment );
     }
 }

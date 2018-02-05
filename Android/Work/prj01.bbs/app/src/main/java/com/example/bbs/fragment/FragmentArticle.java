@@ -2,6 +2,7 @@ package com.example.bbs.fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,20 +16,23 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.bbs.R;
+import com.example.bbs.SiteAsyncTask;
 import com.example.bbs.article.AdapterArticle;
+import com.example.bbs.article.ArticleDetailActivity;
+import com.example.bbs.http.HttpBoard;
 import com.example.bbs.model.ModelArticle;
+import com.example.bbs.model.ModelBoard;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import android.content.Intent;
 
 public class FragmentArticle extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    private String mParam1;
-    private String mParam2;
+    private ModelBoard mBoard;
 
     private View   mView;
 
@@ -37,17 +41,18 @@ public class FragmentArticle extends Fragment {
     private List<ModelArticle> mData;
 
     private boolean flagGetData = false;
+    private String mSearchWord = "";
+    private boolean mRetry = false;
 
 
     public FragmentArticle() {
         // Required empty public constructor
     }
     
-    public static FragmentArticle newInstance(String param1, String param2) {
+    public static FragmentArticle newInstance(ModelBoard param1) {
         FragmentArticle fragment = new FragmentArticle();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putParcelable(ARG_PARAM1, param1);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,12 +61,10 @@ public class FragmentArticle extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mBoard = getArguments().getParcelable(ARG_PARAM1);
         }
 
-        // 타이틀 변경
-        getActivity().setTitle(  mParam1 );
+        mData = new ArrayList<>();
     }
 
     @Override
@@ -77,15 +80,15 @@ public class FragmentArticle extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        new HttpGetData(getContext()).execute(mData.size(), 20);
+    }
+
+    private void setOnCreate() {
         // 위젯 찾기
         mListView = mView.findViewById(R.id.listview_free);
 
-
-        // 데이터 만들기
-        mData = makeData(0, 20);
-
         // adapter 생성
-        mAdapter = new AdapterArticle( getContext(), R.layout.listview_customview_article, mData);
+        mAdapter = new AdapterArticle( getContext(), R.layout.activity_article_list_customview, mData);
 
         // adapter 연결
         mListView.setAdapter( mAdapter );
@@ -96,12 +99,9 @@ public class FragmentArticle extends Fragment {
                 // AlertDialog 로 출력하기
                 ModelArticle item = mData.get( position );
 
-                AlertDialog.Builder builder = new AlertDialog.Builder( getContext() );
-                builder.setTitle( item.getTitle() );
-                builder.setMessage( item.toString() );
-                builder.setIcon( R.mipmap.ic_launcher );
-                builder.setPositiveButton("확인", null);
-                builder.show();
+                Intent i = new Intent(getContext(), ArticleDetailActivity.class);
+                i.putExtra(ArticleDetailActivity.ARG_ARTICLENO, item.getArticleno());
+                startActivity(i);
             }
         });
 
@@ -117,7 +117,7 @@ public class FragmentArticle extends Fragment {
                 if( totalItemCount == firstVisibleItem + visibleItemCount ){
                     // 바닥이다.
                     // 데이터 추가.
-                    if( flagGetData == false ) {
+                    if( flagGetData == false && mRetry) {
                         flagGetData = true;
 
                         // // 1. 네트워크를 통해 데이터 요청
@@ -129,94 +129,54 @@ public class FragmentArticle extends Fragment {
                         // adapter.notifyDataSetChanged();
                         // flagGetData = false;
 
-                        new HttpGetData().execute(mData.size(), 20);
+                        new HttpGetData(getContext()).execute(mData.size(), 10);
                     }
                 }
             }
         });
     }
 
-    private class HttpGetData extends AsyncTask< Integer,  Integer, List<ModelArticle>  > {
+    private class HttpGetData extends SiteAsyncTask< Integer,  Integer, List<ModelArticle>  > {
 
-        private ProgressDialog pdlg  = null;
-
-        // 요청 전.네트워크로 데이터 요청하기 직전에 실행되는 메서드
-        // 사용자에게 요청을 알림 표시. ProgressDialog 표시..
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-            // Wait 동안 ProgressDialog 보여 주기
-            pdlg = new ProgressDialog( getContext() );
-            pdlg.setMessage("데이터 가져오는 중");
-            pdlg.show();
+        public HttpGetData(Context context) {
+            super(context);
         }
 
         // 요청 중.
         @Override
         protected List<ModelArticle> doInBackground(Integer... integers) {
 
-            List<ModelArticle> items = null;
+            List<ModelArticle> result = new HttpBoard().getArticleList(mBoard.getBoardcd(), mSearchWord, integers[0], integers[0]+integers[1]);
 
-            try {
-                // 4초간 기다리기...  sleep 주기
-                //Thread.sleep(4000);
-                java.util.concurrent.TimeUnit.SECONDS.sleep( 10 );
-
-                // 1. 네트워크를 통해 데이터 요청
-                items = makeData(integers[0], integers[1]);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return items;
+            return result;
         }
 
         // 요청 후. 네트워크로 데이터 요청이 완료되었을 때 실행되는 메서드
         // 사용자에게 요청을 알림 제거. ProgreesDialog 제거.
         @Override
-        protected void onPostExecute(List<ModelArticle> modelItems) {
-            super.onPostExecute(modelItems);
-
-            // ProgreesDialog 제거.
-            if( pdlg !=null ){
-                pdlg.dismiss();
-                pdlg = null;
-            }
+        protected void onPostExecute(List<ModelArticle> articles) {
+            super.onPostExecute(articles);
 
             // 2. 통신 완료 후 받은 데이터 작업
-            mData.addAll( modelItems );
-            mAdapter.notifyDataSetChanged();
+            if (mData.size() == 0) {
+                mData.addAll( articles );
+
+                // 3. Activity 화면 설정
+                setOnCreate();
+            }
+            else {
+                mData.addAll( articles );
+                mAdapter.notifyDataSetChanged();
+            }
+
+            if (articles.size() > 0) {
+                mRetry = true;
+            }
+            else {
+                mRetry = false;
+            }
 
             flagGetData = false;
         }
     }
-
-    private List<ModelArticle> makeData(int start, int count) {
-
-        List<ModelArticle> newitems = new ArrayList<ModelArticle>();
-
-        Random r = new Random();
-        for(int i=start; i<start + count; i++){
-            ModelArticle model = new ModelArticle();
-            model.setArticleno( i );
-            model.setTitle( "name " + i );
-            model.setHit( 20 + r.nextInt( 3000)  );
-            model.setContent( getRandString() );
-
-            newitems.add( model );
-        }
-
-        return newitems;
-    }
-
-    // 임의의 문자열 만들기.
-    private String getRandString() {
-        String str = "";
-        for (int i = 1; i <= (int) (Math.random()*10000); i++) {
-            char ch = (char) ((Math.random() * 11172) + 0xAC00);
-            str += String.valueOf( (char) ((Math.random() * 26) + 97) );
-        }
-        return str;
-    }
-
 }

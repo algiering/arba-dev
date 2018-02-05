@@ -46,10 +46,12 @@ public class DaoArticle implements IDaoArticle {
     }
 
     @Override
-    public ModelArticle getArticleOne(String board_id, Integer article_subno) {
-        ModelArticle article = new ModelArticle();
-        article.setBoard_id(board_id);
-        article.setArticle_subno(article_subno);
+    public ModelArticle getArticleOne(ModelArticle article) {
         return session.selectOne("mapper.mysql.mapperArticle.getArticleOne", article);
+    }
+
+    @Override
+    public int insertArticleOne(ModelArticle article) {
+        return session.insert("mapper.mysql.mapperArticle.insertArticleOne", article);
     }
 }

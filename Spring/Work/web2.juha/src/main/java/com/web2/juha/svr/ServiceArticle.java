@@ -53,10 +53,21 @@ public class ServiceArticle implements IServiceArticle {
     }
 
     @Override
-    public ModelArticle getArticleOne(String board_id, Integer article_subno) {
+    public ModelArticle getArticleOne(ModelArticle article) {
         ModelArticle result = null;
         try {
-            result = dao.getArticleOne(board_id, article_subno);
+            result = dao.getArticleOne(article);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int insertArticleOne(ModelArticle article) {
+        int result = -1;
+        try {
+            result = dao.insertArticleOne(article);
         } catch (Exception e) {
             e.printStackTrace();
         }

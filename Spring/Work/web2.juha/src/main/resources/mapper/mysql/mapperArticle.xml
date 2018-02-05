@@ -30,20 +30,17 @@
     </select>
     
     <select id="getArticlePaging" parameterType="HashMap" resultType="ModelArticle">
-        SELECT article_subno, article_title, article_content, article_regdate, user_id, article_good, article_hit 
-        FROM   
-            (SELECT @RNUM := @RNUM + 1  r, a.* 
-            FROM
-                (SELECT article_subno, article_title, article_content, article_regdate, user_id, article_good, article_hit
-                FROM
-                    bbs_article 
-                WHERE article_use = 1
-                AND board_id = #{board_id} 
-                <if test="searchWord != null and searchWord != ''">
-                AND article_title LIKE CONCAT('%', #{searchWord}, '%')
-                </if>
-                ORDER BY article_subno desc) a
-                ,(select @RNUM:=0) b) temp
+        SELECT article_subno, article_title, article_content, article_regdate, user_id, article_good, article_hit, comment_count
+        FROM (SELECT @RNUM := @RNUM + 1  r, a.* 
+              FROM (SELECT c.article_subno, c.article_title, c.article_content, c.article_regdate, c.user_id, c.article_hit, c.article_good, count(d.comment_no) comment_count
+                    FROM bbs_article c LEFT JOIN bbs_comment d
+                    ON c.article_subno = d.article_subno
+                    WHERE c.article_use = 1
+                    AND c.board_id = #{board_id}
+                    AND c.article_title LIKE CONCAT('%', #{searchWord}, '%')
+                    GROUP BY c.article_subno
+                    ORDER BY c.article_subno DESC) a
+                    ,(SELECT @RNUM:=0) b) temp
         WHERE r BETWEEN #{start} AND #{end};
     </select>
     
@@ -53,4 +50,13 @@
         AND article_subno = #{article_subno}
     </select>
     
+    <insert id="insertArticleOne" parameterType="ModelArticle">
+        <selectKey keyProperty="maxsubno" resultType="int" order="BEFORE">
+            SELECT(SELECT MAX(article_subno)+1 FROM bbs_article)
+        </selectKey>
+
+        INSERT INTO bbs_article
+              (article_subno,   article_title ,   article_content , article_regdate,   board_id ,   user_id )
+        VALUES(#{maxsubno}  , #{article_title}, #{article_content}, NOW()          , #{board_id}, #{user_id})
+    </insert>
 </mapper>

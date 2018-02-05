@@ -25,7 +25,7 @@
             android:label="@string/title_activity_login">
         </activity>
         <activity
-            android:name=".article.ArticleActivity"
+            android:name=".article.ArticleListActivity"
             android:label="@string/title_activity_article"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

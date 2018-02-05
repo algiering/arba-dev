@@ -97,12 +97,17 @@
     width: 10%;
 }
 
-#table>#row #article_no {
+#table>#row>#article_no {
     font-size: 12px;
 }
 
-#table>#row #article_regdate {
+#table>#row>#article_regdate {
     font-size: 12px;
+}
+
+#table>#row>#article_title>#comment_count {
+    font-size: 11px;
+    margin-left: 5px;
 }
 
 #table>#row>.col1 {
@@ -286,6 +291,13 @@
         	                     + '/article='
         	                     + articleno;
         });
+        
+        $('.btn_write').click(function(event) {
+        	window.location.href = '/articlelist/'
+                                 + '${board_id}'
+                                 + '/'
+                                 + 'articlewrite'
+        });
     	
     });
 </script>
@@ -329,6 +341,7 @@
                     </div>
                     <div id="article_title" class="col1">
                         <div>${article.article_title}</div>
+                        <div id="comment_count">[${article.comment_count}]</div>
                     </div>
                     <div id="article_user_id" class="col2">
                         <div>${article.user_id}</div>

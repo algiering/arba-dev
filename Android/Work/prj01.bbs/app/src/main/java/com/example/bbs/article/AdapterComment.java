@@ -11,15 +11,17 @@ import android.widget.TextView;
 
 import com.example.bbs.R;
 import com.example.bbs.model.ModelArticle;
+import com.example.bbs.model.ModelComments;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class AdapterArticle extends ArrayAdapter<ModelArticle>{
+public class AdapterComment extends ArrayAdapter<ModelComments>{
 
     private final LayoutInflater mInflater;
-    private List<ModelArticle> mList;
+    private List<ModelComments> mList;
 
-    public AdapterArticle(@NonNull Context context, int resource, @NonNull List<ModelArticle> objects) {
+    public AdapterComment(@NonNull Context context, int resource, @NonNull List<ModelComments> objects) {
         super(context, resource, objects);
 
         this.mInflater = LayoutInflater.from(context);
@@ -35,12 +37,12 @@ public class AdapterArticle extends ArrayAdapter<ModelArticle>{
         ViewHolder holder = null;
 
         if( rowView == null ){ // inflation
-            rowView = mInflater.inflate(R.layout.activity_article_list_customview, parent, false );
+            rowView = mInflater.inflate(R.layout.activity_article_detail_customview, parent, false );
 
             holder = new ViewHolder();
-            holder.no      = rowView.findViewById( R.id.no      );
-            holder.title   = rowView.findViewById( R.id.title   );
-            holder.hit     = rowView.findViewById( R.id.hit     );
+            holder.commentno = rowView.findViewById( R.id.commentno      );
+            holder.regdate = rowView.findViewById( R.id.regdate   );
+            holder.memo = rowView.findViewById( R.id.memo     );
 
             rowView.setTag( holder );
         }
@@ -49,19 +51,22 @@ public class AdapterArticle extends ArrayAdapter<ModelArticle>{
         }
 
         // 화면에 표시될 데이터 관련 설정
-        ModelArticle item = getItem( position );
+        ModelComments item = getItem( position );
 
-        holder.no     .setText( item.getArticleno() + "" );
-        holder.hit    .setText( item.getHit() + ""  );
-        holder.title  .setText( item.getTitle()     );
+        holder.commentno.setText( item.getCommentno() + "" );
+        holder.memo.setText( item.getMemo() + ""  );
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String regdate = simpleDateFormat.format(item.getRegdate());
+        holder.regdate.setText( regdate );
 
 
         return rowView;
     }
 
     private class ViewHolder {
-        TextView no     ;
-        TextView title  ;
-        TextView hit    ;
+        TextView commentno;
+        TextView regdate;
+        TextView memo;
     }
 }

@@ -12,5 +12,7 @@ public interface IDaoArticle {
     
     List<ModelArticle> getArticlePaging(String searchWord, String board_id, Integer start, Integer end);
 
-    ModelArticle getArticleOne(String board_id, Integer article_subno);
+    ModelArticle getArticleOne(ModelArticle article);
+    
+    int insertArticleOne(ModelArticle article);
 }

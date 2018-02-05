@@ -48,9 +48,11 @@ public class RestController {
 
         if (user != null) {
             session.setAttribute(WebConstants.SESSION_NAME, user);
-            result = 1;
+            return 1;
         }
-
-        return result;
+        
+        else {
+            return result;
+        }
     }
 }

@@ -326,7 +326,7 @@ $(document).ready(function() {
                 <div id="article_title_cline">│</div>
                 <div id="comment">
                     <div id="title">댓글</div>
-                    <div>0</div>
+                    <div>${comment_count}</div>
                 </div>
             </div>
             <!-- content_title end -->
@@ -356,13 +356,15 @@ $(document).ready(function() {
             <div id="comment_container">
                 <div id="title">
                     <div id="title">전체 댓글 수</div>
-                    <div id="content">0</div>
+                    <div id="content">${comment_count}</div>
                 </div>
+                <c:forEach var="comment" items="${comment_list}">
                 <div id="content">
-                    <div id="writer">sdlkfj</div>
-                    <div id="content">sgdgsdggdsgdsgsdsdgsdgsdggds</div>
+                    <div id="writer">${comment.user_id}</div>
+                    <div id="content">${comment.comment_content}</div>
                 </div>
                 <hr id="comment_line">
+                </c:forEach>
                 <div id="input_form">
                     <textarea id="input_comment"></textarea>
                     <div id="btn_write">등록</div>

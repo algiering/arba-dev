@@ -20,6 +20,7 @@
     <mappers>
         <mapper resource="mapper/mysql/mapperUser.xml" />
         <mapper resource="mapper/mysql/mapperArticle.xml" />
+        <mapper resource="mapper/mysql/mapperComment.xml" />
     </mappers>
     
 </configuration>

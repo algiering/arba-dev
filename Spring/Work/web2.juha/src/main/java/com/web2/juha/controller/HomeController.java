@@ -4,12 +4,17 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.web2.juha.common.WebConstants;
+import com.web2.juha.model.ModelUser;
 
 /**
  * Handles requests for the application home page.
@@ -23,9 +28,17 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Model model
+	            , HttpSession session) {
+	    
+	    ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
 
-		return "redirect:/boardlist";
+	    if(user != null) {
+	        return "redirect:/boardlist";
+	    } 
+	    else {
+		return "redirect:/login";
+	    }
 	}
 	
 }

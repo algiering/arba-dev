@@ -130,12 +130,9 @@
                         // 통신이 시작되기 전에 이 함수를 타게 된다.
                     }
                 }).done( function(data, textStatus, xhr ){
-                	if(data==1) {
-                		window.location.href = '/articlelist'
-                		                     + '/'
-                		                     + 'mhw' //TODO 메뉴를 눌렀을때 세션 또는 
-                		                     + '/page=1'
-                	} 
+                	if(data == 1) {
+                		window.location.href = '/boardlist'
+                	}
                 	else {
                 		alert('아이디나 비밀번호가 틀립니다');
                 	}
