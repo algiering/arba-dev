@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.mysql.mapperVote">
+
+    <select id="getVoteCount" parameterType="ModelVote" resultType="int">
+        SELECT COUNT(*) FROM bbs_article a LEFT JOIN bbs_vote b
+        ON a.article_no = b.article_no
+        WHERE a.article_no = #{article_no}
+        <if test="user_id != null and user_id != ''">
+        AND b.user_id = #{user_id}
+        </if>
+        <if test="vote == 0">
+        AND b.vote = #{vote}
+        </if>
+        <if test="vote == 1">
+        AND b.vote = #{vote}
+        </if>
+    </select>
+    
+    <insert id="insertVote" parameterType="ModelVote">
+        INSERT INTO bbs_vote
+              (  article_no ,   user_id ,   vote )
+        VALUES(#{article_no}, #{user_id}, #{vote})
+    </insert>
+    
+    <delete id="deleteVote" parameterType="ModelVote">
+        DELETE FROM bbs_vote
+        WHERE article_no = #{article_no}
+        AND user_id = #{user_id}
+        AND vote = #{vote}
+    </delete>
+</mapper>

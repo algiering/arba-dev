@@ -29,19 +29,25 @@
         ORDER BY article_subno DESC
     </select>
     
-    <select id="getArticlePaging" parameterType="HashMap" resultType="ModelArticle">
-        SELECT article_subno, article_title, article_content, article_regdate, user_id, article_good, article_hit, comment_count
-        FROM (SELECT @RNUM := @RNUM + 1  r, a.* 
-              FROM (SELECT c.article_subno, c.article_title, c.article_content, c.article_regdate, c.user_id, c.article_hit, c.article_good, count(d.comment_no) comment_count
-                    FROM bbs_article c LEFT JOIN bbs_comment d
-                    ON c.article_subno = d.article_subno
-                    WHERE c.article_use = 1
-                    AND c.board_id = #{board_id}
-                    AND c.article_title LIKE CONCAT('%', #{searchWord}, '%')
-                    GROUP BY c.article_subno
-                    ORDER BY c.article_subno DESC) a
-                    ,(SELECT @RNUM:=0) b) temp
-        WHERE r BETWEEN #{start} AND #{end};
+    <select id="getArticlePaging" parameterType="HashMap" resultType="ModelArticle">   
+         SELECT article_subno, article_title, article_content, article_regdate, user_id, article_hit, comment_count, vote_count
+         FROM   (
+         SELECT @RNUM := @RNUM + 1  r, a.* FROM   (
+         select temp.*, sum(c.comment_use) comment_count
+         from ( select a.* ,count( v.user_id) vote_count
+         from bbs_article  a 
+         left join bbs_vote v on a.article_no = v.article_no
+         where a.article_use = 1
+         AND a.article_title LIKE CONCAT('%', #{searchWord}, '%')
+         and a.board_id = #{board_id}
+         group by a.article_no ) temp
+         left join bbs_comment  c on temp.article_subno = c.article_subno 
+         where temp.board_id = #{board_id}
+         group by article_no
+         order by article_no desc
+         )  a ,(SELECT @RNUM:=0) b
+         ) temp
+         WHERE r BETWEEN #{start} AND #{end}
     </select>
     
     <select id="getArticleOne" parameterType="ModelArticle" resultType="ModelArticle">
@@ -50,13 +56,44 @@
         AND article_subno = #{article_subno}
     </select>
     
-    <insert id="insertArticleOne" parameterType="ModelArticle">
-        <selectKey keyProperty="maxsubno" resultType="int" order="BEFORE">
-            SELECT(SELECT MAX(article_subno)+1 FROM bbs_article)
+    <insert id="insertArticleOne" parameterType="ModelArticle" useGeneratedKeys="true">
+        <selectKey keyProperty="article_subno" resultType="int" order="BEFORE">
+            SELECT MAX(article_subno)+1 FROM bbs_article
         </selectKey>
-
         INSERT INTO bbs_article
-              (article_subno,   article_title ,   article_content , article_regdate,   board_id ,   user_id )
-        VALUES(#{maxsubno}  , #{article_title}, #{article_content}, NOW()          , #{board_id}, #{user_id})
+              (  article_subno,      article_title ,   article_content , article_regdate,   board_id ,   user_id )
+        VALUES(
+        <if test="article_subno == null or article_subno == ''">
+        1
+        </if>
+        <if test="article_subno != null and article_subno != ''">
+        #{article_subno}
+        </if>
+          , #{article_title}, #{article_content}, NOW()          , #{board_id}, #{user_id})
     </insert>
+    
+    <update id="updateArticleOne" parameterType="ModelArticle">
+        UPDATE bbs_article
+        SET article_title = #{article_title}, article_content = #{article_content}, article_updatedate = NOW()
+        WHERE board_id = #{board_id}
+        AND article_subno = #{article_subno}
+        AND user_id = #{user_id}
+    </update>
+    
+    <update id="updateIncreaseHit" parameterType="ModelArticle" >
+        <selectKey keyProperty="article_hit" resultType="int" order="BEFORE">
+            SELECT article_hit+1 FROM bbs_article WHERE article_no = #{article_no}
+        </selectKey>
+        UPDATE bbs_article
+        SET article_hit = #{article_hit}
+        WHERE article_no = #{article_no}
+    </update>
+    
+    <update id="updateDeleteArticle" parameterType="ModelArticle">
+        UPDATE bbs_article
+        SET article_use = 0
+        WHERE board_id = #{board_id}
+        AND article_subno = #{article_subno}
+    </update>
+    
 </mapper>

@@ -15,4 +15,10 @@ public interface IDaoArticle {
     ModelArticle getArticleOne(ModelArticle article);
     
     int insertArticleOne(ModelArticle article);
+    
+    int updateArticleOne(ModelArticle article);
+    
+    int updateIncreaseHit(ModelArticle article);
+    
+    int updateDeleteArticle(ModelArticle article);
 }

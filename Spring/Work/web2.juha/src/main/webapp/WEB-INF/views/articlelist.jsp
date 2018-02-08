@@ -119,12 +119,12 @@
 }
 
 /* btn_container */
-#btn_container {
+#container>#btn_container {
     display: inline-block;
     width: 100%;
 }
 
-#btn_container>div {
+#container>#btn_container>div {
     border: #a0a0a0 1px solid;
     padding-bottom: 3px;
     width: 75px;
@@ -136,17 +136,17 @@
     font-size: 13px;
 }
 
-#btn_container>#btn_list {
+#container>#btn_container>#btn_list {
     margin-left: 30px;
     float: left;
 }
 
-#btn_container>#btn_write {
+#container>#btn_container>#btn_write {
     margin-right: 30px;
     float: right;
 }
 
-#btn_container>div:hover {
+#container>#btn_container>div:hover {
     border-color: #93bcff;
     color: #93bcff;
 }
@@ -205,6 +205,54 @@
 #search_container>div>#input_search {
     border: 4px #93bcff solid;
     width: 300px;
+}
+
+/* header_container */
+#header_container {
+    width: 100%;
+    height: 52px;
+    background-color: #93bcff;
+}
+
+#header_container>#btn_container {
+    display: inline-block;
+    float: right;
+}
+
+#header_container>#btn_container>div {
+    display: inline-flex;
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px;
+    color: white;
+    border: white 1px solid;
+    border-radius: 4px;
+    height: 25px;
+    margin: 10px 10px 10px 0;
+}
+
+#header_container>#btn_container>div:hover {
+    background-color: white;
+    color: #93bcff;
+}
+
+#header_container>#logo {
+    display: inline-flex;
+    width: 80px;
+    height: 38px;
+    padding-bottom: 2px;
+    justify-content: center;
+    align-items: center;
+    border: white 1px solid;
+    margin: 5px;
+    color: white;
+    border-radius: 4px;
+}
+
+#header_container>#logo:hover {
+    background-color: white;
+    color: #93bcff;
 }
 </style>
 <script type="text/javascript" src="/resources/js/jquery-3.2.1.js"></script>
@@ -298,16 +346,54 @@
                                  + '/'
                                  + 'articlewrite'
         });
+        
+        $('.btn_login').click(function(event) {
+            window.location.href = '/login';
+        });
+        
+        $('.btn_logout').click(function(event) {
+        	$.ajax({
+                url : '/log_out'
+                , data: JSON.stringify( null )        // 사용하는 경우에는 JSON.stringify( { 'data1':'test1', 'data2':'test2' } )
+                , type: 'get'       // get, post
+                , timeout: 30000    // 30초
+                , dataType: 'json'  // text, html, xml, json, jsonp, script
+                , headers: {  'Accept': 'application/json', 'Content-Type': 'application/json' }
+                , beforeSend : function() {
+                    // 통신이 시작되기 전에 이 함수를 타게 된다.
+                }
+            }).done( function(data, textStatus, xhr ){
+                // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                if (data == 1) { 
+                window.location.href = '/boardlist';
+                }
+                else {
+                	alert('정상적인 경로로 접속해주세요');
+                }
+            }).fail( function(xhr, textStatus, error ) {
+                // 통신이 실패했을 때 이 함수를 타게 된다.
+                alert('정상적인 경로로 접속해주세요');
+            }).always( function(data, textStatus, xhr ) {
+                // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+            });
+        });
+        
+        $('.btn_logo').click(function(event) {
+            window.location.href = '/boardlist';
+        });
     	
     });
 </script>
 </head>
 <body>
+    <div id="header">
+        <%@ include file="../views/inc/header.jsp"%>
+    </div>
     <div id="container">
         <div id="table">
 
             <div id="board_title">
-                <div style="color: #474747;">몬스터헌터</div>
+                <div style="color: #474747;">${board_title}</div>
                 <div style="color: #93bcff;">게시판</div>
             </div>
             <!-- board_title끝 -->
@@ -341,7 +427,9 @@
                     </div>
                     <div id="article_title" class="col1">
                         <div>${article.article_title}</div>
+                        <c:if test="${article.comment_count ne null and article.comment_count ne 0}">
                         <div id="comment_count">[${article.comment_count}]</div>
+                        </c:if>
                     </div>
                     <div id="article_user_id" class="col2">
                         <div>${article.user_id}</div>
@@ -357,7 +445,7 @@
                         <div>${article.article_hit}</div>
                     </div>
                     <div id="article_good" class="col5">
-                        <div>${article.article_good}</div>
+                        <div>${article.vote_count}</div>
                     </div>
                 </div>
                 <hr id="line">
@@ -367,7 +455,9 @@
 
         <div id="btn_container">
             <div id="btn_list" class="btn_list">✅전체목록</div>
-            <div id="btn_write" class="btn_write">글쓰기</div>
+            <c:if test="${login_check}">
+                <div id="btn_write" class="btn_write">글쓰기</div>
+            </c:if>
         </div>
         <!-- btn_container끝 -->
 
@@ -392,7 +482,7 @@
             <c:if test="${nextLink > 0 }">
                 <div class="btn_next">다음&gt</div>
             </c:if>
-            <c:if test="${curPage ne totalLastPage}">
+            <c:if test="${curPage ne totalLastPage and totalLastPage ne 0}">
                 <div class="btn_last">마지막&gt&gt</div>
             </c:if>
 

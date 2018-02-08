@@ -10,4 +10,10 @@ public interface IDaoComment {
     
     int getCommentCount(ModelComment comment);
     
+    int insertCommentOne(ModelComment comment);
+    
+    int updateCommentOne(ModelComment comment);
+    
+    int updateDeleteComment(ModelComment comment);
+    
 }

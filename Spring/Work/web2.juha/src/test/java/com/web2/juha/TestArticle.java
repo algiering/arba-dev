@@ -29,25 +29,4 @@ public class TestArticle {
         ApplicationContext context = new ClassPathXmlApplicationContext("file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml");
         service = context.getBean(IServiceArticle.class);  
     }
-
-    @Test
-    public void test01() {
-        String board_id = "mhw";
-        List<ModelArticle> result = service.getArticleList(board_id);
-        
-        assertEquals(118, result.size());
-        
-    }
-    
-    @Test
-    public void test02() {
-        String board_id = "mhw";
-        Integer article_subno = 10;
-        
-        ModelArticle result = service.getArticleOne(board_id, article_subno);
-        
-        assertNotNull(result);
-        
-    }
-    
 }

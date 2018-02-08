@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.mysql.mapperAttachFile">
+
+    <insert id="insertFileOne" parameterType="ModelAttachFile">
+        INSERT INTO bbs_attachfile
+               (  filenameorig ,   filenametemp ,   filesize ,   filetype , regdate,   article_subno ,   board_id )
+        VALUES (#{filenameorig}, #{filenametemp}, #{filesize}, #{filetype}, NOW()  , #{article_subno}, #{board_id})
+    </insert>
+    
+    <select id="getAttachFileOne"  parameterType="ModelAttachFile" resultType="ModelAttachFile">
+        SELECT * from bbs_attachfile
+        WHERE article_subno = #{article_subno}
+        AND board_id = #{board_id}
+    </select>
+    
+    <delete id="deleteAttachFileOne" parameterType="ModelAttachFile">
+        DELETE FROM bbs_attachfile
+        WHERE attachfile_no = #{attachfile_no}
+    </delete>
+    
+</mapper>

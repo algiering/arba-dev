@@ -73,4 +73,37 @@ public class ServiceArticle implements IServiceArticle {
         }
         return result;
     }
+
+    @Override
+    public int updateArticleOne(ModelArticle article) {
+        int result = -1;
+        try {
+            result = dao.updateArticleOne(article);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int updateIncreaseHit(ModelArticle article) {
+        int result = -1;
+        try {
+            result = dao.updateIncreaseHit(article);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int updateDeleteArticle(ModelArticle article) {
+        int result = -1;
+        try {
+            result = dao.updateDeleteArticle(article);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

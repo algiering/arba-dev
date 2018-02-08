@@ -23,6 +23,8 @@
     height: 326px;
     background-color: #f7f7f7;
     margin: 30px;
+    display: inline-block;
+    float: left;
 }
 
 #board_container>#board_title {
@@ -64,6 +66,9 @@
 #board_container>#board_content>#row>#content {
     width: 60%;
     padding-left: 10px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
 }
 
 #board_container>#board_content>#row>#comment_count {
@@ -78,6 +83,54 @@
 
 #board_container>#board_content>#row:hover {
     background-color: #93bcff;
+}
+
+/* header_container */
+#header_container {
+    width: 100%;
+    height: 52px;
+    background-color: #93bcff;
+}
+
+#header_container>#btn_container {
+    display: inline-block;
+    float: right;
+}
+
+#header_container>#btn_container>div {
+    display: inline-flex;
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px;
+    color: white;
+    border: white 1px solid;
+    border-radius: 4px;
+    height: 25px;
+    margin: 10px 10px 10px 0;
+}
+
+#header_container>#btn_container>div:hover {
+    background-color: white;
+    color: #93bcff;
+}
+
+#header_container>#logo {
+    display: inline-flex;
+    width: 80px;
+    height: 38px;
+    padding-bottom: 2px;
+    justify-content: center;
+    align-items: center;
+    border: white 1px solid;
+    margin: 5px;
+    color: white;
+    border-radius: 4px;
+}
+
+#header_container>#logo:hover {
+    background-color: white;
+    color: #93bcff;
 }
 </style>
 <script type="text/javascript" src="/resources/js/jquery-3.2.1.js"></script>
@@ -102,10 +155,51 @@
                 + 'article='
                 + article_subno;
         })
+
+
+        $('.btn_login').click(function(event) {
+            window.location.href = '/login';
+        });
+
+        $('.btn_logout').click(function(event) {
+            $.ajax({
+                url : '/log_out',
+                data : JSON.stringify(null), // 사용하는 경우에는 JSON.stringify( { 'data1':'test1', 'data2':'test2' } )
+                type : 'get', // get, post
+                timeout : 30000, // 30초
+                dataType : 'json', // text, html, xml, json, jsonp, script
+                headers : {
+                    'Accept' : 'application/json',
+                    'Content-Type' : 'application/json'
+                },
+                beforeSend : function() {
+                    // 통신이 시작되기 전에 이 함수를 타게 된다.
+                }
+            }).done(function(data, textStatus, xhr) {
+                // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
+                if (data == 1) {
+                    window.location.href = '/boardlist';
+                } else {
+                    alert('정상적인 경로로 접속해주세요');
+                }
+            }).fail(function(xhr, textStatus, error) {
+                // 통신이 실패했을 때 이 함수를 타게 된다.
+                alert('정상적인 경로로 접속해주세요');
+            }).always(function(data, textStatus, xhr) {
+                // 통신이 실패했어도 성공했어도 이 함수를 타게 된다.
+            });
+        });
+
+        $('.btn_logo').click(function(event) {
+            window.location.href = '/boardlist';
+        });
     });
 </script>
 </head>
 <body>
+    <div id="header">
+        <%@ include file="../views/inc/header.jsp"%>
+    </div>
     <div id="container">
         <div id="board_container">
             <div id="board_title" class="board_id">
@@ -117,8 +211,116 @@
                     <hr>
                     <div id="row" class="row">
                         <div id="article_subno">${article.article_subno}</div>
-                        <div id="content">${article.article_content}</div>
-                        <div id="comment_count">[${article.comment_count}]</div>
+                        <div id="content">${article.article_title}</div>
+                        <div id="comment_count">
+                            <c:if
+                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
+                        </div>
+                        <div id="writer">${article.user_id}</div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+
+        <div id="board_container">
+            <div id="board_title" class="board_id">
+                <div id="board_id">game</div>
+                <div>게임 게시판</div>
+            </div>
+            <div id="board_content">
+                <c:forEach var="article" items="${game_article_list}">
+                    <hr>
+                    <div id="row" class="row">
+                        <div id="article_subno">${article.article_subno}</div>
+                        <div id="content">${article.article_title}</div>
+                        <div id="comment_count">
+                            <c:if
+                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
+                        </div>
+                        <div id="writer">${article.user_id}</div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+
+        <div id="board_container">
+            <div id="board_title" class="board_id">
+                <div id="board_id">hobby</div>
+                <div>취미 게시판</div>
+            </div>
+            <div id="board_content">
+                <c:forEach var="article" items="${hobby_article_list}">
+                    <hr>
+                    <div id="row" class="row">
+                        <div id="article_subno">${article.article_subno}</div>
+                        <div id="content">${article.article_title}</div>
+                        <div id="comment_count">
+                            <c:if
+                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
+                        </div>
+                        <div id="writer">${article.user_id}</div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+        
+        <div id="board_container">
+            <div id="board_title" class="board_id">
+                <div id="board_id">hobby</div>
+                <div>취미 게시판</div>
+            </div>
+            <div id="board_content">
+                <c:forEach var="article" items="${hobby_article_list}">
+                    <hr>
+                    <div id="row" class="row">
+                        <div id="article_subno">${article.article_subno}</div>
+                        <div id="content">${article.article_title}</div>
+                        <div id="comment_count">
+                            <c:if
+                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
+                        </div>
+                        <div id="writer">${article.user_id}</div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+        
+        <div id="board_container">
+            <div id="board_title" class="board_id">
+                <div id="board_id">hobby</div>
+                <div>취미 게시판</div>
+            </div>
+            <div id="board_content">
+                <c:forEach var="article" items="${hobby_article_list}">
+                    <hr>
+                    <div id="row" class="row">
+                        <div id="article_subno">${article.article_subno}</div>
+                        <div id="content">${article.article_title}</div>
+                        <div id="comment_count">
+                            <c:if
+                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
+                        </div>
+                        <div id="writer">${article.user_id}</div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+        
+        <div id="board_container">
+            <div id="board_title" class="board_id">
+                <div id="board_id">hobby</div>
+                <div>취미 게시판</div>
+            </div>
+            <div id="board_content">
+                <c:forEach var="article" items="${hobby_article_list}">
+                    <hr>
+                    <div id="row" class="row">
+                        <div id="article_subno">${article.article_subno}</div>
+                        <div id="content">${article.article_title}</div>
+                        <div id="comment_count">
+                            <c:if
+                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
+                        </div>
                         <div id="writer">${article.user_id}</div>
                     </div>
                 </c:forEach>

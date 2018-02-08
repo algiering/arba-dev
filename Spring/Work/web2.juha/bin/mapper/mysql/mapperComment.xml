@@ -6,14 +6,35 @@
 
     <select id="getCommentList" parameterType="ModelComment" resultType="ModelComment">
         SELECT * FROM bbs_comment
-        WHERE article_subno = #{article_subno}
+        WHERE comment_use = 1
+        AND article_subno = #{article_subno}
         AND board_id = #{board_id}
     </select>
     
     <select id="getCommentCount" parameterType="ModelComment" resultType="int">
         SELECT COUNT(*) FROM bbs_comment
-        WHERE article_subno = #{article_subno}
+        WHERE comment_use = 1
+        AND article_subno = #{article_subno}
         AND board_id = #{board_id}
     </select>
+    
+    <insert id="insertCommentOne" parameterType="ModelComment" useGeneratedKeys="true" keyProperty="comment_no">
+        INSERT INTO bbs_comment
+              (  comment_content , comment_regdate,   article_subno ,   board_id ,   user_id )
+        VALUES(#{comment_content}, now()          , #{article_subno}, #{board_id}, #{user_id})
+    </insert>
+    
+    <update id="updateCommentOne" parameterType="ModelComment">
+        UPDATE bbs_comment
+        SET comment_content = #{comment_content}
+        WHERE comment_no = #{comment_no}
+        AND user_id = #{user_id}
+    </update>
+    
+    <update id="updateDeleteComment" parameterType="ModelComment">
+        UPDATE bbs_comment
+        SET comment_use = 0
+        WHERE comment_no = ${comment_no}
+    </update>
 
 </mapper>

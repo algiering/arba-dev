@@ -52,6 +52,22 @@ public class DaoArticle implements IDaoArticle {
 
     @Override
     public int insertArticleOne(ModelArticle article) {
-        return session.insert("mapper.mysql.mapperArticle.insertArticleOne", article);
+        session.insert("mapper.mysql.mapperArticle.insertArticleOne", article);
+        return article.getArticle_subno();
+    }
+
+    @Override
+    public int updateArticleOne(ModelArticle article) {
+        return session.update("mapper.mysql.mapperArticle.updateArticleOne", article);
+    }
+
+    @Override
+    public int updateIncreaseHit(ModelArticle article) {
+        return session.update("mapper.mysql.mapperArticle.updateIncreaseHit", article);
+    }
+
+    @Override
+    public int updateDeleteArticle(ModelArticle article) {
+        return session.update("mapper.mysql.mapperArticle.updateDeleteArticle", article);
     }
 }

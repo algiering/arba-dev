@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.web2.juha.common.WebConstants;
@@ -27,13 +28,12 @@ public class UserController {
 
     // 로그인 페이지
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String Login(Model model
-            , HttpSession session) {
+    public String Login(Model model, HttpSession session) {
         logger.info("User > Login(GET)");
-        
+
         ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
-        
-        if(user != null) {
+
+        if (user != null) {
             return "/articlelist/mhw/page=1";
         }
 

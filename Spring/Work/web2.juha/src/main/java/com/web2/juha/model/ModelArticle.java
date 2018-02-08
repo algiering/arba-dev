@@ -17,6 +17,7 @@ public class ModelArticle {
     private String  board_id           ; // `board_id` VARCHAR(100) NOT NULL DEFAULT '-1' COMMENT 'TODO FORIEGN KEY',
     private String  user_id            ; // `user_id` VARCHAR(50) NOT NULL COMMENT 'TODO FORIEGN KEY',
     private Integer comment_count      ;
+    private Integer vote_count         ;
 
     public Integer getArticle_no() {
         return article_no;
@@ -122,13 +123,22 @@ public class ModelArticle {
         this.comment_count = comment_count;
     }
 
+    public Integer getVote_count() {
+        return vote_count;
+    }
+
+    public void setVote_count(Integer vote_count) {
+        this.vote_count = vote_count;
+    }
+
     public ModelArticle() {
         super();
     }
 
     public ModelArticle(Integer article_no, Integer article_subno, String article_title, String article_content,
             Date article_regdate, Date article_updatedate, Integer article_use, Integer article_hit,
-            Integer article_good, Integer article_bad, String board_id, String user_id, Integer comment_count) {
+            Integer article_good, Integer article_bad, String board_id, String user_id, Integer comment_count,
+            Integer vote_count) {
         super();
         this.article_no = article_no;
         this.article_subno = article_subno;
@@ -143,6 +153,7 @@ public class ModelArticle {
         this.board_id = board_id;
         this.user_id = user_id;
         this.comment_count = comment_count;
+        this.vote_count = vote_count;
     }
 
     @Override
@@ -151,6 +162,7 @@ public class ModelArticle {
                 + article_title + ", article_content=" + article_content + ", article_regdate=" + article_regdate
                 + ", article_updatedate=" + article_updatedate + ", article_use=" + article_use + ", article_hit="
                 + article_hit + ", article_good=" + article_good + ", article_bad=" + article_bad + ", board_id="
-                + board_id + ", user_id=" + user_id + ", comment_count=" + comment_count + "]";
+                + board_id + ", user_id=" + user_id + ", comment_count=" + comment_count + ", vote_count=" + vote_count
+                + "]";
     }
 }

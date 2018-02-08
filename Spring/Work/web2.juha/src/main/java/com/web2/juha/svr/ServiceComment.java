@@ -40,4 +40,37 @@ public class ServiceComment implements IServiceComment {
         }
         return result;
     }
+
+    @Override
+    public int insertCommentOne(ModelComment comment) {
+        int result = -1;
+        try {
+            result = dao.insertCommentOne(comment);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int updateCommentOne(ModelComment comment) {
+        int result = -1;
+        try {
+            result = dao.updateCommentOne(comment);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int updateDeleteComment(ModelComment comment) {
+        int result = -1;
+        try {
+            result = dao.updateDeleteComment(comment);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

@@ -28,5 +28,21 @@ public class DaoComment implements IDaoComment {
     public int getCommentCount(ModelComment comment) {
         return session.selectOne("mapper.mysql.mapperComment.getCommentCount", comment);
     }
+
+    @Override
+    public int insertCommentOne(ModelComment comment) {
+        session.insert("mapper.mysql.mapperComment.insertCommentOne", comment);
+        return comment.getComment_no();
+    }
+
+    @Override
+    public int updateCommentOne(ModelComment comment) {
+        return session.update("mapper.mysql.mapperComment.updateCommentOne", comment);
+    }
+
+    @Override
+    public int updateDeleteComment(ModelComment comment) {
+        return session.update("mapper.mysql.mapperComment.updateDeleteComment", comment);
+    }
     
 }
