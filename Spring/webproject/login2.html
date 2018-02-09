@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    * {
+        font-family: 'Nanum Gothic', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    #login_container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #93bcff;
+    }
+
+    #login_container>#border {
+        width: 50%;
+        border: black 1px solid;
+        border-radius: 4px;
+        margin: 30px;
+        background-color: white;
+    }
+
+    #login_container>#border>#title {
+        font-size: 50px;
+        font-weight: bold;
+    }
+
+    #login_container>#border>#subtitle {
+        font-size: 25px;
+    }
+
+    #login_container>div>div {
+        width: 96%;
+        margin: 20px;
+        text-align: center;
+    }
+
+    #login_container>div>div>div {
+        display: inline-block;
+    }
+    #login_container>div>div>#title {
+        width: 200px;
+        font-size: 25px;
+    }
+    #login_container>div>div input {
+        font-size: 25px;
+        padding: 0 10px;
+    }
+    #login_container #blank {
+        height: 50px;
+    }
+
+    .btn_login {
+        border: black 1px solid;
+        font-size: 30px;
+        font-weight: bold;
+        border-radius: 4px;
+        padding: 0 20px 4px 20px;
+    }
+
+    .btn_login:hover {
+        border-color: #93bcff;
+        color: #93bcff;
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+        <div id="login_container">
+            <div id="border">
+                <div id="blank"></div>
+                <div id="title">로그인</div>
+                <div id="subtitle">환영합니다</div>
+                <div id="blank"></div>
+                <div>
+                    <div id="title">아이디</div>
+                    <div><input type="text" name=""></div>
+                </div>
+                <div>
+                    <div id="title">패스워드</div>
+                    <div><input type="password" name=""></div>
+                </div>
+                <div id="blank"></div>
+                <div id="btn_container">
+                <div class="btn_login">로그인</div>
+                </div>
+                <div id="blank"></div>
+            </div>
+        </div>
+        <!-- login_container end -->
+    </div>
+    <!-- container끝 -->
+
+</body>
+</html>
+

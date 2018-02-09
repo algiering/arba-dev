@@ -40,4 +40,29 @@ public class UserController {
         return "login";
     }
 
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String Register(Model model) {
+        logger.info("User > Register(GET)");
+
+        return "register";
+    }
+    
+    @RequestMapping(value = "/edituser", method = RequestMethod.GET)
+    public String Edituser(Model model, HttpSession session) {
+        logger.info("User > Edituser(GET)");
+
+        ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+         
+        if (user != null) {
+            model.addAttribute("user", user);
+            model.addAttribute("login_check", true);
+
+            return "useredit";
+        }
+        else {
+            
+            return "";
+        }
+    }
+
 }

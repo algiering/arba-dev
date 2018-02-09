@@ -21,4 +21,19 @@ public class DaoUser implements IDaoUser {
     public ModelUser getUserOne(ModelUser user) {
         return session.selectOne("mapper.mysql.mapperUser.getUserOne", user);
     }
+
+    @Override
+    public int getCheckUserExist(String user_id) {
+        return session.selectOne("mapper.mysql.mapperUser.getCheckUserExist", user_id);
+    }
+
+    @Override
+    public int insertUserOne(ModelUser user) {
+        return session.insert("mapper.mysql.mapperUser.insertUserOne", user);
+    }
+
+    @Override
+    public int updateUserOne(ModelUser user) {
+        return session.update("mapper.mysql.mapperUser.updateUserOne", user);
+    }
 }

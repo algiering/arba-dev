@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    * {
+        font-family: 'Nanum Gothic', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    #yn_container {
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+    }
+
+    #yn_container>#btn_container>div {
+        border-radius: 4px;
+        width: 80px;
+        height: 50px;
+        border: #a0a0a0 1px solid;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 3px;
+        font-size: 14px;
+    }
+
+    #yn_container #blank {
+        height: 100px;
+    }
+
+    #yn_container>#btn_container>div:hover {
+        border-color: #93bcff;
+        color: #93bcff;
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+
+        <div id="yn_container">
+            <div id="blank"></div>
+            <div id="blank"></div>
+            <div>삭제 하시겠습니까?</div>
+            <div id="blank"></div>
+            <div id="btn_container">
+                <div id="btn_cancel">취소</div>
+                <div id="btn_confirm">확인</div>
+            </div>
+            <div id="blank"></div>
+            <div id="blank"></div>
+        </div>
+
+    </div>
+    <!-- container끝 -->
+
+</body>
+</html>

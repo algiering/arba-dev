@@ -39,10 +39,10 @@
          left join bbs_vote v on a.article_no = v.article_no
          where a.article_use = 1
          AND a.article_title LIKE CONCAT('%', #{searchWord}, '%')
+         AND (v.vote is null or v.vote = 1)
          and a.board_id = #{board_id}
          group by a.article_no ) temp
-         left join bbs_comment  c on temp.article_subno = c.article_subno 
-         where temp.board_id = #{board_id}
+         left join bbs_comment  c on temp.article_subno = c.article_subno
          group by article_no
          order by article_no desc
          )  a ,(SELECT @RNUM:=0) b
@@ -58,7 +58,7 @@
     
     <insert id="insertArticleOne" parameterType="ModelArticle" useGeneratedKeys="true">
         <selectKey keyProperty="article_subno" resultType="int" order="BEFORE">
-            SELECT MAX(article_subno)+1 FROM bbs_article
+            SELECT MAX(article_subno)+1 FROM bbs_article WHERE board_id = #{board_id}
         </selectKey>
         INSERT INTO bbs_article
               (  article_subno,      article_title ,   article_content , article_regdate,   board_id ,   user_id )

@@ -6,7 +6,6 @@ public class ModelUser {
     private String user_id       ; // `user_id` VARCHAR(20) NOT NULL,
     private String user_password ; // `user_password` VARCHAR(20) NOT NULL,
     private String user_email    ; // `user_email` VARCHAR(20) NOT NULL,
-    private String user_phone    ; // `user_phone` VARCHAR(20) NOT NULL,
     private String user_use      ; // `user_use` TINYINT(1) NOT NULL,
 
     public String getUser_no() {
@@ -41,14 +40,6 @@ public class ModelUser {
         this.user_email = user_email;
     }
 
-    public String getUser_phone() {
-        return user_phone;
-    }
-
-    public void setUser_phone(String user_phone) {
-        this.user_phone = user_phone;
-    }
-
     public String getUser_use() {
         return user_use;
     }
@@ -61,20 +52,18 @@ public class ModelUser {
         super();
     }
 
-    public ModelUser(String user_no, String user_id, String user_password, String user_email, String user_phone,
-            String user_use) {
+    public ModelUser(String user_no, String user_id, String user_password, String user_email, String user_use) {
         super();
         this.user_no = user_no;
         this.user_id = user_id;
         this.user_password = user_password;
         this.user_email = user_email;
-        this.user_phone = user_phone;
         this.user_use = user_use;
     }
 
     @Override
     public String toString() {
         return "ModelUser [user_no=" + user_no + ", user_id=" + user_id + ", user_password=" + user_password
-                + ", user_email=" + user_email + ", user_phone=" + user_phone + ", user_use=" + user_use + "]";
+                + ", user_email=" + user_email + ", user_use=" + user_use + "]";
     }
 }

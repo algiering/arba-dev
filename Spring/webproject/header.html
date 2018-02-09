@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    * {
+        font-family: 'Nanum Gothic', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    #header_container {
+        width: 100%;
+        height: 52px;
+        background-color: #93bcff;
+    }
+
+    #header_container>#btn_container {
+        display: inline-block;
+        float: right;
+    }
+
+    #header_container>#btn_container>div {
+        display: inline-flex;
+        width: 80px;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 3px;
+        color: white;
+        border: white 1px solid;
+        border-radius: 4px;
+        height: 25px;
+        margin: 10px 10px 10px 0;
+    }
+
+    #header_container>#btn_container>div:hover {
+        background-color: white;
+        color: #93bcff;
+    }
+
+    #header_container>#logo {
+        display: inline-flex;
+        width: 80px;
+        height: 38px;
+        padding-bottom: 2px;
+        justify-content: center;
+        align-items: center;
+        border: white 1px solid;
+        margin: 5px;
+        color: white;
+        border-radius: 4px;
+    }
+
+    #header_container>#logo:hover {
+        background-color: white;
+        color: #93bcff;
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+        <div id="header_container">
+            <div id="logo">LOGO</div>
+            <div id="btn_container">
+                <div>로그인</div>
+                <div>로그아웃</div>
+            </div>
+        </div>
+    </div>
+    <!-- container끝 -->
+
+</body>
+</html>

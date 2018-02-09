@@ -10,4 +10,20 @@
         AND    user_password = #{user_password}
     </select>
     
+    <select id="getCheckUserExist" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM bbs_user
+        WHERE user_id = #{user_id}
+    </select>
+    
+    <insert id="insertUserOne" parameterType="ModelUser">
+        INSERT INTO bbs_user
+              (  user_id ,   user_password ,   user_email )
+        VALUES(#{user_id}, #{user_password}, #{user_email})
+    </insert>
+    
+    <update id="updateUserOne" parameterType="ModelUser">
+        UPDATE bbs_user
+        SET user_password = #{user_password}, user_email = #{user_email}
+        WHERE user_id = #{user_id}
+    </update>
 </mapper>

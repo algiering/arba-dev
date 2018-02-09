@@ -44,10 +44,10 @@ public class RestController {
 
     @Autowired
     IServiceVote svr_vote;
-    
+
     @Autowired
     IServiceAttachFile svr_attachfile;
-    
+
     // 베이직 폼
     // @RequestMapping(value = "/", method = RequestMethod.GET)
     // public String home(Model model) {
@@ -243,5 +243,49 @@ public class RestController {
         else {
             return -3;
         }
+    }
+    
+    // 회원 가입시 아이디 체크
+    @RequestMapping(value = "/check_user_id", method = RequestMethod.POST)
+    @ResponseBody
+    public int Check_user_id(Model model, @RequestBody String user_id) {
+        logger.info("Rest > Check_user_id(POST)");
+        
+        int result = -2;
+        
+        user_id = user_id.replaceAll("\"", "");
+        
+        result = svr_user.getCheckUserExist(user_id);
+        
+        return result;
+    }
+
+    // 회원 가입
+    @RequestMapping(value = "/reg_user", method = RequestMethod.POST)
+    @ResponseBody
+    public int Reg_user(Model model, @RequestBody ModelUser user) {
+        logger.info("Rest > Reg_user(POST)");
+        int result = -2;
+        
+        result = svr_user.insertUserOne(user);
+        
+        return result;
+    }
+    
+    // 회원 정보 수정
+    @RequestMapping(value = "/edit_user", method = RequestMethod.POST)
+    @ResponseBody
+    public int Edit_user(Model model, @RequestBody ModelUser user, HttpSession session) {
+        logger.info("Rest > Edit_user(POST)");
+        int result = -2;
+        
+        result = svr_user.updateUserOne(user);
+        
+        if (result == 1) {
+            user = svr_user.getUserOne(user);
+            session.setAttribute(WebConstants.SESSION_NAME, user);
+        }
+        
+        return result;
     }
 }

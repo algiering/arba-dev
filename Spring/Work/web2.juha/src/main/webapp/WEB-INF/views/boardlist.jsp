@@ -132,6 +132,20 @@
     background-color: white;
     color: #93bcff;
 }
+
+    /* footer_container */
+    #footer_container {
+        width: 100%;
+        height: 48px;
+        background-color: #93bcff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 3px;
+        font-size: 14px;
+        color: white;
+        float: left;
+    }
 </style>
 <script type="text/javascript" src="/resources/js/jquery-3.2.1.js"></script>
 <script type="text/javascript">
@@ -155,7 +169,6 @@
                 + 'article='
                 + article_subno;
         })
-
 
         $('.btn_login').click(function(event) {
             window.location.href = '/login';
@@ -193,6 +206,14 @@
         $('.btn_logo').click(function(event) {
             window.location.href = '/boardlist';
         });
+        
+        $('.btn_reg').click(function(event) {
+            window.location.href = '/register';
+        });
+        
+        $('.btn_myinfo').click(function(event) {
+        window.location.href = '/edituser';
+    })
     });
 </script>
 </head>
@@ -203,18 +224,39 @@
     <div id="container">
         <div id="board_container">
             <div id="board_title" class="board_id">
-                <div id="board_id">mhw</div>
-                <div>몬스터헌터 게시판</div>
+                <div id="board_id">electro</div>
+                <div>전자기기 게시판</div>
             </div>
             <div id="board_content">
-                <c:forEach var="article" items="${article_list}">
+                <c:forEach var="article" items="${electro_article_list}">
                     <hr>
                     <div id="row" class="row">
                         <div id="article_subno">${article.article_subno}</div>
                         <div id="content">${article.article_title}</div>
                         <div id="comment_count">
                             <c:if
-                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
+                                test="${article.comment_count ne null and article.comment_count ne 0}">[${article.comment_count}] </c:if>
+                        </div>
+                        <div id="writer">${article.user_id}</div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+        
+        <div id="board_container">
+            <div id="board_title" class="board_id">
+                <div id="board_id">potable</div>
+                <div>휴대기기 게시판</div>
+            </div>
+            <div id="board_content">
+                <c:forEach var="article" items="${potable_article_list}">
+                    <hr>
+                    <div id="row" class="row">
+                        <div id="article_subno">${article.article_subno}</div>
+                        <div id="content">${article.article_title}</div>
+                        <div id="comment_count">
+                            <c:if
+                                test="${article.comment_count ne null and article.comment_count ne 0}">[${article.comment_count}] </c:if>
                         </div>
                         <div id="writer">${article.user_id}</div>
                     </div>
@@ -235,91 +277,72 @@
                         <div id="content">${article.article_title}</div>
                         <div id="comment_count">
                             <c:if
-                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
+                                test="${article.comment_count ne null and article.comment_count ne 0}">[${article.comment_count}] </c:if>
                         </div>
                         <div id="writer">${article.user_id}</div>
                     </div>
                 </c:forEach>
             </div>
         </div>
+        
+        <div id="board_container">
+            <div id="board_title" class="board_id">
+                <div id="board_id">program</div>
+                <div>프로그래밍 게시판</div>
+            </div>
+            <div id="board_content">
+                <c:forEach var="article" items="${program_article_list}">
+                    <hr>
+                    <div id="row" class="row">
+                        <div id="article_subno">${article.article_subno}</div>
+                        <div id="content">${article.article_title}</div>
+                        <div id="comment_count">
+                            <c:if
+                                test="${article.comment_count ne null and article.comment_count ne 0}">[${article.comment_count}] </c:if>
+                        </div>
+                        <div id="writer">${article.user_id}</div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+        
+        <div id="board_container">
+            <div id="board_title" class="board_id">
+                <div id="board_id">hobby</div>
+                <div>취미 게시판</div>
+            </div>
+            <div id="board_content">
+                <c:forEach var="article" items="${hobby_article_list}">
+                    <hr>
+                    <div id="row" class="row">
+                        <div id="article_subno">${article.article_subno}</div>
+                        <div id="content">${article.article_title}</div>
+                        <div id="comment_count">
+                            <c:if
+                                test="${article.comment_count ne null and article.comment_count ne 0}">[${article.comment_count}] </c:if>
+                        </div>
+                        <div id="writer">${article.user_id}</div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+        
+        
 
         <div id="board_container">
             <div id="board_title" class="board_id">
-                <div id="board_id">hobby</div>
-                <div>취미 게시판</div>
+                <div id="board_id">qna</div>
+                <div>문의사항 게시판</div>
             </div>
             <div id="board_content">
-                <c:forEach var="article" items="${hobby_article_list}">
+                <c:forEach var="article" items="${qna_article_list}">
                     <hr>
                     <div id="row" class="row">
                         <div id="article_subno">${article.article_subno}</div>
                         <div id="content">${article.article_title}</div>
                         <div id="comment_count">
                             <c:if
-                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
-                        </div>
-                        <div id="writer">${article.user_id}</div>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
-        
-        <div id="board_container">
-            <div id="board_title" class="board_id">
-                <div id="board_id">hobby</div>
-                <div>취미 게시판</div>
-            </div>
-            <div id="board_content">
-                <c:forEach var="article" items="${hobby_article_list}">
-                    <hr>
-                    <div id="row" class="row">
-                        <div id="article_subno">${article.article_subno}</div>
-                        <div id="content">${article.article_title}</div>
-                        <div id="comment_count">
-                            <c:if
-                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
-                        </div>
-                        <div id="writer">${article.user_id}</div>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
-        
-        <div id="board_container">
-            <div id="board_title" class="board_id">
-                <div id="board_id">hobby</div>
-                <div>취미 게시판</div>
-            </div>
-            <div id="board_content">
-                <c:forEach var="article" items="${hobby_article_list}">
-                    <hr>
-                    <div id="row" class="row">
-                        <div id="article_subno">${article.article_subno}</div>
-                        <div id="content">${article.article_title}</div>
-                        <div id="comment_count">
-                            <c:if
-                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
-                        </div>
-                        <div id="writer">${article.user_id}</div>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
-        
-        <div id="board_container">
-            <div id="board_title" class="board_id">
-                <div id="board_id">hobby</div>
-                <div>취미 게시판</div>
-            </div>
-            <div id="board_content">
-                <c:forEach var="article" items="${hobby_article_list}">
-                    <hr>
-                    <div id="row" class="row">
-                        <div id="article_subno">${article.article_subno}</div>
-                        <div id="content">${article.article_title}</div>
-                        <div id="comment_count">
-                            <c:if
-                                test="${article.comment_count ne null and article_comment_count ne 0}">[${article.comment_count}] </c:if>
+                                test="${article.comment_count ne null and article.comment_count ne 0}">[${article.comment_count}] </c:if>
                         </div>
                         <div id="writer">${article.user_id}</div>
                     </div>
@@ -329,6 +352,9 @@
 
     </div>
     <!-- container끝 -->
+    <div id="footer">
+            <%@ include file="../views/inc/footer.jsp"%>
+        </div>
 
 </body>
 </html>

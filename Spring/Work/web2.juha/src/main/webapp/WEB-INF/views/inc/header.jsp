@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <div id="header_container">
-    <div id="logo" class="btn_logo">LOGO</div>
+    <div id="logo" class="btn_logo">메인</div>
     <div id="btn_container">
         <c:choose>
             <c:when test="${login_check}">

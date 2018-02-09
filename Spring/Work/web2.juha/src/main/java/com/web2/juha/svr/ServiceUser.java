@@ -27,5 +27,38 @@ public class ServiceUser implements IServiceUser {
         }
         return result;
     }
+
+    @Override
+    public int getCheckUserExist(String user_id) {
+        int result = -1;
+        try {
+            result = dao.getCheckUserExist(user_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int insertUserOne(ModelUser user) {
+        int result = -1;
+        try {
+            result = dao.insertUserOne(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int updateUserOne(ModelUser user) {
+        int result = -1;
+        try {
+            result = dao.updateUserOne(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
     
 }

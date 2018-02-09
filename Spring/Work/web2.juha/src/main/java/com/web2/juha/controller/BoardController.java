@@ -33,13 +33,19 @@ public class BoardController {
 	public String Boardlist(Model model, HttpSession session) {
 	    logger.info("Board > Boardlist(GET)");
 	    
-	    List<ModelArticle> article_list;
 	    List<ModelArticle> game_article_list;
 	    List<ModelArticle> hobby_article_list;
+	    List<ModelArticle> electro_article_list;
+	    List<ModelArticle> program_article_list;
+	    List<ModelArticle> potable_article_list;
+	    List<ModelArticle> qna_article_list;
 	    
-	    article_list = svr_article.getArticlePaging("", "mhw", 1, 10);
 	    game_article_list = svr_article.getArticlePaging("", "game", 1, 10);
 	    hobby_article_list = svr_article.getArticlePaging("", "hobby", 1, 10);
+	    electro_article_list = svr_article.getArticlePaging("", "electro", 1, 10);
+	    program_article_list = svr_article.getArticlePaging("", "program", 1, 10);
+	    potable_article_list = svr_article.getArticlePaging("", "potable", 1, 10);
+	    qna_article_list = svr_article.getArticlePaging("", "qna", 1, 10);
 	    
 	    ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
         if (user != null) {
@@ -48,9 +54,12 @@ public class BoardController {
             model.addAttribute("login_check", false);
         }
 	    
-	    model.addAttribute("article_list", article_list);
 	    model.addAttribute("game_article_list", game_article_list);
 	    model.addAttribute("hobby_article_list", hobby_article_list);
+	    model.addAttribute("electro_article_list", electro_article_list);
+	    model.addAttribute("program_article_list", program_article_list);
+	    model.addAttribute("potable_article_list", potable_article_list);
+	    model.addAttribute("qna_article_list", qna_article_list);
 	    
 		return "boardlist";
 	}

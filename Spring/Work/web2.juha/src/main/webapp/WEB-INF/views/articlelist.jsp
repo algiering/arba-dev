@@ -254,6 +254,20 @@
     background-color: white;
     color: #93bcff;
 }
+
+    /* footer_container */
+    #footer_container {
+        width: 100%;
+        height: 48px;
+        background-color: #93bcff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 3px;
+        font-size: 14px;
+        color: white;
+        float: left;
+    }
 </style>
 <script type="text/javascript" src="/resources/js/jquery-3.2.1.js"></script>
 <script type="text/javascript">
@@ -381,7 +395,14 @@
         $('.btn_logo').click(function(event) {
             window.location.href = '/boardlist';
         });
+        
+        $('.btn_reg').click(function(event) {
+            window.location.href = '/register';
+        })
     	
+        $('.btn_myinfo').click(function(event) {
+            window.location.href = '/edituser';
+        })
     });
 </script>
 </head>
@@ -500,6 +521,10 @@
 
     </div>
     <!-- container끝 -->
+    
+    <div id="footer">
+            <%@ include file="../views/inc/footer.jsp"%>
+        </div>
 
 </body>
 </html>
