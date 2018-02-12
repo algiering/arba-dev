@@ -4,32 +4,68 @@
 		"selected_items":
 		[
 			[
+				"read",
+				"ready\t$(document).ready"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"c",
+				"content"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
 				"font",
+				"font-size"
+			],
+			[
+				"font-",
 				"font-weight"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"t",
+				"text"
+			],
+			[
+				"div",
+				"div\tTag"
 			],
 			[
 				"padd",
 				"padding-bottom"
 			],
 			[
-				"bor",
-				"border"
-			],
-			[
 				"marg",
 				"margin"
 			],
 			[
-				"in",
-				"inline-flex"
-			],
-			[
 				"bo",
 				"border-radius"
-			],
-			[
-				"con",
-				"container"
 			],
 			[
 				"btn",
@@ -38,10 +74,6 @@
 			[
 				"al",
 				"align-items"
-			],
-			[
-				"mar",
-				"margin-bottom"
 			],
 			[
 				"input",
@@ -56,16 +88,8 @@
 				"board_content"
 			],
 			[
-				"pa",
-				"padding-bottom"
-			],
-			[
 				"padding",
 				"padding-right"
-			],
-			[
-				"border",
-				"border-color"
 			],
 			[
 				"pad",
@@ -216,10 +240,6 @@
 				"margin"
 			],
 			[
-				"ma",
-				"margin"
-			],
-			[
 				"sub",
 				"submit\t.submit()"
 			],
@@ -258,10 +278,6 @@
 			[
 				"s",
 				"span\tTag"
-			],
-			[
-				"t",
-				"td\tTag"
 			],
 			[
 				"te",
@@ -498,22 +514,6 @@
 			[
 				"font-s",
 				"font-style"
-			],
-			[
-				"fontweght",
-				"fontWeight\t = 'bold' Style CSS"
-			],
-			[
-				"read",
-				"ready\t$(document).ready"
-			],
-			[
-				"scr",
-				"src\tAttr"
-			],
-			[
-				"rea",
-				"ready\t$(document).ready"
 			]
 		]
 	},
@@ -529,10 +529,49 @@
 			}
 		},
 		{
-			"file": "/D/workspace/Lecture/Spring/webproject/articledelete.html",
+			"contents": "<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"utf-8\">\n    <title></title>\n    <style type=\"text/css\">\n    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);\n    * {\n        font-family: 'Nanum Gothic', sans-serif;\n        margin: 0;\n        padding: 0;\n    }\n\n    #container {\n        text-align: center;\n        background-color: #93bcff;\n    }\n\n    #register_container {\n        display: inline-block;\n        color: #474747;\n        text-align: center;\n        border: #474747 1px solid;\n        margin: 30px;\n        border-radius: 4px;\n        width: 60%;\n        background-color: white;\n    }\n\n    #register_container>#content>#title {\n        font-size: 40px;\n        font-weight: bold;\n    }\n\n    #register_container>#content>div {\n        margin: 10px;\n    }\n\n    #register_container>#content>div>div {\n        width: 160px;\n        display: inline-block;\n        text-align: center;\n        font-size: 20px;\n        font-weight: bold;\n    }\n\n    #register_container>#content>div input {\n        font-size: 20px;\n    }\n\n    #register_container>#btn_container {\n        width: 100%;\n    }\n\n    #register_container>#btn_container>#btn_reg {\n        display: inline-block;\n        border: #474747 1px solid;\n        border-radius: 4px;\n        padding: 0 10px 3px 10px;\n        width: 120px;\n        font-size: 20px;\n    }\n\n    #register_container>#btn_container>#btn_reg:hover {\n        border-color: #93bcff;\n        color: #93bcff;\n    }\n\n    #register_container>#content #btn {\n        font-size: 17px;\n        width: 80px;\n        padding: 0px 5px 3px 5px;\n        margin-right: 50px;\n        float: right;\n        text-align: center;\n    }\n\n    #register_container>#content #btn:hover {\n        border-color: #93bcff;\n        color: #93bcff;\n    }\n\n    #register_container #blank {\n        height: 50px;\n    }\n\n    #register_container>#content .btn_id_check {\n        border: #474747 1px solid;\n        border-radius: 4px;\n    }\n</style>\n<script type=\"text/javascript\">\n    $(document).ready(function() {\n        \n    });\n</script>\n</head>\n<body>\n    <div id=\"container\">\n        <div id=\"register_container\">\n            <div id=\"content\">\n                <div id=\"blank\"></div>\n                <div id=\"title\">회원가입</div>\n                <div id=\"blank\"></div>\n                <div id=\"user_id\"><div>아이디</div><input type=\"text\" name=\"\"><div id=\"btn\" class=\"btn_id_check\">중복확인</div></div>\n                <div id=\"user_password\"><div>패스워드</div><input type=\"password\" name=\"\"><div id=\"btn\"></div></div>\n                <div id=\"user_password_confirm\"><div>패스워드 확인</div><input type=\"password\" name=\"\"><div id=\"btn\"></div></div>\n                <div id=\"user_email\"><div>이메일</div><input type=\"text\" name=\"\"><div id=\"btn\"></div></div>\n\n            </div>\n            <div id=\"blank\"></div>\n            <div id=\"blank\"></div>\n            <div id=\"btn_container\">\n                <div id=\"btn_reg\" class=\"btn_reg_id_unckeck\">회원가입</div>\n            </div>\n            <div id=\"blank\"></div>\n        </div>\n        <!-- register_container end -->\n    </div>\n    <!-- container끝 -->\n\n</body>\n</html>\n",
+			"file": "/D/workspace/Lecture/Spring/webproject/register.html",
+			"file_size": 3100,
+			"file_write_time": 131626198760826398,
 			"settings":
 			{
-				"buffer_size": 1364,
+				"buffer_size": 3136,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/workspace/Lecture/Spring/webproject/login2.html",
+			"settings":
+			{
+				"buffer_size": 2357,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/workspace/Lecture/Spring/webproject/header.html",
+			"settings":
+			{
+				"buffer_size": 1657,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/workspace/Lecture/Spring/webproject/footer.html",
+			"settings":
+			{
+				"buffer_size": 776,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/workspace/Lecture/Spring/webproject/login.html",
+			"settings":
+			{
+				"buffer_size": 3233,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -622,6 +661,7 @@
 	],
 	"file_history":
 	[
+		"/D/workspace/Lecture/Spring/webproject/articledelete.html",
 		"/D/workspace/Lecture/Spring/webproject/header.html",
 		"/D/workspace/Lecture/Spring/webproject/boardlist2.html",
 		"/D/workspace/Lecture/Spring/webproject/articlewrite.html",
@@ -748,8 +788,7 @@
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/js07-08.Array객체.html",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/ex07-1.html",
 		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js08.함수는블랙박스다/ex08-1.산술연산.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/js07-01.배열의선언.html",
-		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/js07-04.배열요소추가.html"
+		"/D/workspace/Lecture/JavaScript/Work/st03.JavaScript/js07.배열/js07-01.배열의선언.html"
 	],
 	"find":
 	{
@@ -835,8 +874,8 @@
 						"selection":
 						[
 							[
-								393,
-								393
+								219,
+								219
 							]
 						],
 						"settings":
@@ -846,12 +885,27 @@
 							{
 								"close":
 								{
+									"1":
+									[
+										231,
+										232
+									]
 								},
 								"icon":
 								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"brackethighlighter.default"
+									]
 								},
 								"open":
 								{
+									"1":
+									[
+										218,
+										219
+									]
 								},
 								"unmatched":
 								{
@@ -864,56 +918,56 @@
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
 							"open_with_edit": true,
@@ -928,19 +982,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/D/workspace/Lecture/Spring/webproject/articledelete.html",
+					"file": "/D/workspace/Lecture/Spring/webproject/register.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1364,
+						"buffer_size": 3136,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								461,
-								461
+								2076,
+								2076
 							]
 						],
 						"settings":
@@ -952,8 +1006,129 @@
 								{
 									"1":
 									[
-										690,
-										691
+										2069,
+										2075
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1984,
+										1990
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1368.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/workspace/Lecture/Spring/webproject/login2.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2357,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								957,
+								957
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										956,
+										957
 									]
 								},
 								"icon":
@@ -968,8 +1143,8 @@
 								{
 									"1":
 									[
-										432,
-										433
+										919,
+										920
 									]
 								},
 								"unmatched":
@@ -983,56 +1158,56 @@
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
 							"open_with_edit": true,
@@ -1044,7 +1219,338 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/D/workspace/Lecture/Spring/webproject/header.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1657,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1657,
+								1657
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 784.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/D/workspace/Lecture/Spring/webproject/footer.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 776,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								776,
+								776
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/D/workspace/Lecture/Spring/webproject/login.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										14,
+										15
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/angle_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										0,
+										1
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Dawn (SL).tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
