@@ -71,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(LoginActivity.this, IndexActivity.class);
                 startActivity(i);
+                finish();
             }
 
             else {
@@ -78,4 +79,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }

@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.arba.appprj.R;
 import com.arba.appprj.model.ModelArticle;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,6 +46,7 @@ public class AdapterArticle extends ArrayAdapter<ModelArticle> {
             holder.custom_title = rowView.findViewById(R.id.custom_title);
             holder.custom_hit = rowView.findViewById(R.id.custom_hit);
             holder.custom_comment = rowView.findViewById(R.id.custom_comment);
+            holder.custom_regdate = rowView.findViewById(R.id.custom_regdate);
 
             rowView.setTag(holder);
         }
@@ -53,10 +56,14 @@ public class AdapterArticle extends ArrayAdapter<ModelArticle> {
 
         ModelArticle item = getItem(position);
 
-        holder.custom_no.setText(String.valueOf(item.getArticle_no()));
+        holder.custom_no.setText(String.valueOf(item.getArticle_subno()));
         holder.custom_title.setText(item.getArticle_title());
         holder.custom_hit.setText(String.valueOf(item.getArticle_hit()));
-        holder.custom_comment.setText(String.valueOf("["+item.getArticle_hit())+"]");
+        holder.custom_comment.setText(String.valueOf("["+item.getComment_count())+"]");
+
+        Date regdate = item.getArticle_regdate();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        holder.custom_regdate.setText(String.valueOf(format.format(regdate)));
 
         return rowView;
     }
@@ -67,6 +74,7 @@ public class AdapterArticle extends ArrayAdapter<ModelArticle> {
         TextView custom_title;
         TextView custom_hit;
         TextView custom_comment;
+        TextView custom_regdate;
 
     }
 }

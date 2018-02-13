@@ -299,6 +299,12 @@ dependencies {
     // cargo에 대한 설정입니다.
     cargo group: "org.codehaus.cargo", name: "cargo-core-uberjar", version: "${versions.cargoVersion}"
     cargo group: "org.codehaus.cargo", name: "cargo-ant"         , version: "${versions.cargoVersion}"       
+    
+    compile "org.json:json:20160810"
+    compile "org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE"
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test' ) {
+    exclude(module: 'commons-logging')
+}
 }
 
 

@@ -10,4 +10,56 @@
         ORDER BY article_no DESC
    </select>
    
+   <select id="getArticlePaging" parameterType="HashMap" resultType="ModelArticle">
+        SELECT article_no, article_subno, article_title, article_hit, article_regdate, board_id, comment_count
+        FROM (
+        SELECT @RNUM := @RNUM + 1 AS r, c.* 
+               FROM
+                    (SELECT a.article_no, a.article_subno, a.article_title, a.article_hit, a.article_regdate, a.board_id, count(b.comment_no) comment_count
+                    FROM tb_article a LEFT JOIN tb_comment b
+                    ON a.article_no = b.article_no
+                    WHERE board_id = #{board_id}
+                    GROUP BY a.article_no
+                    ORDER BY a.article_no DESC) c, (SELECT @RNUM:=0) d) temp
+        WHERE r BETWEEN #{start} AND #{end}
+   </select>
+   
+   <select id="getArticleOne" parameterType="ModelArticle" resultType="ModelArticle">
+        SELECT article_title, article_content, article_hit, article_regdate
+        FROM tb_article
+        WHERE board_id = #{board_id}
+        AND article_no = #{article_no}
+   </select>
+   
+   <insert id="insertArticle" parameterType="ModelArticle">
+        <selectKey keyProperty="article_subno" resultType="int" order="BEFORE">
+        SELECT MAX(article_subno)+1 FROM tb_article WHERE board_id = #{board_id}
+        </selectKey>
+
+        INSERT INTO tb_article
+        (article_subno, article_title, article_content, article_regdate, board_id)
+        VALUES (#{article_subno}, #{article_title}, #{article_content}, NOW(), #{board_id})
+   </insert>
+   
+   <delete id="deleteArticle" parameterType="ModelArticle">
+        DELETE FROM tb_article
+        WHERE article_no = ${article_no}
+   </delete>
+   
+   <update id="updateArticle" parameterType="ModelArticle">
+        UPDATE tb_article
+        SET article_title = #{article_title}, article_content = #{article_content}, article_update = NOW()
+        WHERE article_no = #{article_no}
+   </update>
+   
+   <update id="updateIncreseHit" parameterType="ModelArticle">
+        <selectKey keyProperty="article_hit" resultType="int" order="BEFORE">
+        SELECT article_hit+1 FROM tb_article WHERE article_no = #{article_no}
+        </selectKey>
+
+        UPDATE tb_article
+        SET article_hit = #{article_hit}
+        WHERE article_no = #{article_no}
+   </update>
+   
 </mapper>
