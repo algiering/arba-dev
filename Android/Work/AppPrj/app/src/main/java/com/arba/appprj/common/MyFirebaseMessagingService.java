@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.arba.appprj.IndexActivity;
+import com.arba.appprj.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -46,6 +47,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Notification noti = new Notification.Builder(context)
                 .setContentTitle(from)
                 .setContentText(contents)
+                .setSmallIcon(R.drawable.ic_android_black_24dp)
                 .setContentIntent(contentIntent)
                 .setAutoCancel(true)
                 //.setLargeIcon(aBitmap)
@@ -55,6 +57,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         nm.notify(1, noti);
 
         sendToActivity(getApplicationContext(), from, contents);
+
+        if (remoteMessage.getData().size() > 0) {
+            sendNotification(remoteMessage.getData().get("message"));
+        }
+        if (remoteMessage.getNotification() != null) {
+            sendNotification(remoteMessage.getNotification().getBody());
+        }
     }
 
     private void sendToActivity(Context context, String from, String contents) {
@@ -65,6 +74,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
         context.startActivity(intent);
+    }
+
+    private void sendNotification(String messageBody) {
+        Intent intent = new Intent(this, IndexActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
+                PendingIntent.FLAG_ONE_SHOT);
     }
 
 }

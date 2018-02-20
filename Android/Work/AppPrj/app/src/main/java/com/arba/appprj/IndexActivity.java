@@ -95,10 +95,8 @@ public class IndexActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode==10000 || requestCode == 10) {
             new HttpGetData(IndexActivity.this).execute();
             mAdapter.notifyDataSetChanged();
-        }
     }
 
     private class mClickListener implements View.OnClickListener {
@@ -117,4 +115,5 @@ public class IndexActivity extends AppCompatActivity {
             }
         }
     }
+
 }

@@ -40,6 +40,7 @@ public class RestController {
     @Autowired
     AndroidPushNotificationsService androidPushNotificationsService;
     
+    
     private final String TOPIC = "JavaSampleApproach";
 
     // 베이직 폼
@@ -110,6 +111,38 @@ public class RestController {
         logger.info("Rest > WriteArticle (POST, GET)");
 
         int result = svr_article.insertArticle(article_title, article_content, board_id);
+        
+        if (result == 1) {
+            JSONObject body = new JSONObject();
+            body.put("to", "/topics/" + TOPIC);
+            body.put("priority", "high");
+
+            JSONObject notification = new JSONObject();
+            notification.put("title", "JSA Notification");
+            notification.put("body", "Happy Message!");
+            
+            JSONObject data = new JSONObject();
+            data.put("Key-1", "JSA Data 1");
+            data.put("Key-2", "JSA Data 2");
+
+            body.put("notification", notification);
+            body.put("data", data);
+
+            HttpEntity<String> request = new HttpEntity<>(body.toString());
+
+            CompletableFuture<String> pushNotification = androidPushNotificationsService.send(request);
+            CompletableFuture.allOf(pushNotification).join();
+
+            try {
+                String firebaseResponse = pushNotification.get();
+                new ResponseEntity<>(firebaseResponse, HttpStatus.OK);
+                
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
 
         return result;
     }
@@ -146,33 +179,6 @@ public class RestController {
         int result = svr_article.updateIncreseHit(article_no);
 
         return result;
-    }
-
-    @RequestMapping(value = "/fcm/send", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<String> send() throws JSONException {
-        JSONObject body = new JSONObject();
-        body.put("to", "/topics/" + TOPIC);
-        body.put("priority", "high");
-        JSONObject notification = new JSONObject();
-        notification.put("title", "JSA Notification");
-        notification.put("body", "Happy Message!");
-        JSONObject data = new JSONObject();
-        data.put("Key-1", "JSA Data 1");
-        data.put("Key-2", "JSA Data 2");
-        body.put("notification", notification);
-        body.put("data", data);
-        HttpEntity<String> request = new HttpEntity<>(body.toString());
-        CompletableFuture<String> pushNotification = androidPushNotificationsService.send(request);
-        CompletableFuture.allOf(pushNotification).join();
-        try {
-            String firebaseResponse = pushNotification.get();
-            return new ResponseEntity<>(firebaseResponse, HttpStatus.OK);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        return new ResponseEntity<>("Push Notification ERROR!", HttpStatus.BAD_REQUEST);
     }
 
 }
