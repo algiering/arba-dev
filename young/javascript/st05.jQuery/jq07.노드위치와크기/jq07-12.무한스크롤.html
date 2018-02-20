@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Infinity Scroll</title>
+    <!-- 임포트 -->
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        var MYAPP = { count : 0 };
+        MYAPP.appendText = function(){
+
+            for( var i=0; i<20;i=i+1) {
+                $('body').append('<h1>infinity scroll ' + (MYAPP.count++) + '</h1>');
+            }
+        };
+
+        $(document).ready(function (e) {
+
+            $('button').click(function(event) {                
+                    MYAPP.appendText();
+            });
+
+            $(window).scroll( function (e) {
+
+                
+                // 바닥이다.
+                var diff = $(document).height() - $(window).scrollTop() - $(window).height( );
+                
+                if( Math.abs( diff ) <= 20 ) {
+
+                    MYAPP.appendText();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>버튼을 클릭하면 &lt;h1&gt;infinity scroll&lt;h1&gt; 를 20개 추가하시오.</button>
+    <div>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <h1>infinity scroll </h1>
+        <!-- 버튼 클릭시 추가된 엘리먼트 예시 -->
+        <h1>infinity scroll #1 </h1>
+        <h1>infinity scroll #2 </h1>
+        <h1>infinity scroll #3 </h1>
+        <h1>infinity scroll #4 </h1>
+        <h1>infinity scroll #5 </h1>
+    </div>
+</body>
+</html>

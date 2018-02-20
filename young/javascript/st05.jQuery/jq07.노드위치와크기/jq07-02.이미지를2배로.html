@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title>이벤트 객체</title>
+    <style>
+        img{  width: 140px; height: 120px; }
+    </style>
+    <!-- 임포트 -->
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('img').click(function(event) {
+                // 그림의 width 가져오기. 매개변수가 없으면 getter
+                var w = $(this).width();  // getter
+                // 그림의 height 가져오기. 매개변수가 없으면 getter
+                var h = $(this).height(); // getter
+
+                // 그림의 width, height 설정하기.매개변수가 있으면 setter
+                $(this).width(w*2);
+                $(this).height(h*2);
+
+                // style 이용한 width, height 설정하기.
+                $(this).css('width',w*2).css('height', h*2);
+
+                $(this).css({width:w*2, height:h*2});
+            });
+        });
+    </script>
+</head>
+<body>
+   <img src="images/im1.jpg" />
+</body>
+</html>

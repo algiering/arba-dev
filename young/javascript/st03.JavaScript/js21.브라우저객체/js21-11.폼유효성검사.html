@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var MYAPP = {} ;
+
+        window.onload = function (e) {
+
+            MYAPP.fm = document.getElementsByName('fm');
+
+            MYAPP.fm[0].onsubmit = function (e) {
+                if( MYAPP.fm[0].age.value === '' ){
+                    alert('나이를 입력하세요');
+                    MYAPP.fm[0].age.focus();
+                    return false;  // 이벤트 취소
+                }
+                if(MYAPP.fm[0].name.value === '' ) {
+                    alert('이름을 입력하세요');
+                    MYAPP.fm[0].name.focus();
+                    return false;  // 이벤트 취소
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1> 태그는 자바스크립트 객체로 바뀐다 </h1>
+    <form name='fm'
+          action="http://www.naver.com"
+          enctype="multipart/form-data"
+          method="get">
+        <label>나이: <input type="text" name="age" value=""  size="3"  />세 </label>
+        <label>이름: <input type="text" name="name" value="" size="20" placeholder="이름을 입력하세요" /> </label>
+        <input type="submit" value="전송" />
+    </form>
+</body>
+</html>

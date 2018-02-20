@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.mapperBook">
+    <select id="getCount" parameterType="ModelBook" resultType="int">
+        select count(*) from book 
+         where 1 = 1
+           <if test="bookname!=null  and bookname!=''  ">and bookname  = #{ bookname  }</if>
+           <if test="publisher!=null and publisher!='' ">and publisher = #{ publisher }</if>           
+    </select>
+    
+    <select id="getMaxBookid" resultType="int">
+        select max(bookid) from book
+    </select>
+
+    <select id="selectAll" parameterType="ModelBook" resultType="ModelBook" >
+        select * from book 
+         where 1 = 1
+    </select>
+    
+    <select id="selectLike" parameterType="ModelBook" resultType="ModelBook" >
+        select * from book 
+         where 1 = 1
+           <if test=" bookname !=null and bookname !='' ">and bookname  like #{bookname }</if>
+           <if test=" publisher!=null and publisher!='' ">and publisher like #{publisher}</if>
+        order by bookid asc;
+    </select>
+
+    <select id="selectEqual" parameterType="ModelBook" resultType="ModelBook">
+        select * from book
+         where 1=1
+            <if test=" bookname!=null and bookname!='' "  >and bookname  = #{bookname  }</if>
+            <if test=" bookid!=null"                      >and bookid    = #{bookid    }</if>
+            <if test=" publisher!=null and publisher!='' ">and publisher = #{publisher }</if>
+            <if test=" price!=null"                       >and price     = #{price     }</if>
+           
+    </select>
+    
+    <insert id="insertBook"  parameterType="ModelBook" useGeneratedKeys="true" keyProperty="bookid" >
+        insert into book  (   bookname ,   publisher ,   year ,   price ,   dtm ,   use_yn ,   authid )
+                    values( #{bookname}, #{publisher}, #{year}, #{price}, #{dtm}, #{use_yn}, #{authid}) 
+    </insert>
+   
+    <insert id="insertMap" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="bookid"> 
+        insert into book  (   bookname ,   dtm ,   authid )
+                    values( #{b      }, #{d }, #{a    }) 
+    </insert>
+   
+   <update  id="updateBook"  parameterType="java.util.Map" >
+         UPDATE BOOK
+            SET BOOKNAME    = #{setbook.bookname}
+              , PUBLISHER   = #{setbook.publisher}
+              , YEAR        = #{setbook.year}
+              , PRICE       = #{setbook.price}
+              , DTM         = #{setbook.dtm}
+              , USE_YN      = #{setbook.use_yn}
+              , AUTHID      = #{setbook.authid}
+            WHERE 1 = 1 
+            <if test="wherebook.bookid   != null"> AND BOOKID   = #{wherebook.bookid} </if>
+            <if test="wherebook.bookname != null"> AND BOOKNAME = #{wherebook.bookname}</if>
+    </update>      
+   
+    <delete  id="deleteBook"  parameterType="ModelBook" >
+         DELETE FROM BOOK
+            WHERE 1 = 1 
+            <if test="bookid   != null"> AND BOOKID   = #{bookid} </if>
+            <if test="bookname != null"> AND BOOKNAME = #{bookname}</if>
+    </delete>  
+    
+    <select id="initBook">            
+        -- 4. auth 테이블이 있으면 테이블 삭제.
+        drop table if exists book       ; -- book 테이블
+        
+        -- 7. book 테이블이 있으면 테이블 삭제.
+        drop table if exists auth       ; -- auth 테이블
+        
+        
+        -- 5. auth 테이블생성
+        create table auth (
+              authid    int  primary key
+            , name      varchar(50)
+            , birth     varchar(10)
+        );
+        
+        -- 8. book 테이블 생성
+        create table book (
+              bookid        int not null auto_increment primary key
+            , bookname      varchar(50)
+            , publisher     varchar(40)
+            , year          varchar(10)
+            , price         int
+            , dtm           date
+            , use_yn        bit
+            , authid        int
+        );
+        
+        -- 6. auth 테이블 데이터 insert
+        insert into auth( authid, name, birth)   values(  1, 'bob' , '1970.05.01' ) ;
+        insert into auth( authid, name, birth)   values(  2, 'kim' , '1980.05.01' ) ;
+        insert into auth( authid, name, birth)   values(  7, 'park', '2000.05.01' ) ;
+        
+        
+        -- 9. book 테이블 데이터 insert
+        insert into book(bookname, publisher, year, price, dtm, use_yn, authid) values('operating system'  , 'wiley'     , '2003', 30700, '2004-01-01', 0, 1 ) ;
+        insert into book(bookname, publisher, year, price, dtm, use_yn, authid) values('mysql'             , 'oreilly'   , '2009', 58700, '2010-01-01', 1, 2 ) ;
+        insert into book(bookname, publisher, year, price, dtm, use_yn, authid) values('java'              , 'hall'      , '2013', 40000, '2014-01-01', 1, 3 ) ;
+        insert into book(bookname, publisher, year, price, dtm, use_yn, authid) values('first sql'         , 'wiley'     , '2015', 57700, '2016-01-01', 1, 4 ) ;
+    </select>
+   
+    
+</mapper>

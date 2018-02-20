@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style>
+        div   { background: #FFF; }
+        table { border: 1px solid #AAA; width:98%; }
+        td    { border: 1px solid #AAA; width: 20px; height: 20px; }
+    </style>
+    <!-- 임포트 -->
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        var MYAPP = {};
+        MYAPP.init = function(){
+            $('*').css({ 'border':'', 'background':'' }) ;
+        };
+
+        $(document).ready( function(e){
+            $('#eq' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: red;"
+                $('tr:eq(0) > td:eq(7)').css('background-color', 'red');
+            });
+            $('#gt' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: yellow;"
+                $('tr:eq(1) > td:gt(2)').css('background-color', 'yellow');
+            });
+            $('#lt' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: orange;"
+                $('tr:eq(1) > td:lt(2)').css('background-color', 'orange');
+            });
+            $('#odd' ).click(function(event) {
+                MYAPP.init();
+            // style = "background-color: blue;"
+                $('tr:eq(2) > td:odd').css('background-color', 'blue');
+            });
+            $('#even' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: green;"
+                $('tr:eq(2) > td:even').css('background-color', 'green');
+            });
+            $('#first').click(function(event) {
+                MYAPP.init();
+                // style = "background-color: pink;"
+                $('tr:eq(3) > td:eq(0)').css('background-color', 'pink');
+                $('tr:eq(3) > td:first').css('background-color', 'pink');
+            });
+            $('#last' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: green;"
+                $('tr:eq(3) > td:last').css('background-color', 'green');
+            });
+
+            $('#ex1' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: red;"
+                $('tr:even').css('background-color', 'red');
+            });
+            $('#ex2' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: green;"
+                $('td:odd').css('background-color', 'green');
+            });
+            $('#ex3' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: pink;"
+                $('tr:even > td:odd').css('background-color', 'pink');
+            });
+            $('#ex4' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: pink;"
+                $('td:nth-child(3n+1').css('background-color', 'pink');
+            });
+            $('#ex5' ).click( function(event){
+                MYAPP.init();
+                // style = "background-color: orange;"
+                // $('td:nth-child(10n+1)').css('background-color', 'orange');
+                // $('td:nth-child(1)').css('background-color', 'orange');
+                // $('td:first-child').css('background','orange');
+
+                // var trs = $('tr');
+                // for( var i=0; i<trs.length; i++){
+                //     $( trs[i] ).children('td:first').css('background-color', 'orange');
+                // }
+
+                // $('tr').each(function(index, tr) {
+                //     $( tr ).children('td:first').css('background-color', 'orange');
+                // });
+
+                $('td').filter( function(index) {
+                    return index % 10 === 0 ? true : false;
+                }).css('background-color', 'orange');
+            });
+            $('#ex6' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: yellow;"
+                // $('td:nth-child(10n+1)').css('background-color','red');
+                // $('td:nth-child(10n+0)').css('background-color','yellow');
+
+                // $('td:nth-child(1)').css('background-color','red');
+                // $('td:nth-child(10)').css('background-color','yellow');
+
+                // $('td:first-child').css('background','red');
+                // $('td:last-child').css('background','yellow');
+
+                // $('tr').each( function(index, tr) {
+                //     $(tr).children('td:first').css('background-color','red');
+                //     $(tr).children('td:last').css('background-color','yellow');
+                // });
+
+                $('td').filter(function (a) {
+                    return a % 10 == 0;
+                }).css('background-color', 'red');
+                $('td').filter(function (a) {
+                    return a % 10 == 9;
+                }).css('background-color', 'yellow');
+            });
+            $('#ex7' ).click(function(event) {
+                MYAPP.init();
+                // style = "background-color: yellow;"
+                $('td:nth-child(3)').css('background','yellow');
+            });
+            $('#ex8' ).click(function(event) {
+                MYAPP.init();
+                // conspan = "6" 속성 추가.
+                // $('tr:eq(2) > td:eq(4)').attr('colspan', '6');
+                // // td 엘리먼트 삭제
+                // $('tr:eq(2) > td:gt(4)').remove();
+                // // style = "background-color: orange;"
+                // $('td:first-child').css('background-color', 'red');
+                // $('td:last-child').css('background-color', 'yellow');
+
+
+                $('td:first-child').css('background-color', 'red');
+                $('td:last-child').css('background-color', 'yellow');
+                $('tr:eq(2) td:eq(4)').attr('colspan','6').css('background','yellow').nextAll().remove();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Filter Selector</h2>
+        <table>
+            <tr>
+                <td>#1</td> <td>#2</td> <td>#3</td> <td>#4</td> <td>#5</td>
+                <td>#6</td> <td>#7</td> <td>#8</td> <td>#9</td> <td>#10</td>
+            </tr>
+            <tr>
+                <td>#11</td> <td>#12</td> <td>#13</td> <td>#14</td> <td>#15</td>
+                <td>#16</td> <td>#17</td> <td>#18</td> <td>#19</td> <td>#20</td>
+            </tr>
+            <tr>
+                <td>#21</td> <td>#22</td> <td>#23</td> <td>#24</td> <td>#25</td>
+                <td>#26</td> <td>#27</td> <td>#28</td> <td>#29</td> <td>#30</td>
+            </tr>
+            <tr>
+                <td>#31</td> <td>#32</td> <td>#33</td> <td>#34</td> <td>#35</td>
+                <td>#36</td> <td>#37</td> <td>#38</td> <td>#39</td> <td>#40</td>
+            </tr>
+        </table>
+    <hr>
+    <div>
+        <input id='eq'      type='button' value=':eq'>
+        <input id='gt'      type='button' value=':gt(2)'>
+        <input id='lt'      type='button' value=':lt(2)'>
+        <input id='odd'     type='button' value=':odd'>
+        <input id='even'    type='button' value=':even'>
+        <input id='first'   type='button' value=':first'>
+        <input id='last'    type='button' value=':last'>
+        <hr>
+        <input id='ex1'      type='button' value='ex1'>
+        <input id='ex2'      type='button' value='ex2'>
+        <input id='ex3'      type='button' value='ex3'>
+        <input id='ex4'      type='button' value='ex4'>
+        <input id='ex5'      type='button' value='ex5'>
+        <input id='ex6'      type='button' value='ex6'>
+        <input id='ex7'      type='button' value='ex7'>
+        <input id='ex8'      type='button' value='ex8'>
+    </div>
+</body>
+</html>

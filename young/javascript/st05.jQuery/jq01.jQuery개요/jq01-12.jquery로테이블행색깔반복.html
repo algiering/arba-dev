@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery로 테이블 행 색깔 반복</title>
+    <style>
+        .pink {background: pink;}
+        .yellow {background: yellow;}
+
+        table { width: 100%; border: 1px solid #002b36; }
+    </style>
+    <!-- 임포트 -->
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $( document).ready( function(event) {
+		    $('tr:nth-child(even)').addClass('pink');
+		    $('tr:nth-child(odd)').addClass('yellow');
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr> <td>zero</td> </tr>
+            <tr> <td>one</td> </tr>
+            <tr> <td>two</td> </tr>
+            <tr> <td>three</td> </tr>
+            <tr> <td>four</td> </tr>
+            <tr> <td>five</td> </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+

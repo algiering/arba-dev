@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div,span { background: #FFF; padding: 10px; margin: 10px; }
+        #current { background-color: yellow; }
+    </style>
+    <!-- 임포트 -->
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready( function(e){
+            $('#firstSibling').click(function(event) {
+                // $('#current').parent().children('div').first()  == $('#current').prevAll('div').last()
+                $('#current').prevAll('div').last().css('border', '1px solid red' );
+                $('#current').parent().children('div').first().css('border', '1px solid red' );
+            });
+            $('#prevSibling').click(function(event) {
+                $('#current').prev('div').css('border', '1px solid red' );
+            });
+            $('#nextSibling').click(function(event) {
+                $('#current').next('div').css('border', '1px solid red' );
+            });
+            $('#lastSibling').click(function(event) {
+                // $('#current').parent().children('div').last() == $('#current').nextAll('div').last()
+                $('#current').nextAll('div').last().css('border', '1px solid red' );
+                $('#current').parent().children('div').last().css('border', '1px solid red' );
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>DOM Selector</h2>
+
+    <div>div sibling</div>
+    <span>span sibling (not div)</span>
+    <div>div sibling</div>
+
+    <span id="current">current</span>
+
+    <div>div sibling</div>
+    <span>span sibling (not div)</span>
+    <div>div sibling</div>
+
+    <hr>
+    <input id='firstSibling' type='button' value='큰형(first) 찾기'>
+    <input id='prevSibling' type='button' value='바로 위 형(prev) 찾기'>
+    <input id='nextSibling' type='button' value='바로 밑 동생(next) 찾기'>
+    <input id='lastSibling' type='button' value='막내 동생(last) 찾기'>
+</body>
+</html>
+
+
+
+
+
+
+

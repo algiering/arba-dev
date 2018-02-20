@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title> DOM 탐색</title>
+    <style>
+        #container div, .div { margin: 5px; border: 2px red solid;  background: #ccff0e; }
+        span { margin: 10px; border: 2px red solid;  background: #ffb42e; color: blue; }
+        .after { background: pink }
+        .selected {border: 4px blue solid !important; }
+    </style>
+    <!-- 임포트 -->
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function(e){
+            $('.parents').click(function(event) {
+                $('#center').parents().css('border', '2px blue dotted');
+            });
+            $('.parent').click(function(event) {
+                $('#center').parent().css('border', '2px blue dotted');
+            });
+            $('.prevAll').click(function(event) {
+                $('#center').prevAll().css('border', '2px blue dotted');
+            });
+            $('.first').click(function(event) {
+                $('#center').parent().children().first().css('border', '2px blue dotted');
+            });
+            $('.prev').click(function(event) {
+                $('#center').prev().css('border', '2px blue dotted');
+            });
+            $('.nextAll').click(function(event) {
+                $('#center').nextAll().css('border', '2px blue dotted');
+            });
+            $('.next').click(function(event) {
+                // $('#center').next() === $('#center').nextAll().first()
+                $('#center').next().css('border', '2px blue dotted');
+                $('#center').nextAll().first().css('border', '2px blue dotted');
+            });
+            $('.last').click(function(event) {
+                // $('#center').parent().children().last() === $('#center').nextAll().last()
+                $('#center').parent().children().last().css('border', '2px blue dotted');
+                $('#center').nextAll().last().css('border', '2px blue dotted');
+            });
+            $('.siblings').click(function(event) {
+                $('#center').siblings().css('border', '2px blue dotted');
+            });
+            $('.children').click(function(event) {
+                $('#center').children().css('border', '2px blue dotted');
+                $('#center').children('div').css('border', '2px gray dotted');
+                $('#center').children('.middle').css('border', '2px yellow dotted');
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>부모, 형제, 자식 노드</p>
+
+    <div id="container">
+        <div id="header">
+            <div id="first">first</div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <div id="prev">prev</div>
+            <div id="center">
+                <span id="second" class="middle">
+                    sibling <span id="child">child</span>
+                </span>
+                <div id="third" class="middle">third</div>
+                <span id="fourth" class="middle">fourth</span>
+                <span id="fifth" class="middle">fifth</span>
+                <span id="sixth">sixth</span>
+            </div>
+            <div id="next">next</div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <div id="last">last</div>
+        </div>
+    </div>
+
+    <hr>
+    <input class="parents"  type="button" value="parents()">
+    <input class="parent"   type="button" value="parent()">
+    &nbsp; / &nbsp;
+    <input class="prevAll"  type="button" value="prevAll()">
+    <input class="first"    type="button" value="first()">
+    <input class="prev"     type="button" value="prev()">
+    &nbsp; / &nbsp;
+    <input class="nextAll"  type="button" value="nextAll()">
+    <input class="next"     type="button" value="next()">
+    <input class="last"     type="button" value="last()">
+    &nbsp; / &nbsp;
+    <input class="siblings" type="button" value="siblings()">
+    &nbsp; / &nbsp;
+    <input class="children" type="button" value="children()">
+
+    <hr>
+    <div id="result">&nbsp;</div>
+</body>
+</html>
+
+
+
+
+
+
+

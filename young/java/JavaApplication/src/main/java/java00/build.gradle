@@ -1,0 +1,196 @@
+/*
+ * Reference Site 
+ * 
+ * http://netframework.tistory.com/entry/gradle%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Spring-MVC-Web-Application-Spring-Data-JPA-QueryDSL
+ * http://huskdoll.tistory.com/8
+ * http://hangaebal.blogspot.kr/2014/06/spring-eclipse-gradle.html
+ *
+ * https://github.com/bmuschko/gradle-tomcat-plugin
+ *
+ * https://github.com/bmuschko/gradle-cargo-plugin
+ * http://grokbase.com/t/gg/google-web-toolkit/1459ndz35m/gwt-gradle-plugin-changing-port-tomcat-vs-jetty
+ *
+ * http://stackoverflow.com/questions/4384809/cause-no-such-property-sourcesets-for-class-org-gradle-api-plugins-convention
+ *
+ * https://examples.javacodegeeks.com/core-java/gradle/gradle-war-plugin-tomcat-example/
+ * https://discuss.gradle.org/t/using-gradle-tomcat-plugin/7527
+ * https://github.com/bmuschko/gradle-tomcat-plugin
+ *
+ * http://grails.asia/groovy-map-tutorial
+ * https://docs.gradle.org/current/userguide/writing_build_scripts.html
+ *
+ */
+
+// Apply the java plugin to add support for Java
+// Plugin 설정, 만약에 code에 대한 static analysis가 필요한 경우에 이곳에 설정.
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "groovy"
+apply plugin: "eclipse"
+//apply plugin: "application"
+
+
+//
+group = 'JavaApplication'
+version = '1.0.0'
+description = 'Java Application'
+defaultTasks = ['clean', 'build' ]
+
+
+
+
+// JAVA Version 1.8
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+compileTestJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+// 소스 인코딩 UTF-8로 지정
+[compileJava, compileTestJava]*.options.collect {options ->
+    options.encoding = "UTF-8"  // 소스 인코딩 UTF-8로 지정
+    options.debug = true
+    options.deprecation = true
+    options.compilerArgs.add "-Xlint"
+    options.compilerArgs.add "-Xlint:-unchecked"
+    options.compilerArgs.add "-Xlint:-serial"
+    options.compilerArgs.add "-Xlint:-rawtypes"
+}
+
+
+// 메이븐 Central 저장소 사용
+repositories {
+    // Use "jcenter" for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
+    jcenter()
+    
+    maven { url "http://mesir.googlecode.com/svn/trunk/mavenrepo" }
+    maven { url "https://raw.githubusercontent.com/slorber/gcm-server-repository/master/releases/" }
+    maven { url "http://repo.spring.io/release" }
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "https://oss.sonatype.org/content/repositories/releases" }
+}
+
+
+
+// dependency 버전 정보
+def versions = [
+      spring        : "4.1.9.RELEASE"
+    , security      : "3.2.8.RELEASE"
+    , webflow       : "2.4.1.RELEASE"
+    , junit         : "4.12"
+    , servletApi    : "3.1.0"
+    , jstl          : "1.2"
+    , slf4j         : "1.7.21"
+    , mockito       : "1.9.0"
+    , cglib         : "2.2.2"
+    , groovy        : "2.2.1"
+    , fasterxml     : "2.3.1"
+    , aspectj       : "1.8.6"
+    , springSpock   : "0.7-groovy-2.0"
+    , tiles         : "3.0.5"
+    , hibernate     : "4.2.20.Final"
+    , tomcatVersion : "7.0.73"
+    , cargoVersion  : "1.4.5"
+    //, logback       : "1.0.13"
+]
+
+// 의존성 설정
+dependencies {
+
+    compile fileTree(dir: "lib", include: ["*.jar"])
+   
+    
+    // Apache Commons Lang, a package of Java utility classes for the classes that are in java.lang hierarchy, 
+    // or are considered to be so standard as to justify existence in java.lang.
+    compile group: "org.apache.commons"  , name: "commons-lang3"       , version: "3.4"
+    compile group: "org.apache.commons"  , name: "commons-dbcp2"       , version: "2.0" 
+    compile group: "commons-beanutils"   , name: "commons-beanutils"   , version: "1.9.2"
+    compile group: "commons-codec"       , name: "commons-codec"       , version: "1.10"
+    compile group: "commons-collections" , name: "commons-collections" , version: "3.2"
+    compile group: "commons-pool"        , name: "commons-pool"        , version: "1.6"
+ 
+    // log 라이브러리
+    compile group: "org.slf4j"              , name: "slf4j-api"      , version: "${versions.slf4j}"
+    runtime group: "org.slf4j"              , name: "slf4j-log4j12"  , version: "${versions.slf4j}"
+    runtime group: "org.slf4j"              , name: "jcl-over-slf4j" , version: "${versions.slf4j}"
+    runtime group: "log4j"                  , name: "log4j"          , version: "1.2.17"      
+                         
+    // log4jdbc library
+    compile group: "com.googlecode.log4jdbc", name: "log4jdbc", version: "1.2"
+
+
+    // spring framework 라이브러리 
+    compile group: "org.springframework", name: "spring-core"             , version: "${versions.spring}"    
+    compile group: "org.springframework", name: "spring-beans"            , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-context"          , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-webmvc"           , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-jdbc"             , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-tx"               , version: "${versions.spring}"
+    compile group: "org.springframework", name: "spring-aop"              , version: "${versions.spring}"
+    runtime group: "org.springframework", name: "spring-aspects"          , version: "${versions.spring}"
+
+    // springframework.security
+    compile group: "org.springframework.security", name: "spring-security-core"  , version: "${versions.security}"
+    compile group: "org.springframework.security", name: "spring-security-web"   , version: "${versions.security}"
+    compile group: "org.springframework.security", name: "spring-security-config", version: "${versions.security}"
+    
+    // springframework.webflow
+    compile group: "org.springframework.webflow" , name: "spring-js"     , version: "${versions.webflow}"
+    compile group: "org.springframework.webflow" , name: "spring-webflow", version: "${versions.webflow}"
+    
+    // aspectj 라이브러리: AOP와 연관이 있는 라이브러리
+    compile group: "org.aspectj" , name: "aspectjrt"     , version: "${versions.aspectj}"
+    compile group: "org.aspectj" , name: "aspectjweaver" , version: "${versions.aspectj}"
+    compile group: "org.aspectj" , name: "aspectjtools"  , version: "${versions.aspectj}"
+
+    // mybatis 라이브러리
+    compile group: "org.mybatis", name: "mybatis"       , version: "3.2.8"  
+    compile group: "org.mybatis", name: "mybatis-spring", version: "1.2.2" 
+        
+    // mysql jdbc 드라이버
+    compile group: "mysql", name: "mysql-connector-java", version: "5.1.34"
+   
+    // Guava is a google libraries that include utility classes, google's collections, io classes.
+    compile group: "com.google.guava", name: "guava", version: "20.0"
+
+
+
+    // Declare the dependency for your favourite test framework you want to use in your tests.
+    // TestNG is also supported by the Gradle Test task. Just change the
+    // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
+    // 'test.useTestNG()' to your build script.
+    testCompile 'junit:junit:4.12'
+}
+
+
+// main java 소스셋의 디렉토리 추가
+sourceSets {
+    main {
+        java.srcDirs      = ['src/main/java'     ]      
+        resources.srcDirs = ['src/main/resources']
+    }
+    test {
+        java.srcDirs      = ['src/test/java'     ]
+    }
+}
+
+
+// TEST 설정
+test {
+    jvmArgs = ['-ea', '-Xmx256m']
+    logging.captureStandardOutput(LogLevel.INFO)
+    // testReport = false
+    
+    systemProperties 'property': 'value'
+    
+    testLogging {
+        events 'started', 'passed'
+    }
+}
+ 
